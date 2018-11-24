@@ -21,8 +21,8 @@ import view.QueueViewText;
  * This is an abstract factory that creates instances
  * of actor types like objects, stations and their queues 
  * 
- * @author Jaeger, Schmidt
- * @version 2017-10-29
+ * @author Jaeger, Schmidt, modified by JMaier
+ * @version 2018-11-24
  */
 public class Factory {
 	
