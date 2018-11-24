@@ -1,17 +1,21 @@
 package io;
-import view.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+
+import model.Ampel;
 import model.EndStation;
 import model.ProcessStation;
 import model.StartStation;
 import model.SynchronizedQueue;
 import model.TheObject;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
+import view.QueueViewJPanel;
+import view.QueueViewText;
 
 /**
  * This is an abstract factory that creates instances
@@ -52,6 +56,7 @@ public class Factory {
 		*/ 
 		createStartStation(); 
 		createObjects();
+		//createAmpeln();
 		createProcessStations();
 		createEndStation();
 	}
@@ -181,6 +186,68 @@ public class Factory {
 		}
     }
     
+     /**
+      * create some process stations out of the XML file
+      * 
+      */
+      private static void createAmpeln(){
+     	
+     	try {
+     		
+     		//read the information from the XML file into a JDOM Document
+     		Document theXMLDoc = new SAXBuilder().build(theStationDataFile);
+     		
+     		//the <settings> ... </settings> node
+     		Element root = theXMLDoc.getRootElement();
+     		
+     		//get all the stations into a List object
+     		List <Element> stations = root.getChildren("station");
+     		
+     		//separate every JDOM "station" Element from the list and create Java Station objects
+     		for (Element station : stations) {
+     			
+     			// data variables:
+     			String label = null;
+     			int xPos = 0;
+     			int yPos = 0;
+     			String image = null;
+     			    			
+     			// read data
+     			label = station.getChildText("label");
+         		xPos = Integer.parseInt(station.getChildText("x_position"));
+         		yPos = Integer.parseInt(station.getChildText("y_position"));
+         		        		
+         		//the <view> ... </view> node
+         		Element viewGroup = station.getChild("view");
+         		// read data
+         		image = viewGroup.getChildText("image");
+         		        		
+         		//CREATE THE INQUEUES
+         		Element inqueue = station.getChild("inqueue");
+         		int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
+         		int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+         		SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue);
+         		
+         		//CREATE THE OUTQUEUES
+         		Element outqueue = station.getChild("inqueue");
+         		int xPosOutQueue = Integer.parseInt(inqueue.getChildText("x_position"));
+         		int yPosOutQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+         		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
+         		
+         		//creating a new Station object
+         		Ampel.create(label, theInqueue, theOutqueue, xPos, yPos, image);
+         		
+ 			}
+     		
+     	
+     	} catch (JDOMException e) {
+ 				e.printStackTrace();
+ 		} catch (IOException e) {
+ 				e.printStackTrace();
+ 		}
+     	
+     }
+     
     /**
      * create some process stations out of the XML file
      * 
