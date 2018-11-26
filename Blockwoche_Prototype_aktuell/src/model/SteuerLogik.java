@@ -13,10 +13,17 @@ public class SteuerLogik extends Actor
 	//TODO replace with list of WellenGenerators
 	private WellenGenerator myWellenGenerator;
 	
-	protected SteuerLogik(String label, int xPos, int yPos) {
+	protected SteuerLogik(String label, int xPos, int yPos, long rotphase, long gruenphase, String ampel, long wellenzeitpunkt, String wellengenerator)
+	{
 		super(label, xPos, yPos);
 		
 	}
+	
+	public static void create(String label, int xPos, int yPos, long rotphase, long gruenphase, String ampel, long wellenzeitpunkt, String wellengenerator)
+	{
+		
+	}
+	
 
 	protected boolean work()
 	{

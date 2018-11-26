@@ -12,6 +12,7 @@ import model.Ampel;
 import model.EndStation;
 import model.ProcessStation;
 import model.StartStation;
+import model.SteuerLogik;
 import model.SynchronizedQueue;
 import model.TheObject;
 import view.QueueViewJPanel;
@@ -45,7 +46,10 @@ public class Factory {
 	private static int XPOS_STARTSTATION;
 	
 	/** the y position of the starting station, also position for all starting objects */
-	private static int YPOS_STARTSTATION; 
+	private static int YPOS_STARTSTATION;
+	
+	/** the ProcessStations XML data file */
+	private static String theSteuerLogikDataFile = "xml/steuerlogik.xml"; 
 		
 	
 	/**
@@ -62,8 +66,63 @@ public class Factory {
 		createAmpeln();
 		//createProcessStations();
 		createEndStation();
+		createSteuerLogik();
 	}
-	
+
+		/**
+	     * create the start station
+	     * 
+	     */
+	     private static void createSteuerLogik()
+	     {
+	    	 
+	    	try {
+	    		
+	    		//read the information from the XML file into a JDOM Document
+	    		Document theXMLDoc = new SAXBuilder().build(theSteuerLogikDataFile);
+	    		
+	    		//the <settings> ... </settings> node
+	    		Element root = theXMLDoc.getRootElement();
+	    		
+	    		//get the steuerlogik into a List object
+	    		Element steuerLogik = root.getChild("steuerlogik");
+	    		
+	    		//get the label
+	    		String label = steuerLogik.getChildText("label");
+	    		
+	    		//get the rotphase into a List object
+	    		String rotPhasenString = steuerLogik.getChildText("rotphase");
+	    		Long rotPhase = Long.parseLong( rotPhasenString );
+	    		
+	    		//get the gruenphase into a List object
+	    		String gruenPhasenString = steuerLogik.getChildText("gruenphase");
+	    		Long gruenPhase = Long.parseLong( gruenPhasenString );
+	    		
+	    		//get the ampel into a List object
+	    		String ampel = steuerLogik.getChildText("ampel");
+	    		
+	    		//get the wellenzeitpunkt into a List object
+	    		String wellenZeitPunktString = steuerLogik.getChildText("wellenzeitpunkt");
+	    		Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
+	    		
+	    		//get the ampel into a List object
+	    		String wellenGenerator = steuerLogik.getChildText("wellengenerator");
+
+	    		//get the position
+	    		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
+	    		YPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("y_position"));
+	    		
+	    		//creating a new StartStation object
+	    		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
+	    	    
+	    	
+	    	} catch (JDOMException e) {
+					e.printStackTrace();
+			} catch (IOException e) {
+					e.printStackTrace();
+			}
+	     }
+		
 	/**
      * create the start station
      * 
