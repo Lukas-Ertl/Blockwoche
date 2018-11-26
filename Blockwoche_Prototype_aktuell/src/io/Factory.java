@@ -8,6 +8,8 @@ import model.ProcessStation;
 import model.StartStation;
 import model.SynchronizedQueue;
 import model.TheObject;
+import model.WellenGenerator;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -34,6 +36,9 @@ public class Factory {
 	/** the end station XML data file */
 	private static String theEndStationDataFile = "xml/endstation.xml"; 
 	
+	/**the Wave Station XML data file*/
+	private static String theWaveStationDataFile = "xml/wavestation.xml";
+	
 	/** the x position of the starting station, also position for all starting objects */
 	private static int XPOS_STARTSTATION;
 	
@@ -51,6 +56,7 @@ public class Factory {
 		* because the objects constructor puts the objects into the start stations outgoing queue
 		*/ 
 		createStartStation(); 
+		createWaveStation();
 		createObjects();
 		createProcessStations();
 		createEndStation();
@@ -328,5 +334,91 @@ public class Factory {
 				e.printStackTrace();
 		}
      }
-        
+   
+     /**
+      * create the Wave Station  
+      */
+     private static void createWaveStation(){
+    	 try {
+    	 
+    	//read the information from the XML file into a JDOM Document
+ 		Document theXMLDoc = new SAXBuilder().build(theWaveStationDataFile);
+ 		
+ 		//the <settings> ... </settings> node
+ 		Element root = theXMLDoc.getRootElement();
+ 		
+ 		//get all the stations into a List object
+ 		List <Element> stations = root.getChildren("station");
+ 		
+ 		//separate every JDOM "station" Element from the list and create Java Station objects
+ 		for (Element station : stations) {
+ 			
+ 			// data variables:
+ 			String label = null;
+ 			double troughPut = 0;
+ 			int xPos = 0;
+ 			int yPos = 0;
+ 			String image = null;
+ 			int waveSize=0;
+ 			int waitTime=0;
+ 			    			
+ 			// read data
+ 			label = station.getChildText("label");
+ 			troughPut = Double.parseDouble(station.getChildText("troughput"));
+     		xPos = Integer.parseInt(station.getChildText("x_position"));
+     		yPos = Integer.parseInt(station.getChildText("y_position"));
+     		waveSize= Integer.parseInt(station.getChildText("wave_size"));
+     		waitTime= Integer.parseInt(station.getChildText("wait_time"));    
+     		
+     		//the <view> ... </view> node
+     		Element viewGroup = station.getChild("view");
+     		// read data
+     		image = viewGroup.getChildText("image");
+     		        		
+     		//CREATE THE INQUEUES
+     		
+     		//get all the inqueues into a List object
+     		List <Element> inqueues = station.getChildren("inqueue");
+     		
+     		//create a list of the stations inqueues 
+     		ArrayList<SynchronizedQueue> theInqueues = new ArrayList<SynchronizedQueue>(); //ArrayList for the created inqueues
+     		
+     		for (Element inqueue : inqueues) {
+     			
+     			int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
+         		int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+         		
+         		//create the actual inqueue an add it to the list
+         		theInqueues.add(SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue));
+         	}
+     		        		
+     		//CREATE THE OUTQUEUES
+     		
+     		//get all the outqueues into a List object
+     		List <Element> outqueues = station.getChildren("outqueue");
+     		
+     		//create a list of the stations outqueues 
+     		ArrayList<SynchronizedQueue> theOutqueues = new ArrayList<SynchronizedQueue>(); //ArrayList for the created outqueues
+     		
+     		for (Element outqueue : outqueues) {
+     			
+     			int xPosOutQueue = Integer.parseInt(outqueue.getChildText("x_position"));
+         		int yPosOutQueue = Integer.parseInt(outqueue.getChildText("y_position"));
+         		
+         		//create the actual outqueue an add it to the list
+         		theOutqueues.add(SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue));
+         	}
+ 		
+    	 
+    	 
+    	 
+    	 WellenGenerator.create(label, xPos, yPos, image, waveSize, waitTime);
+     }
+    	 } catch (JDOMException e) {
+				e.printStackTrace();
+		} catch (IOException e) {
+				e.printStackTrace();
+		}
+     }
+     
 }
