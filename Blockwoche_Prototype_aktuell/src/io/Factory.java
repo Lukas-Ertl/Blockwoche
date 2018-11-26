@@ -10,6 +10,8 @@ import model.ProcessStation;
 import model.StartStation;
 import model.SynchronizedQueue;
 import model.TheObject;
+import model.WellenGenerator;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -35,6 +37,9 @@ public class Factory {
 	
 	/** the start station XML data file */
 	private static String theStartStationDataFile = "xml/startstation.xml"; 
+	
+	/** the start station XML data file */
+	private static String theWellengeneratorDataFile = "xml/wellengenerator.xml"; 
 	
 	/** the end station XML data file */
 	private static String theEndStationDataFile = "xml/endstation.xml"; 
@@ -123,6 +128,83 @@ public class Factory {
 				e.printStackTrace();
 		}
      }
+     
+     
+     
+     
+     /**
+      * create the start station
+      * 
+      */
+      private static void createWellengenerator(){
+     	
+     	try {
+     		
+     		//read the information from the XML file into a JDOM Document
+     		Document theXMLDoc = new SAXBuilder().build(theWellengeneratorDataFile);
+     		
+     		//the <settings> ... </settings> node
+     		Element root = theXMLDoc.getRootElement();
+     		
+     		//get the start_station into a List object
+     		Element Wellengenerator= root.getChild("wellengeneator");
+     		
+     		//get the label
+     		String label = Wellengenerator.getChildText("label");
+     		    		    		
+     		//get the position
+     		XPOS_STARTSTATION = Integer.parseInt(Wellengenerator.getChildText("x_position"));
+     		YPOS_STARTSTATION = Integer.parseInt(Wellengenerator.getChildText("y_position"));
+     		
+     		//the <view> ... </view> node
+     		Element viewGroup = Wellengenerator.getChild("view");
+     		
+     		//get the Wellengroese
+     		String wellengroese = Wellengenerator.getChildText("wellengroese");
+     		
+     		
+     		// the image
+     		String image = viewGroup.getChildText("image");
+     		
+     		//CREATE THE INQUEUE
+     		//the <inqueue> ... </inqueue> node
+     		Element inqueueGroup = Wellengenerator.getChild("inqueue");
+     		
+     		// the positions
+     		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
+     		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
+     		
+     		//create the inqueue
+     		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+     		
+     		//CREATE THE OUTQUEUE
+     		//the <outqueue> ... </outqueue> node
+     		Element outqueueGroup = Wellengenerator.getChild("outqueue");
+     		
+     		// the positions
+     		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
+     		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
+     		
+     		//create the outqueue
+     		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+     		    		
+     		//creating a new StartStation object
+     		WellenGenerator.create(label, theInQueue, theOutQueue, XPOS_STARTSTATION, YPOS_STARTSTATION, image,wellengroese);
+     	    
+     	
+     	} catch (JDOMException e) {
+ 				e.printStackTrace();
+ 		} catch (IOException e) {
+ 				e.printStackTrace();
+ 		}
+      }
+     
+     
+     
+     
+     
+     
+     
 	
 	/**
      * create some objects out of the XML file
