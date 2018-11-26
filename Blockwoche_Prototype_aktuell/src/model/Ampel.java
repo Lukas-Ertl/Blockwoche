@@ -1,7 +1,8 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Collection;
+
+import controller.Simulation;
 
 /**
  * This is the station that will represent the traffic
@@ -26,7 +27,37 @@ public class Ampel extends SimpleStation {
 		
 		new Ampel(label, inQueue, outQueue, xPos, yPos, image);
 		
+	}	
+	
+	@Override
+	protected boolean work() {
+		
+		//let the thread wait only if there are no objects in the incoming and outgoing queues
+		if (numberOfInQueueObjects() == 0 && numberOfOutQueueObjects() == 0) return false;
+		
+		//If there is an inqueue object found, handle it
+		while (numberOfInQueueObjects() > 0) {
+			
+			if(new Long (Simulation.getGlobalTime()).intValue() % 5 == 0)
+					this.handleObject(this.getNextInQueueObject());
+			
+		}
+				
+		//If there is an object in the out queue -> wake it up
+		if(numberOfOutQueueObjects() > 0){
+			
+			TheObject myObject = (TheObject) this.getNextOutQueueObject();//get the object
+			
+			//instruct the object to move to the next station
+			myObject.wakeUp();
+				
+		}
+				
+		//maybe there is more work to do
+		return true;
+		
 	}
+	
 
 
 
@@ -47,5 +78,6 @@ public class Ampel extends SimpleStation {
 	{
 		return null;
 	}
+	
 
 }
