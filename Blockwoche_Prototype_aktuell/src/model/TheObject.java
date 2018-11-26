@@ -36,7 +36,7 @@ import controller.Simulation;
 		private static ArrayList<TheObject> allObjects = new ArrayList<TheObject>();
 		
 		/** the actual station where this object is in, null if it's not in a station or a stations queue */
-		private Station actualStation = null;
+		protected Station actualStation = null;
 		
 		/** the instance of our static inner Measurement class*/ 
 		Measurement measurement = new Measurement();
@@ -52,7 +52,10 @@ import controller.Simulation;
 		 * @param yPos y position of the object
 		 * @param image image of the object
 		 */
-		private TheObject(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image){
+		
+		
+		//Konstruktor wurde auf protected geändert
+		protected TheObject(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image){
 			super(label, xPos, yPos);
 			
 			//create the view
@@ -115,7 +118,7 @@ import controller.Simulation;
 		 * @param station the station from where the queue should be chosen
 		 * 
 		 */
-		private void enterInQueue(Station station){
+		protected void enterInQueue(Station station){
 			
 			//get the stations incoming queues
 			ArrayList<SynchronizedQueue> inQueues = station.getAllInQueues();
