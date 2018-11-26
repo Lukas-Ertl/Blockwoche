@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<settings>
+	<station>
+		<label>Station_1</label>
+		<troughput>2</troughput>
+		<x_position>200</x_position>
+		<y_position>100</y_position>
+		<wave_size>10</wave_size>
+		<wait_time>1000</wait_time>
+		<view>
+			<image>station.png</image>
+		</view>
+		<inqueue>
+			<x_position>180</x_position>
+			<y_position>40</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>220</x_position>
+			<y_position>180</y_position>
+		</outqueue>
+	</station>
+
+	
+</settings>
