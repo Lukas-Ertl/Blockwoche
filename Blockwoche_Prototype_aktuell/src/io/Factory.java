@@ -29,8 +29,11 @@ public class Factory {
 	/** the objects XML data file */
 	private static String theObjectDataFile = "xml/object.xml"; 
 	
-	/** the stations XML data file */
-	private static String theStationDataFile = "xml/station.xml"; 
+	/** the Ampeln XML data file */
+	private static String theAmpelnDataFile = "xml/ampeln.xml";
+	
+	/** the ProcessStations XML data file */
+	private static String theProcessStationDataFile = "xml/processstation.xml"; 
 	
 	/** the start station XML data file */
 	private static String theStartStationDataFile = "xml/startstation.xml"; 
@@ -187,7 +190,7 @@ public class Factory {
     }
     
      /**
-      * create some process stations out of the XML file
+      * create some Ampeln out of the XML file
       * 
       */
       private static void createAmpeln(){
@@ -195,7 +198,7 @@ public class Factory {
      	try {
      		
      		//read the information from the XML file into a JDOM Document
-     		Document theXMLDoc = new SAXBuilder().build(theStationDataFile);
+     		Document theXMLDoc = new SAXBuilder().build(theAmpelnDataFile);
      		
      		//the <settings> ... </settings> node
      		Element root = theXMLDoc.getRootElement();
@@ -257,7 +260,7 @@ public class Factory {
     	try {
     		
     		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theStationDataFile);
+    		Document theXMLDoc = new SAXBuilder().build(theProcessStationDataFile);
     		
     		//the <settings> ... </settings> node
     		Element root = theXMLDoc.getRootElement();
