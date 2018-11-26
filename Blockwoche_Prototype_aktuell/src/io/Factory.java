@@ -3,6 +3,8 @@ import view.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import model.Auto;
 import model.EndStation;
 import model.ProcessStation;
 import model.StartStation;
@@ -24,6 +26,9 @@ public class Factory {
 	
 	/** the objects XML data file */
 	private static String theObjectDataFile = "xml/object.xml"; 
+	
+	/** the Auto XML data file */
+	private static String theAutoDataFile = "xml/auto.xml"; 
 	
 	/** the stations XML data file */
 	private static String theStationDataFile = "xml/station.xml"; 
@@ -51,7 +56,8 @@ public class Factory {
 		* because the objects constructor puts the objects into the start stations outgoing queue
 		*/ 
 		createStartStation(); 
-		createObjects();
+		//createObjects();
+		createAutos();
 		createProcessStations();
 		createEndStation();
 	}
@@ -180,6 +186,72 @@ public class Factory {
 				e.printStackTrace();
 		}
     }
+     
+     /**
+      * create some Auto out of the XML file
+      * 
+      */
+      private static void createAutos(){
+     	
+     	try {
+     		
+     		
+ 		
+     		//read the information from the XML file into a JDOM Document
+     		Document theXMLDoc = new SAXBuilder().build(theAutoDataFile);
+     		
+     		//the <settings> ... </settings> node, this is the files root Element
+     		Element root = theXMLDoc.getRootElement();
+     		
+     		//get all the objects into a List object
+     		List <Element> allAutos = root.getChildren("auto");
+     		
+     		//separate every JDOM "object" Element from the list and create Java TheObject objects
+     		for (Element dasauto : allAutos) {
+     			
+     			// data variables:
+     			String label = null;
+     			int processtime = 0;
+     			int speed = 0;
+     			String image = null;
+     			    			
+     			// read data
+     			label = dasauto.getChildText("label");
+     			processtime = Integer.parseInt(dasauto.getChildText("processtime"));
+     			speed = Integer.parseInt(dasauto.getChildText("speed"));
+         		        		
+         		//the <view> ... </view> node
+         		Element viewGroup = dasauto.getChild("view");
+         		// read data
+         		image = viewGroup.getChildText("image");
+         		
+         		//get all the stations, where the object wants to go to
+         		//the <sequence> ... </sequence> node
+         		Element sequenceGroup = dasauto.getChild("sequence");
+         		
+         		List <Element> allStations = sequenceGroup.getChildren("station");
+         		
+         		//get the elements into a list
+         		ArrayList<String> stationsToGo = new ArrayList<String>();
+         		
+         		for (Element theStation : allStations) {
+         			
+         			stationsToGo.add(theStation.getText());
+         			
+         		}
+         	  		
+         		//creating a new TheObject object
+         		Auto.create(label, stationsToGo, processtime, speed, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
+         		
+ 			}
+     	
+     	} catch (JDOMException e) {
+ 				e.printStackTrace();
+ 		} catch (IOException e) {
+ 				e.printStackTrace();
+ 		}
+     }
+     
     
     /**
      * create some process stations out of the XML file

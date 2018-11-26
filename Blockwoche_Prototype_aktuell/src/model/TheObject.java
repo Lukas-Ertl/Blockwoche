@@ -120,6 +120,8 @@ import controller.Simulation;
 		 */
 		protected void enterInQueue(Station station){
 			
+			
+			
 			//get the stations incoming queues
 			ArrayList<SynchronizedQueue> inQueues = station.getAllInQueues();
 			

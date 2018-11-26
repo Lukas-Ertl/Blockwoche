@@ -18,6 +18,28 @@ public class Auto  extends TheObject{
 	}
 	
 	
+	
+	/** Create a new Auto model
+	 *
+	 * @param label of the object 
+	 * @param stationsToGo the stations to go
+	 * @param processtime the processing time of the object, affects treatment by a station
+	 * @param speed the moving speed of the object
+	 * @param xPos x position of the object
+	 * @param yPos y position of the object
+	 * @param image image of the object
+	 */
+	
+	public static void create(String label, ArrayList<String> stationsToGo, int processtime, int speed ,int xPos, int yPos, String image){
+		
+		
+		new Auto(label, stationsToGo, processtime, speed, xPos, yPos, image);
+			
+	}
+	
+	
+	
+	
 	/** Chooses a suited incoming queue of the given station and enter it 
 	 * 
 	 * @param station the station from where the queue should be chosen
@@ -74,7 +96,9 @@ public class Auto  extends TheObject{
 		//End Timer
 		TimerEnd = controller.Simulation.getGlobalTime();
 		
-		System.out.println("TimerStart: " + TimerStart + "TimerEnd" + TimerEnd);
+
+		
+		System.out.println("TimerStart: " + TimerStart + " TimerEnd " + TimerEnd);
 		
 		//get the stations outgoing queues
 		ArrayList<SynchronizedQueue> outQueues = station.getAllOutQueues();
