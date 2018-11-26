@@ -56,8 +56,8 @@ public class Factory {
 		*/ 
 		createStartStation(); 
 		createObjects();
-		//createAmpeln();
-		createProcessStations();
+		createAmpeln();
+		//createProcessStations();
 		createEndStation();
 	}
 	
