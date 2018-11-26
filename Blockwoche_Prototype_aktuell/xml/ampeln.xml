@@ -2,7 +2,6 @@
 <settings>
 	<station>
 		<label>Ampel_1</label>
-		<troughput>4</troughput>
 		<x_position>450</x_position>
 		<y_position>270</y_position>
 		<view>
