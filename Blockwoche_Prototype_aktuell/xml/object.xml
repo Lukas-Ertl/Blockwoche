@@ -10,7 +10,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	
@@ -25,7 +25,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -38,7 +38,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -51,7 +51,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -64,7 +64,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -77,7 +77,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -90,7 +90,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -103,7 +103,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -116,7 +116,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -129,7 +129,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -142,7 +142,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -155,7 +155,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -168,7 +168,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -181,7 +181,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -194,7 +194,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	<object>
@@ -207,7 +207,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	
@@ -222,7 +222,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	
@@ -236,7 +236,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 	
@@ -250,7 +250,7 @@
 		<sequence>
 			<station>Start_Station</station>
 			<station>Ampel_1</station>
-			<station>End_Station</station>
+			<station>endStation</station>
 		</sequence>
 	</object>
 

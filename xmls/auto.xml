@@ -2,422 +2,420 @@
 <settings>
 
 	<auto>
-		<label>auto_1</label>
+		<label>Auto_1</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_2</label>
+		<label>Auto_2</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_3</label>
+		<label>Auto_3</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_4</label>
+		<label>Auto_4</label>
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_5</label>
+		<label>Auto_5</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_6</label>
+		<label>Auto_6</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
-	</auto>
+	</auto><
 	
 	<auto>
-		<label>auto_7</label>
+		<label>Auto_7</label>
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_8</label>
+		<label>Auto_8</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_9</label>
+		<label>Auto_9</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_10</label>
+		<label>Auto_10</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_11</label>
+		<label>Auto_11</label>
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_12</label>
+		<label>Auto_12</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_13</label>
+		<label>Auto_13</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_14</label>
+		<label>Auto_14</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_15</label>
+		<label>Auto_15</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_16</label>
+		<label>Auto_16</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_17</label>
+		<label>Auto_17</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_18</label>
+		<label>Auto_18</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_19</label>
+		<label>Auto_19</label>
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_20</label>
+		<label>Auto_20</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_21</label>
+		<label>Auto_21</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
-	</auto>
+	</auto><
 	
 	<auto>
-		<label>auto_22</label>
+		<label>Auto_22</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_23</label>
+		<label>Auto_23</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_24</label>
+		<label>Auto_24</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_25</label>
+		<label>Auto_25</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_26</label>
+		<label>Auto_26</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_27</label>
+		<label>Auto_27</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_28</label>
+		<label>Auto_28</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_29</label>
+		<label>Auto_29</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_30</label>
+		<label>Auto_30</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator</station>
-			<station>ampel_1</station>
-			<station>endStation</station>
+			<station>wellengenerator_1</station>
+			<station>Station_1</station>
+			<station>End_Station</station>
 		</sequence>
 	</auto>
 	

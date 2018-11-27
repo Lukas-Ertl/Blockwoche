@@ -1,0 +1,182 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import controller.Simulation;
+import view.StationView;
+
+public class WellenGenerator extends Station {
+	
+	
+	/** the incoming queue for still to handle objects */
+	protected SynchronizedQueue inComingQueue;
+	
+	/** the outgoing queue for already handled objects */
+	protected SynchronizedQueue outGoingQueue;
+	
+	private int waveSize;
+	private int waitTime;
+
+	public WellenGenerator(String label, int xPos, int yPos, String image, int waveSize, int waitTime, SynchronizedQueue inQueue, SynchronizedQueue outQueue) {
+		super(label, xPos, yPos, image);
+
+		inComingQueue = inQueue;
+		outGoingQueue = outQueue;
+		this.waveSize=waveSize;
+		this.waitTime=waitTime;
+	}
+	
+	public static void create(String label, int xPos, int yPos, String image, int waveSize, int waitTime, SynchronizedQueue inQueue, SynchronizedQueue outQueue){
+		
+		new WellenGenerator(label, xPos, yPos, image, waveSize, waitTime, inQueue, outQueue);
+		
+	}
+
+	
+	@Override
+	protected boolean work() {
+
+		
+		//work until all objects are handled
+		while(numberOfInQueueObjects() > 0) {
+			System.out.println("work before send()");
+			//send wave
+			this.send();
+			System.out.println("work after send()");
+
+
+			//wait 
+			try {
+				Thread.sleep(waitTime);
+				System.out.println("warte");
+						
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+		
+	}
+	
+	
+	/*
+	 * Sends Objects until waveSize is reached or no more objects 
+	 */
+	
+	private void send() {
+		int count = 0;
+		for(int i=0;i<inComingQueue.size();i++) {
+			this.handleObject((TheObject)inComingQueue.poll());
+			
+			System.out.println("send() after handleObject");
+		
+			count ++;
+			if(count >= waveSize) {
+				return;
+			}
+		}
+	}
+	
+	
+	
+	@Override
+	//Move Object to outQueue
+	protected void handleObject(TheObject theObject) {
+		
+		//the object chooses an outgoing queue and enter it
+		theObject.enterOutQueue(this);
+		System.out.println("handle object after enterOutQueue");
+		
+		
+		//If there is an object in the out queue -> wake it up
+		if(numberOfOutQueueObjects() > 0){
+			System.out.println("handle object in if");
+			
+			TheObject myObject = (TheObject) this.getNextOutQueueObject();//get the object
+			
+			//instruct the object to move to the next station
+			myObject.wakeUp();
+				
+		}
+		
+		System.out.println("handleObject after outWake");
+		//let the next objects start with a little delay
+		try {
+			System.out.println("Clockbeat sleep");
+			Thread.sleep(Simulation.CLOCKBEAT);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	protected int numberOfInQueueObjects() {
+
+		return this.inComingQueue.size();
+		
+	}
+	
+	@Override
+	protected int numberOfOutQueueObjects() {
+		
+		return this.outGoingQueue.size();
+	}
+
+	
+	@Override
+	protected TheObject getNextInQueueObject(){
+		
+		//return simply the first object
+		return (TheObject) this.inComingQueue.poll();
+	}
+	
+	
+	@Override
+	protected TheObject getNextOutQueueObject() {
+		
+		//return simply the first object
+		return (TheObject) this.outGoingQueue.poll();
+	}
+	
+
+	@Override
+	public ArrayList<SynchronizedQueue> getAllInQueues() {
+		
+		// we have just one incoming queue
+		ArrayList<SynchronizedQueue> inQueues = new ArrayList<SynchronizedQueue>();
+		inQueues.add(inComingQueue);
+		return inQueues;
+	}
+
+	@Override
+	public ArrayList<SynchronizedQueue> getAllOutQueues() {
+		
+		// we have just one outgoing queue
+		ArrayList<SynchronizedQueue> outQueues = new ArrayList<SynchronizedQueue>();
+		outQueues.add(outGoingQueue);
+		return outQueues;
+		
+	}
+
+	@Override
+	protected void handleObjects(Collection<TheObject> theObjects) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected Collection<TheObject> getNextInQueueObjects() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Collection<TheObject> getNextOutQueueObjects() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}
