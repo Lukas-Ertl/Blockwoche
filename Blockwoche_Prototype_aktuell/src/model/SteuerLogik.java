@@ -62,6 +62,29 @@ public class SteuerLogik extends Actor
 		return false;
 	}
 	
+/*
+	protected boolean work()
+	{
+		long simTime = Simulation.getGlobalTime();
+		
+		if(simTime > ampelWaitTime)
+		{
+			updateAmpeln(this.myAmpel);
+			
+			if(isGruen)
+				this.ampelWaitTime = Simulation.getGlobalTime() + rotPhase;
+			else
+				this.ampelWaitTime = Simulation.getGlobalTime() + gruenPhase;
+		}
+		if(simTime > wellenGeneratorWaitTime)
+		{
+			updateWellenGenerator(this.myWellenGenerator);
+			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.wellenZeitPunkt;
+		}
+		return false;
+	}
+*/
+	
 	//change state of Ampeln (form Green to Red, and from Red to Green)
 	private void updateAmpeln(Ampel a)
 	{
@@ -72,5 +95,37 @@ public class SteuerLogik extends Actor
 	private void updateWellenGenerator(WellenGenerator w)
 	{
 		w.sendWave();
+	}
+	
+	private class overflowTicker
+	{
+		private int tick = 0;
+		private int max = 0;
+		
+		overflowTicker(int max)
+		{
+			this.max = max;
+		}
+		overflowTicker(int max, int start)
+		{
+			this(max);
+			this.tick = start;
+		}
+		
+		int tick()
+		{
+			this.increment();
+			if(this.tick>max)
+				this.tick = 0;
+			return this.tick;
+		}
+		void increment()
+		{
+			this.tick = this.tick+1;
+		}
+		int getTick()
+		{
+			return this.tick;
+		}
 	}
 }
