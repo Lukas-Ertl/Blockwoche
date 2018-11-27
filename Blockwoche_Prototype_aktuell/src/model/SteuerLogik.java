@@ -53,6 +53,7 @@ public class SteuerLogik extends Actor
 				this.ampelWaitTime = Simulation.getGlobalTime() + rotPhase;
 			else
 				this.ampelWaitTime = Simulation.getGlobalTime() + gruenPhase;
+			isGruen = !isGruen;
 		}
 		if(simTime > wellenGeneratorWaitTime)
 		{
@@ -61,29 +62,6 @@ public class SteuerLogik extends Actor
 		}
 		return false;
 	}
-	
-/*
-	protected boolean work()
-	{
-		long simTime = Simulation.getGlobalTime();
-		
-		if(simTime > ampelWaitTime)
-		{
-			updateAmpeln(this.myAmpel);
-			
-			if(isGruen)
-				this.ampelWaitTime = Simulation.getGlobalTime() + rotPhase;
-			else
-				this.ampelWaitTime = Simulation.getGlobalTime() + gruenPhase;
-		}
-		if(simTime > wellenGeneratorWaitTime)
-		{
-			updateWellenGenerator(this.myWellenGenerator);
-			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.wellenZeitPunkt;
-		}
-		return false;
-	}
-*/
 	
 	//change state of Ampeln (form Green to Red, and from Red to Green)
 	private void updateAmpeln(Ampel a)
