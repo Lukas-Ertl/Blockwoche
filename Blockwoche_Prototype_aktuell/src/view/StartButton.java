@@ -7,6 +7,7 @@ import javax.swing.JButton;
 
 import controller.Simulation;
 import model.StartStation;
+import model.WellenGenerator;
 
 
 /**
@@ -31,9 +32,8 @@ public class StartButton extends JButton implements ActionListener{
 		//set the simulation on
 		Simulation.isRunning = true;
 		
-		//wake up the start station -> lets the simulation run
-		StartStation.getStartStation().wakeUp();
-	
+		//wake up the Wellengenerator -> lets the simulation run
+		WellenGenerator.getWellenGeneratorByLabel().wakeUp();
 	}
 
 	

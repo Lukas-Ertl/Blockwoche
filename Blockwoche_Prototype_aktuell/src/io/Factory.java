@@ -3,27 +3,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-import model.Auto;
-import model.EndStation;
-import model.ProcessStation;
-import model.StartStation;
-import model.SynchronizedQueue;
-import model.TheObject;
-=======
->>>>>>> refs/heads/testen
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 import model.Ampel;
+import model.Auto;
 import model.EndStation;
 import model.ProcessStation;
 import model.StartStation;
 import model.SteuerLogik;
 import model.SynchronizedQueue;
 import model.TheObject;
+import model.WellenGenerator;
 import view.QueueViewJPanel;
 import view.QueueViewText;
 
@@ -39,19 +32,14 @@ public class Factory {
 	/** the objects XML data file */
 	private static String theObjectDataFile = "xml/object.xml"; 
 	
-<<<<<<< HEAD
-	/** the Auto XML data file */
-	private static String theAutoDataFile = "xml/auto.xml"; 
-	
-	/** the stations XML data file */
-	private static String theStationDataFile = "xml/station.xml"; 
-=======
 	/** the Ampeln XML data file */
 	private static String theAmpelnDataFile = "xml/ampeln.xml";
 	
 	/** the ProcessStations XML data file */
 	private static String theProcessStationDataFile = "xml/processstation.xml"; 
->>>>>>> refs/heads/testen
+	
+	/** the SteuerLogik XML data file */
+	private static String theSteuerLogikDataFile = "xml/steuerlogik.xml"; 
 	
 	/** the start station XML data file */
 	private static String theStartStationDataFile = "xml/startstation.xml"; 
@@ -59,14 +47,17 @@ public class Factory {
 	/** the end station XML data file */
 	private static String theEndStationDataFile = "xml/endstation.xml"; 
 	
+	/** the Auto XML data file */
+	private static String theAutoDataFile = "xml/auto.xml"; 
+	
+		/** the start station XML data file */
+	private static String theWellengeneratorDataFile = "xml/wellengenerator.xml"; 
+	
 	/** the x position of the starting station, also position for all starting objects */
 	private static int XPOS_STARTSTATION;
 	
 	/** the y position of the starting station, also position for all starting objects */
-	private static int YPOS_STARTSTATION;
-	
-	/** the ProcessStations XML data file */
-	private static String theSteuerLogikDataFile = "xml/steuerlogik.xml"; 
+	private static int YPOS_STARTSTATION; 
 		
 	
 	/**
@@ -78,74 +69,203 @@ public class Factory {
 		/*NOTE: The start station must be created first,
 		* because the objects constructor puts the objects into the start stations outgoing queue
 		*/ 
-		createStartStation(); 
-<<<<<<< HEAD
+		//createStartStation();
+		createWellengenerator();
 		//createObjects();
-		createAutos();
-		createProcessStations();
-=======
-		createObjects();
 		createAmpeln();
+		createAutos();
 		//createProcessStations();
->>>>>>> refs/heads/testen
 		createEndStation();
-		createSteuerLogik();
 	}
 
-		/**
-	     * create the start station
-	     * 
-	     */
-	     private static void createSteuerLogik()
-	     {
-	    	 
-	    	try {
-	    		
-	    		//read the information from the XML file into a JDOM Document
-	    		Document theXMLDoc = new SAXBuilder().build(theSteuerLogikDataFile);
-	    		
-	    		//the <settings> ... </settings> node
-	    		Element root = theXMLDoc.getRootElement();
-	    		
-	    		//get the steuerlogik into a List object
-	    		Element steuerLogik = root.getChild("steuerlogik");
-	    		
-	    		//get the label
-	    		String label = steuerLogik.getChildText("label");
-	    		
-	    		//get the rotphase into a List object
-	    		String rotPhasenString = steuerLogik.getChildText("rotphase");
-	    		Long rotPhase = Long.parseLong( rotPhasenString );
-	    		
-	    		//get the gruenphase into a List object
-	    		String gruenPhasenString = steuerLogik.getChildText("gruenphase");
-	    		Long gruenPhase = Long.parseLong( gruenPhasenString );
-	    		
-	    		//get the ampel into a List object
-	    		String ampel = steuerLogik.getChildText("ampel");
-	    		
-	    		//get the wellenzeitpunkt into a List object
-	    		String wellenZeitPunktString = steuerLogik.getChildText("wellenzeitpunkt");
-	    		Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
-	    		
-	    		//get the ampel into a List object
-	    		String wellenGenerator = steuerLogik.getChildText("wellengenerator");
-
-	    		//get the position
-	    		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
-	    		YPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("y_position"));
-	    		
-	    		//creating a new StartStation object
-	    		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
-	    	    
-	    	
-	    	} catch (JDOMException e) {
-					e.printStackTrace();
-			} catch (IOException e) {
-					e.printStackTrace();
-			}
-	     }
+	 /**
+     * create the Wellengenerator
+     * 
+     */
+     private static void createWellengenerator(){
+    	
+    	try {
+    		
+    		
+    		//read the information from the XML file into a JDOM Document
+    		Document theXMLDoc = new SAXBuilder().build(theWellengeneratorDataFile);
+    		
+    		//the <settings> ... </settings> node
+    		Element root = theXMLDoc.getRootElement();
+    		
+    		//get the start_station into a List object
+    		Element theWellengenerator= root.getChild("wellengenerator");
+    		
+    		//get the label
+    		String label = theWellengenerator.getChildText("label");
+    		
+    		//get the position
+    		XPOS_STARTSTATION = Integer.parseInt(theWellengenerator.getChildText("x_position"));
+    		YPOS_STARTSTATION = Integer.parseInt(theWellengenerator.getChildText("y_position"));
+    		
+    		//the <view> ... </view> node
+    		Element viewGroup = theWellengenerator.getChild("view");
+    		
+    		//get the Wellengroese
+    		int wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellengroese"));
+    		
+    		
+    		// the image
+    		String image = viewGroup.getChildText("image");
+    		
+    		//CREATE THE INQUEUE
+    		//the <inqueue> ... </inqueue> node
+    		Element inqueueGroup = theWellengenerator.getChild("inqueue");
+    		
+    		// the positions
+    		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
+    		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
+    		
+    		//create the inqueue
+    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+    		//CREATE THE OUTQUEUE
+    		//the <outqueue> ... </outqueue> node
+    		Element outqueueGroup = theWellengenerator.getChild("outqueue");
+    		
+    		// the positions
+    		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
+    		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
+    		
+    		//create the outqueue
+    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+    		    		
+    		//creating a new StartStation object
+    		WellenGenerator.create(label, theInQueue, theOutQueue, XPOS_STARTSTATION, YPOS_STARTSTATION, image,wellengroese);
+    	
+    	
+    	} catch (JDOMException e) {
+				e.printStackTrace();
+		} catch (IOException e) {
+				e.printStackTrace();
+		}
+     }
+    
+    
+	 
+	   /**
+     * create some Auto out of the XML file
+     * 
+     */
+     private static void createAutos(){
+    	
+    	try {
+    		
+    		
 		
+    		//read the information from the XML file into a JDOM Document
+    		Document theXMLDoc = new SAXBuilder().build(theAutoDataFile);
+    		
+    		//the <settings> ... </settings> node, this is the files root Element
+    		Element root = theXMLDoc.getRootElement();
+    		
+    		//get all the objects into a List object
+    		List <Element> allAutos = root.getChildren("auto");
+    		
+    		//separate every JDOM "object" Element from the list and create Java TheObject objects
+    		for (Element dasauto : allAutos) {
+    			
+    			// data variables:
+    			String label = null;
+    			int processtime = 0;
+    			int speed = 0;
+    			String image = null;
+    			    			
+    			// read data
+    			label = dasauto.getChildText("label");
+    			processtime = Integer.parseInt(dasauto.getChildText("processtime"));
+    			speed = Integer.parseInt(dasauto.getChildText("speed"));
+        		        		
+        		//the <view> ... </view> node
+        		Element viewGroup = dasauto.getChild("view");
+        		// read data
+        		image = viewGroup.getChildText("image");
+        		
+        		//get all the stations, where the object wants to go to
+        		//the <sequence> ... </sequence> node
+        		Element sequenceGroup = dasauto.getChild("sequence");
+        		
+        		List <Element> allStations = sequenceGroup.getChildren("station");
+        		
+        		//get the elements into a list
+        		ArrayList<String> stationsToGo = new ArrayList<String>();
+        		
+        		for (Element theStation : allStations) {
+        			
+        			stationsToGo.add(theStation.getText());
+        			
+        		}
+        	  		
+        		//creating a new TheObject object
+        		Auto.create(label, stationsToGo, processtime, speed, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
+        		
+			}
+    	
+    	} catch (JDOMException e) {
+				e.printStackTrace();
+		} catch (IOException e) {
+				e.printStackTrace();
+		}
+    }
+	
+	/**
+     * create the start station
+     * 
+     */
+     private static void createSteuerLogik()
+     {
+    	 
+    	try {
+    		
+    		//read the information from the XML file into a JDOM Document
+    		Document theXMLDoc = new SAXBuilder().build(theSteuerLogikDataFile);
+    		
+    		//the <settings> ... </settings> node
+    		Element root = theXMLDoc.getRootElement();
+    		
+    		//get the steuerlogik into a List object
+    		Element steuerLogik = root.getChild("steuerlogik");
+    		
+    		//get the label
+    		String label = steuerLogik.getChildText("label");
+    		
+    		//get the rotphase into a List object
+    		String rotPhasenString = steuerLogik.getChildText("rotphase");
+    		Long rotPhase = Long.parseLong( rotPhasenString );
+    		
+    		//get the gruenphase into a List object
+    		String gruenPhasenString = steuerLogik.getChildText("gruenphase");
+    		Long gruenPhase = Long.parseLong( gruenPhasenString );
+    		
+    		//get the ampel into a List object
+    		String ampel = steuerLogik.getChildText("ampel");
+    		
+    		//get the wellenzeitpunkt into a List object
+    		String wellenZeitPunktString = steuerLogik.getChildText("wellenzeitpunkt");
+    		Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
+    		
+    		//get the ampel into a List object
+    		String wellenGenerator = steuerLogik.getChildText("wellengenerator");
+
+    		//get the position
+    		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
+    		YPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("y_position"));
+    		
+    		//creating a new StartStation object
+    		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
+    	    
+    	
+    	} catch (JDOMException e) {
+				e.printStackTrace();
+		} catch (IOException e) {
+				e.printStackTrace();
+		}
+     }
+	
 	/**
      * create the start station
      * 
@@ -270,72 +390,6 @@ public class Factory {
 				e.printStackTrace();
 		}
     }
-     
-     /**
-      * create some Auto out of the XML file
-      * 
-      */
-      private static void createAutos(){
-     	
-     	try {
-     		
-     		
- 		
-     		//read the information from the XML file into a JDOM Document
-     		Document theXMLDoc = new SAXBuilder().build(theAutoDataFile);
-     		
-     		//the <settings> ... </settings> node, this is the files root Element
-     		Element root = theXMLDoc.getRootElement();
-     		
-     		//get all the objects into a List object
-     		List <Element> allAutos = root.getChildren("auto");
-     		
-     		//separate every JDOM "object" Element from the list and create Java TheObject objects
-     		for (Element dasauto : allAutos) {
-     			
-     			// data variables:
-     			String label = null;
-     			int processtime = 0;
-     			int speed = 0;
-     			String image = null;
-     			    			
-     			// read data
-     			label = dasauto.getChildText("label");
-     			processtime = Integer.parseInt(dasauto.getChildText("processtime"));
-     			speed = Integer.parseInt(dasauto.getChildText("speed"));
-         		        		
-         		//the <view> ... </view> node
-         		Element viewGroup = dasauto.getChild("view");
-         		// read data
-         		image = viewGroup.getChildText("image");
-         		
-         		//get all the stations, where the object wants to go to
-         		//the <sequence> ... </sequence> node
-         		Element sequenceGroup = dasauto.getChild("sequence");
-         		
-         		List <Element> allStations = sequenceGroup.getChildren("station");
-         		
-         		//get the elements into a list
-         		ArrayList<String> stationsToGo = new ArrayList<String>();
-         		
-         		for (Element theStation : allStations) {
-         			
-         			stationsToGo.add(theStation.getText());
-         			
-         		}
-         	  		
-         		//creating a new TheObject object
-         		Auto.create(label, stationsToGo, processtime, speed, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
-         		
- 			}
-     	
-     	} catch (JDOMException e) {
- 				e.printStackTrace();
- 		} catch (IOException e) {
- 				e.printStackTrace();
- 		}
-     }
-     
     
      /**
       * create some Ampeln out of the XML file

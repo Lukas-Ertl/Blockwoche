@@ -35,9 +35,9 @@ public class SteuerLogik extends Actor
 	
 	public static void create(String label, int xPos, int yPos, long rotPhase, long gruenPhase, String ampel, long wellenZeitPunkt, String wellenGenerator)
 	{
-		Ampel a = Ampel.getAmpel(ampel);
-		WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel(wellenGenerator);
-		new SteuerLogik(label, xPos, yPos, rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
+		Ampel a = Ampel.getAmpelByLabel(ampel);
+		WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel();//wellenGenerator);
+		new SteuerLogik(label, xPos, yPos, rotPhase, gruenPhase, a, wellenZeitPunkt, w);
 	}
 	
 
