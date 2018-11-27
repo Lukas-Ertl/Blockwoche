@@ -60,7 +60,8 @@ public class Factory {
 		/*NOTE: The start station must be created first,
 		* because the objects constructor puts the objects into the start stations outgoing queue
 		*/ 
-		createStartStation(); 
+		//createStartStation();
+		createWellengenerator();
 		//createObjects();
 		createAutos();
 		createProcessStations();
@@ -140,6 +141,7 @@ public class Factory {
      	
      	try {
      		
+     		
      		//read the information from the XML file into a JDOM Document
      		Document theXMLDoc = new SAXBuilder().build(theWellengeneratorDataFile);
      		
@@ -147,20 +149,20 @@ public class Factory {
      		Element root = theXMLDoc.getRootElement();
      		
      		//get the start_station into a List object
-     		Element Wellengenerator= root.getChild("wellengeneator");
+     		Element theWellengenerator= root.getChild("wellengenerator");
      		
      		//get the label
-     		String label = Wellengenerator.getChildText("label");
-     		    		    		
+     		String label = theWellengenerator.getChildText("label");
+     		
      		//get the position
-     		XPOS_STARTSTATION = Integer.parseInt(Wellengenerator.getChildText("x_position"));
-     		YPOS_STARTSTATION = Integer.parseInt(Wellengenerator.getChildText("y_position"));
+     		XPOS_STARTSTATION = Integer.parseInt(theWellengenerator.getChildText("x_position"));
+     		YPOS_STARTSTATION = Integer.parseInt(theWellengenerator.getChildText("y_position"));
      		
      		//the <view> ... </view> node
-     		Element viewGroup = Wellengenerator.getChild("view");
+     		Element viewGroup = theWellengenerator.getChild("view");
      		
      		//get the Wellengroese
-     		String wellengroese = Wellengenerator.getChildText("wellengroese");
+     		int wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellengroese"));
      		
      		
      		// the image
@@ -168,7 +170,7 @@ public class Factory {
      		
      		//CREATE THE INQUEUE
      		//the <inqueue> ... </inqueue> node
-     		Element inqueueGroup = Wellengenerator.getChild("inqueue");
+     		Element inqueueGroup = theWellengenerator.getChild("inqueue");
      		
      		// the positions
      		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
@@ -176,10 +178,9 @@ public class Factory {
      		
      		//create the inqueue
      		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-     		
      		//CREATE THE OUTQUEUE
      		//the <outqueue> ... </outqueue> node
-     		Element outqueueGroup = Wellengenerator.getChild("outqueue");
+     		Element outqueueGroup = theWellengenerator.getChild("outqueue");
      		
      		// the positions
      		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
@@ -190,7 +191,7 @@ public class Factory {
      		    		
      		//creating a new StartStation object
      		WellenGenerator.create(label, theInQueue, theOutQueue, XPOS_STARTSTATION, YPOS_STARTSTATION, image,wellengroese);
-     	    
+     	
      	
      	} catch (JDOMException e) {
  				e.printStackTrace();
