@@ -5,28 +5,26 @@
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_2</station>
-			<station>Station_1</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
+	
+	
 	<object>
 		<label>Objekt_2</label>
 		<processtime>8</processtime>
 		<speed>20</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-2.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_2</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -35,12 +33,11 @@
 		<processtime>4</processtime>
 		<speed>10</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-3.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_2</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -49,13 +46,11 @@
 		<processtime>2</processtime>
 		<speed>2</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-4.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_2</station>
-			<station>Station_1</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -64,13 +59,11 @@
 		<processtime>10</processtime>
 		<speed>10</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-5.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_2</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -79,12 +72,11 @@
 		<processtime>8</processtime>
 		<speed>30</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-6.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_3</station>
-			<station>Station_2</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -93,12 +85,11 @@
 		<processtime>4</processtime>
 		<speed>5</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -107,11 +98,11 @@
 		<processtime>3</processtime>
 		<speed>20</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-6.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -120,13 +111,11 @@
 		<processtime>4</processtime>
 		<speed>35</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-2.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_2</station>
-			<station>Station_1</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -135,13 +124,11 @@
 		<processtime>10</processtime>
 		<speed>40</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-5.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_2</station>
-			<station>Station_1</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -150,11 +137,11 @@
 		<processtime>6</processtime>
 		<speed>5</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-3.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -163,12 +150,11 @@
 		<processtime>11</processtime>
 		<speed>2</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-4.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_2</station>
-			<station>Station_1</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -177,12 +163,11 @@
 		<processtime>2</processtime>
 		<speed>2</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-6.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -191,12 +176,11 @@
 		<processtime>2</processtime>
 		<speed>2</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-3.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_2</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -205,12 +189,11 @@
 		<processtime>2</processtime>
 		<speed>2</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>
@@ -219,12 +202,54 @@
 		<processtime>2</processtime>
 		<speed>1</speed>
 		<view>
-			<image>object.png</image>
+			<image>car-2.png</image>
 		</view>
 		<sequence>
 			<station>Start_Station</station>
-			<station>Station_1</station>
-			<station>Station_3</station>
+			<station>Ampel_1</station>
+			<station>End_Station</station>
+		</sequence>
+	</object>
+	
+
+		<object>
+		<label>Objekt_17</label>
+		<processtime>3</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>Start_Station</station>
+			<station>Ampel_1</station>
+			<station>End_Station</station>
+		</sequence>
+	</object>
+	
+			<object>
+		<label>Objekt_18</label>
+		<processtime>1</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>Start_Station</station>
+			<station>Ampel_1</station>
+			<station>End_Station</station>
+		</sequence>
+	</object>
+	
+				<object>
+		<label>Objekt_19</label>
+		<processtime>2</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>Start_Station</station>
+			<station>Ampel_1</station>
 			<station>End_Station</station>
 		</sequence>
 	</object>

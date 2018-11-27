@@ -1,37 +1,57 @@
 package io;
-import view.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import model.Auto;
 import model.EndStation;
 import model.ProcessStation;
 import model.StartStation;
 import model.SynchronizedQueue;
 import model.TheObject;
+=======
+>>>>>>> refs/heads/testen
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
+import model.Ampel;
+import model.EndStation;
+import model.ProcessStation;
+import model.StartStation;
+import model.SteuerLogik;
+import model.SynchronizedQueue;
+import model.TheObject;
+import view.QueueViewJPanel;
+import view.QueueViewText;
+
 /**
  * This is an abstract factory that creates instances
  * of actor types like objects, stations and their queues 
  * 
- * @author Jaeger, Schmidt
- * @version 2017-10-29
+ * @author Jaeger, Schmidt, modified by JMaier
+ * @version 2018-11-24
  */
 public class Factory {
 	
 	/** the objects XML data file */
 	private static String theObjectDataFile = "xml/object.xml"; 
 	
+<<<<<<< HEAD
 	/** the Auto XML data file */
 	private static String theAutoDataFile = "xml/auto.xml"; 
 	
 	/** the stations XML data file */
 	private static String theStationDataFile = "xml/station.xml"; 
+=======
+	/** the Ampeln XML data file */
+	private static String theAmpelnDataFile = "xml/ampeln.xml";
+	
+	/** the ProcessStations XML data file */
+	private static String theProcessStationDataFile = "xml/processstation.xml"; 
+>>>>>>> refs/heads/testen
 	
 	/** the start station XML data file */
 	private static String theStartStationDataFile = "xml/startstation.xml"; 
@@ -43,7 +63,10 @@ public class Factory {
 	private static int XPOS_STARTSTATION;
 	
 	/** the y position of the starting station, also position for all starting objects */
-	private static int YPOS_STARTSTATION; 
+	private static int YPOS_STARTSTATION;
+	
+	/** the ProcessStations XML data file */
+	private static String theSteuerLogikDataFile = "xml/steuerlogik.xml"; 
 		
 	
 	/**
@@ -56,12 +79,73 @@ public class Factory {
 		* because the objects constructor puts the objects into the start stations outgoing queue
 		*/ 
 		createStartStation(); 
+<<<<<<< HEAD
 		//createObjects();
 		createAutos();
 		createProcessStations();
+=======
+		createObjects();
+		createAmpeln();
+		//createProcessStations();
+>>>>>>> refs/heads/testen
 		createEndStation();
+		createSteuerLogik();
 	}
-	
+
+		/**
+	     * create the start station
+	     * 
+	     */
+	     private static void createSteuerLogik()
+	     {
+	    	 
+	    	try {
+	    		
+	    		//read the information from the XML file into a JDOM Document
+	    		Document theXMLDoc = new SAXBuilder().build(theSteuerLogikDataFile);
+	    		
+	    		//the <settings> ... </settings> node
+	    		Element root = theXMLDoc.getRootElement();
+	    		
+	    		//get the steuerlogik into a List object
+	    		Element steuerLogik = root.getChild("steuerlogik");
+	    		
+	    		//get the label
+	    		String label = steuerLogik.getChildText("label");
+	    		
+	    		//get the rotphase into a List object
+	    		String rotPhasenString = steuerLogik.getChildText("rotphase");
+	    		Long rotPhase = Long.parseLong( rotPhasenString );
+	    		
+	    		//get the gruenphase into a List object
+	    		String gruenPhasenString = steuerLogik.getChildText("gruenphase");
+	    		Long gruenPhase = Long.parseLong( gruenPhasenString );
+	    		
+	    		//get the ampel into a List object
+	    		String ampel = steuerLogik.getChildText("ampel");
+	    		
+	    		//get the wellenzeitpunkt into a List object
+	    		String wellenZeitPunktString = steuerLogik.getChildText("wellenzeitpunkt");
+	    		Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
+	    		
+	    		//get the ampel into a List object
+	    		String wellenGenerator = steuerLogik.getChildText("wellengenerator");
+
+	    		//get the position
+	    		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
+	    		YPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("y_position"));
+	    		
+	    		//creating a new StartStation object
+	    		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
+	    	    
+	    	
+	    	} catch (JDOMException e) {
+					e.printStackTrace();
+			} catch (IOException e) {
+					e.printStackTrace();
+			}
+	     }
+		
 	/**
      * create the start station
      * 
@@ -253,6 +337,68 @@ public class Factory {
      }
      
     
+     /**
+      * create some Ampeln out of the XML file
+      * 
+      */
+      private static void createAmpeln(){
+     	
+     	try {
+     		
+     		//read the information from the XML file into a JDOM Document
+     		Document theXMLDoc = new SAXBuilder().build(theAmpelnDataFile);
+     		
+     		//the <settings> ... </settings> node
+     		Element root = theXMLDoc.getRootElement();
+     		
+     		//get all the stations into a List object
+     		List <Element> stations = root.getChildren("station");
+     		
+     		//separate every JDOM "station" Element from the list and create Java Station objects
+     		for (Element station : stations) {
+     			
+     			// data variables:
+     			String label = null;
+     			int xPos = 0;
+     			int yPos = 0;
+     			String image = null;
+     			    			
+     			// read data
+     			label = station.getChildText("label");
+         		xPos = Integer.parseInt(station.getChildText("x_position"));
+         		yPos = Integer.parseInt(station.getChildText("y_position"));
+         		        		
+         		//the <view> ... </view> node
+         		Element viewGroup = station.getChild("view");
+         		// read data
+         		image = viewGroup.getChildText("image");
+         		        		
+         		//CREATE THE INQUEUES
+         		Element inqueue = station.getChild("inqueue");
+         		int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
+         		int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+         		SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue);
+         		
+         		//CREATE THE OUTQUEUES
+         		Element outqueue = station.getChild("inqueue");
+         		int xPosOutQueue = Integer.parseInt(inqueue.getChildText("x_position"));
+         		int yPosOutQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+         		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
+         		
+         		//creating a new Station object
+         		Ampel.create(label, theInqueue, theOutqueue, xPos, yPos, image);
+         		
+ 			}
+     		
+     	
+     	} catch (JDOMException e) {
+ 				e.printStackTrace();
+ 		} catch (IOException e) {
+ 				e.printStackTrace();
+ 		}
+     	
+     }
+     
     /**
      * create some process stations out of the XML file
      * 
@@ -262,7 +408,7 @@ public class Factory {
     	try {
     		
     		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theStationDataFile);
+    		Document theXMLDoc = new SAXBuilder().build(theProcessStationDataFile);
     		
     		//the <settings> ... </settings> node
     		Element root = theXMLDoc.getRootElement();

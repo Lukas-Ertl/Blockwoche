@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<settings>
+	<station>
+		<label>Ampel_1</label>
+		<x_position>450</x_position>
+		<y_position>270</y_position>
+		<view>
+			<image>1-ampel.png</image>
+		</view>
+		<inqueue>
+			<x_position>470</x_position>
+			<y_position>210</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>470</x_position>
+			<y_position>350</y_position>
+		</outqueue>
+	</station>
+	
+		
+
+	
+	
+	
+</settings>
