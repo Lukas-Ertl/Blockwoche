@@ -1,9 +1,12 @@
 package model;
 
 import controller.Simulation;
+import io.Statistics;
 
 public class SteuerLogik extends Actor
 {
+	private static SteuerLogik meee;
+	
 	//time that an Ampel stays green
 	private long gruenPhase;
 	//time that an Ampel stays red
@@ -31,6 +34,7 @@ public class SteuerLogik extends Actor
 		
 		this.ampelWaitTime = this.gruenPhase;
 		this.wellenGeneratorWaitTime = this.wellenZeitPunkt;
+		SteuerLogik.meee = this;
 	}
 	
 	public static void create(String label, int xPos, int yPos, long rotPhase, long gruenPhase, String ampel, long wellenZeitPunkt, String wellenGenerator)
@@ -40,6 +44,45 @@ public class SteuerLogik extends Actor
 		new SteuerLogik(label, xPos, yPos, rotPhase, gruenPhase, a, wellenZeitPunkt, w);
 	}
 	
+	@Override
+	public void run() {
+				
+		//run the actor
+		while(true){
+					
+			try {
+							
+			//let the thread sleep for a little time
+			//without that we've got a running problem 
+			//Actor.sleep(Simulation.CLOCKBEAT);
+					
+				act(); 
+				
+						
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	private synchronized void act(){
+		
+		/* 
+		 * Let the thread wait only, if the simulation is still not running or, 
+		 * more important, if there is no more work to do for the moment
+		 */
+		
+		if ((!Simulation.isRunning) || (!work())){	
+			/*
+			//wait until a wake up (notify) instruction comes in
+			try {
+				Statistics.show(this.getLabel() + " wait()");
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}*/
+		}
+			
+	}
 
 	protected boolean work()
 	{
@@ -57,7 +100,7 @@ public class SteuerLogik extends Actor
 		}
 		if(simTime > wellenGeneratorWaitTime)
 		{
-			updateWellenGenerator(this.myWellenGenerator);
+			this.updateWellenGenerator(this.myWellenGenerator);
 			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.wellenZeitPunkt;
 		}
 		return false;
@@ -66,12 +109,14 @@ public class SteuerLogik extends Actor
 	//change state of Ampeln (form Green to Red, and from Red to Green)
 	private void updateAmpeln(Ampel a)
 	{
+		a.wakeUp();
 		a.switchState();
 	}
 	
 	//send WellenGenerator a notice that it should send cars
 	private void updateWellenGenerator(WellenGenerator w)
 	{
+		w.wakeUp();
 		w.sendWave();
 	}
 	
@@ -105,5 +150,10 @@ public class SteuerLogik extends Actor
 		{
 			return this.tick;
 		}
+	}
+	
+	public static SteuerLogik get()
+	{
+		return SteuerLogik.meee;
 	}
 }

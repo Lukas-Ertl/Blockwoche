@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <settings>
 	<station>
-		<label>Ampel_1</label>
+		<label>ampel_1</label>
 		<x_position>450</x_position>
 		<y_position>270</y_position>
 		<view>

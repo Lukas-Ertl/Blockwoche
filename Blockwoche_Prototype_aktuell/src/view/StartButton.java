@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import controller.Simulation;
-import model.StartStation;
+import model.SteuerLogik;
 import model.WellenGenerator;
 
 
@@ -33,6 +33,7 @@ public class StartButton extends JButton implements ActionListener{
 		Simulation.isRunning = true;
 		
 		//wake up the Wellengenerator -> lets the simulation run
+		SteuerLogik.get().wakeUp();
 		WellenGenerator.getWellenGeneratorByLabel().wakeUp();
 	}
 
