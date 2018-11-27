@@ -4,20 +4,31 @@ import java.util.ArrayList;
 
 import controller.Simulation;
 
+/** 
+ * Die Autos die in unserer Simulation fahren
+ * 
+ * @author Team 4
+ * @version 2018-11
+ */
 public class Auto  extends TheObject{
 	
-	private long TimerStart;
-	private long TimerEnd;
+	/**Long values used to measure how long a car waits at an Ampel*/
+	private long TimerStart, TimerEnd;
 
-
-	public Auto(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image) {
-		
-		super(label,stationsToGo,processtime,speed,xPos,yPos,image);
-		
-		
+	/** Constructor for Auto
+	 * 
+	 * @param label Auto name
+	 * @param stationsToGo list of stations to visit
+	 * @param processtime the processing time of the object, affects treatment by a station
+	 * @param speed speed of the car
+	 * @param xPos x position of the object#
+	 * @param yPos y position of the object
+	 * @param image image of the object
+	 */
+	public Auto(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image)
+	{
+		super(label,stationsToGo,processtime,speed,xPos,yPos,image);	
 	}
-	
-	
 	
 	/** Create a new Auto model
 	 *
@@ -29,16 +40,10 @@ public class Auto  extends TheObject{
 	 * @param yPos y position of the object
 	 * @param image image of the object
 	 */
-	
-	public static void create(String label, ArrayList<String> stationsToGo, int processtime, int speed ,int xPos, int yPos, String image){
-		
-		
+	public static void create(String label, ArrayList<String> stationsToGo, int processtime, int speed ,int xPos, int yPos, String image)
+	{
 		new Auto(label, stationsToGo, processtime, speed, xPos, yPos, image);
-			
 	}
-	
-	
-	
 	
 	/** Chooses a suited incoming queue of the given station and enter it 
 	 * 
@@ -85,7 +90,6 @@ public class Auto  extends TheObject{
 			
 	}
 	
-
 	/** Chooses a suited outgoing queue of the given station and enter it
 	 * 
 	 * @param station the station from where the queue should be chosen
@@ -95,8 +99,6 @@ public class Auto  extends TheObject{
 		
 		//End Timer
 		TimerEnd = controller.Simulation.getGlobalTime();
-		
-
 		
 		System.out.println("TimerStart: " + TimerStart + " TimerEnd " + TimerEnd);
 		
@@ -126,19 +128,9 @@ public class Auto  extends TheObject{
 			
 			//enter the queue
 			queueBuffer.offer(this);
-			
 		}
-	
 	}
-	
 		
 	//enterinQue überschreiben mit Timerstart
-	
 	//enteroutque überschreiben mit timer ende
-	
-	
-	
-	
-	
-
 }
