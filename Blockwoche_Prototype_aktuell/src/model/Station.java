@@ -37,6 +37,7 @@ public abstract class Station extends Actor {
 		allStations.add(this);
 	}
 	
+	/** original code von Jaeger, hatte keine Doc */
 	@Override
 	protected boolean work() {
 		
