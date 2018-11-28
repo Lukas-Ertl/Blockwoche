@@ -1,0 +1,30 @@
+ Author: Team 4 
+ Team Mitglieder:
+ Jeffrey Maier, Lukas Ertl, Christian Jaquart, Max Henning
+ 
+ Datum: 11.2018
+ 
+ Projekt: Ampel
+ 
+ 
+ Endziel: 
+	 Die Simulation einer 4rer Kreuzung und das ermitteln der gesamten Wartezeit aller Autos an allen Ampeln.
+	 Um das bestmoegliche szenario zu finden.
+ 
+
+ Name Konvention:
+ 
+	Code:
+		standard Konvention
+		
+	XML:
+		alles klein, keine Understriche, worttrennung durch Ersten Buchstabe des Wortes gross (Bsp.: erstesWort)
+		sonderbuchstaben: 	ä, ö, ü, -> ae, oe, ue
+							ß -> ss
+							 
+		
+	Ausnahmen:
+		x und y koordinaten von Prototyp uebernommen als x_position und y_position
+		unterstriche im label als trennung zwischen wort und zahl (Bsp.: ampel_1)
+		processtime aus Prototyp uebernommen
+		

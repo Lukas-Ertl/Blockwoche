@@ -11,7 +11,7 @@ import controller.Simulation;
 /**
  * Class for the objects
  * 
- * @author Jaeger, Schmidt
+ * @author Jaeger, Schmidt; edited by Team 4
  * @version 2016-07-08
  */
 	
@@ -42,7 +42,10 @@ import controller.Simulation;
 		Measurement measurement = new Measurement();
 		
 				
-		/** (private!) Constructor, creates a new object model and send it to the start station
+		/** Team 4: changed private to protected 
+		 * 
+		 * 
+		 * Constructor, creates a new object model and send it to the start station
 		 * 
 		 * @param label of the object 
 		 * @param stationsToGo the stations to go
@@ -52,9 +55,7 @@ import controller.Simulation;
 		 * @param yPos y position of the object
 		 * @param image image of the object
 		 */
-		
-		
-		//Konstruktor wurde auf protected geändert
+
 		protected TheObject(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image){
 			super(label, xPos, yPos);
 			
