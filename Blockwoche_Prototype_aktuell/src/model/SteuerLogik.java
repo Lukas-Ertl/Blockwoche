@@ -53,7 +53,7 @@ public class SteuerLogik extends Actor
 	 * @param wellenZeitPunkt time between waves of cars sent by the controlled WellenGenerator
 	 * @param wellenGenerator the controlled WellenGenerator
 	 */
-	private SteuerLogik(String label, int xPos, int yPos, long rotPhase, long gruenPhase, Ampel ampel, long wellenZeitPunkt, WellenGenerator wellenGenerator)
+	private SteuerLogik(String label, int xPos, int yPos, ArrayList<Object[]> ampelnListen, ArrayList<Object[]> wellenGeneratoren)
 	{
 		super(label, xPos, yPos);
 		/*
@@ -98,6 +98,10 @@ public class SteuerLogik extends Actor
 		//for each element of the overarching ampeln list
 		for(int i = 0; i<ampelnListen.size(); i++)
 		{
+			//add a new set of Ampeln to the arraylist that will be passed to the constructor
+			tempAmpelnListen.add( new Object[3] );
+			tempAmpelnListen.get(i)[0] = new ArrayList<Ampel>();
+			
 			//get the ArrayList of Ampel labels
 			ArrayList<String> tempList = (ArrayList<String>) ampelnListen.get(i)[0];
 			//for the list of Ampel labels
@@ -106,7 +110,7 @@ public class SteuerLogik extends Actor
 				//get the Ampel associated with the label
 				Ampel a = Ampel.getAmpelByLabel( tempList.get(j) );
 				//add the Ampel to the collection of Ampeln OF THE SAME STRUCTURE for the constructor
-				
+				((ArrayList<Ampel>) tempAmpelnListen.get(i)[0]).add(a);
 			}
 			//add the list of Ampel OBJECTS and their times to something that will be controllable
 		}
@@ -121,7 +125,7 @@ public class SteuerLogik extends Actor
 			//add the WellenGenerator to the collection of WellenGeneratoren OF THE SAME STRUCTURE for the constructor
 		}
 		
-		new SteuerLogik(label, xPos, yPos, rotPhase, gruenPhase, a, wellenZeitPunkt, w);
+		new SteuerLogik(label, xPos, yPos, tempAmpelnListen, tempWellenGeneratoren);
 	}
 	
 	/**void run method to overwrite the actor's method to avoid sleeping*/
