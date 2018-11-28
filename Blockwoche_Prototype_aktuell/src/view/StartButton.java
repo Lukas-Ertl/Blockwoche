@@ -33,7 +33,7 @@ public class StartButton extends JButton implements ActionListener{
 		Simulation.isRunning = true;
 		
 		//wake up the SteuerLogik -> lets the simulation run
-		SteuerLogik.get().wakeUp();
+		SteuerLogik.getSteuerLogik().wakeUp();
 	}
 
 	
