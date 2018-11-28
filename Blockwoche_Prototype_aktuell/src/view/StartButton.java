@@ -32,9 +32,8 @@ public class StartButton extends JButton implements ActionListener{
 		//set the simulation on
 		Simulation.isRunning = true;
 		
-		//wake up the Wellengenerator -> lets the simulation run
+		//wake up the SteuerLogik -> lets the simulation run
 		SteuerLogik.get().wakeUp();
-		WellenGenerator.getWellenGeneratorByLabel().wakeUp();
 	}
 
 	

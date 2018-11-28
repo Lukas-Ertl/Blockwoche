@@ -1,5 +1,15 @@
 package io;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
+
+
+
 /**
  * A class for printing statistics
  * 
@@ -28,5 +38,11 @@ public class Statistics {
 		
 		System.out.println(message);
 	}
+	
+	
+	 
+		
+
+	
 	
 }

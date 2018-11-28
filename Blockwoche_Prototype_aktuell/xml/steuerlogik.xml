@@ -8,6 +8,6 @@
 		<gruenPhase>5</gruenPhase>
 		<ampel>ampel_1</ampel>
 		<wellenZeitpunkt>5</wellenZeitpunkt>
-		<wellenGenerator>wellengenerator_1</wellenGenerator>
+		<wellenGenerator>wellenGenerator_1</wellenGenerator>
 	</steuerLogik>
 </settings>

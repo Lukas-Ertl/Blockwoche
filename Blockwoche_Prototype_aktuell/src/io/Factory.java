@@ -50,7 +50,7 @@ public class Factory {
 	/** the Auto XML data file */
 	private static String theAutoDataFile = "xml/auto.xml"; 
 	
-		/** the start station XML data file */
+	/** the Wellengenerator XML data file */
 	private static String theWellengeneratorDataFile = "xml/wellengenerator.xml"; 
 	
 	/** the x position of the starting station, also position for all starting objects */
@@ -82,6 +82,10 @@ public class Factory {
 	 /**
      * create the Wellengenerator
      * 
+     * Liest Daten aus dem XML FILE wellengenerator.xml aus und
+     * ruft die Methode create() des Wellengenerators auf um den Wellengenerator
+     * zu erstellen
+     * 
      */
      private static void createWellengenerator(){
     	
@@ -95,7 +99,7 @@ public class Factory {
     		Element root = theXMLDoc.getRootElement();
     		
     		//get the start_station into a List object
-    		Element theWellengenerator= root.getChild("wellengenerator");
+    		Element theWellengenerator= root.getChild("wellenGenerator");
     		
     		//get the label
     		String label = theWellengenerator.getChildText("label");
@@ -108,7 +112,7 @@ public class Factory {
     		Element viewGroup = theWellengenerator.getChild("view");
     		
     		//get the Wellengroese
-    		int wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellengroese"));
+    		int wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellenGroesse"));
     		
     		
     		// the image
@@ -148,10 +152,14 @@ public class Factory {
     
     
 	 
-	   /**
-     * create some Auto out of the XML file
-     * 
-     */
+	 /**
+      * create the Autos
+      * 
+      * Liest Daten aus dem XML FILE auto.xml aus und
+      * ruft die Methode create() von Auto auf mehrere Autos
+      * zu erstellen
+      * 
+      */
      private static void createAutos(){
     	
     	try {
@@ -213,10 +221,14 @@ public class Factory {
 		}
     }
 	
-	/**
-     * create the start station
-     * 
-     */
+	 /**
+      * create the SteuerLogik
+      * 
+      * Liest Daten aus dem XML FILE steuerlogik.xml aus und
+      * ruft die Methode create() von SteuerLogik auf um mehrere Autos
+      * zu erstellen
+      * 
+      */
      private static void createSteuerLogik()
      {
     	 
@@ -229,28 +241,28 @@ public class Factory {
     		Element root = theXMLDoc.getRootElement();
     		
     		//get the steuerlogik into a List object
-    		Element steuerLogik = root.getChild("steuerlogik");
+    		Element steuerLogik = root.getChild("steuerLogik");
     		
     		//get the label
     		String label = steuerLogik.getChildText("label");
     		
     		//get the rotphase into a List object
-    		String rotPhasenString = steuerLogik.getChildText("rotphase");
+    		String rotPhasenString = steuerLogik.getChildText("rotPhase");
     		Long rotPhase = Long.parseLong( rotPhasenString );
     		
     		//get the gruenphase into a List object
-    		String gruenPhasenString = steuerLogik.getChildText("gruenphase");
+    		String gruenPhasenString = steuerLogik.getChildText("gruenPhase");
     		Long gruenPhase = Long.parseLong( gruenPhasenString );
     		
     		//get the ampel into a List object
     		String ampel = steuerLogik.getChildText("ampel");
     		
     		//get the wellenzeitpunkt into a List object
-    		String wellenZeitPunktString = steuerLogik.getChildText("wellenzeitpunkt");
+    		String wellenZeitPunktString = steuerLogik.getChildText("wellenZeitpunkt");
     		Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
     		
     		//get the ampel into a List object
-    		String wellenGenerator = steuerLogik.getChildText("wellengenerator");
+    		String wellenGenerator = steuerLogik.getChildText("wellenGenerator");
 
     		//get the position
     		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
@@ -392,8 +404,12 @@ public class Factory {
 		}
     }
     
-     /**
-      * create some Ampeln out of the XML file
+	 /**
+      * create the Ampels
+      * 
+      * Liest Daten aus dem XML FILE ampel.xml aus und
+      * ruft die Methode create() von Ampel auf um mehrere Ampeln
+      * zu erstellen
       * 
       */
       private static void createAmpeln(){
@@ -435,9 +451,9 @@ public class Factory {
          		SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue);
          		
          		//CREATE THE OUTQUEUES
-         		Element outqueue = station.getChild("inqueue");
-         		int xPosOutQueue = Integer.parseInt(inqueue.getChildText("x_position"));
-         		int yPosOutQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+         		Element outqueue = station.getChild("outqueue");
+         		int xPosOutQueue = Integer.parseInt(outqueue.getChildText("x_position"));
+         		int yPosOutQueue = Integer.parseInt(outqueue.getChildText("y_position"));
          		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
          		
          		//creating a new Station object
@@ -555,7 +571,7 @@ public class Factory {
     		Element root = theXMLDoc.getRootElement();
     		
     		//get the end_station into a List object
-    		Element endStation = root.getChild("end_station");
+    		Element endStation = root.getChild("endStation");
     		
     		//get label
     		String label = endStation.getChildText("label");
