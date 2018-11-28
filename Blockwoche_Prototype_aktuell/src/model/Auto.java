@@ -13,7 +13,17 @@ import controller.Simulation;
 public class Auto  extends TheObject{
 	
 	/**Long values used to measure how long a car waits at an Ampel*/
-	private long TimerStart, TimerEnd;
+	private long timerStart, timerEnd;
+	
+	
+	private static ArrayList<Auto> alleAutos= new ArrayList<Auto>();
+	private ArrayList<ArrayList<Object>> messDaten = new ArrayList<ArrayList<Object>>();
+
+	private int AnzahlBesuchteAmpeln = 0;
+	
+	
+	
+
 
 	/** Constructor for Auto
 	 * 
@@ -27,7 +37,13 @@ public class Auto  extends TheObject{
 	 */
 	public Auto(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image)
 	{
-		super(label,stationsToGo,processtime,speed,xPos,yPos,image);	
+		super(label,stationsToGo,processtime,speed,xPos,yPos,image);
+
+		
+		
+		
+		alleAutos.add(this);
+		
 	}
 	
 	/** Create a new Auto model
@@ -43,6 +59,7 @@ public class Auto  extends TheObject{
 	public static void create(String label, ArrayList<String> stationsToGo, int processtime, int speed ,int xPos, int yPos, String image)
 	{
 		new Auto(label, stationsToGo, processtime, speed, xPos, yPos, image);
+		
 	}
 	
 	/** Chooses a suited incoming queue of the given station and enter it 
@@ -53,8 +70,10 @@ public class Auto  extends TheObject{
 	@Override
 	protected void enterInQueue(Station station){
 		
+		
+		
 		//start Timer
-		TimerStart = controller.Simulation.getGlobalTime();
+		timerStart = controller.Simulation.getGlobalTime();
 		
 		
 		//get the stations incoming queues
@@ -90,7 +109,8 @@ public class Auto  extends TheObject{
 			
 	}
 	
-	/** Chooses a suited outgoing queue of the given station and enter it
+	/**schreibt Daten jeder besuchter Ampel in Collection und 
+	 * Chooses a suited outgoing queue of the given station and enter it
 	 * 
 	 * @param station the station from where the queue should be chosen
 	 */
@@ -98,9 +118,24 @@ public class Auto  extends TheObject{
 	void enterOutQueue(Station station){
 		
 		//End Timer
-		TimerEnd = controller.Simulation.getGlobalTime();
+		timerEnd = controller.Simulation.getGlobalTime();
 		
-		System.out.println("TimerStart: " + TimerStart + " TimerEnd " + TimerEnd);
+		// schreibt daten in Collection
+		if (station.getClass() == Ampel.class) {
+		messDaten.add(new ArrayList<Object>());
+		
+
+		//Für aktuelle Ampel label in Collection eintragen
+		this.messDaten.get(messDaten.size()-1).add(station.label);
+		//Für aktuelle Ampel label in Collection eintragen
+		this.messDaten.get(messDaten.size()-1).add(this.timerEnd-timerStart);
+		
+		//System.out.println(this.messDaten.get(messDaten.size()-1).get(0));
+		
+
+		}
+				
+
 		
 		//get the stations outgoing queues
 		ArrayList<SynchronizedQueue> outQueues = station.getAllOutQueues();
@@ -130,7 +165,33 @@ public class Auto  extends TheObject{
 			queueBuffer.offer(this);
 		}
 	}
+	
+	public ArrayList<ArrayList<Object>> getMessDaten() {
 		
-	//enterinQue überschreiben mit Timerstart
-	//enteroutque überschreiben mit timer ende
+		return messDaten;
+	}
+	
+	/**Zählt die Besuchten Ampeln
+	 * 
+	 * 
+	 */
+
+	
+	
+
+	
+	
+	public static ArrayList<Auto> getAlleAutos(){
+		
+		return alleAutos;
+		
+	}
+	
+	
+	
+	
 }
+
+
+
+

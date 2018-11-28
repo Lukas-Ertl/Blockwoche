@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statistics>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+</statistics>
