@@ -1,7 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import controller.Simulation;
-import io.Statistics;
 
 /**
  * Steuerung fuer alle Ampeln und WellenGeneratoren
@@ -54,6 +56,21 @@ public class SteuerLogik extends Actor
 	private SteuerLogik(String label, int xPos, int yPos, long rotPhase, long gruenPhase, Ampel ampel, long wellenZeitPunkt, WellenGenerator wellenGenerator)
 	{
 		super(label, xPos, yPos);
+		/*
+		for(Object[] ampelnList : ampelnListen)
+		{
+			for(String ampelList: (ArrayList<String>) ampelnList[0])
+			{
+				//add ampel to a new collection OF THE SAME STRUCTURE for the constructor
+			}
+			//add the list of ampel OBJECTS and their times to something that will be controllable
+		}
+		
+		For()
+		{
+			WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel();//wellenGenerator);
+		}
+		*/
 		this.myAmpel = ampel;
 		this.rotPhase = rotPhase;
 		this.gruenPhase = gruenPhase;
@@ -69,17 +86,41 @@ public class SteuerLogik extends Actor
 	 * 
 	 * @param label of this SteuerLogik 
 	 * @param xPos x position of the SteuerLogik 
-	 * @param yPos y position of the SteuerLogik 
-	 * @param rotPhase time that the controlled Ampel stays red
-	 * @param gruenPhase time that the controlled Ampel stays green
-	 * @param ampel the controlled Ampel
-	 * @param wellenZeitPunkt time between waves of cars sent by the controlled WellenGenerator
-	 * @param wellenGenerator the controlled WellenGenerator
+	 * @param yPos y position of the SteuerLogik
+	 * @param ampelnListen the lists of Ampeln that run together, with their rotPhase and gruenPhase in the order of [ArrayList<Ampel>, rotPhase, gruenPhase]
+	 * @param wellenGeneratoren the controlled WellenGenerator in an array with their associated wait time
 	 */
-	public static void create(String label, int xPos, int yPos, long rotPhase, long gruenPhase, String ampel, long wellenZeitPunkt, String wellenGenerator)
+	public static void create(String label, int xPos, int yPos, ArrayList<Object[]> ampelnListen, ArrayList<Object[]> wellenGeneratoren)
 	{
-		Ampel a = Ampel.getAmpelByLabel(ampel);
-		WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel();//wellenGenerator);
+		//new arraylist that will be passed to the constructor for ampelnListen
+		ArrayList<Object[]> tempAmpelnListen = new ArrayList<Object[]>();
+		
+		//for each element of the overarching ampeln list
+		for(int i = 0; i<ampelnListen.size(); i++)
+		{
+			//get the ArrayList of Ampel labels
+			ArrayList<String> tempList = (ArrayList<String>) ampelnListen.get(i)[0];
+			//for the list of Ampel labels
+			for(int j = 0; j<tempList.size(); j++)
+			{
+				//get the Ampel associated with the label
+				Ampel a = Ampel.getAmpelByLabel( tempList.get(j) );
+				//add the Ampel to the collection of Ampeln OF THE SAME STRUCTURE for the constructor
+				
+			}
+			//add the list of Ampel OBJECTS and their times to something that will be controllable
+		}
+		
+		//new arraylist that will be passed to the constructor for wellenGeneratoren
+		ArrayList<Object[]> tempWellenGeneratoren = new ArrayList<Object[]>();
+		//for each element of the wellenGeneratoren list
+		for(int i = 0; i<wellenGeneratoren.size(); i++)
+		{
+			//get the WellenGenerator by its label
+			WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel( (String) wellenGeneratoren.get(i)[0] );
+			//add the WellenGenerator to the collection of WellenGeneratoren OF THE SAME STRUCTURE for the constructor
+		}
+		
 		new SteuerLogik(label, xPos, yPos, rotPhase, gruenPhase, a, wellenZeitPunkt, w);
 	}
 	
