@@ -30,6 +30,9 @@ public class SteuerLogik extends Actor
 	/**boolean used to differentiate between rotPhase and gruenPhase*/
 	private boolean isGruen = true;
 	
+	/**tickers to keep track of what Ampeln or WellenGeneratoren are up*/
+	private OverflowTicker ampTick, welTick;
+	
 	/** (private) Constructor for the SteuerLogik
 	 * 
 	 * @param label of this SteuerLogik 
@@ -45,6 +48,8 @@ public class SteuerLogik extends Actor
 		this.myAmpeln = ampelnListen;
 		this.myWellenGeneratoren = wellenGeneratoren;
 		SteuerLogik.instance = this;
+		this.ampTick = new OverflowTicker( ampelnListen.size() );
+		this.welTick = new OverflowTicker( ampelnListen.size() );
 	}
 	
 	/** create the SteuerLogik
@@ -100,15 +105,8 @@ public class SteuerLogik extends Actor
 		//run the actor
 		while(true){
 					
-			try {
-							
-			//let the thread sleep for a little time
-			//without that we've got a running problem 
-			//Actor.sleep(Simulation.CLOCKBEAT);
-					
+			try {					
 				act(); 
-				
-						
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -145,34 +143,41 @@ public class SteuerLogik extends Actor
 		
 		if(simTime > ampelWaitTime)
 		{
-			updateAmpeln(this.myAmpel);
-			
 			if(isGruen)
-				this.ampelWaitTime = Simulation.getGlobalTime() + rotPhase;
+				this.ampelWaitTime = Simulation.getGlobalTime() + (long) this.myAmpeln.get( this.ampTick.getTick() )[2];
 			else
-				this.ampelWaitTime = Simulation.getGlobalTime() + gruenPhase;
+				this.ampelWaitTime = Simulation.getGlobalTime() + (long) this.myAmpeln.get( this.ampTick.getTick() )[1];
 			isGruen = !isGruen;
+
+			updateAmpeln( this.ampTick.tick() );
 		}
+		
 		if(simTime > wellenGeneratorWaitTime)
 		{
-			this.updateWellenGenerator(this.myWellenGenerator);
-			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.wellenZeitPunkt;
+			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + (long) this.myWellenGeneratoren.get( this.welTick.getTick() )[1];
+			this.updateWellenGenerator( this.welTick.tick() );
 		}
 		return false;
 	}
 	
-	/**change state of Ampeln (form Green to Red, and from Red to Green)*/
-	private void updateAmpeln(Ampel a)
+	/**change state of Ampeln (from Green to Red, and from Red to Green)*/
+	private void updateAmpeln(int set)
 	{
-		a.wakeUp();
-		a.switchState();
+		for(Ampel a: (ArrayList<Ampel>) this.myAmpeln.get(set)[0] )
+		{
+			a.wakeUp();
+			a.switchState();
+		}
 	}
 	
 	/**send WellenGenerator a notice that it should send cars*/
-	private void updateWellenGenerator(WellenGenerator w)
+	private void updateWellenGenerator(int set)
 	{
-		w.wakeUp();
-		w.sendWave();
+		for(WellenGenerator w: (ArrayList<WellenGenerator>) this.myWellenGeneratoren.get(set)[0] )
+		{
+			w.wakeUp();
+			w.switchState();
+		}
 	}
 	
 	/** get the SteuerLogik instance
@@ -188,7 +193,7 @@ public class SteuerLogik extends Actor
 	 * has a central integer that is incremented until it reaches a given maximum
 	 * when it is incremented and becomes larger than the maximum, it returns to value 0
 	 */
-	private class overflowTicker
+	private class OverflowTicker
 	{
 		/**the current integer tick*/
 		private int tick = 0;
@@ -199,7 +204,7 @@ public class SteuerLogik extends Actor
 		 * assumes start of 0
 		 * @param max maximum integer value before returning to 0 
 		 */
-		overflowTicker(int max)
+		OverflowTicker(int max)
 		{
 			this.max = max;
 		}
@@ -207,7 +212,7 @@ public class SteuerLogik extends Actor
 		 * @param max maximum integer value before returning to 0 
 		 * @param start start value in case a Class needs to start with a value other than 0
 		 */
-		overflowTicker(int max, int start)
+		OverflowTicker(int max, int start)
 		{
 			this(max);
 			this.tick = start;
@@ -219,15 +224,16 @@ public class SteuerLogik extends Actor
 		 */
 		int tick()
 		{
+			int val = this.tick;
 			this.increment();
-			if(this.tick>max)
-				this.tick = 0;
-			return this.tick;
+			return val;
 		}
 		/** Increment method that adds 1 to the ticker */
 		void increment()
 		{
-			this.tick = this.tick+1;
+			this.tick++;
+			if(this.tick>max)
+				this.tick = 0;
 		}
 		/**get tick value*/
 		int getTick()
