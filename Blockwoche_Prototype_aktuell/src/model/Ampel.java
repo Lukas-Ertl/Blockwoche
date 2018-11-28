@@ -16,9 +16,9 @@ public class Ampel extends SimpleStation {
 	 /** the boolean green is being used as the current state of the Ampel.
 	  * 
 	  */
-	private boolean isGreen = true;
+	private boolean green = true;
 	
-	protected static Map hm = Collections.synchronizedMap(new HashMap());
+	protected static Map ampelMap = Collections.synchronizedMap(new HashMap());
 
 /** 
  * 
@@ -36,7 +36,7 @@ public class Ampel extends SimpleStation {
 			String image) {
 		super(label, inQueue, outQueue, xPos, yPos, image);
 		
-		hm.put(label, this);
+		ampelMap.put(label, this);
 	}
 	
 
@@ -74,7 +74,7 @@ public class Ampel extends SimpleStation {
 	 */
 	@Override 
 	protected boolean work() {
-		while(isGreen) {
+		while(green) {
 			return super.work();
 			/*
 			//let the thread wait only if there are no objects in the incoming and outgoing queues
@@ -107,7 +107,7 @@ public class Ampel extends SimpleStation {
 	public void switchState()
 	
 	{
-		isGreen=!isGreen;
+		green=!green;
 	
 	}
 	/**
@@ -117,7 +117,7 @@ public class Ampel extends SimpleStation {
 	 */
 	public static Ampel getAmpelByLabel(String label)
 	{
-		return (Ampel) hm.get(label);
+		return (Ampel) ampelMap.get(label);
 		
 	}
 	@Override
@@ -143,11 +143,6 @@ public class Ampel extends SimpleStation {
 	protected Collection<TheObject> getNextOutQueueObjects()
 	{
 		return null;
-	}
-	
-	public boolean getIsGreen()
-	{
-		return isGreen;
 	}
 	
 
