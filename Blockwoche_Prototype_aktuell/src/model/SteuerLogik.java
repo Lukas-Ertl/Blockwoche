@@ -18,23 +18,11 @@ public class SteuerLogik extends Actor
 	/**the single instance of SteuerLogik*/
 	private static SteuerLogik instance;
 	
-	/**time that an Ampel stays green*/
-	private long gruenPhase;
+	/**List of Ampeln that SteuerLogik controls with their rot- and gruenPhasen times*/
+	private ArrayList<Object[]> myAmpeln;
 	
-	/**time that an Ampel stays red*/
-	private long rotPhase;
-	
-	//TODO replace with a list of Ampeln
-	/**the Ampel that SteuerLogik controls*/
-	private Ampel myAmpel;
-	
-	//TODO change to list
-	/**time before the next wave of cars start*/
-	private long wellenZeitPunkt;
-	
-	//TODO replace with list of WellenGenerators
-	/**the WellenGenerator that SteuerLogik controls*/
-	private WellenGenerator myWellenGenerator;
+	/**List of WellenGeneratoren that SteuerLogik controls with their associated wellenZeitPunkt times*/
+	private ArrayList<Object[]> myWellenGeneratoren;
 	
 	/**the time being waited for to send signals to Ampeln and WellenGeneratorn*/
 	private long ampelWaitTime, wellenGeneratorWaitTime;
@@ -46,39 +34,16 @@ public class SteuerLogik extends Actor
 	 * 
 	 * @param label of this SteuerLogik 
 	 * @param xPos x position of the SteuerLogik 
-	 * @param yPos y position of the SteuerLogik 
-	 * @param rotPhase time that the controlled Ampel stays red
-	 * @param gruenPhase time that the controlled Ampel stays green
-	 * @param ampel the controlled Ampel
-	 * @param wellenZeitPunkt time between waves of cars sent by the controlled WellenGenerator
-	 * @param wellenGenerator the controlled WellenGenerator
+	 * @param yPos y position of the SteuerLogik
+	 * @param ampelnListen the lists of Ampeln that run together, with their rotPhase and gruenPhase in the order of [ArrayList<Ampel>, rotPhase, gruenPhase]
+	 * @param wellenGeneratoren the controlled WellenGenerator in an array with their associated wait time
 	 */
 	private SteuerLogik(String label, int xPos, int yPos, ArrayList<Object[]> ampelnListen, ArrayList<Object[]> wellenGeneratoren)
 	{
 		super(label, xPos, yPos);
-		/*
-		for(Object[] ampelnList : ampelnListen)
-		{
-			for(String ampelList: (ArrayList<String>) ampelnList[0])
-			{
-				//add ampel to a new collection OF THE SAME STRUCTURE for the constructor
-			}
-			//add the list of ampel OBJECTS and their times to something that will be controllable
-		}
 		
-		For()
-		{
-			WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel();//wellenGenerator);
-		}
-		*/
-		this.myAmpel = ampel;
-		this.rotPhase = rotPhase;
-		this.gruenPhase = gruenPhase;
-		this.wellenZeitPunkt = wellenZeitPunkt;
-		this.myWellenGenerator = wellenGenerator;
-		
-		this.ampelWaitTime = this.gruenPhase;
-		this.wellenGeneratorWaitTime = this.wellenZeitPunkt;
+		this.myAmpeln = ampelnListen;
+		this.myWellenGeneratoren = wellenGeneratoren;
 		SteuerLogik.instance = this;
 	}
 	
