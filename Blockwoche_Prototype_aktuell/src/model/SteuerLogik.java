@@ -3,27 +3,55 @@ package model;
 import controller.Simulation;
 import io.Statistics;
 
+/**
+ * Steuerung fuer alle Ampeln und WellenGeneratoren
+ * TODO make a Singleton
+ * 
+ * @author Team 4
+ * @version 2018-11
+ */
 public class SteuerLogik extends Actor
 {
-	private static SteuerLogik meee;
+	//TODO make a Singleton
+	/**the single instance of SteuerLogik*/
+	private static SteuerLogik instance;
 	
-	//time that an Ampel stays green
+	/**time that an Ampel stays green*/
 	private long gruenPhase;
-	//time that an Ampel stays red
+	
+	/**time that an Ampel stays red*/
 	private long rotPhase;
+	
 	//TODO replace with a list of Ampeln
+	/**the Ampel that SteuerLogik controls*/
 	private Ampel myAmpel;
-	//time before the next wave of cars start TODO change to list
+	
+	//TODO change to list
+	/**time before the next wave of cars start*/
 	private long wellenZeitPunkt;
+	
 	//TODO replace with list of WellenGenerators
+	/**the WellenGenerator that SteuerLogik controls*/
 	private WellenGenerator myWellenGenerator;
 	
-	//the time being waited for to send signals to Ampeln and WellenGeneratorn
+	/**the time being waited for to send signals to Ampeln and WellenGeneratorn*/
 	private long ampelWaitTime, wellenGeneratorWaitTime;
-	//boolean for deciding between rotPhase and gruenPhase time
+	
+	/**boolean used to differentiate between rotPhase and gruenPhase*/
 	private boolean isGruen = true;
 	
-	protected SteuerLogik(String label, int xPos, int yPos, long rotPhase, long gruenPhase, Ampel ampel, long wellenZeitPunkt, WellenGenerator wellenGenerator)
+	/** (private) Constructor for the SteuerLogik
+	 * 
+	 * @param label of this SteuerLogik 
+	 * @param xPos x position of the SteuerLogik 
+	 * @param yPos y position of the SteuerLogik 
+	 * @param rotPhase time that the controlled Ampel stays red
+	 * @param gruenPhase time that the controlled Ampel stays green
+	 * @param ampel the controlled Ampel
+	 * @param wellenZeitPunkt time between waves of cars sent by the controlled WellenGenerator
+	 * @param wellenGenerator the controlled WellenGenerator
+	 */
+	private SteuerLogik(String label, int xPos, int yPos, long rotPhase, long gruenPhase, Ampel ampel, long wellenZeitPunkt, WellenGenerator wellenGenerator)
 	{
 		super(label, xPos, yPos);
 		this.myAmpel = ampel;
@@ -34,9 +62,20 @@ public class SteuerLogik extends Actor
 		
 		this.ampelWaitTime = this.gruenPhase;
 		this.wellenGeneratorWaitTime = this.wellenZeitPunkt;
-		SteuerLogik.meee = this;
+		SteuerLogik.instance = this;
 	}
 	
+	/** create the SteuerLogik
+	 * 
+	 * @param label of this SteuerLogik 
+	 * @param xPos x position of the SteuerLogik 
+	 * @param yPos y position of the SteuerLogik 
+	 * @param rotPhase time that the controlled Ampel stays red
+	 * @param gruenPhase time that the controlled Ampel stays green
+	 * @param ampel the controlled Ampel
+	 * @param wellenZeitPunkt time between waves of cars sent by the controlled WellenGenerator
+	 * @param wellenGenerator the controlled WellenGenerator
+	 */
 	public static void create(String label, int xPos, int yPos, long rotPhase, long gruenPhase, String ampel, long wellenZeitPunkt, String wellenGenerator)
 	{
 		Ampel a = Ampel.getAmpelByLabel(ampel);
@@ -44,6 +83,7 @@ public class SteuerLogik extends Actor
 		new SteuerLogik(label, xPos, yPos, rotPhase, gruenPhase, a, wellenZeitPunkt, w);
 	}
 	
+	/**void run method to overwrite the actor's method to avoid sleeping*/
 	@Override
 	public void run() {
 				
@@ -64,6 +104,8 @@ public class SteuerLogik extends Actor
 			}
 		}
 	}
+	
+	/**void act method to overwrite the actor's method to avoid sleeping*/
 	private synchronized void act(){
 		
 		/* 
@@ -84,6 +126,9 @@ public class SteuerLogik extends Actor
 			
 	}
 
+	/** work methode die immer laeuft waerend die Simulation laeuft
+	 * @return boolean that depends on whether there is work left to do (Currently only returns false)
+	 */
 	protected boolean work()
 	{
 		long simTime = Simulation.getGlobalTime();
@@ -106,35 +151,62 @@ public class SteuerLogik extends Actor
 		return false;
 	}
 	
-	//change state of Ampeln (form Green to Red, and from Red to Green)
+	/**change state of Ampeln (form Green to Red, and from Red to Green)*/
 	private void updateAmpeln(Ampel a)
 	{
 		a.wakeUp();
 		a.switchState();
 	}
 	
-	//send WellenGenerator a notice that it should send cars
+	/**send WellenGenerator a notice that it should send cars*/
 	private void updateWellenGenerator(WellenGenerator w)
 	{
 		w.wakeUp();
 		w.sendWave();
 	}
 	
+	/** get the SteuerLogik instance
+	 * 
+	 * @return the SteuerLogik instance
+	 */
+	public static SteuerLogik getSteuerLogik()
+	{
+		return SteuerLogik.instance;
+	}
+	
+	/**A private inner Class that is used to regulate which Ampel set or WellenGenerator is next
+	 * has a central integer that is incremented until it reaches a given maximum
+	 * when it is incremented and becomes larger than the maximum, it returns to value 0
+	 */
 	private class overflowTicker
 	{
+		/**the current integer tick*/
 		private int tick = 0;
+		/**the maximum integer tick before returning back to 0*/
 		private int max = 0;
 		
+		/** (Default) Constructor
+		 * assumes start of 0
+		 * @param max maximum integer value before returning to 0 
+		 */
 		overflowTicker(int max)
 		{
 			this.max = max;
 		}
+		/** Specific Constructor
+		 * @param max maximum integer value before returning to 0 
+		 * @param start start value in case a Class needs to start with a value other than 0
+		 */
 		overflowTicker(int max, int start)
 		{
 			this(max);
 			this.tick = start;
 		}
 		
+		/** Increment the ticker and return the new value
+		 * 
+		 * @return new tick value
+		 */
 		int tick()
 		{
 			this.increment();
@@ -142,18 +214,15 @@ public class SteuerLogik extends Actor
 				this.tick = 0;
 			return this.tick;
 		}
+		/** Increment method that adds 1 to the ticker */
 		void increment()
 		{
 			this.tick = this.tick+1;
 		}
+		/**get tick value*/
 		int getTick()
 		{
 			return this.tick;
 		}
-	}
-	
-	public static SteuerLogik get()
-	{
-		return SteuerLogik.meee;
 	}
 }
