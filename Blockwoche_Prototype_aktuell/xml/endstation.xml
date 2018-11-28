@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <settings>
-
-		<end_station>
-		<label>End_Station</label>
+	<endStation>
+		<label>endStation</label>
 		<x_position>800</x_position>
 		<y_position>270</y_position>
 		<view>
@@ -16,6 +15,5 @@
 			<x_position>820</x_position>
 			<y_position>350</y_position>
 		</outqueue>
-	</end_station>
-	
+	</endStation>
 </settings>

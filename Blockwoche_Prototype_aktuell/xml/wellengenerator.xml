@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <settings>
-	<wellengenerator>
-		<label>wellengenerator_1</label>
+	<wellenGenerator>
+		<label>wellenGenerator_1</label>
 		<x_position>42</x_position>
 		<y_position>42</y_position>
 		<view>
 			<image>object.png</image>
 		</view>
-		<wellengroese>3</wellengroese>
+		<wellenGroesse>3</wellenGroesse>
 		<inqueue>
 			<x_position>42</x_position>
 			<y_position>42</y_position>
@@ -16,5 +16,5 @@
 			<x_position>42</x_position>
 			<y_position>90</y_position>
 		</outqueue>
-	</wellengenerator>
+	</wellenGenerator>
 </settings>

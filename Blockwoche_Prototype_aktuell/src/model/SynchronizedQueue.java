@@ -59,7 +59,7 @@ public class SynchronizedQueue implements Queue<Object>{
 	/** updates the value of the view
 	 * 
 	 */
-	private void updateView(){
+	void updateView(){
 		theView.updateValue(this.size());
 	}
 	

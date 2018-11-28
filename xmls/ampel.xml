@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<settings>
+	<ampel>
+		<label>ampel_1</label>
+		<xpos>42</xpos>
+		<ypos>42</ypos>
+		<view>Chris.png</view>
+		<inqueue>
+			<x_position>42</x_position>
+			<y_position>42</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>42</x_position>
+			<y_position>42</y_position>
+		</outqueue>
+	</ampel>
+</settings>

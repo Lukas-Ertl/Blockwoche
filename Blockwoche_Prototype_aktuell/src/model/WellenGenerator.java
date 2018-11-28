@@ -9,7 +9,7 @@ public class WellenGenerator extends Ampel {
 
 	/** instance of the Wellengenerator*/
 	private static WellenGenerator TheWellenGenerator;
-	private int wellengroese;
+	private int wellenGroesse;
 	private boolean send = false;
 
 	
@@ -21,16 +21,17 @@ public class WellenGenerator extends Ampel {
 	 * @param xPos x position of the Wellengenerator
 	 * @param yPos y position of the Wellengenerator
 	 * @param image image of the Wellengenerator 
+	 * @param größe der Wellen an Autos
 	 */
-	private WellenGenerator(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image,int wellengroese){
+	private WellenGenerator(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image,int wellenGroesse){
 		
 		super(label, inQueue, outQueue, xPos, yPos, image);
 		
-		this.wellengroese = wellengroese;
+		this.wellenGroesse = wellenGroesse;
 		
 	}
 	
-	/** creates a new start station
+	/** creates a new Wellengenerator
 	 *
 	 * @param label of the Wellengenerator 
 	 * @param inQueue the incoming queue
@@ -38,17 +39,21 @@ public class WellenGenerator extends Ampel {
 	 * @param xPos x position of the Wellengenerator 
 	 * @param yPos y position of the Wellengenerator
 	 * @param image image of the Wellengenerator
+	 * @param größe der Wellen an Autos
 	 */
-	public static void create(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image,int wellengroese){
+	public static void create(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image,int wellenGroesse){
 	
-		TheWellenGenerator = new WellenGenerator(label, inQueue, outQueue, xPos, yPos, image, wellengroese);
+		TheWellenGenerator = new WellenGenerator(label, inQueue, outQueue, xPos, yPos, image, wellenGroesse);
 		
 	}
 	
 	
 	
 	
-
+	/** legt Objekte in die Outqueue
+	 * 
+	 * @param theObject das in die Outqueue zu legende Objekt
+	 */
 	@Override
 	protected void handleObject(TheObject theObject){
 				
@@ -74,7 +79,10 @@ public class WellenGenerator extends Ampel {
 	
 	
 
-	
+	/**Verarbeitet Objekte und sendet sie in Wellen los
+	 * 
+	 * @return Wellengenerator
+	 */
 	@Override
 	protected boolean work() {
 		
@@ -85,22 +93,34 @@ public class WellenGenerator extends Ampel {
 		//If there is an inqueue object found, handle it
 		if (numberOfInQueueObjects() > 0) {
 			
-			System.out.println(wellengroese);
+			
 			this.handleObjects(this.getnextWave());
 			
 			
 		}
-				
+
 		//If there is an object in the out queue -> wake it up
 		if(numberOfOutQueueObjects() > 0){
-			ArrayList<SynchronizedQueue> wellenListe = getAllOutQueues();
-			//TheObject myObject = (TheObject) this.getNextOutQueueObject();//get the object
-			for(Object o: wellenListe.get(0)) {
-			//instruct the object to move to the next station
-			((TheObject)o).wakeUp();
+			
+			
+			ArrayList<Auto> wellenListe = new ArrayList<Auto>();
+			int autoLimit = this.outGoingQueue.size();
+			for(int i = 0; i< autoLimit; i++) {
+
+				wellenListe.add((Auto) this.getNextOutQueueObject());
 			}
+
+			//TheObject myObject = (TheObject) this.getNextOutQueueObject();//get the object
+			for(Auto a: wellenListe) {
+			//instruct the object to move to the next station
+			a.wakeUp();
+			
+
+			}
+
 			
 				
+
 		}
 				send = false;
 				
@@ -117,12 +137,18 @@ public class WellenGenerator extends Ampel {
 	}
 	
 	
+	
+	/**Erstellt Wellen mit der Größe, wie im XML deffiniert
+	 * 
+	 * @return eine Welle mit der größe, wie sie in der XML angegeben wurde
+	 */
 	private ArrayList<TheObject> getnextWave() {
 		
 		ArrayList<TheObject> welle = new ArrayList<TheObject>();
 		
-		for (int counter = 0; counter < wellengroese; counter++) {
+		for (int counter = 0; counter < wellenGroesse; counter++) {
 			
+			if(this.inComingQueue.isEmpty())break;
 			welle.add(getNextInQueueObject());
 			
 			
@@ -132,17 +158,20 @@ public class WellenGenerator extends Ampel {
 		
 	}
 	
-	
+	/**Wird von der SteuerLogik aufgerufen und startet das senden der Welle
+	 * 
+	 */
 	public void sendWave() {
-//		
-//		ArrayList<TheObject> nextWave = this.getnextWave();
-//		handleObjects(nextWave);
-//		
+		
 		this.send=true;
+
 		
 		
 	}
 	
+	/**Verarbeitet eine Collection von Objekten und legt sie in die Outqueue
+	 * 
+	 */
 	@Override
 	protected void handleObjects(Collection<TheObject> theObjects) {
 
@@ -160,26 +189,26 @@ public class WellenGenerator extends Ampel {
 		
 	}
 	
-	protected void handleObjects(Collection<TheObject> theObjects,int anzahl) {
-
-		//the object chooses an outgoing queue and enter it
-		//theObject.enterOutQueue(this);
-		
-		for (TheObject o: theObjects) {
-			
-			o.enterOutQueue(this);
-			
-		}
-		
-		//let the next objects start with a little delay
-		try {
-			Thread.sleep(Simulation.CLOCKBEAT);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-			
-		
-	}
+//	protected void handleObjects(Collection<TheObject> theObjects,int anzahl) {
+//
+//		//the object chooses an outgoing queue and enter it
+//		//theObject.enterOutQueue(this);
+//		
+//		for (TheObject o: theObjects) {
+//			
+//			o.enterOutQueue(this);
+//			
+//		}
+//		
+//		//let the next objects start with a little delay
+//		try {
+//			Thread.sleep(Simulation.CLOCKBEAT);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//			
+//		
+//	}
 	
 	
 	

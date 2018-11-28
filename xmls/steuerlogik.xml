@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<settings>
+	<steurlogik>
+		<label>steuerlogik_1</label>
+		<xpos>42</xpos>
+		<ypos>42</ypos>
+		<rotphase>42</rotphase>
+		<gruenphase>42</gruenphase>
+		<ampel>ampel_1</ampel>
+		<wellenzeitpunkt>42</wellenzeitpunkt>
+		<wellengenerator>wellengenerator_1</wellengenerator>
+	</steurlogik>
+</settings>
