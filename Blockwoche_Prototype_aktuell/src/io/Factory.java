@@ -75,8 +75,8 @@ public class Factory {
 		//createProcessStations();
 		createEndStation();
 		createSteuerLogik();
-		createAutos();
 		createWaypoint();
+		createAutos();
 	}
 
 	 /**

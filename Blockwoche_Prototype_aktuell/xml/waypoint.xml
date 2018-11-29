@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <settings>
+
+<!--
 		<waypoint>
 		<label>waypointOben</label>
 		<x_position>460</x_position>
@@ -51,8 +53,9 @@
 		</outqueue>
 	</waypoint>
 	
+	-->
 	
-			<waypoint>
+		<waypoint>
 		<label>waypointRechts</label>
 		<x_position>700</x_position>
 		<y_position>270</y_position>
@@ -69,6 +72,7 @@
 		</outqueue>
 	</waypoint>
 	
+	<!--
 	
 		<waypoint>
 		<label>waypointLinksUnten</label>
@@ -106,6 +110,6 @@
 	</waypoint>
 	
 	
-	
+	-->
 	
 </settings>
