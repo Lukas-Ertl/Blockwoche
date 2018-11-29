@@ -4,20 +4,20 @@ import controller.Simulation;
 
 /**
  * Steuerung fuer alle Ampeln und WellenGeneratoren
- * TODO UPDATE THE JAVADOC
- * TODO make a Singleton
+ * als Singleton implementiert
  * 
  * @author Team 4
  * @version 2018-11
  */
 public final class SteuerLogik extends Actor
 {
-	//TODO make a Singleton
 	/**the single instance of SteuerLogik*/
 	private static SteuerLogik instance = null;
 	
+	/**all of the Ampeln, WellenGeneratoren and all wait times (read from XML)*/
 	private SteuerInfo steuerInfo;
 	
+	/**wait times for Ampel sets and WellenGenerator sets*/
 	private long ampelWaitTime, wellenGeneratorWaitTime;
 	
 	/**boolean used to differentiate between rotPhase and gruenPhase*/
@@ -31,8 +31,7 @@ public final class SteuerLogik extends Actor
 	 * @param label of this SteuerLogik 
 	 * @param xPos x position of the SteuerLogik 
 	 * @param yPos y position of the SteuerLogik
-	 * @param ampelnListen the lists of Ampeln that run together, with their rotPhase and gruenPhase in the order of [ArrayList<Ampel>, rotPhase, gruenPhase]
-	 * @param wellenGeneratoren the controlled WellenGenerator in an array with their associated wait time
+	 * @param SteuerInfo class used to store information about Ampeln, WellenGeneratoren and wait times for clean code
 	 */
 	private SteuerLogik(String label, int xPos, int yPos, SteuerInfo info)
 	{
@@ -43,16 +42,18 @@ public final class SteuerLogik extends Actor
 		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize()-1 );
 		this.ampelWaitTime = this.steuerInfo.getGruenPhase(0);
 		this.wellenGeneratorWaitTime = this.steuerInfo.getWellenGeneratorTime(0); 
+		
+		//set the one instance to be this
 		SteuerLogik.instance = this;
 	}
 	
 	/** create the SteuerLogik
+	 * only creates a new SteuerLogik if there is not already a SteuerLogik object
 	 * 
 	 * @param label of this SteuerLogik 
 	 * @param xPos x position of the SteuerLogik 
 	 * @param yPos y position of the SteuerLogik
-	 * @param ampelnListen the lists of Ampeln that run together, with their rotPhase and gruenPhase in the order of [ArrayList<Ampel>, rotPhase, gruenPhase]
-	 * @param wellenGeneratoren the controlled WellenGenerator in an array with their associated wait time
+	 * @param SteuerInfo class used to store information about Ampeln, WellenGeneratoren and wait times for clean code
 	 */
 	public static void create(String label, int xPos, int yPos, SteuerInfo info)
 	{
@@ -95,33 +96,40 @@ public final class SteuerLogik extends Actor
 			
 	}
 
-	/** work methode die immer laeuft waerend die Simulation laeuft
+	/** work method that always runs while the Simulation is running
 	 * @return boolean that depends on whether there is work left to do (Currently only returns false)
 	 */
 	protected boolean work()
 	{
+		//current time of the simulation
 		long simTime = Simulation.getGlobalTime();
 		
+		//if the time until the Ampel should switch has arrived
 		if(simTime > ampelWaitTime)
 		{
+			//set the new wait time (which is different depending on if the Ampel is green or red)
 			if(isGruen)
 				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getRotPhase( this.ampTick.getTick() );
 			else
 				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.getTick() );
 			isGruen = !isGruen;
 
+			//wake up Ampeln and have them switch states
 			updateAmpeln( this.ampTick.tick() );
 		}
 		
+		//if the time until the WellenGenerator should send has arrived
 		if(simTime > wellenGeneratorWaitTime)
 		{
+			//set the new wait time
 			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getWellenGeneratorTime( this.welTick.getTick() );
+			//wake up WellenGeneratoren and have them send a new wave
 			this.updateWellenGenerator( this.welTick.tick() );
 		}
 		return false;
 	}
 	
-	/**change state of Ampeln (from Green to Red, and from Red to Green)*/
+	/**change state of Ampeln in the given set (from Green to Red, and from Red to Green)*/
 	private void updateAmpeln(int set)
 	{
 		for( Ampel a: this.steuerInfo.getAmpelSet(set) )
@@ -189,7 +197,10 @@ public final class SteuerLogik extends Actor
 			this.increment();
 			return val;
 		}
-		/** Increment method that adds 1 to the ticker */
+		/**Increment method that adds 1 to the ticker
+		 * 
+		 * included in case the ticker needs to be incremented without a return value
+		 */
 		void increment()
 		{
 			this.tick++;
