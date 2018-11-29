@@ -6,12 +6,12 @@ public class Waypoint extends SimpleStation {
 	
 	private Waypoint(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image)
 	{
-		super(label, inQueue, outQueue, yPos, yPos, image);
+		super(label, inQueue, outQueue, xPos, yPos, image);
 	}
 	
 	public static void create(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image)
 	{
-		new Waypoint(label, inQueue, outQueue, yPos, yPos, image);
+		new Waypoint(label, inQueue, outQueue, xPos, yPos, image);
 	}
 
 	@Override
