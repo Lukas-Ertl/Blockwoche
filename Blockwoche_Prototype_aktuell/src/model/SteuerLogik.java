@@ -153,7 +153,7 @@ public class SteuerLogik extends Actor
 		for( WellenGenerator w: this.steuerInfo.getWellenGeneratorSet(set) )//(ArrayList<WellenGenerator>) this.myWellenGeneratoren.get(set)[0] )
 		{
 			w.wakeUp();
-			w.switchState();
+			w.sendWave();
 		}
 	}
 	
