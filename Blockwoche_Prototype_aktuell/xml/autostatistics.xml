@@ -18,12 +18,42 @@
       <wartezeit>1</wartezeit>
     </ampel>
   </auto>
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>3</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>3</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>4</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>1</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>0</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>0</wartezeit>
+    </ampel>
+  </auto>
   <auto />
   <auto />
   <auto />

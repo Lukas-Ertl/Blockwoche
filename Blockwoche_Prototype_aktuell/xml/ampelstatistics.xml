@@ -2,19 +2,55 @@
 <statistics>
   <ampel>
     <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
     <autoanzahl>bla</autoanzahl>
     <durchschnittswartezeit>blabla</durchschnittswartezeit>
   </ampel>
   <ampel>
     <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
     <autoanzahl>bla</autoanzahl>
     <durchschnittswartezeit>blabla</durchschnittswartezeit>
   </ampel>
   <ampel>
     <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <autoanzahl>bla</autoanzahl>
+    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+  </ampel>
+  <ampel>
+    <ampelname>ampel_1</ampelname>
+    <insgesamtewartezeit>30</insgesamtewartezeit>
     <autoanzahl>bla</autoanzahl>
     <durchschnittswartezeit>blabla</durchschnittswartezeit>
   </ampel>
