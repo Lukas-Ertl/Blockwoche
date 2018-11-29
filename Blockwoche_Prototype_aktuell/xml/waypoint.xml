@@ -42,7 +42,7 @@
 			<image></image>
 		</view>
 		<inqueue>
-			<x_position>100/x_position>
+			<x_position>100</x_position>
 			<y_position>210</y_position>
 		</inqueue>
 		<outqueue>
@@ -78,7 +78,7 @@
 			<image></image>
 		</view>
 		<inqueue>
-			<x_position>60/<x_position>
+			<x_position>60</x_position>
 			<y_position>260</y_position>
 		</inqueue>
 		<outqueue>

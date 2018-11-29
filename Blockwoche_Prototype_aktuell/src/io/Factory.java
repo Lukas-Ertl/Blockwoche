@@ -165,7 +165,6 @@ public class Factory {
      private static void createWaypoint()
      {
     	 try {
-      		
       		//read the information from the XML file into a JDOM Document
       		Document theXMLDoc = new SAXBuilder().build(theWaypointDataFile);
       		
@@ -173,7 +172,7 @@ public class Factory {
       		Element root = theXMLDoc.getRootElement();
       		
       		//get all the stations into a List object
-      		List <Element> stations = root.getChildren("station");
+      		List <Element> stations = root.getChildren("waypoint");
       		
       		//separate every JDOM "station" Element from the list and create Java Station objects
       		for (Element station : stations) {
@@ -207,10 +206,10 @@ public class Factory {
           		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
           		
           		//creating a new Station object
-          		new Waypoint(label, theInqueue, theOutqueue, xPos, yPos);
-          		}
-      		}
-    	 catch (JDOMException e) {
+          		Waypoint.create(label, theInqueue, theOutqueue, xPos, yPos);
+          	}
+      	}
+    	catch (JDOMException e) {
  				e.printStackTrace();
  		} catch (IOException e) {
  				e.printStackTrace();

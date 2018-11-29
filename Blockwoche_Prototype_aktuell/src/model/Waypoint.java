@@ -4,11 +4,14 @@ import java.util.Collection;
 
 public class Waypoint extends SimpleStation {
 	
-	public Waypoint(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos)
-	
+	private Waypoint(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos)
 	{
-		super(label, inQueue, outQueue, yPos, yPos, label);
-		
+		super(label, inQueue, outQueue, yPos, yPos, "");
+	}
+	
+	public static void create(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos)
+	{
+		new Waypoint(label, inQueue, outQueue, yPos, yPos);
 	}
 
 	@Override
