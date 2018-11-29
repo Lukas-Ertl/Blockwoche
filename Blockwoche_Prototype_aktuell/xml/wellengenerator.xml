@@ -1,20 +1,81 @@
 <?xml version="1.0"?>
 <settings>
+
 	<wellenGenerator>
-		<label>wellenGenerator_1</label>
+		<label>wellenGeneratorLinks</label>
 		<x_position>42</x_position>
-		<y_position>42</y_position>
+		<y_position>270</y_position>
 		<view>
 			<image>object.png</image>
 		</view>
 		<wellenGroesse>3</wellenGroesse>
 		<inqueue>
-			<x_position>42</x_position>
-			<y_position>42</y_position>
+			<x_position>62</x_position>
+			<y_position>210</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>42</x_position>
-			<y_position>90</y_position>
+			<x_position>62</x_position>
+			<y_position>350</y_position>
 		</outqueue>
 	</wellenGenerator>
+
+		<wellenGenerator>
+		<label>wellenGeneratorRechts</label>
+		<x_position>800</x_position>
+		<y_position>270</y_position>
+		<view>
+			<image>object.png</image>
+		</view>
+		<wellenGroesse>3</wellenGroesse>
+		<inqueue>
+			<x_position>820</x_position>
+			<y_position>210</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>820</x_position>
+			<y_position>350</y_position>
+		</outqueue>
+	</wellenGenerator>
+
+
+
+			<wellenGenerator>
+		<label>wellenGeneratorOben</label>
+		<x_position>440</x_position>
+		<y_position>100</y_position>
+		<view>
+			<image>object.png</image>
+		</view>
+		<wellenGroesse>3</wellenGroesse>
+		<inqueue>
+			<x_position>460</x_position>
+			<y_position>40</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>460</x_position>
+			<y_position>180</y_position>
+		</outqueue>
+	</wellenGenerator>
+	
+		<wellenGenerator>
+		<label>wellenGeneratorUnten</label>
+		<x_position>460</x_position>
+		<y_position>500</y_position>
+		<view>
+			<image>object.png</image>
+		</view>
+		<wellenGroesse>3</wellenGroesse>
+		<inqueue>
+			<x_position>480</x_position>
+			<y_position>440</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>480</x_position>
+			<y_position>580</y_position>
+		</outqueue>
+	</wellenGenerator>
+	
+
+	
+	
 </settings>

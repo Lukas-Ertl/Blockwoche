@@ -9,8 +9,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -25,8 +26,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -39,8 +41,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -53,8 +56,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -67,8 +71,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -81,8 +86,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -95,8 +101,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -109,8 +116,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -123,8 +131,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -137,8 +146,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -151,8 +161,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -165,8 +176,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -179,8 +192,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -193,8 +208,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -207,8 +224,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -221,8 +240,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -235,8 +256,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -249,8 +272,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -263,8 +287,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -277,8 +302,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -291,8 +317,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -305,8 +332,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -319,8 +347,9 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -333,8 +362,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -347,8 +378,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -361,8 +394,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -375,8 +410,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>			
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -389,8 +426,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>			
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -403,8 +442,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>			
 			<station>endStation</station>
 		</sequence>
 	</auto>
@@ -417,8 +458,10 @@
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGenerator_1</station>
-			<station>ampel_1</station>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>			
 			<station>endStation</station>
 		</sequence>
 	</auto>

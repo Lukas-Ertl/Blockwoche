@@ -5,14 +5,32 @@
 		<x_position>42</x_position>
 		<y_position>42</y_position>
 		<ampelSet>
-			<rotPhase>5</rotPhase>
-			<gruenPhase>5</gruenPhase>
-			<ampelLabel>ampel_1</ampelLabel>
+			<rotPhase>3</rotPhase>
+			<gruenPhase>3</gruenPhase>
+			<ampelLabel>ampelOben</ampelLabel>
+			<ampelLabel>ampelUnten</ampelLabel>
 		</ampelSet>
+		
+		<ampelSet>
+			<rotPhase>3</rotPhase>
+			<gruenPhase>3</gruenPhase>
+			<ampelLabel>ampelRechts</ampelLabel>
+			<ampelLabel>ampelLinks</ampelLabel>
+		</ampelSet>		
+		
 		<wellenGeneratorSet>
-			<wellenZeitpunkt>5</wellenZeitpunkt>
+			<wellenZeitpunkt>1</wellenZeitpunkt>
 			<wellenGenerator>
-				<wellenGeneratorLabel>wellenGenerator_1</wellenGeneratorLabel>
+				<wellenGeneratorLabel>wellenGeneratorLinks</wellenGeneratorLabel>
+			</wellenGenerator>
+			<wellenGenerator>
+				<wellenGeneratorLabel>wellenGeneratorRechts</wellenGeneratorLabel>
+			</wellenGenerator>
+			<wellenGenerator>
+				<wellenGeneratorLabel>wellenGeneratorOben</wellenGeneratorLabel>
+			</wellenGenerator>
+			<wellenGenerator>
+				<wellenGeneratorLabel>wellenGeneratorUnten</wellenGeneratorLabel>
 			</wellenGenerator>
 		</wellenGeneratorSet>
 	</steuerLogik>

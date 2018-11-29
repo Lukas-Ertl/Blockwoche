@@ -1,7 +1,9 @@
 package io;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -13,6 +15,7 @@ import model.Auto;
 import model.EndStation;
 import model.ProcessStation;
 import model.StartStation;
+import model.Station;
 import model.SteuerInfo;
 import model.SteuerLogik;
 import model.SynchronizedQueue;
@@ -54,12 +57,7 @@ public class Factory {
 	/** the Wellengenerator XML data file */
 	private static String theWellengeneratorDataFile = "xml/wellengenerator.xml"; 
 	
-	/** the x position of the starting station, also position for all starting objects */
-	private static int XPOS_STARTSTATION;
-	
-	/** the y position of the starting station, also position for all starting objects */
-	private static int YPOS_STARTSTATION; 
-		
+
 	
 	/**
      * create the actors for the starting scenario
@@ -74,10 +72,11 @@ public class Factory {
 		createWellenGenerator();
 		//createObjects();
 		createAmpeln();
-		createAutos();
+		
 		//createProcessStations();
 		createEndStation();
 		createSteuerLogik();
+		createAutos();
 	}
 
 	 /**
@@ -99,25 +98,37 @@ public class Factory {
     		//the <settings> ... </settings> node
     		Element root = theXMLDoc.getRootElement();
     		
-    		//get the start_station into a List object
-    		Element theWellengenerator= root.getChild("wellenGenerator");
+    		
+    		//get all the Wellengeneratoren into a List 
+     		List <Element> wellengeneratoren = root.getChildren("wellenGenerator");
+    		
+    		
+     		for (Element theWellengenerator : wellengeneratoren) {
+    			
+    			
+    			String label = null;
+     			int xPos = 0;
+     			int yPos = 0;
+     			String image = null;
+     			int wellengroese;
+    		
     		
     		//get the label
-    		String label = theWellengenerator.getChildText("label");
+    		label = theWellengenerator.getChildText("label");
     		
     		//get the position
-    		XPOS_STARTSTATION = Integer.parseInt(theWellengenerator.getChildText("x_position"));
-    		YPOS_STARTSTATION = Integer.parseInt(theWellengenerator.getChildText("y_position"));
+    		xPos = Integer.parseInt(theWellengenerator.getChildText("x_position"));
+    		yPos = Integer.parseInt(theWellengenerator.getChildText("y_position"));
     		
     		//the <view> ... </view> node
     		Element viewGroup = theWellengenerator.getChild("view");
     		
     		//get the Wellengroese
-    		int wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellenGroesse"));
+    		wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellenGroesse"));
     		
     		
     		// the image
-    		String image = viewGroup.getChildText("image");
+    		image = viewGroup.getChildText("image");
     		
     		//CREATE THE INQUEUE
     		//the <inqueue> ... </inqueue> node
@@ -141,8 +152,8 @@ public class Factory {
     		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
     		    		
     		//creating a new StartStation object
-    		WellenGenerator.create(label, theInQueue, theOutQueue, XPOS_STARTSTATION, YPOS_STARTSTATION, image,wellengroese);
-    	
+    		WellenGenerator.create(label, theInQueue, theOutQueue, xPos, yPos, image,wellengroese);
+    		}
     	
     	} catch (JDOMException e) {
 				e.printStackTrace();
@@ -183,6 +194,8 @@ public class Factory {
     			String label = null;
     			int processtime = 0;
     			int speed = 0;
+    			int xPos = 0;
+     			int yPos = 0;
     			String image = null;
     			    			
     			// read data
@@ -208,10 +221,24 @@ public class Factory {
         			
         			stationsToGo.add(theStation.getText());
         			
+        			
+        		
+        			for(Station aktuelleStation : Station.getAllStations()) {
+        				
+        				
+        				
+        			if(theStation.getText().equals(aktuelleStation.getLabel()) && aktuelleStation.getClass() == WellenGenerator.class) {
+        				
+        				xPos = aktuelleStation.getXPos();
+        				yPos = aktuelleStation.getYPos();
+        				
+        			}
+        			}
+        			
         		}
         	  		
         		//creating a new TheObject object
-        		Auto.create(label, stationsToGo, processtime, speed, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
+        		Auto.create(label, stationsToGo, processtime, speed, xPos, yPos, image);
         		
 			}
     	
@@ -248,8 +275,8 @@ public class Factory {
     		String label = steuerLogik.getChildText("label");
     		
     		//get the position
-    		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
-    		YPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("y_position"));
+    		int xPos = Integer.parseInt(steuerLogik.getChildText("x_position"));
+    		int yPos= Integer.parseInt(steuerLogik.getChildText("y_position"));
     		
     		ArrayList<ArrayList<Ampel>> amp = new ArrayList<ArrayList<Ampel>>();
     		ArrayList<Long> rot = new ArrayList<Long>();
@@ -292,8 +319,8 @@ public class Factory {
 					for(Element wellenGenerator : wellenGeneratoren)
 					{
 						String wellenGeneratorLabel = wellenGenerator.getChildText("wellenGeneratorLabel");
-						System.out.println(wellenGeneratorLabel);
-						System.out.println( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
+						//System.out.println(wellenGeneratorLabel);
+						//System.out.println( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
 						tempWelEle.add( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
 					}
 					
@@ -301,10 +328,10 @@ public class Factory {
 				}
 			}
 			SteuerInfo info = new SteuerInfo(amp, rot, gruen, wel, welTime);
-			System.out.println(info.getWellenGeneratorSet(0).toString());
+			//System.out.println(info.getWellenGeneratorSet(0).toString());
     		
     		//creating a new StartStation object
-    		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, info);//rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
+    		SteuerLogik.create(label, xPos, yPos, info);//rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
     	    
     	
     	} catch (JDOMException e) {
@@ -314,130 +341,130 @@ public class Factory {
 		}
      }
 	
-	/**
-     * create the start station
-     * 
-     */
-     private static void createStartStation(){
-    	
-    	try {
-    		
-    		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theStartStationDataFile);
-    		
-    		//the <settings> ... </settings> node
-    		Element root = theXMLDoc.getRootElement();
-    		
-    		//get the start_station into a List object
-    		Element startStation = root.getChild("start_station");
-    		
-    		//get the label
-    		String label = startStation.getChildText("label");
-    		    		    		
-    		//get the position
-    		XPOS_STARTSTATION = Integer.parseInt(startStation.getChildText("x_position"));
-    		YPOS_STARTSTATION = Integer.parseInt(startStation.getChildText("y_position"));
-    		
-    		//the <view> ... </view> node
-    		Element viewGroup = startStation.getChild("view");
-    		// the image
-    		String image = viewGroup.getChildText("image");
-    		
-    		//CREATE THE INQUEUE
-    		//the <inqueue> ... </inqueue> node
-    		Element inqueueGroup = startStation.getChild("inqueue");
-    		
-    		// the positions
-    		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
-    		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
-    		
-    		//create the inqueue
-    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-    		
-    		//CREATE THE OUTQUEUE
-    		//the <outqueue> ... </outqueue> node
-    		Element outqueueGroup = startStation.getChild("outqueue");
-    		
-    		// the positions
-    		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
-    		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
-    		
-    		//create the outqueue
-    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
-    		    		
-    		//creating a new StartStation object
-    		StartStation.create(label, theInQueue, theOutQueue, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
-    	    
-    	
-    	} catch (JDOMException e) {
-				e.printStackTrace();
-		} catch (IOException e) {
-				e.printStackTrace();
-		}
-     }
+//	/**
+//     * create the start station
+//     * 
+//     */
+//     private static void createStartStation(){
+//    	
+//    	try {
+//    		
+//    		//read the information from the XML file into a JDOM Document
+//    		Document theXMLDoc = new SAXBuilder().build(theStartStationDataFile);
+//    		
+//    		//the <settings> ... </settings> node
+//    		Element root = theXMLDoc.getRootElement();
+//    		
+//    		//get the start_station into a List object
+//    		Element startStation = root.getChild("start_station");
+//    		
+//    		//get the label
+//    		String label = startStation.getChildText("label");
+//    		    		    		
+//    		//get the position
+//    		XPOS_STARTSTATION = Integer.parseInt(startStation.getChildText("x_position"));
+//    		YPOS_STARTSTATION = Integer.parseInt(startStation.getChildText("y_position"));
+//    		
+//    		//the <view> ... </view> node
+//    		Element viewGroup = startStation.getChild("view");
+//    		// the image
+//    		String image = viewGroup.getChildText("image");
+//    		
+//    		//CREATE THE INQUEUE
+//    		//the <inqueue> ... </inqueue> node
+//    		Element inqueueGroup = startStation.getChild("inqueue");
+//    		
+//    		// the positions
+//    		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
+//    		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
+//    		
+//    		//create the inqueue
+//    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+//    		
+//    		//CREATE THE OUTQUEUE
+//    		//the <outqueue> ... </outqueue> node
+//    		Element outqueueGroup = startStation.getChild("outqueue");
+//    		
+//    		// the positions
+//    		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
+//    		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
+//    		
+//    		//create the outqueue
+//    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+//    		    		
+//    		//creating a new StartStation object
+//    		StartStation.create(label, theInQueue, theOutQueue, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
+//    	    
+//    	
+//    	} catch (JDOMException e) {
+//				e.printStackTrace();
+//		} catch (IOException e) {
+//				e.printStackTrace();
+//		}
+//     }
 	
-	/**
-     * create some objects out of the XML file
-     * 
-     */
-     private static void createObjects(){
-    	
-    	try {
-		
-    		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theObjectDataFile);
-    		
-    		//the <settings> ... </settings> node, this is the files root Element
-    		Element root = theXMLDoc.getRootElement();
-    		
-    		//get all the objects into a List object
-    		List <Element> allObjects = root.getChildren("object");
-    		
-    		//separate every JDOM "object" Element from the list and create Java TheObject objects
-    		for (Element theObject : allObjects) {
-    			
-    			// data variables:
-    			String label = null;
-    			int processtime = 0;
-    			int speed = 0;
-    			String image = null;
-    			    			
-    			// read data
-    			label = theObject.getChildText("label");
-    			processtime = Integer.parseInt(theObject.getChildText("processtime"));
-    			speed = Integer.parseInt(theObject.getChildText("speed"));
-        		        		
-        		//the <view> ... </view> node
-        		Element viewGroup = theObject.getChild("view");
-        		// read data
-        		image = viewGroup.getChildText("image");
-        		
-        		//get all the stations, where the object wants to go to
-        		//the <sequence> ... </sequence> node
-        		Element sequenceGroup = theObject.getChild("sequence");
-        		
-        		List <Element> allStations = sequenceGroup.getChildren("station");
-        		
-        		//get the elements into a list
-        		ArrayList<String> stationsToGo = new ArrayList<String>();
-        		
-        		for (Element theStation : allStations) {
-        			
-        			stationsToGo.add(theStation.getText());
-        			
-        		}
-        	  		
-        		//creating a new TheObject object
-        		TheObject.create(label, stationsToGo, processtime, speed, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
-        		
-			}
-    	
-    	} catch (JDOMException e) {
-				e.printStackTrace();
-		} catch (IOException e) {
-				e.printStackTrace();
-		}
-    }
+//	/**
+//     * create some objects out of the XML file
+//     * 
+//     */
+//     private static void createObjects(){
+//    	
+//    	try {
+//		
+//    		//read the information from the XML file into a JDOM Document
+//    		Document theXMLDoc = new SAXBuilder().build(theObjectDataFile);
+//    		
+//    		//the <settings> ... </settings> node, this is the files root Element
+//    		Element root = theXMLDoc.getRootElement();
+//    		
+//    		//get all the objects into a List object
+//    		List <Element> allObjects = root.getChildren("object");
+//    		
+//    		//separate every JDOM "object" Element from the list and create Java TheObject objects
+//    		for (Element theObject : allObjects) {
+//    			
+//    			// data variables:
+//    			String label = null;
+//    			int processtime = 0;
+//    			int speed = 0;
+//    			String image = null;
+//    			    			
+//    			// read data
+//    			label = theObject.getChildText("label");
+//    			processtime = Integer.parseInt(theObject.getChildText("processtime"));
+//    			speed = Integer.parseInt(theObject.getChildText("speed"));
+//        		        		
+//        		//the <view> ... </view> node
+//        		Element viewGroup = theObject.getChild("view");
+//        		// read data
+//        		image = viewGroup.getChildText("image");
+//        		
+//        		//get all the stations, where the object wants to go to
+//        		//the <sequence> ... </sequence> node
+//        		Element sequenceGroup = theObject.getChild("sequence");
+//        		
+//        		List <Element> allStations = sequenceGroup.getChildren("station");
+//        		
+//        		//get the elements into a list
+//        		ArrayList<String> stationsToGo = new ArrayList<String>();
+//        		
+//        		for (Element theStation : allStations) {
+//        			
+//        			stationsToGo.add(theStation.getText());
+//        			
+//        		}
+//        	  		
+//        		//creating a new TheObject object
+//        		TheObject.create(label, stationsToGo, processtime, speed, XPOS_STARTSTATION, YPOS_STARTSTATION, image);
+//        		
+//			}
+//    	
+//    	} catch (JDOMException e) {
+//				e.printStackTrace();
+//		} catch (IOException e) {
+//				e.printStackTrace();
+//		}
+//    }
     
 	 /**
       * create the Ampels
