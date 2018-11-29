@@ -260,25 +260,24 @@ public class Factory {
 			//get all info necessary for the just above things
 			{
 				List<Element> ampelSets = steuerLogik.getChildren("ampelSet");
-				for (Element tempAmpelSet : ampelSets)
+				for (Element ampelSet : ampelSets)
 				{
-					ArrayList<Ampel> tempAmpEle = new ArrayList<Ampel>();
+					String rotPhasenString = ampelSet.getChildText("rotPhase");
+					rot.add( Long.parseLong( rotPhasenString ) );
 					
-					List<Element> tempAmpel = tempAmpelSet.getChildren("ampel");
-					for(Element tempAmp : tempAmpel)
+					String gruenPhasenString = ampelSet.getChildText("gruenPhase");
+					gruen.add( Long.parseLong( gruenPhasenString ) );
+					
+					ArrayList<Ampel> ampelnInSet = new ArrayList<Ampel>();
+					
+					List<Element> ampelLabels = ampelSet.getChildren("ampelLabel");
+					for(Element ampelLabel : ampelLabels)
 					{
-						String rotPhasenString = tempAmp.getChildText("rotPhase");
-						rot.add( Long.parseLong( rotPhasenString ) );
-						
-						
-						String gruenPhasenString = tempAmp.getChildText("gruenPhase");
-						gruen.add( Long.parseLong( gruenPhasenString ) );
-						
-						String ampel = tempAmp.getChildText("ampelLabel");
-						tempAmpEle.add( Ampel.getAmpelByLabel(ampel) );
+						String ampel = ampelLabel.getText();
+						ampelnInSet.add( Ampel.getAmpelByLabel(ampel) );
 					}
 					
-					amp.add(tempAmpEle);
+					amp.add(ampelnInSet);
 				}
 				
 				List<Element> wellenGeneratorSets = steuerLogik.getChildren("wellenGeneratorSet");

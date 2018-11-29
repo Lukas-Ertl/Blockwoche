@@ -5,11 +5,9 @@
 		<x_position>42</x_position>
 		<y_position>42</y_position>
 		<ampelSet>
-			<ampel>
-				<ampelLabel>ampel_1</ampelLabel>
-				<rotPhase>5</rotPhase>
-				<gruenPhase>5</gruenPhase>
-			</ampel>
+			<rotPhase>5</rotPhase>
+			<gruenPhase>5</gruenPhase>
+			<ampelLabel>ampel_1</ampelLabel>
 		</ampelSet>
 		<wellenGeneratorSet>
 			<wellenZeitpunkt>5</wellenZeitpunkt>
