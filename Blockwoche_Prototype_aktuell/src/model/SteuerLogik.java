@@ -14,6 +14,9 @@ public final class SteuerLogik extends Actor
 	/**the single instance of SteuerLogik*/
 	private static SteuerLogik instance = null;
 	
+	/**used to stop the thread*/
+	private boolean run = true;
+	
 	/**all of the Ampeln, WellenGeneratoren and all wait times (read from XML)*/
 	private SteuerInfo steuerInfo;
 	
@@ -66,14 +69,18 @@ public final class SteuerLogik extends Actor
 	public void run() {
 				
 		//run the actor
-		while(true){
-					
-			try {					
+		while(run)
+		{
+			try
+			{					
 				act(); 
-			} catch (Exception e) {
+			}
+			catch (Exception e)
+			{
 				e.printStackTrace();
 			}
 		}
+		
 	}
 	
 	/**void act method to overwrite the actor's method to avoid sleeping*/
@@ -93,7 +100,12 @@ public final class SteuerLogik extends Actor
 				e.printStackTrace();
 			}*/
 		}
-			
+	}
+	
+	/**to end the simulation*/
+	public static void end()
+	{
+		SteuerLogik.instance.run = false;
 	}
 
 	/** work method that always runs while the Simulation is running

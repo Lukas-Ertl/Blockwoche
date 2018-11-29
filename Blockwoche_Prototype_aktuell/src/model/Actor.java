@@ -146,5 +146,13 @@ public abstract class Actor extends Thread {
 		return yPos;
 	}
 	
-
+	/**
+	 * @author Team 4
+	 * to safely stop the thread
+	 */
+	public synchronized void saveStop()
+	{
+		Actor actor = this;
+		actor = null;
+	}
 }

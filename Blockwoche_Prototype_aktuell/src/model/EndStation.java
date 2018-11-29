@@ -80,29 +80,42 @@ public class EndStation extends SimpleStation {
 	
 	
 	/** End the simulation if the condition is met
-	 *
+	 * modified by team 4
 	 * 
 	 */
 	private void endSimulation(){
 		
 		// Are all objects in the stations outgoing queue, then we are finish
-		if(TheObject.getAllObjects().size() == numberOfOutQueueObjects()){
-											
-		Statistics.show("\n--- Simulation beendet ----");
-												
-		//show some station statistics
-		for (ProcessStation station : ProcessStation.getAllProcessStations()) {
-				station.printStatistics();
+		if(TheObject.getAllObjects().size() == numberOfOutQueueObjects())
+		{
+			io.Statistics.writeAutoStatistics();
+			io.Statistics.writeAmpelStatistics();
+			
+			Statistics.show("\n--- Simulation beendet ----");
+													
+			//show some station statistics
+			for (ProcessStation station : ProcessStation.getAllProcessStations()) {
+					station.printStatistics();
 		}
 									
 		//show some objects statistics
 		for (Object object : this.outGoingQueue){
 			((TheObject) object).printStatistics();
 		}
-														
+
+		SteuerLogik.end();
+		endAllActors();
+		
 		// end simulation 
 		// System.exit(0); 
 												
+		}
+	}
+	
+	private void endAllActors()
+	{
+		for(Actor a : Actor.getAllActors()) {
+			a.saveStop();
 		}
 	}
 	
