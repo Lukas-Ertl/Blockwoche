@@ -13,20 +13,11 @@ import controller.Simulation;
  * @author Team 4
  * @version 2018-11
  */
-public class SteuerLogik extends Actor
+public final class SteuerLogik extends Actor
 {
 	//TODO make a Singleton
 	/**the single instance of SteuerLogik*/
-	private static SteuerLogik instance;
-	
-	/**List of Ampeln that SteuerLogik controls with their rot- and gruenPhasen times*/
-	//private ArrayList<Object[]> myAmpeln;
-	
-	/**List of WellenGeneratoren that SteuerLogik controls with their associated wellenZeitPunkt times*/
-	//private ArrayList<Object[]> myWellenGeneratoren;
-	
-	/**the time being waited for to send signals to Ampeln and WellenGeneratorn*/
-	//private long ampelWaitTime, wellenGeneratorWaitTime;
+	private static SteuerLogik instance = null;
 	
 	private SteuerInfo steuerInfo;
 	
@@ -50,10 +41,6 @@ public class SteuerLogik extends Actor
 	{
 		super(label, xPos, yPos);
 		
-		/*
-		this.myAmpeln = ampelnListen;
-		this.myWellenGeneratoren = wellenGeneratoren;
-		*/
 		this.steuerInfo = info;
 		this.ampTick = new OverflowTicker( this.steuerInfo.getAmpelSetSize()-1 );
 		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize()-1 );
@@ -72,7 +59,8 @@ public class SteuerLogik extends Actor
 	 */
 	public static void create(String label, int xPos, int yPos, SteuerInfo info)
 	{
-		new SteuerLogik(label, xPos, yPos, info);
+		if(SteuerLogik.instance == null)
+			new SteuerLogik(label, xPos, yPos, info);			
 	}
 	
 	/**void run method to overwrite the actor's method to avoid sleeping*/
@@ -97,7 +85,6 @@ public class SteuerLogik extends Actor
 		 * Let the thread wait only, if the simulation is still not running or, 
 		 * more important, if there is no more work to do for the moment
 		 */
-		
 		if ((!Simulation.isRunning) || (!work())){	
 			/*
 			//wait until a wake up (notify) instruction comes in
@@ -121,9 +108,9 @@ public class SteuerLogik extends Actor
 		if(simTime > ampelWaitTime)
 		{
 			if(isGruen)
-				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getRotPhase( this.ampTick.getTick() );//(long) this.myAmpeln.get( this.ampTick.getTick() )[2];
+				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getRotPhase( this.ampTick.getTick() );
 			else
-				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.getTick() );//(long) this.myAmpeln.get( this.ampTick.getTick() )[1];
+				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.getTick() );
 			isGruen = !isGruen;
 
 			updateAmpeln( this.ampTick.tick() );
@@ -131,7 +118,7 @@ public class SteuerLogik extends Actor
 		
 		if(simTime > wellenGeneratorWaitTime)
 		{
-			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getWellenGeneratorTime( this.welTick.getTick() );//(long) this.myWellenGeneratoren.get( this.welTick.getTick() )[1];
+			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getWellenGeneratorTime( this.welTick.getTick() );
 			this.updateWellenGenerator( this.welTick.tick() );
 		}
 		return false;
@@ -140,7 +127,7 @@ public class SteuerLogik extends Actor
 	/**change state of Ampeln (from Green to Red, and from Red to Green)*/
 	private void updateAmpeln(int set)
 	{
-		for( Ampel a: this.steuerInfo.getAmpelSet(set) )//(ArrayList<Ampel>) this.myAmpeln.get(set)[0] )
+		for( Ampel a: this.steuerInfo.getAmpelSet(set) )
 		{
 			a.wakeUp();
 			a.switchState();
@@ -150,7 +137,7 @@ public class SteuerLogik extends Actor
 	/**send WellenGenerator a notice that it should send cars*/
 	private void updateWellenGenerator(int set)
 	{
-		for( WellenGenerator w: this.steuerInfo.getWellenGeneratorSet(set) )//(ArrayList<WellenGenerator>) this.myWellenGeneratoren.get(set)[0] )
+		for( WellenGenerator w: this.steuerInfo.getWellenGeneratorSet(set) )
 		{
 			w.wakeUp();
 			w.sendWave();
