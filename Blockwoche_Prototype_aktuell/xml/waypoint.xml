@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <settings>
 
-<!--
 		<waypoint>
 		<label>waypointOben</label>
 		<x_position>460</x_position>
 		<y_position>150</y_position>
 		<view>
-			<image></image>
+			<image>car-2.png</image>
 		</view>
 		<inqueue>
 			<x_position>480</x_position>
@@ -24,7 +23,7 @@
 		<x_position>440</x_position>
 		<y_position>400</y_position>
 		<view>
-			<image></image>
+			<image>car-3.png</image>
 		</view>
 		<inqueue>
 			<x_position>460</x_position>
@@ -41,7 +40,7 @@
 		<x_position>80</x_position>
 		<y_position>270</y_position>
 		<view>
-			<image></image>
+			<image>car-4.png</image>
 		</view>
 		<inqueue>
 			<x_position>100</x_position>
@@ -53,14 +52,13 @@
 		</outqueue>
 	</waypoint>
 	
-	-->
 	
 		<waypoint>
 		<label>waypointRechts</label>
 		<x_position>700</x_position>
 		<y_position>270</y_position>
 		<view>
-			<image></image>
+			<image>startstation.png</image>
 		</view>
 		<inqueue>
 			<x_position>720</x_position>
@@ -72,14 +70,13 @@
 		</outqueue>
 	</waypoint>
 	
-	<!--
 	
 		<waypoint>
 		<label>waypointLinksUnten</label>
 		<x_position>40</x_position>
 		<y_position>320</y_position>
 		<view>
-			<image></image>
+			<image>car-5.png</image>
 		</view>
 		<inqueue>
 			<x_position>60</x_position>
@@ -97,7 +94,7 @@
 		<x_position>740</x_position>
 		<y_position>270</y_position>
 		<view>
-			<image></image>
+			<image>car-6.png</image>
 		</view>
 		<inqueue>
 			<x_position>760</x_position>
@@ -110,6 +107,5 @@
 	</waypoint>
 	
 	
-	-->
 	
 </settings>

@@ -1,63 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <statistics>
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
-  <auto />
   <auto>
     <ampel>
-      <ampelname>ampelOben</ampelname>
-      <wartezeit>3</wartezeit>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>36</wartezeit>
     </ampel>
   </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelOben</ampelname>
-      <wartezeit>2</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelOben</ampelname>
-      <wartezeit>1</wartezeit>
-    </ampel>
-  </auto>
-  <auto />
-  <auto />
-  <auto />
-  <auto>
-    <ampel>
-      <ampelname>ampelUnten</ampelname>
-      <wartezeit>1</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelUnten</ampelname>
-      <wartezeit>2</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelUnten</ampelname>
-      <wartezeit>3</wartezeit>
-    </ampel>
-  </auto>
-  <auto />
-  <auto />
-  <auto />
-  <auto />
 </statistics>

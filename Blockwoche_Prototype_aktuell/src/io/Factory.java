@@ -206,7 +206,7 @@ public class Factory {
           		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
           		
           		//creating a new Station object
-          		Waypoint.create(label, theInqueue, theOutqueue, xPos, yPos);
+          		Waypoint.create(label, theInqueue, theOutqueue, xPos, yPos, image);
           	}
       	}
     	catch (JDOMException e) {
