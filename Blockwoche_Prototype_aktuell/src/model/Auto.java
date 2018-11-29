@@ -19,7 +19,7 @@ public class Auto  extends TheObject{
 	private static ArrayList<Auto> alleAutos= new ArrayList<Auto>();
 	private ArrayList<ArrayList<Object>> messDaten = new ArrayList<ArrayList<Object>>();
 
-	private int AnzahlBesuchteAmpeln = 0;
+
 	
 	
 	
@@ -76,6 +76,8 @@ public class Auto  extends TheObject{
 		timerStart = controller.Simulation.getGlobalTime();
 		
 		
+		
+		
 		//get the stations incoming queues
 		ArrayList<SynchronizedQueue> inQueues = station.getAllInQueues();
 		
@@ -119,6 +121,9 @@ public class Auto  extends TheObject{
 		
 		//End Timer
 		timerEnd = controller.Simulation.getGlobalTime();
+		
+		
+		
 		
 		// schreibt daten in Collection
 		if (station.getClass() == Ampel.class) {
@@ -191,19 +196,44 @@ public class Auto  extends TheObject{
 	
 	public long getWarteZeit(Station aktuelleAmpel) {
 		
-		String ampelname = aktuelleAmpel.getLabel();
 		
 		
-		System.out.println(((String) this.messDaten.get(messDaten.size()-1).get(0)));
+		//nachschauen ob das auto bei dieser ampel war, wenn ja zeit zurückgeben
+		for (ArrayList<Object> besuchteAmpel: this.messDaten) {
+			
 		
 		
-//		if(ampelname == ((String) this.messDaten.get(this.messDaten.size()-1).get(0))) {
-//			
-//			return ((long) this.messDaten.get(this.messDaten.size()-1).get(1)) ;
-//			
-//		}
+		if(aktuelleAmpel.getLabel() == ((String)(besuchteAmpel.get(0)))) {
+			
+			
+			
+			
+			//return ((long) this.messDaten.get(this.messDaten.size()-1).get(1)) ;
+			return ((long)(besuchteAmpel.get(1)));
+		}
+		
+		}
+		
+		return 0;
+		
+	}
+	
+	public long getBesuchteAutos(Station aktuelleAmpel) {
 		
 		
+		
+		//nachschauen ob das auto bei dieser ampel war, wenn ja zeit zurückgeben
+		for (ArrayList<Object> besuchteAmpel: this.messDaten) {
+			
+		
+		
+		if(aktuelleAmpel.getLabel() == ((String)(besuchteAmpel.get(0)))) {
+			
+			return 1;
+			
+		}
+		
+		}
 		
 		return 0;
 		

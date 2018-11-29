@@ -178,17 +178,27 @@ public class Statistics {
 			for(Station station : Station.getAllStations()){
 				
 				
-				long insgesammtWartezeit = 0;
-				for(Auto auto : Auto.getAlleAutos()){
-					
-					
-					insgesammtWartezeit = insgesammtWartezeit + auto.getWarteZeit(station);
-					
-				}
+			
 				
 				
 				
 				if (station.getClass() == Ampel.class) {
+					
+					
+					
+					long insgesammtWartezeit = 0;
+					int autoAnzahl = 0;
+					for(Auto auto : Auto.getAlleAutos()){
+						
+						
+						
+						
+						insgesammtWartezeit = insgesammtWartezeit + auto.getWarteZeit(station);
+						autoAnzahl = autoAnzahl + ((int)(auto.getBesuchteAutos(station)));
+						
+					}
+					
+					
 					
 					//create a new XML Element for auto and add it below the root XML Element
 				Element ampelXMLElement = new Element("ampel"); 
@@ -200,9 +210,23 @@ public class Statistics {
 			//	System.out.println(((String)   auto.getMessDaten().get(auto.getMessDaten().size()-1).get(0)    ));
 				
 				ampelXMLElement.addContent(new Element("ampelname").setText(station.getLabel() ));
-				ampelXMLElement.addContent(new Element("insgesamtewartezeit").setText("ingesamtewartezeit") );
-				ampelXMLElement.addContent(new Element("autoanzahl").setText("bla"));
-				ampelXMLElement.addContent(new Element("durchschnittswartezeit").setText("blabla"));
+				ampelXMLElement.addContent(new Element("insgesamtewartezeit").setText(""+insgesammtWartezeit ));
+				ampelXMLElement.addContent(new Element("autoanzahl").setText("" + autoAnzahl));
+				
+				if(autoAnzahl == 0 || insgesammtWartezeit == 0) {
+				ampelXMLElement.addContent(new Element("durchschnittswartezeit").setText("0"));
+				}else {
+					
+					ampelXMLElement.addContent(new Element("durchschnittswartezeit").setText("" + ((double)insgesammtWartezeit) / ((double)autoAnzahl)));
+					
+					
+				}
+				
+				
+				
+				
+				
+				
 				
 				}
 				
@@ -234,7 +258,7 @@ public class Statistics {
 	}
 	
 
-		
+	
 
 	
 	
