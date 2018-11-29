@@ -31,6 +31,7 @@ public class SteuerInfo {
 	{
 		return this.wellenGeneratoren.get(set);
 	}
+	
 	public double getGruenPhase(int set)
 	{
 		return this.gruenPhasenSets.get(set);
@@ -42,5 +43,14 @@ public class SteuerInfo {
 	public double getWellenGeneratorTime(int set)
 	{
 		return this.wellenGeneratorTimes.get(set);
+	}
+	
+	public int getAmpelSetSize()
+	{
+		return this.ampelSets.size();
+	}
+	public int getWellenGeneratorSetSize()
+	{
+		return this.wellenGeneratoren.size();
 	}
 }

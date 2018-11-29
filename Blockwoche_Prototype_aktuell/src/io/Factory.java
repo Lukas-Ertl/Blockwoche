@@ -70,7 +70,7 @@ public class Factory {
 		* because the objects constructor puts the objects into the start stations outgoing queue
 		*/ 
 		//createStartStation();
-		createWellengenerator();
+		createWellenGenerator();
 		//createObjects();
 		createAmpeln();
 		createAutos();
@@ -87,7 +87,7 @@ public class Factory {
      * zu erstellen
      * 
      */
-     private static void createWellengenerator(){
+     private static void createWellenGenerator(){
     	
     	try {
     		

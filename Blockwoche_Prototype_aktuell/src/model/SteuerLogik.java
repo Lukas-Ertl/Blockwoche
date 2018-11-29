@@ -19,13 +19,15 @@ public class SteuerLogik extends Actor
 	private static SteuerLogik instance;
 	
 	/**List of Ampeln that SteuerLogik controls with their rot- and gruenPhasen times*/
-	private ArrayList<Object[]> myAmpeln;
+	//private ArrayList<Object[]> myAmpeln;
 	
 	/**List of WellenGeneratoren that SteuerLogik controls with their associated wellenZeitPunkt times*/
-	private ArrayList<Object[]> myWellenGeneratoren;
+	//private ArrayList<Object[]> myWellenGeneratoren;
 	
 	/**the time being waited for to send signals to Ampeln and WellenGeneratorn*/
-	private long ampelWaitTime, wellenGeneratorWaitTime;
+	//private long ampelWaitTime, wellenGeneratorWaitTime;
+	
+	private SteuerInfo steuerInfo;
 	
 	/**boolean used to differentiate between rotPhase and gruenPhase*/
 	private boolean isGruen = true;
@@ -41,15 +43,18 @@ public class SteuerLogik extends Actor
 	 * @param ampelnListen the lists of Ampeln that run together, with their rotPhase and gruenPhase in the order of [ArrayList<Ampel>, rotPhase, gruenPhase]
 	 * @param wellenGeneratoren the controlled WellenGenerator in an array with their associated wait time
 	 */
-	private SteuerLogik(String label, int xPos, int yPos, ArrayList<Object[]> ampelnListen, ArrayList<Object[]> wellenGeneratoren)
+	private SteuerLogik(String label, int xPos, int yPos, SteuerInfo info)
 	{
 		super(label, xPos, yPos);
 		
+		/*
 		this.myAmpeln = ampelnListen;
 		this.myWellenGeneratoren = wellenGeneratoren;
+		*/
+		this.steuerInfo = info;
+		this.ampTick = new OverflowTicker( this.steuerInfo.getAmpelSetSize() );
+		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize() );
 		SteuerLogik.instance = this;
-		this.ampTick = new OverflowTicker( ampelnListen.size() );
-		this.welTick = new OverflowTicker( ampelnListen.size() );
 	}
 	
 	/** create the SteuerLogik
@@ -60,8 +65,9 @@ public class SteuerLogik extends Actor
 	 * @param ampelnListen the lists of Ampeln that run together, with their rotPhase and gruenPhase in the order of [ArrayList<Ampel>, rotPhase, gruenPhase]
 	 * @param wellenGeneratoren the controlled WellenGenerator in an array with their associated wait time
 	 */
-	public static void create(String label, int xPos, int yPos, ArrayList<Object[]> ampelnListen, ArrayList<Object[]> wellenGeneratoren)
+	public static void create(String label, int xPos, int yPos, SteuerInfo info)
 	{
+		/*
 		//new arraylist that will be passed to the constructor for ampelnListen
 		ArrayList<Object[]> tempAmpelnListen = new ArrayList<Object[]>();
 		
@@ -94,8 +100,8 @@ public class SteuerLogik extends Actor
 			WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel( (String) wellenGeneratoren.get(i)[0] );
 			//add the WellenGenerator to the collection of WellenGeneratoren OF THE SAME STRUCTURE for the constructor
 		}
-		
-		new SteuerLogik(label, xPos, yPos, tempAmpelnListen, tempWellenGeneratoren);
+		*/
+		new SteuerLogik(label, xPos, yPos, info);
 	}
 	
 	/**void run method to overwrite the actor's method to avoid sleeping*/
