@@ -72,8 +72,8 @@ public class EndStation extends SimpleStation {
 					
 			//End the simulation if the condition is met
 			endSimulation();
-			io.Statistics.writeAutoStatistics();
-			io.Statistics.writeAmpelStatistics();
+			//io.Statistics.writeAutoStatistics();
+			//io.Statistics.writeAmpelStatistics();
 		
 				
 	}
