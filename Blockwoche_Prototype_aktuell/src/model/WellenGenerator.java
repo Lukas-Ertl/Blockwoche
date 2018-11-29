@@ -2,13 +2,16 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import controller.Simulation;
 
 public class WellenGenerator extends Ampel {
 
 	/** instance of the Wellengenerator*/
-	private static WellenGenerator TheWellenGenerator;
+	protected static Map  TheWellenGeneratorMap= Collections.synchronizedMap(new HashMap());
 	private int wellenGroesse;
 	private boolean send = false;
 
@@ -43,7 +46,8 @@ public class WellenGenerator extends Ampel {
 	 */
 	public static void create(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image,int wellenGroesse){
 	
-		TheWellenGenerator = new WellenGenerator(label, inQueue, outQueue, xPos, yPos, image, wellenGroesse);
+		//TheWellenGenerator = 
+		new WellenGenerator(label, inQueue, outQueue, xPos, yPos, image, wellenGroesse);
 		
 	}
 	
@@ -69,12 +73,13 @@ public class WellenGenerator extends Ampel {
 		
 	}
 	
-	/**Get the Wellengenerator
+	/**Get the Wellengenerator by Label
 	 * 
 	 * @return Wellengenerator
 	 */
-	public static WellenGenerator getWellenGeneratorByLabel() {
-		return TheWellenGenerator;
+	public static WellenGenerator getWellenGeneratorByLabel(String label) {
+		
+		return (WellenGenerator) TheWellenGeneratorMap.get(label);
 	}
 	
 	
@@ -94,7 +99,7 @@ public class WellenGenerator extends Ampel {
 		if (numberOfInQueueObjects() > 0) {
 			
 			
-			this.handleObjects(this.getnextWave());
+			this.handleObjects(this.getNextWave());
 			
 			
 		}
@@ -142,7 +147,7 @@ public class WellenGenerator extends Ampel {
 	 * 
 	 * @return eine Welle mit der größe, wie sie in der XML angegeben wurde
 	 */
-	private ArrayList<TheObject> getnextWave() {
+	private ArrayList<TheObject> getNextWave() {
 		
 		ArrayList<TheObject> welle = new ArrayList<TheObject>();
 		
