@@ -24,7 +24,7 @@ public final class SteuerLogik extends Actor
 	private long ampelWaitTime, wellenGeneratorWaitTime;
 	
 	/**boolean used to differentiate between rotPhase and gruenPhase*/
-	private boolean isGruen = true;
+	private boolean isGruen = false;
 	
 	/**tickers to keep track of what Ampeln or WellenGeneratoren are up*/
 	private OverflowTicker ampTick, welTick;
@@ -119,15 +119,16 @@ public final class SteuerLogik extends Actor
 		//if the time until the Ampel should switch has arrived
 		if(simTime > ampelWaitTime)
 		{
+			//wake up Ampeln and have them switch states
+			updateAmpeln( this.ampTick.getTick() );
+
 			//set the new wait time (which is different depending on if the Ampel is green or red)
 			if(isGruen)
-				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getRotPhase( this.ampTick.getTick() );
+				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getRotPhase( this.ampTick.tick() );
 			else
 				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.getTick() );
+			//flip between states
 			isGruen = !isGruen;
-
-			//wake up Ampeln and have them switch states
-			updateAmpeln( this.ampTick.tick() );
 		}
 		
 		//if the time until the WellenGenerator should send has arrived
@@ -223,6 +224,13 @@ public final class SteuerLogik extends Actor
 		int getTick()
 		{
 			return this.tick;
+		}
+		int getLast()
+		{
+			if(this.tick==0)
+				return this.max;
+			else
+				return this.tick-1;
 		}
 	}
 }
