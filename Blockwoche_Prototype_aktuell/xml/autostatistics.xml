@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statistics>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>1</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>0</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampel_1</ampelname>
+      <wartezeit>0</wartezeit>
+    </ampel>
+  </auto>
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+  <auto />
+</statistics>

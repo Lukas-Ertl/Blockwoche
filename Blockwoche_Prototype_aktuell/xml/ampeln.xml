@@ -17,6 +17,23 @@
 		</outqueue>
 	</station>
 	
+	
+		<station>
+		<label>ampel_2</label>
+		<x_position>150</x_position>
+		<y_position>270</y_position>
+		<view>
+			<image>1-ampel.png</image>
+		</view>
+		<inqueue>
+			<x_position>470</x_position>
+			<y_position>210</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>470</x_position>
+			<y_position>350</y_position>
+		</outqueue>
+	</station>
 		
 
 	
