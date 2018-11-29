@@ -13,7 +13,7 @@ public class SteuerInfo {
 	/**arraylist of WellenGeneratoren timings*/
 	private ArrayList<Long> wellenGeneratorTimes;
 	
-	SteuerInfo(ArrayList<ArrayList<Ampel>> ampelSets, ArrayList<Long> rotPhasenSets, ArrayList<Long> gruenPhasenSets,
+	public SteuerInfo(ArrayList<ArrayList<Ampel>> ampelSets, ArrayList<Long> rotPhasenSets, ArrayList<Long> gruenPhasenSets,
 			ArrayList<ArrayList<WellenGenerator>> wellenGeneratoren, ArrayList<Long> wellenGeneratorTimes)
 	{
 		this.ampelSets = ampelSets;

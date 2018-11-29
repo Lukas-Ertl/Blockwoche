@@ -13,6 +13,7 @@ import model.Auto;
 import model.EndStation;
 import model.ProcessStation;
 import model.StartStation;
+import model.SteuerInfo;
 import model.SteuerLogik;
 import model.SynchronizedQueue;
 import model.TheObject;
@@ -246,37 +247,59 @@ public class Factory {
     		//get the label
     		String label = steuerLogik.getChildText("label");
     		
-    		//get the rotphase into a List object
-    		String rotPhasenString = steuerLogik.getChildText("rotPhase");
-    		Long rotPhase = Long.parseLong( rotPhasenString );
-    		
-    		//get the gruenphase into a List object
-    		String gruenPhasenString = steuerLogik.getChildText("gruenPhase");
-    		Long gruenPhase = Long.parseLong( gruenPhasenString );
-    		
-    		//get the ampel into a List object
-    		String ampel = steuerLogik.getChildText("ampel");
-    		
-    		//get the wellenzeitpunkt into a List object
-    		String wellenZeitPunktString = steuerLogik.getChildText("wellenZeitpunkt");
-    		Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
-    		
-    		//get the ampel into a List object
-    		String wellenGenerator = steuerLogik.getChildText("wellenGenerator");
-
     		//get the position
     		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
     		YPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("y_position"));
     		
-    		
     		ArrayList<ArrayList<Ampel>> amp = new ArrayList<ArrayList<Ampel>>();
-    		ArrayList<Long> rotPhasenSets = new ArrayList<Long>();
-    		ArrayList<Long> gruenPhasenSets = new ArrayList<Long>();
-			ArrayList<ArrayList<WellenGenerator>> wellenGeneratoren = ArrayList<ArrayList<WellenGenerator>>();
-			ArrayList<Long> wellenGeneratorTimes = ArrayList<Long>();
-    		
-    		SteuerInfo info = new SteuerInfo();
-    		
+    		ArrayList<Long> rot = new ArrayList<Long>();
+    		ArrayList<Long> gruen = new ArrayList<Long>();
+			ArrayList<ArrayList<WellenGenerator>> wel = new ArrayList<ArrayList<WellenGenerator>>();
+			ArrayList<Long> welTime = new ArrayList<Long>();
+			
+			//get all info necessary for the just above things
+			{
+				List<Element> ampelSets = steuerLogik.getChildren("ampelSet");
+				for (Element tempAmpelSet : ampelSets)
+				{
+					List<Element> tempAmpel = tempAmpelSet.getChildren("ampel");
+					for(above list)
+					{
+						//get the rotphase into a List object
+						String rotPhasenString = steuerLogik.getChildText("rotPhase");
+						Long rotPhase = Long.parseLong( rotPhasenString );
+						
+						//get the gruenphase into a List object
+						String gruenPhasenString = steuerLogik.getChildText("gruenPhase");
+						Long gruenPhase = Long.parseLong( gruenPhasenString );
+						
+						//get the ampel into a List object
+						String ampel = steuerLogik.getChildText("ampel");
+						
+						//get the wellenzeitpunkt into a List object
+						String wellenZeitPunktString = steuerLogik.getChildText("wellenZeitpunkt");
+						Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
+						
+						//get the ampel into a List object
+						String wellenGenerator = steuerLogik.getChildText("wellenGenerator");
+					}
+				}
+				List<Element> wellenGeneratorSets = steuerLogik.getChildren("wellenGeneratorSet");
+				for (Element tempWellenSet : wellenGeneratorSets)
+				{
+					List<Element> tempWellen = tempWellenSet.getChildren("wellenGeneratorLabel");
+					for(above list)
+					{
+						//get the wellenzeitpunkt into a List object
+						String wellenZeitPunktString = steuerLogik.getChildText("wellenZeitpunkt");
+						Long wellenZeitPunkt = Long.parseLong( wellenZeitPunktString );
+						
+						//get the ampel into a List object
+						String wellenGenerator = steuerLogik.getChildText("wellenGenerator");
+					}
+				}
+			}
+			SteuerInfo info = new SteuerInfo(amp, rot, gruen, wel, welTime);
     		
     		//creating a new StartStation object
     		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, info);//rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);

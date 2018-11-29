@@ -4,10 +4,18 @@
 		<label>steuerLogik_1</label>
 		<x_position>42</x_position>
 		<y_position>42</y_position>
-		<rotPhase>5</rotPhase>
-		<gruenPhase>5</gruenPhase>
-		<ampel>ampel_1</ampel>
-		<wellenZeitpunkt>5</wellenZeitpunkt>
-		<wellenGenerator>wellenGenerator_1</wellenGenerator>
+		<ampelSet>
+			<ampel>
+				<ampelLabel>ampel_1</ampelLabel>
+				<rotPhase>5</rotPhase>
+				<gruenPhase>5</gruenPhase>
+			</ampel>
+		</ampelSet>
+		<wellenGeneratorSet>
+			<wellenGenerator>
+				<wellenGeneratorLabel>wellenGenerator_1</wellenGeneratorLabel>
+				<wellenZeitpunkt>5</wellenZeitpunkt>
+			>/wellenGenerator>
+		</wellenGeneratorSet>
 	</steuerLogik>
 </settings>
