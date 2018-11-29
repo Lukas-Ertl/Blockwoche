@@ -6,15 +6,15 @@
 		<x_position>460</x_position>
 		<y_position>150</y_position>
 		<view>
-			<image>car-2.png</image>
+			<image></image>
 		</view>
 		<inqueue>
-			<x_position>480</x_position>
-			<y_position>90</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>480</x_position>
-			<y_position>230</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</outqueue>
 	</waypoint>
 	
@@ -23,15 +23,15 @@
 		<x_position>440</x_position>
 		<y_position>400</y_position>
 		<view>
-			<image>car-3.png</image>
+			<image></image>
 		</view>
 		<inqueue>
-			<x_position>460</x_position>
-			<y_position>340</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>460</x_position>
-			<y_position>480</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</outqueue>
 	</waypoint>
 	
@@ -40,33 +40,33 @@
 		<x_position>80</x_position>
 		<y_position>270</y_position>
 		<view>
-			<image>car-4.png</image>
+			<image></image>
 		</view>
 		<inqueue>
-			<x_position>100</x_position>
-			<y_position>210</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>100</x_position>
-			<y_position>350</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</outqueue>
 	</waypoint>
 	
 	
 		<waypoint>
 		<label>waypointRechts</label>
-		<x_position>700</x_position>
+		<x_position>900</x_position>
 		<y_position>270</y_position>
 		<view>
-			<image>startstation.png</image>
+			<image></image>
 		</view>
 		<inqueue>
-			<x_position>720</x_position>
-			<y_position>210</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>720</x_position>
-			<y_position>350</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</outqueue>
 	</waypoint>
 	
@@ -76,33 +76,33 @@
 		<x_position>40</x_position>
 		<y_position>320</y_position>
 		<view>
-			<image>car-5.png</image>
+			<image></image>
 		</view>
 		<inqueue>
-			<x_position>60</x_position>
-			<y_position>260</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>60</x_position>
-			<y_position>400</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</outqueue>
 	</waypoint>
 	
 	
 		<waypoint>
 		<label>waypointRechtsOben</label>
-		<x_position>740</x_position>
-		<y_position>270</y_position>
+		<x_position>900</x_position>
+		<y_position>70</y_position>
 		<view>
-			<image>car-6.png</image>
+			<image></image>
 		</view>
 		<inqueue>
-			<x_position>760</x_position>
-			<y_position>210</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>760</x_position>
-			<y_position>350</y_position>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
 		</outqueue>
 	</waypoint>
 	

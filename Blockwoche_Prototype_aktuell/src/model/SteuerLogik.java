@@ -43,7 +43,7 @@ public final class SteuerLogik extends Actor
 		this.steuerInfo = info;
 		this.ampTick = new OverflowTicker( this.steuerInfo.getAmpelSetSize()-1 );
 		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize()-1 );
-		this.ampelWaitTime = this.steuerInfo.getGruenPhase(0);
+		this.ampelWaitTime = (long) 0;
 		this.wellenGeneratorWaitTime = this.steuerInfo.getWellenGeneratorTime(0); 
 		
 		//set the one instance to be this
