@@ -1,9 +1,7 @@
 package io;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -14,12 +12,11 @@ import model.Ampel;
 import model.Auto;
 import model.EndStation;
 import model.ProcessStation;
-import model.StartStation;
 import model.Station;
 import model.SteuerInfo;
 import model.SteuerLogik;
 import model.SynchronizedQueue;
-import model.TheObject;
+import model.Waypoint;
 import model.WellenGenerator;
 import view.QueueViewJPanel;
 import view.QueueViewText;
@@ -57,6 +54,8 @@ public class Factory {
 	/** the Wellengenerator XML data file */
 	private static String theWellengeneratorDataFile = "xml/wellengenerator.xml"; 
 	
+	
+	private static String theWaypointDataFile = "xml/waypoint.xml";
 
 	
 	/**
@@ -77,6 +76,7 @@ public class Factory {
 		createEndStation();
 		createSteuerLogik();
 		createAutos();
+		createWaypoint();
 	}
 
 	 /**
@@ -162,7 +162,60 @@ public class Factory {
 		}
      }
     
-    
+     private static void createWaypoint()
+     {
+    	 try {
+      		
+      		//read the information from the XML file into a JDOM Document
+      		Document theXMLDoc = new SAXBuilder().build(theWaypointDataFile);
+      		
+      		//the <settings> ... </settings> node
+      		Element root = theXMLDoc.getRootElement();
+      		
+      		//get all the stations into a List object
+      		List <Element> stations = root.getChildren("station");
+      		
+      		//separate every JDOM "station" Element from the list and create Java Station objects
+      		for (Element station : stations) {
+      			
+      			// data variables:
+      			String label = null;
+      			int xPos = 0;
+      			int yPos = 0;
+      			String image = null;
+      			    			
+      			// read data
+      			label = station.getChildText("label");
+          		xPos = Integer.parseInt(station.getChildText("x_position"));
+          		yPos = Integer.parseInt(station.getChildText("y_position"));
+          		        		
+          		//the <view> ... </view> node
+          		Element viewGroup = station.getChild("view");
+          		// read data
+          		image = viewGroup.getChildText("image");
+          		        		
+          		//CREATE THE INQUEUES
+          		Element inqueue = station.getChild("inqueue");
+          		int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
+          		int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+          		SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue);
+          		
+          		//CREATE THE OUTQUEUES
+          		Element outqueue = station.getChild("outqueue");
+          		int xPosOutQueue = Integer.parseInt(outqueue.getChildText("x_position"));
+          		int yPosOutQueue = Integer.parseInt(outqueue.getChildText("y_position"));
+          		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
+          		
+          		//creating a new Station object
+          		new Waypoint(label, theInqueue, theOutqueue, xPos, yPos);
+          		}
+      		}
+    	 catch (JDOMException e) {
+ 				e.printStackTrace();
+ 		} catch (IOException e) {
+ 				e.printStackTrace();
+ 		}
+     }
 	 
 	 /**
       * create the Autos
