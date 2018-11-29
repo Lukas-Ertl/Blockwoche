@@ -55,8 +55,8 @@ public class SteuerLogik extends Actor
 		this.myWellenGeneratoren = wellenGeneratoren;
 		*/
 		this.steuerInfo = info;
-		this.ampTick = new OverflowTicker( this.steuerInfo.getAmpelSetSize() );
-		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize() );
+		this.ampTick = new OverflowTicker( this.steuerInfo.getAmpelSetSize()-1 );
+		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize()-1 );
 		this.ampelWaitTime = this.steuerInfo.getGruenPhase(0);
 		this.wellenGeneratorWaitTime = this.steuerInfo.getWellenGeneratorTime(0); 
 		SteuerLogik.instance = this;
@@ -72,40 +72,6 @@ public class SteuerLogik extends Actor
 	 */
 	public static void create(String label, int xPos, int yPos, SteuerInfo info)
 	{
-		/*
-		//new arraylist that will be passed to the constructor for ampelnListen
-		ArrayList<Object[]> tempAmpelnListen = new ArrayList<Object[]>();
-		
-		//for each element of the overarching ampeln list
-		for(int i = 0; i<ampelnListen.size(); i++)
-		{
-			//add a new set of Ampeln to the arraylist that will be passed to the constructor
-			tempAmpelnListen.add( new Object[3] );
-			tempAmpelnListen.get(i)[0] = new ArrayList<Ampel>();
-			
-			//get the ArrayList of Ampel labels
-			ArrayList<String> tempList = (ArrayList<String>) ampelnListen.get(i)[0];
-			//for the list of Ampel labels
-			for(int j = 0; j<tempList.size(); j++)
-			{
-				//get the Ampel associated with the label
-				Ampel a = Ampel.getAmpelByLabel( tempList.get(j) );
-				//add the Ampel to the collection of Ampeln OF THE SAME STRUCTURE for the constructor
-				((ArrayList<Ampel>) tempAmpelnListen.get(i)[0]).add(a);
-			}
-			//add the list of Ampel OBJECTS and their times to something that will be controllable
-		}
-		
-		//new arraylist that will be passed to the constructor for wellenGeneratoren
-		ArrayList<Object[]> tempWellenGeneratoren = new ArrayList<Object[]>();
-		//for each element of the wellenGeneratoren list
-		for(int i = 0; i<wellenGeneratoren.size(); i++)
-		{
-			//get the WellenGenerator by its label
-			WellenGenerator w = WellenGenerator.getWellenGeneratorByLabel( (String) wellenGeneratoren.get(i)[0] );
-			//add the WellenGenerator to the collection of WellenGeneratoren OF THE SAME STRUCTURE for the constructor
-		}
-		*/
 		new SteuerLogik(label, xPos, yPos, info);
 	}
 	

@@ -280,26 +280,29 @@ public class Factory {
 					
 					amp.add(tempAmpEle);
 				}
+				
 				List<Element> wellenGeneratorSets = steuerLogik.getChildren("wellenGeneratorSet");
-				for (Element tempWellenSet : wellenGeneratorSets)
+				for (Element wellenGeneratorSet : wellenGeneratorSets)
 				{
 					ArrayList<WellenGenerator> tempWelEle = new ArrayList<WellenGenerator>();
 					
-					List<Element> tempWellen = tempWellenSet.getChildren("wellenGenerator");
-					for(Element tempWel : tempWellen)
-					{
-						
-						String wellenGenerator = tempWel.getChildText("wellenGenerator");
-						tempWelEle.add( WellenGenerator.getWellenGeneratorByLabel(wellenGenerator) );
+					String wellenZeitPunktString = wellenGeneratorSet.getChildText("wellenZeitpunkt");
+					welTime.add( Long.parseLong( wellenZeitPunktString ) );						
 
-						String wellenZeitPunktString = tempWel.getChildText("wellenZeitpunkt");
-						welTime.add( Long.parseLong( wellenZeitPunktString ) );						
+					List<Element> wellenGeneratoren = wellenGeneratorSet.getChildren("wellenGenerator");
+					for(Element wellenGenerator : wellenGeneratoren)
+					{
+						String wellenGeneratorLabel = wellenGenerator.getChildText("wellenGeneratorLabel");
+						System.out.println(wellenGeneratorLabel);
+						System.out.println( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
+						tempWelEle.add( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
 					}
 					
 					wel.add(tempWelEle);
 				}
 			}
 			SteuerInfo info = new SteuerInfo(amp, rot, gruen, wel, welTime);
+			System.out.println(info.getWellenGeneratorSet(0).toString());
     		
     		//creating a new StartStation object
     		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, info);//rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);

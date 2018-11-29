@@ -11,7 +11,7 @@ import controller.Simulation;
 public class WellenGenerator extends Ampel {
 
 	/** instance of the Wellengenerator*/
-	protected static Map  TheWellenGeneratorMap= Collections.synchronizedMap(new HashMap());
+	protected static Map theWellenGeneratorMap = Collections.synchronizedMap(new HashMap());
 	private int wellenGroesse;
 	private boolean send = false;
 
@@ -30,6 +30,7 @@ public class WellenGenerator extends Ampel {
 		
 		super(label, inQueue, outQueue, xPos, yPos, image);
 		
+		this.theWellenGeneratorMap.put(label, this);
 		this.wellenGroesse = wellenGroesse;
 		
 	}
@@ -79,7 +80,7 @@ public class WellenGenerator extends Ampel {
 	 */
 	public static WellenGenerator getWellenGeneratorByLabel(String label) {
 		
-		return (WellenGenerator) TheWellenGeneratorMap.get(label);
+		return (WellenGenerator) theWellenGeneratorMap.get(label);
 	}
 	
 	

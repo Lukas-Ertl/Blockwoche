@@ -12,10 +12,10 @@
 			</ampel>
 		</ampelSet>
 		<wellenGeneratorSet>
+			<wellenZeitpunkt>5</wellenZeitpunkt>
 			<wellenGenerator>
 				<wellenGeneratorLabel>wellenGenerator_1</wellenGeneratorLabel>
-				<wellenZeitpunkt>5</wellenZeitpunkt>
-			>/wellenGenerator>
+			</wellenGenerator>
 		</wellenGeneratorSet>
 	</steuerLogik>
 </settings>
