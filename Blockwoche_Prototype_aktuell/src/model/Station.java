@@ -137,4 +137,18 @@ public abstract class Station extends Actor {
 	 */
 	public abstract ArrayList<SynchronizedQueue> getAllOutQueues();
 	
+	
+	public int getXPos() {
+		
+		
+		return this.xPos;
+	}
+	
+	public int getYPos() {
+		
+		
+		return this.yPos;
+	}
+	
+	
 }

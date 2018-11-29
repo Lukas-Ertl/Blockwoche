@@ -17,10 +17,10 @@ import javax.swing.WindowConstants;
 public class SimulationView extends JFrame {
 	
 	/** main window width */
-	private final static int WIDTH = 950;
+	private final static int WIDTH = 1050;
 	
 	/** main window height */
-	private final static int HEIGHT = 600;
+	private final static int HEIGHT = 700;
 	
 	/** main window title */
 	private final static String TITLE = "Prototyp: allgemeine Objekt/Queue/Station Simulation";

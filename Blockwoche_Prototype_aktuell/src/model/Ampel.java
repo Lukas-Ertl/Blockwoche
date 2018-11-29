@@ -16,7 +16,7 @@ public class Ampel extends SimpleStation {
 	 /** the boolean green is being used as the current state of the Ampel.
 	  * 
 	  */
-	private boolean green = true;
+	private boolean green = false;
 	
 	protected static Map hm = Collections.synchronizedMap(new HashMap());
 

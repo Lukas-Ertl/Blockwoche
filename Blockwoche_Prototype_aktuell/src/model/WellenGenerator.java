@@ -30,7 +30,7 @@ public class WellenGenerator extends Ampel {
 		
 		super(label, inQueue, outQueue, xPos, yPos, image);
 		
-		this.theWellenGeneratorMap.put(label, this);
+		WellenGenerator.theWellenGeneratorMap.put(label, this);
 		this.wellenGroesse = wellenGroesse;
 		
 	}
@@ -198,6 +198,16 @@ public class WellenGenerator extends Ampel {
 //			
 //		
 //	}
+	
+	
+	
+	
+	public static Map getTheWellenGeneratorMap() {
+		
+		
+		return theWellenGeneratorMap;
+		
+	}
 	
 	
 	
