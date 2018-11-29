@@ -2,14 +2,14 @@
 <statistics>
   <ampel>
     <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+    <insgesamtewartezeit>20</insgesamtewartezeit>
+    <autoanzahl>15</autoanzahl>
+    <durchschnittswartezeit>1.3333333333333333</durchschnittswartezeit>
   </ampel>
   <ampel>
     <ampelname>ampel_2</ampelname>
-    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
+    <insgesamtewartezeit>0</insgesamtewartezeit>
+    <autoanzahl>0</autoanzahl>
+    <durchschnittswartezeit>0</durchschnittswartezeit>
   </ampel>
 </statistics>
