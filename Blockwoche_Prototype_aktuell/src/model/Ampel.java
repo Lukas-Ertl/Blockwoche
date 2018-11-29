@@ -18,7 +18,7 @@ public class Ampel extends SimpleStation {
 	  */
 	private boolean green = false;
 	
-	protected static Map hm = Collections.synchronizedMap(new HashMap());
+	protected static Map ampelMap = Collections.synchronizedMap(new HashMap());
 
 /** 
  * 
@@ -36,7 +36,7 @@ public class Ampel extends SimpleStation {
 			String image) {
 		super(label, inQueue, outQueue, xPos, yPos, image);
 		
-		hm.put(label, this);
+		ampelMap.put(label, this);
 	}
 	
 
@@ -117,7 +117,7 @@ public class Ampel extends SimpleStation {
 	 */
 	public static Ampel getAmpelByLabel(String label)
 	{
-		return (Ampel) hm.get(label);
+		return (Ampel) ampelMap.get(label);
 		
 	}
 	@Override
