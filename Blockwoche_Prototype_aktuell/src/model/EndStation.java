@@ -88,8 +88,9 @@ public class EndStation extends SimpleStation {
 		// Are all objects in the stations outgoing queue, then we are finish
 		if(TheObject.getAllObjects().size() == numberOfOutQueueObjects())
 		{
-			io.Statistics.writeAutoStatistics();
-			io.Statistics.writeAmpelStatistics();
+			new Statistics();
+			//io.Statistics.writeAutoStatistics();
+			//io.Statistics.writeAmpelStatistics();
 			
 			Statistics.show("\n--- Simulation beendet ----");
 													
