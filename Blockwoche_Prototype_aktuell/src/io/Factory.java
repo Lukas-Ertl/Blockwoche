@@ -268,8 +268,18 @@ public class Factory {
     		XPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("x_position"));
     		YPOS_STARTSTATION = Integer.parseInt(steuerLogik.getChildText("y_position"));
     		
+    		
+    		ArrayList<ArrayList<Ampel>> amp = new ArrayList<ArrayList<Ampel>>();
+    		ArrayList<Long> rotPhasenSets = new ArrayList<Long>();
+    		ArrayList<Long> gruenPhasenSets = new ArrayList<Long>();
+			ArrayList<ArrayList<WellenGenerator>> wellenGeneratoren = ArrayList<ArrayList<WellenGenerator>>();
+			ArrayList<Long> wellenGeneratorTimes = ArrayList<Long>();
+    		
+    		SteuerInfo info = new SteuerInfo();
+    		
+    		
     		//creating a new StartStation object
-    		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
+    		SteuerLogik.create(label, XPOS_STARTSTATION, YPOS_STARTSTATION, info);//rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
     	    
     	
     	} catch (JDOMException e) {

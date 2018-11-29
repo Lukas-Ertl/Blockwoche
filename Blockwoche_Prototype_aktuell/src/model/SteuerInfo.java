@@ -6,15 +6,15 @@ public class SteuerInfo {
 	/**arraylist of arraylist for Ampeln*/
 	private ArrayList<ArrayList<Ampel>> ampelSets;
 	/**arraylist of doubles for rotPhase and gruenPhase*/
-	private ArrayList<Double> rotPhasenSets, gruenPhasenSets;
+	private ArrayList<Long> rotPhasenSets, gruenPhasenSets;
 	
 	/**arraylist of WellenGeneratoren*/ 
 	private ArrayList<ArrayList<WellenGenerator>> wellenGeneratoren;
 	/**arraylist of WellenGeneratoren timings*/
-	private ArrayList<Double> wellenGeneratorTimes;
+	private ArrayList<Long> wellenGeneratorTimes;
 	
-	SteuerInfo(ArrayList<ArrayList<Ampel>> ampelSets, ArrayList<Double> rotPhasenSets, ArrayList<Double> gruenPhasenSets,
-			ArrayList<ArrayList<WellenGenerator>> wellenGeneratoren, ArrayList<Double> wellenGeneratorTimes)
+	SteuerInfo(ArrayList<ArrayList<Ampel>> ampelSets, ArrayList<Long> rotPhasenSets, ArrayList<Long> gruenPhasenSets,
+			ArrayList<ArrayList<WellenGenerator>> wellenGeneratoren, ArrayList<Long> wellenGeneratorTimes)
 	{
 		this.ampelSets = ampelSets;
 		this.rotPhasenSets = rotPhasenSets;
@@ -32,15 +32,15 @@ public class SteuerInfo {
 		return this.wellenGeneratoren.get(set);
 	}
 	
-	public double getGruenPhase(int set)
+	public long getGruenPhase(int set)
 	{
 		return this.gruenPhasenSets.get(set);
 	}
-	public double getRotPhase(int set)
+	public long getRotPhase(int set)
 	{
 		return this.rotPhasenSets.get(set);
 	}
-	public double getWellenGeneratorTime(int set)
+	public long getWellenGeneratorTime(int set)
 	{
 		return this.wellenGeneratorTimes.get(set);
 	}

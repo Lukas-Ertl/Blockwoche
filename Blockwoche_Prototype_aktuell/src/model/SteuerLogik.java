@@ -7,6 +7,7 @@ import controller.Simulation;
 
 /**
  * Steuerung fuer alle Ampeln und WellenGeneratoren
+ * TODO UPDATE THE JAVADOC
  * TODO make a Singleton
  * 
  * @author Team 4
@@ -28,6 +29,8 @@ public class SteuerLogik extends Actor
 	//private long ampelWaitTime, wellenGeneratorWaitTime;
 	
 	private SteuerInfo steuerInfo;
+	
+	private long ampelWaitTime, wellenGeneratorWaitTime;
 	
 	/**boolean used to differentiate between rotPhase and gruenPhase*/
 	private boolean isGruen = true;
@@ -54,6 +57,8 @@ public class SteuerLogik extends Actor
 		this.steuerInfo = info;
 		this.ampTick = new OverflowTicker( this.steuerInfo.getAmpelSetSize() );
 		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize() );
+		this.ampelWaitTime = this.steuerInfo.getGruenPhase(0);
+		this.wellenGeneratorWaitTime = this.steuerInfo.getWellenGeneratorTime(0); 
 		SteuerLogik.instance = this;
 	}
 	
@@ -150,9 +155,9 @@ public class SteuerLogik extends Actor
 		if(simTime > ampelWaitTime)
 		{
 			if(isGruen)
-				this.ampelWaitTime = Simulation.getGlobalTime() + (long) this.myAmpeln.get( this.ampTick.getTick() )[2];
+				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getRotPhase( this.ampTick.getTick() );//(long) this.myAmpeln.get( this.ampTick.getTick() )[2];
 			else
-				this.ampelWaitTime = Simulation.getGlobalTime() + (long) this.myAmpeln.get( this.ampTick.getTick() )[1];
+				this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.getTick() );//(long) this.myAmpeln.get( this.ampTick.getTick() )[1];
 			isGruen = !isGruen;
 
 			updateAmpeln( this.ampTick.tick() );
@@ -160,7 +165,7 @@ public class SteuerLogik extends Actor
 		
 		if(simTime > wellenGeneratorWaitTime)
 		{
-			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + (long) this.myWellenGeneratoren.get( this.welTick.getTick() )[1];
+			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getWellenGeneratorTime( this.welTick.getTick() );//(long) this.myWellenGeneratoren.get( this.welTick.getTick() )[1];
 			this.updateWellenGenerator( this.welTick.tick() );
 		}
 		return false;
@@ -169,7 +174,7 @@ public class SteuerLogik extends Actor
 	/**change state of Ampeln (from Green to Red, and from Red to Green)*/
 	private void updateAmpeln(int set)
 	{
-		for(Ampel a: (ArrayList<Ampel>) this.myAmpeln.get(set)[0] )
+		for( Ampel a: this.steuerInfo.getAmpelSet(set) )//(ArrayList<Ampel>) this.myAmpeln.get(set)[0] )
 		{
 			a.wakeUp();
 			a.switchState();
@@ -179,7 +184,7 @@ public class SteuerLogik extends Actor
 	/**send WellenGenerator a notice that it should send cars*/
 	private void updateWellenGenerator(int set)
 	{
-		for(WellenGenerator w: (ArrayList<WellenGenerator>) this.myWellenGeneratoren.get(set)[0] )
+		for( WellenGenerator w: this.steuerInfo.getWellenGeneratorSet(set) )//(ArrayList<WellenGenerator>) this.myWellenGeneratoren.get(set)[0] )
 		{
 			w.wakeUp();
 			w.switchState();
