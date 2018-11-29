@@ -210,9 +210,6 @@ import controller.Simulation;
 			//let the object move to the chosen station
 			
 			Statistics.show(this.getLabel() + " geht zur " + station.getLabel());
-			System.out.println("------------------");
-			System.out.println(station.getLabel());
-			System.out.println("------------------");
 			//while target is not achieved 
 			while (!(station.getXPos() == this.xPos && station.getYPos() == this.yPos)) {
 				
