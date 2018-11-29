@@ -78,8 +78,8 @@ public class WellenGenerator extends Ampel {
 	 * 
 	 * @return Wellengenerator
 	 */
-	public static WellenGenerator getWellenGeneratorByLabel(String label) {
-		
+	public static WellenGenerator getWellenGeneratorByLabel(String label)
+	{
 		return (WellenGenerator) theWellenGeneratorMap.get(label);
 	}
 	
@@ -99,9 +99,7 @@ public class WellenGenerator extends Ampel {
 		//If there is an inqueue object found, handle it
 		if (numberOfInQueueObjects() > 0) {
 			
-			
 			this.handleObjects(this.getNextWave());
-			
 			
 		}
 
@@ -121,20 +119,16 @@ public class WellenGenerator extends Ampel {
 			//instruct the object to move to the next station
 			a.wakeUp();
 			
-
 			}
 
-			
-				
-
 		}
-				send = false;
-				
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+		send = false;
+		
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 				
 		//maybe there is more work to do
 		return true;
@@ -156,12 +150,9 @@ public class WellenGenerator extends Ampel {
 			
 			if(this.inComingQueue.isEmpty())break;
 			welle.add(getNextInQueueObject());
-			
-			
 		}
 		
 		return welle;
-		
 	}
 	
 	/**Wird von der SteuerLogik aufgerufen und startet das senden der Welle
@@ -170,9 +161,6 @@ public class WellenGenerator extends Ampel {
 	public void sendWave() {
 		
 		this.send=true;
-
-		
-		
 	}
 	
 	/**Verarbeitet eine Collection von Objekten und legt sie in die Outqueue
@@ -187,12 +175,7 @@ public class WellenGenerator extends Ampel {
 		for (TheObject o: theObjects) {
 			
 			o.enterOutQueue(this);
-			
 		}
-		
-
-			
-		
 	}
 	
 //	protected void handleObjects(Collection<TheObject> theObjects,int anzahl) {
