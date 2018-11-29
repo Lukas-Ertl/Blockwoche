@@ -161,25 +161,34 @@ public class Statistics {
 		Element rootXMLElement = new Element("statistics");
 		theAmpelXmlDoc.setRootElement(rootXMLElement);
 		
-		//go through the cars list
-		//go through the cars list
-		for(Auto auto : Auto.getAlleAutos()){
+		
 		
 			
 			
 				
-			
-			
+		
+		
+		
+		
+		
 			
 			//System.out.println("Stats print " + auto.getMessDaten().size());
 			
 			//go through the cars list
-			for(ArrayList<Object> station : auto.getMessDaten()){
+			for(Station station : Station.getAllStations()){
+				
+				
+				long insgesammtWartezeit = 0;
+				for(Auto auto : Auto.getAlleAutos()){
+					
+					
+					insgesammtWartezeit = insgesammtWartezeit + auto.getWarteZeit(station);
+					
+				}
 				
 				
 				
-				
-				
+				if (station.getClass() == Ampel.class) {
 					
 					//create a new XML Element for auto and add it below the root XML Element
 				Element ampelXMLElement = new Element("ampel"); 
@@ -190,10 +199,12 @@ public class Statistics {
 				
 			//	System.out.println(((String)   auto.getMessDaten().get(auto.getMessDaten().size()-1).get(0)    ));
 				
-				ampelXMLElement.addContent(new Element("ampelname").setText(((String)   auto.getMessDaten().get(auto.getMessDaten().size()-1).get(0)    )));
+				ampelXMLElement.addContent(new Element("ampelname").setText(station.getLabel() ));
 				ampelXMLElement.addContent(new Element("insgesamtewartezeit").setText("ingesamtewartezeit") );
 				ampelXMLElement.addContent(new Element("autoanzahl").setText("bla"));
 				ampelXMLElement.addContent(new Element("durchschnittswartezeit").setText("blabla"));
+				
+				}
 				
 			}
 			
@@ -203,7 +214,7 @@ public class Statistics {
 			
 			
 			
-		}
+		
 		
 		
 		 try {

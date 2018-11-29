@@ -189,6 +189,27 @@ public class Auto  extends TheObject{
 	
 	
 	
+	public long getWarteZeit(Station aktuelleAmpel) {
+		
+		String ampelname = aktuelleAmpel.getLabel();
+		
+		
+		System.out.println(((String) this.messDaten.get(messDaten.size()-1).get(0)));
+		
+		
+//		if(ampelname == ((String) this.messDaten.get(this.messDaten.size()-1).get(0))) {
+//			
+//			return ((long) this.messDaten.get(this.messDaten.size()-1).get(1)) ;
+//			
+//		}
+		
+		
+		
+		return 0;
+		
+	}
+	
+	
 	
 }
 

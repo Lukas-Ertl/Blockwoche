@@ -2,55 +2,13 @@
 <statistics>
   <ampel>
     <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
     <autoanzahl>bla</autoanzahl>
     <durchschnittswartezeit>blabla</durchschnittswartezeit>
   </ampel>
   <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
-  </ampel>
-  <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
-  </ampel>
-  <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
-  </ampel>
-  <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
-  </ampel>
-  <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
-  </ampel>
-  <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
-  </ampel>
-  <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
-    <autoanzahl>bla</autoanzahl>
-    <durchschnittswartezeit>blabla</durchschnittswartezeit>
-  </ampel>
-  <ampel>
-    <ampelname>ampel_1</ampelname>
-    <insgesamtewartezeit>30</insgesamtewartezeit>
+    <ampelname>ampel_2</ampelname>
+    <insgesamtewartezeit>ingesamtewartezeit</insgesamtewartezeit>
     <autoanzahl>bla</autoanzahl>
     <durchschnittswartezeit>blabla</durchschnittswartezeit>
   </ampel>
