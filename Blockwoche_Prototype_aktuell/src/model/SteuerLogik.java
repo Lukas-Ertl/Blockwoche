@@ -45,6 +45,7 @@ public final class SteuerLogik extends Actor
 		
 		//set the one instance to be this
 		SteuerLogik.instance = this;
+		this.updateAmpeln( 0 );
 	}
 	
 	/** create the SteuerLogik
@@ -64,17 +65,34 @@ public final class SteuerLogik extends Actor
 	/**void run method to overwrite the actor's method to avoid sleeping*/
 	@Override
 	public void run() {
-				
-		//run the actor
-		while(run)
+		if( this.steuerInfo.getAmpelSetSize()>1 )
 		{
-			try
-			{					
-				act(); 
-			}
-			catch (Exception e)
+			//run the actor
+			while(run)
 			{
-				e.printStackTrace();
+				try
+				{					
+					act(); 
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+		else
+		{
+			//run the actor
+			while(run)
+			{
+				try
+				{					
+					actSingle(); 
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
 			}
 		}
 		
@@ -88,6 +106,24 @@ public final class SteuerLogik extends Actor
 		 * more important, if there is no more work to do for the moment
 		 */
 		if ((!Simulation.isRunning) || (!work())){	
+			/*
+			//wait until a wake up (notify) instruction comes in
+			try {
+				Statistics.show(this.getLabel() + " wait()");
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}*/
+		}
+	}
+	/**void act method to overwrite the actor's method to avoid sleeping*/
+	private synchronized void actSingle(){
+		
+		/* 
+		 * Let the thread wait only, if the simulation is still not running or, 
+		 * more important, if there is no more work to do for the moment
+		 */
+		if ((!Simulation.isRunning) || (!workSingle())){	
 			/*
 			//wait until a wake up (notify) instruction comes in
 			try {
@@ -117,7 +153,36 @@ public final class SteuerLogik extends Actor
 		if(simTime > ampelWaitTime)
 		{
 			//wake up Ampeln and have them switch states
+			updateAmpeln( this.ampTick.getLast() );
 			updateAmpeln( this.ampTick.getTick() );
+
+			//set the new wait time (which is different depending on if the Ampel is green or red)
+			this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.tick() );
+		}
+		
+		//if the time until the WellenGenerator should send has arrived
+		if(simTime > wellenGeneratorWaitTime)
+		{
+			//set the new wait time
+			this.wellenGeneratorWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getWellenGeneratorTime( this.welTick.getTick() );
+			//wake up WellenGeneratoren and have them send a new wave
+			this.updateWellenGenerator( this.welTick.tick() );
+		}
+		return false;
+	}
+	/** work method that always runs while the Simulation is running
+	 * @return boolean that depends on whether there is work left to do (Currently only returns false)
+	 */
+	protected boolean workSingle()
+	{
+		//current time of the simulation
+		long simTime = Simulation.getGlobalTime();
+		
+		//if the time until the Ampel should switch has arrived
+		if(simTime > ampelWaitTime)
+		{
+			//wake up Ampeln and have them switch states
+			updateAmpeln( this.ampTick.getLast() );
 
 			//set the new wait time (which is different depending on if the Ampel is green or red)
 			this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.tick() );
