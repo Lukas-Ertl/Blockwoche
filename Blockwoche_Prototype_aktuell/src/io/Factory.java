@@ -379,7 +379,7 @@ public class Factory {
 					wel.add(tempWelEle);
 				}
 			}
-			SteuerInfo info = new SteuerInfo(amp, rot, gruen, wel, welTime);
+			SteuerInfo info = new SteuerInfo(amp, gruen, wel, welTime);
 			//System.out.println(info.getWellenGeneratorSet(0).toString());
     		
     		//creating a new StartStation object
