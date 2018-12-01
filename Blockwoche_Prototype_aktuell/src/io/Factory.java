@@ -25,37 +25,39 @@ import view.QueueViewText;
  * This is an abstract factory that creates instances
  * of actor types like objects, stations and their queues 
  * 
- * @author Jaeger, Schmidt, modified by JMaier
+ * @author Jaeger, Schmidt, modified by Team 4
  * @version 2018-11-24
  */
 public class Factory {
 	
+	private static final String scenarioFolder ="Szenario 1";
+	
 	/** the objects XML data file */
-	private static String theObjectDataFile = "xml/object.xml"; 
+	private static String theObjectDataFile = "xml/"+scenarioFolder+"/object.xml"; 
 	
 	/** the Ampeln XML data file */
-	private static String theAmpelnDataFile = "xml/ampeln.xml";
+	private static String theAmpelnDataFile = "xml/"+scenarioFolder+"/ampeln.xml";
 	
 	/** the ProcessStations XML data file */
-	private static String theProcessStationDataFile = "xml/processstation.xml"; 
+	private static String theProcessStationDataFile = "xml/"+scenarioFolder+"/processstation.xml"; 
 	
 	/** the SteuerLogik XML data file */
-	private static String theSteuerLogikDataFile = "xml/steuerlogik.xml"; 
+	private static String theSteuerLogikDataFile = "xml/"+scenarioFolder+"/steuerlogik.xml"; 
 	
 	/** the start station XML data file */
-	private static String theStartStationDataFile = "xml/startstation.xml"; 
+	private static String theStartStationDataFile = "xml/"+scenarioFolder+"/startstation.xml"; 
 	
 	/** the end station XML data file */
-	private static String theEndStationDataFile = "xml/endstation.xml"; 
+	private static String theEndStationDataFile = "xml/"+scenarioFolder+"/endstation.xml"; 
 	
 	/** the Auto XML data file */
-	private static String theAutoDataFile = "xml/auto.xml"; 
+	private static String theAutoDataFile = "xml/"+scenarioFolder+"/auto.xml"; 
 	
 	/** the Wellengenerator XML data file */
-	private static String theWellengeneratorDataFile = "xml/wellengenerator.xml"; 
+	private static String theWellengeneratorDataFile = "xml/"+scenarioFolder+"/wellengenerator.xml"; 
 	
 	
-	private static String theWaypointDataFile = "xml/waypoint.xml";
+	private static String theWaypointDataFile = "xml/"+scenarioFolder+"/waypoint.xml";
 
 	
 	/**
@@ -730,6 +732,10 @@ public class Factory {
 		} catch (IOException e) {
 				e.printStackTrace();
 		}
+     }
+     
+     public String getScenario() {
+    	 return scenarioFolder;
      }
         
 }
