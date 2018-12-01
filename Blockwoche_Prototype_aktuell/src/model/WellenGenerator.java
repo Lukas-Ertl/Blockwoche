@@ -91,7 +91,13 @@ public class WellenGenerator extends Ampel {
 	 */
 	@Override
 	protected boolean work() {
-		
+		if(!send)
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	while(send)	{
 		//let the thread wait only if there are no objects in the incoming and outgoing queues
 		if (numberOfInQueueObjects() == 0 && numberOfOutQueueObjects() == 0) return false;

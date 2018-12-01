@@ -74,6 +74,13 @@ public class Ampel extends SimpleStation {
 	 */
 	@Override 
 	protected boolean work() {
+		if(!green)
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		while(green) {
 			return super.work();
 			/*
@@ -108,6 +115,12 @@ public class Ampel extends SimpleStation {
 	
 	{
 		green=!green;
+		try {
+			this.sleep(3);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	}
 	/**
