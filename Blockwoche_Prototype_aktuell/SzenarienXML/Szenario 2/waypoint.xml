@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<settings>
+
+		<waypoint>
+		<label>waypointOben</label>
+		<x_position>460</x_position>
+		<y_position>150</y_position>
+		<view>
+			<image></image>
+		</view>
+		<inqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</waypoint>
+	
+			<waypoint>
+		<label>waypointUnten</label>
+		<x_position>440</x_position>
+		<y_position>400</y_position>
+		<view>
+			<image></image>
+		</view>
+		<inqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</waypoint>
+	
+		<waypoint>
+		<label>waypointLinks</label>
+		<x_position>80</x_position>
+		<y_position>270</y_position>
+		<view>
+			<image></image>
+		</view>
+		<inqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</waypoint>
+	
+	
+		<waypoint>
+		<label>waypointRechts</label>
+		<x_position>900</x_position>
+		<y_position>270</y_position>
+		<view>
+			<image></image>
+		</view>
+		<inqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</waypoint>
+	
+	
+		<waypoint>
+		<label>waypointLinksUnten</label>
+		<x_position>40</x_position>
+		<y_position>320</y_position>
+		<view>
+			<image></image>
+		</view>
+		<inqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</waypoint>
+	
+	
+		<waypoint>
+		<label>waypointRechtsOben</label>
+		<x_position>900</x_position>
+		<y_position>70</y_position>
+		<view>
+			<image></image>
+		</view>
+		<inqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</waypoint>
+	
+	
+	
+</settings>

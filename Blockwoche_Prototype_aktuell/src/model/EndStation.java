@@ -2,6 +2,7 @@ package model;
 
 import java.util.Collection;
 
+import controller.Simulation;
 import io.Statistics;
 
 /**
@@ -98,7 +99,7 @@ public class EndStation extends SimpleStation {
 		for (Object object : this.outGoingQueue){
 			((TheObject) object).printStatistics();
 		}
-
+		Simulation.isRunning = false;
 		SteuerLogik.end();
 		endAllActors();
 		

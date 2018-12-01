@@ -2,21 +2,21 @@
 <statistics>
   <ampel>
     <ampelname>ampelLinks</ampelname>
-    <insgesamtewartezeit>228</insgesamtewartezeit>
+    <insgesamtewartezeit>226</insgesamtewartezeit>
     <autoanzahl>11</autoanzahl>
-    <durchschnittswartezeit>20.727272727272727</durchschnittswartezeit>
+    <durchschnittswartezeit>20.545454545454547</durchschnittswartezeit>
   </ampel>
   <ampel>
     <ampelname>ampelRechts</ampelname>
-    <insgesamtewartezeit>110</insgesamtewartezeit>
+    <insgesamtewartezeit>107</insgesamtewartezeit>
     <autoanzahl>6</autoanzahl>
-    <durchschnittswartezeit>18.333333333333332</durchschnittswartezeit>
+    <durchschnittswartezeit>17.833333333333332</durchschnittswartezeit>
   </ampel>
   <ampel>
     <ampelname>ampelOben</ampelname>
-    <insgesamtewartezeit>111</insgesamtewartezeit>
+    <insgesamtewartezeit>112</insgesamtewartezeit>
     <autoanzahl>6</autoanzahl>
-    <durchschnittswartezeit>18.5</durchschnittswartezeit>
+    <durchschnittswartezeit>18.666666666666668</durchschnittswartezeit>
   </ampel>
   <ampel>
     <ampelname>ampelUnten</ampelname>

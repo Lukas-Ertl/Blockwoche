@@ -1,0 +1,18 @@
+{
+   "station": {
+      "label": "Station_1",
+      "x_position": "200",
+      "y_position": "100",
+      "view": {
+         "image": "station.png"
+      },
+      "inqueue": {
+         "x_position": "180",
+         "y_position": "40"
+      },
+      "outqueue": {
+         "x_position": "220",
+         "y_position": "180"
+      }
+   }
+}

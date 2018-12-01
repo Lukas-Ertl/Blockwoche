@@ -1,0 +1,15 @@
+{
+   "object": {
+      "label": "Objekt_16",
+      "processtime": "2",
+      "speed": "1",
+      "view": {
+         "image": "object.png"
+      },
+      "sequence": [
+         "Start_Station",
+         "Station_1",
+         "End_Station"
+      ]
+   }
+}
