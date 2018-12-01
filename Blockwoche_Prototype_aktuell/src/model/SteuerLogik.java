@@ -71,7 +71,7 @@ public final class SteuerLogik extends Actor
 			while(run)
 			{
 				try
-				{					
+				{
 					act(); 
 				}
 				catch (Exception e)
@@ -87,7 +87,7 @@ public final class SteuerLogik extends Actor
 			{
 				try
 				{					
-					actSingle(); 
+					act(true); 
 				}
 				catch (Exception e)
 				{
@@ -117,13 +117,13 @@ public final class SteuerLogik extends Actor
 		}
 	}
 	/**void act method to overwrite the actor's method to avoid sleeping*/
-	private synchronized void actSingle(){
+	private synchronized void act(boolean single){
 		
 		/* 
 		 * Let the thread wait only, if the simulation is still not running or, 
 		 * more important, if there is no more work to do for the moment
 		 */
-		if ((!Simulation.isRunning) || (!workSingle())){	
+		if ((!Simulation.isRunning) || (!work(single))){	
 			/*
 			//wait until a wake up (notify) instruction comes in
 			try {
@@ -173,7 +173,7 @@ public final class SteuerLogik extends Actor
 	/** work method that always runs while the Simulation is running
 	 * @return boolean that depends on whether there is work left to do (Currently only returns false)
 	 */
-	protected boolean workSingle()
+	protected boolean work(boolean single)
 	{
 		//current time of the simulation
 		long simTime = Simulation.getGlobalTime();
