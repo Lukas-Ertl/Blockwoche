@@ -19,7 +19,7 @@ public class Auto extends TheObject{
 	private static ArrayList<Auto> alleAutos= new ArrayList<Auto>();
 	private ArrayList<ArrayList<Object>> messDaten = new ArrayList<ArrayList<Object>>();
 	
-	private InnerObservable inObserv = new InnerObservable();
+	private InnerObservable inObserv;
 
 	/** Constructor for Auto
 	 * 
@@ -34,8 +34,9 @@ public class Auto extends TheObject{
 	public Auto(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image)
 	{
 		super(label,stationsToGo,processtime,speed,xPos,yPos,image);
+		inObserv = new InnerObservable();
+		inObserv.addObserver( LiveCoverage.getInstance() );
 		alleAutos.add(this);
-		//inObserv.addObserver( LiveCoverage.getInstance() );
 	}
 	
 	/** Create a new Auto model
@@ -64,6 +65,9 @@ public class Auto extends TheObject{
 		
 		if(station.getClass() != Ampel.class || ! ((Ampel) station).getIsGreen() )
 		{
+			if(station.getClass() == Ampel.class)
+				this.inObserv.waiting();
+			
 			//start Timer
 			timerStart = controller.Simulation.getGlobalTime();
 			
@@ -108,7 +112,6 @@ public class Auto extends TheObject{
 			this.messDaten.get(messDaten.size()-1).add( new Long(0) );
 			work();
 		}
-		
 	}
 	
 	/**schreibt Daten jeder besuchter Ampel in Collection und 
@@ -160,7 +163,9 @@ public class Auto extends TheObject{
 			//enter the queue
 			queueBuffer.offer(this);
 		}
-		this.inObserv.waiting();
+		if(actualStation.getClass() == Ampel.class)
+			this.inObserv.continuing();
+		
 	}
 	
 	public ArrayList<ArrayList<Object>> getMessDaten() {
@@ -201,11 +206,13 @@ public class Auto extends TheObject{
 		
 		void waiting()
 		{
+			System.out.println("waiting");
 			this.setChanged();
 			notifyObservers(WAITING);
 		}
 		void continuing()
 		{
+			System.out.println("continuing");
 			this.setChanged();
 			notifyObservers(CONTINUING);
 		}

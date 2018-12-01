@@ -18,6 +18,7 @@ import model.SteuerLogik;
 import model.SynchronizedQueue;
 import model.Waypoint;
 import model.WellenGenerator;
+import view.LiveCoverage;
 import view.QueueViewJPanel;
 import view.QueueViewText;
 
@@ -83,7 +84,7 @@ public class Factory {
 		createEndStation();
 		createSteuerLogik();
 		createWaypoint();
-		//LiveCoverage.create();
+		LiveCoverage.create();
 		createAutos();
 	}
 	
