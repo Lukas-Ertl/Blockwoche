@@ -30,6 +30,7 @@ import view.QueueViewText;
  */
 public class Factory {
 	
+	/** Scenario Folder */
 	private static final String scenarioFolder ="Szenario 1";
 	
 	/** the objects XML data file */
