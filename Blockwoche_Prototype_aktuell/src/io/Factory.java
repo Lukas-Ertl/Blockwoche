@@ -73,6 +73,7 @@ public class Factory {
 		*/ 
 		
 		scenarioFolder = folder;
+		setFilePath();
 		//createStartStation();
 		createWellenGenerator();
 		//createObjects();
@@ -83,6 +84,18 @@ public class Factory {
 		createSteuerLogik();
 		createWaypoint();
 		createAutos();
+	}
+	
+	
+	
+	private static void setFilePath() {
+		theAmpelnDataFile = "xml/"+scenarioFolder+"/ampeln.xml";
+		theProcessStationDataFile = "xml/"+scenarioFolder+"/processstation.xml"; 
+		theSteuerLogikDataFile = "xml/"+scenarioFolder+"/steuerlogik.xml"; 
+		theEndStationDataFile = "xml/"+scenarioFolder+"/endstation.xml";
+		theAutoDataFile = "xml/"+scenarioFolder+"/auto.xml"; 
+		theWellengeneratorDataFile = "xml/"+scenarioFolder+"/wellengenerator.xml"; 
+		theWaypointDataFile = "xml/"+scenarioFolder+"/waypoint.xml";
 	}
 
 	 /**

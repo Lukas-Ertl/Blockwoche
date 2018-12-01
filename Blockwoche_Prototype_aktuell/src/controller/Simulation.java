@@ -8,9 +8,9 @@ import model.Actor;
 
 
 /**
- * The main class, controls the flow of the simulation
+ * Controls the flow of the simulation
  * 
- * @author Jaeger, Schmidt
+ * @author Jaeger, Schmidt, edited by Team 4
  * @version 2016-07-07
  */
 public class Simulation {
@@ -30,26 +30,27 @@ public class Simulation {
 	
 	
 	/**
-	 * starts the simulation
-	 * 
-	 * @param args
+	 * created by Team 4
+	 * Constructor 
+	 * 	calls init
+	 * @param folder
 	 */
-	public static void main(String[] args){
-		
-		//a new simulation
-		Simulation theSimulation = new Simulation();
-		theSimulation.init();
-		
+	
+	public Simulation(String folder) {
+		System.out.println("in Simulation Constructor "+folder);
+		init(folder);
 	}
 	
 	/**
-	 * initialize the simulation
+	 * edited by Team 4
 	 * 
+	 * initialize the simulation
+	 * @param fodler
 	 */
-	private void init(){
-		
+	private void init(String folder){
+		System.out.println("in Simulation init "+folder);
 		//create all stations and objects for the starting scenario out of XML
-		Factory.createStartScenario();
+		Factory.createStartScenario(folder);
 				
 		//the view of our simulation
 		new SimulationView();
@@ -121,6 +122,16 @@ public class Simulation {
 	 */
 	public static long getGlobalTime() {
 		return clock.get();
+	}
+	
+	
+	/**
+	 * created by Team 4
+	 * 	returns isRunning
+	 * @return isRunning
+	 */
+	public boolean getIsRunning() {
+		return isRunning;
 	}
 	
 }
