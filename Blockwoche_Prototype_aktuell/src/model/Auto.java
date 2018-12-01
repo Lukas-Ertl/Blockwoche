@@ -1,6 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Observable;
+
+import view.LiveCoverage;
 
 /** 
  * Die Autos die in unserer Simulation fahren
@@ -8,13 +11,15 @@ import java.util.ArrayList;
  * @author Team 4
  * @version 2018-11
  */
-public class Auto  extends TheObject{
+public class Auto extends TheObject{
 	
 	/**Long values used to measure how long a car waits at an Ampel*/
 	private long timerStart, timerEnd;
 	
 	private static ArrayList<Auto> alleAutos= new ArrayList<Auto>();
 	private ArrayList<ArrayList<Object>> messDaten = new ArrayList<ArrayList<Object>>();
+	
+	private InnerObservable inObserv = new InnerObservable();
 
 	/** Constructor for Auto
 	 * 
@@ -30,6 +35,7 @@ public class Auto  extends TheObject{
 	{
 		super(label,stationsToGo,processtime,speed,xPos,yPos,image);
 		alleAutos.add(this);
+		inObserv.addObserver( LiveCoverage.getInstance() );
 	}
 	
 	/** Create a new Auto model
@@ -154,6 +160,7 @@ public class Auto  extends TheObject{
 			//enter the queue
 			queueBuffer.offer(this);
 		}
+		this.inObserv.waiting();
 	}
 	
 	public ArrayList<ArrayList<Object>> getMessDaten() {
@@ -185,6 +192,23 @@ public class Auto  extends TheObject{
 				return 1;
 		}
 		return 0;
+	}
+	
+	private class InnerObservable extends Observable
+	{
+		private final boolean WAITING = true;
+		private final boolean CONTINUING = false;
+		
+		void waiting()
+		{
+			this.setChanged();
+			notifyObservers(WAITING);
+		}
+		void continuing()
+		{
+			this.setChanged();
+			notifyObservers(CONTINUING);
+		}
 	}
 	
 }
