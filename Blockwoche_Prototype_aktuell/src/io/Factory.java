@@ -31,7 +31,7 @@ import view.QueueViewText;
 public class Factory {
 	
 	/** Scenario Folder */
-	private static final String scenarioFolder ="Szenario 1";
+	private static String scenarioFolder;
 	
 //	/** the objects XML data file (not in use)*/
 //	private static String theObjectDataFile = "xml/"+scenarioFolder+"/object.xml"; 
@@ -62,14 +62,17 @@ public class Factory {
 
 	
 	/**
+     * set Folder
      * create the actors for the starting scenario
      * 
      */
-	public static void createStartScenario(){
+	public static void createStartScenario(String folder){
 		
 		/*NOTE: The start station must be created first,
 		* because the objects constructor puts the objects into the start stations outgoing queue
 		*/ 
+		
+		scenarioFolder = folder;
 		//createStartStation();
 		createWellenGenerator();
 		//createObjects();
