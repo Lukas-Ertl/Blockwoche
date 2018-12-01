@@ -2,8 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-import controller.Simulation;
-
 /** 
  * Die Autos die in unserer Simulation fahren
  * 
@@ -58,40 +56,53 @@ public class Auto  extends TheObject{
 	@Override
 	protected void enterInQueue(Station station){
 		
-		//start Timer
-		timerStart = controller.Simulation.getGlobalTime();
-		
-		//get the stations incoming queues
-		ArrayList<SynchronizedQueue> inQueues = station.getAllInQueues();
-		
-		//there is just one queue, enter it
-		if(inQueues.size()==1) inQueues.get(0).offer(this);
-		
-		//Do we have more than one incoming queue?
-		//We have to make a decision which queue we choose -> your turn 
-		else{
+		if(station.getClass() != Ampel.class || ! ((Ampel) station).getIsGreen() )
+		{
+			//start Timer
+			timerStart = controller.Simulation.getGlobalTime();
 			
-			//get the first queue and it's size
-			SynchronizedQueue queueBuffer = inQueues.get(0);
-			int queueSize = queueBuffer.size();
-							
-			//Looking for the shortest queue (in a simple way)
-			for (SynchronizedQueue inQueue : inQueues) {
-					
-				if(inQueue.size() < queueSize) {
-					queueBuffer = inQueue;
-					queueSize = inQueue.size();
+			//get the stations incoming queues
+			ArrayList<SynchronizedQueue> inQueues = station.getAllInQueues();
+			
+			//there is just one queue, enter it
+			if(inQueues.size()==1) inQueues.get(0).offer(this);
+			
+			//Do we have more than one incoming queue?
+			//We have to make a decision which queue we choose -> your turn 
+			else{
+				
+				//get the first queue and it's size
+				SynchronizedQueue queueBuffer = inQueues.get(0);
+				int queueSize = queueBuffer.size();
+								
+				//Looking for the shortest queue (in a simple way)
+				for (SynchronizedQueue inQueue : inQueues) {
+						
+					if(inQueue.size() < queueSize) {
+						queueBuffer = inQueue;
+						queueSize = inQueue.size();
+					}
 				}
+				
+				//enter the queue
+				queueBuffer.offer(this);
+								
 			}
-			
-			//enter the queue
-			queueBuffer.offer(this);
-							
+	
+			//set actual station to the just entered station
+			this.actualStation = station;
 		}
-
-		//set actual station to the just entered station
-		this.actualStation = station;
+		else
+		{
+			this.messDaten.add(new ArrayList<Object>());
 			
+			//Für aktuelle Ampel label in Collection eintragen
+			this.messDaten.get(messDaten.size()-1).add(station.label);
+			//Für aktuelle Ampel label in Collection eintragen
+			this.messDaten.get(messDaten.size()-1).add( new Long(0) );
+			work();
+		}
+		
 	}
 	
 	/**schreibt Daten jeder besuchter Ampel in Collection und 
@@ -107,7 +118,7 @@ public class Auto  extends TheObject{
 		
 		// schreibt daten in Collection
 		if (station.getClass() == Ampel.class) {
-			messDaten.add(new ArrayList<Object>());
+			this.messDaten.add(new ArrayList<Object>());
 	
 			//Für aktuelle Ampel label in Collection eintragen
 			this.messDaten.get(messDaten.size()-1).add(station.label);

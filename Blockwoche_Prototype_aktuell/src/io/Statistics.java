@@ -61,9 +61,8 @@ public class Statistics {
 	 * @throws IOException 
 	 * @throws FileNotFoundException 
 	 */
-	public static void writeAutoStatistics(){
-		
-		
+	public static void writeAutoStatistics()
+	{
 		//the new JDOM XML document 
 		Document theAutoXmlDoc = new Document();
 		
@@ -74,49 +73,29 @@ public class Statistics {
 		//go through the cars list
 		//go through the cars list
 		for(Auto auto : Auto.getAlleAutos()){
-		
-			
-			
 				
 			//create a new XML Element for auto and add it below the root XML Element
 			Element autoXMLElement = new Element("auto"); 
 			rootXMLElement.addContent(autoXMLElement);
 			
-			
 			//System.out.println("Stats print " + auto.getMessDaten().size());
 			
 			//go through the cars list
-			for(ArrayList<Object> station : auto.getMessDaten()){
-				
-				
-				
-				
-				
-					
-					//create a new XML Element for auto and add it below the root XML Element
+			for(ArrayList<Object> station : auto.getMessDaten())
+			{
+				//create a new XML Element for auto and add it below the root XML Element
 				Element ampelXMLElement = new Element("ampel"); 
 				autoXMLElement.addContent(ampelXMLElement);
 					
 				//create new XML Elements for ampelname,
 				//and add the new Element as child of the car XML Element
 				
-			//	System.out.println(((String)   auto.getMessDaten().get(auto.getMessDaten().size()-1).get(0)    ));
+				//System.out.println(((String)   auto.getMessDaten().get(auto.getMessDaten().size()-1).get(0)    ));
 				
 				ampelXMLElement.addContent(new Element("ampelname").setText(((String)   auto.getMessDaten().get(auto.getMessDaten().size()-1).get(0)    )));
 				ampelXMLElement.addContent(new Element("wartezeit").setText( "" +   auto.getMessDaten().get(auto.getMessDaten().size()-1).get(1) ));
-				
-				
-				
 			}
-			
-			
-			
-			
-			
-			
-			
 		}
-		
 		
 		 try {
 	        	//the JDOM XML document is complete
