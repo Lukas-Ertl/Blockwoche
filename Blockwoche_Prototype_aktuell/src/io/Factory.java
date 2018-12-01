@@ -33,8 +33,8 @@ public class Factory {
 	/** Scenario Folder */
 	private static final String scenarioFolder ="Szenario 1";
 	
-	/** the objects XML data file */
-	private static String theObjectDataFile = "xml/"+scenarioFolder+"/object.xml"; 
+//	/** the objects XML data file (not in use)*/
+//	private static String theObjectDataFile = "xml/"+scenarioFolder+"/object.xml"; 
 	
 	/** the Ampeln XML data file */
 	private static String theAmpelnDataFile = "xml/"+scenarioFolder+"/ampeln.xml";
@@ -45,8 +45,8 @@ public class Factory {
 	/** the SteuerLogik XML data file */
 	private static String theSteuerLogikDataFile = "xml/"+scenarioFolder+"/steuerlogik.xml"; 
 	
-	/** the start station XML data file */
-	private static String theStartStationDataFile = "xml/"+scenarioFolder+"/startstation.xml"; 
+//	/** the start station XML data file (not in use)*/
+//	private static String theStartStationDataFile = "xml/"+scenarioFolder+"/startstation.xml"; 
 	
 	/** the end station XML data file */
 	private static String theEndStationDataFile = "xml/"+scenarioFolder+"/endstation.xml"; 
@@ -57,7 +57,7 @@ public class Factory {
 	/** the Wellengenerator XML data file */
 	private static String theWellengeneratorDataFile = "xml/"+scenarioFolder+"/wellengenerator.xml"; 
 	
-	
+	/** the Waypoint XML data file */
 	private static String theWaypointDataFile = "xml/"+scenarioFolder+"/waypoint.xml";
 
 	
