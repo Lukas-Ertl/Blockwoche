@@ -5,7 +5,7 @@
 		<x_position>42</x_position>
 		<y_position>42</y_position>
 		<ampelSet>
-			<rotPhase>1</rotPhase>
+			<rotPhase>8</rotPhase>
 			<gruenPhase>3</gruenPhase>
 			<ampelLabel>ampelOben</ampelLabel>
 			<ampelLabel>ampelUnten</ampelLabel>

@@ -1,0 +1,435 @@
+[
+   {
+      "label": "auto_1",
+      "processtime": "10",
+      "speed": "5",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_2",
+      "processtime": "10",
+      "speed": "4",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_3",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_4",
+      "processtime": "10",
+      "speed": "2",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_5",
+      "processtime": "10",
+      "speed": "1",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_6",
+      "processtime": "10",
+      "speed": "1",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_7",
+      "processtime": "10",
+      "speed": "2",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_8",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_9",
+      "processtime": "10",
+      "speed": "4",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_10",
+      "processtime": "10",
+      "speed": "5",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_11",
+      "processtime": "10",
+      "speed": "2",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorLinks",
+         "ampelLinks",
+         "waypointRechts",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_12",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorRechts",
+         "ampelRechts",
+         "waypointLinks",
+         "waypointLinksUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_13",
+      "processtime": "10",
+      "speed": "1",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorRechts",
+         "ampelRechts",
+         "waypointLinks",
+         "waypointLinksUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_14",
+      "processtime": "10",
+      "speed": "4",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorRechts",
+         "ampelRechts",
+         "waypointLinks",
+         "waypointLinksUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_15",
+      "processtime": "10",
+      "speed": "4",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorRechts",
+         "ampelRechts",
+         "waypointLinks",
+         "waypointLinksUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_16",
+      "processtime": "10",
+      "speed": "5",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorRechts",
+         "ampelRechts",
+         "waypointLinks",
+         "waypointLinksUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_17",
+      "processtime": "10",
+      "speed": "5",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorRechts",
+         "ampelRechts",
+         "waypointLinks",
+         "waypointLinksUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_18",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorOben",
+         "ampelOben",
+         "waypointUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_19",
+      "processtime": "10",
+      "speed": "2",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorOben",
+         "ampelOben",
+         "waypointUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_20",
+      "processtime": "10",
+      "speed": "1",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorOben",
+         "ampelOben",
+         "waypointUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_21",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorOben",
+         "ampelOben",
+         "waypointUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_22",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorOben",
+         "ampelOben",
+         "waypointUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_23",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorOben",
+         "ampelOben",
+         "waypointUnten",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_24",
+      "processtime": "10",
+      "speed": "4",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorUnten",
+         "ampelUnten",
+         "waypointOben",
+         "waypointRechtsOben",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_25",
+      "processtime": "10",
+      "speed": "5",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorUnten",
+         "ampelUnten",
+         "waypointOben",
+         "waypointRechtsOben",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_26",
+      "processtime": "10",
+      "speed": "5",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorUnten",
+         "ampelUnten",
+         "waypointOben",
+         "waypointRechtsOben",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_27",
+      "processtime": "10",
+      "speed": "3",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorUnten",
+         "ampelUnten",
+         "waypointOben",
+         "waypointRechtsOben",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_28",
+      "processtime": "10",
+      "speed": "1",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorUnten",
+         "ampelUnten",
+         "waypointOben",
+         "waypointRechtsOben",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_29",
+      "processtime": "10",
+      "speed": "4",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorUnten",
+         "ampelUnten",
+         "waypointOben",
+         "waypointRechtsOben",
+         "endStation"
+      ]
+   },
+   {
+      "label": "auto_30",
+      "processtime": "10",
+      "speed": "4",
+      "view": {
+         "image": "car-1.png"
+      },
+      "sequence": [
+         "wellenGeneratorUnten",
+         "ampelUnten",
+         "waypointOben",
+         "waypointRechtsOben",
+         "endStation"
+      ]
+   }
+]

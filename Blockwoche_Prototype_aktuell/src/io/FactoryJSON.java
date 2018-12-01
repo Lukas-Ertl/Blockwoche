@@ -1,12 +1,19 @@
 package io;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import model.Ampel;
 import model.Auto;
@@ -28,38 +35,77 @@ import view.QueueViewText;
  * @author Jaeger, Schmidt, modified by Team 4
  * @version 2018-11-24
  */
-public class Factory {
+public class FactoryJSON {
 	
 	/** Scenario Folder */
 	private static String scenarioFolder;
+	private static JSONObject jsonObject;
 	
-//	/** the objects XML data file (not in use)*/
-//	private static String theObjectDataFile = "xml/"+scenarioFolder+"/object.xml"; 
 	
-	/** the Ampeln XML data file */
-	private static String theAmpelnDataFile = "xml/"+scenarioFolder+"/ampeln.xml";
+//	/** the objects json data file (not in use)*/
+//	private static String theObjectDataFile = "SzenarienJSON/"+scenarioFolder+"/object.json"; 
 	
-	/** the ProcessStations XML data file */
-	private static String theProcessStationDataFile = "xml/"+scenarioFolder+"/processstation.xml"; 
-	
-	/** the SteuerLogik XML data file */
-	private static String theSteuerLogikDataFile = "xml/"+scenarioFolder+"/steuerlogik.xml"; 
-	
-//	/** the start station XML data file (not in use)*/
-//	private static String theStartStationDataFile = "xml/"+scenarioFolder+"/startstation.xml"; 
-	
-	/** the end station XML data file */
-	private static String theEndStationDataFile = "xml/"+scenarioFolder+"/endstation.xml"; 
-	
-	/** the Auto XML data file */
-	private static String theAutoDataFile = "xml/"+scenarioFolder+"/auto.xml"; 
-	
-	/** the Wellengenerator XML data file */
-	private static String theWellengeneratorDataFile = "xml/"+scenarioFolder+"/wellengenerator.xml"; 
-	
-	/** the Waypoint XML data file */
-	private static String theWaypointDataFile = "xml/"+scenarioFolder+"/waypoint.xml";
+	/** the Ampeln json data file */
+	private static String theAmpelnDataFile = "SzenarienJSON/"+scenarioFolder+"/ampeln.json";
 
+	
+	/** the ProcessStations json data file */
+	private static String theProcessStationDataFile = "SzenarienJSON/"+scenarioFolder+"/processstation.json"; 
+	
+	/** the SteuerLogik json data file */
+	private static String theSteuerLogikDataFile = "SzenarienJSON/"+scenarioFolder+"/steuerlogik.json"; 
+	
+//	/** the start station json data file (not in use)*/
+//	private static String theStartStationDataFile = "SzenarienJSON/"+scenarioFolder+"/startstation.json"; 
+	
+	/** the end station json data file */
+	private static String theEndStationDataFile = "SzenarienJSON/"+scenarioFolder+"/endstation.json"; 
+	
+	/** the Auto json data file */
+	private static String theAutoDataFile = "SzenarienJSON/"+scenarioFolder+"/auto.json"; 
+	
+	/** the Wellengenerator json data file */
+	private static String theWellengeneratorDataFile = "SzenarienJSON/"+scenarioFolder+"/wellengenerator.json"; 
+	
+	/** the Waypoint json data file */
+	private static String theWaypointDataFile = "SzenarienJSON/"+scenarioFolder+"/waypoint.json";
+
+	
+	
+    /**
+     * Singleton for a jsonObject.
+     * If jsonObject is not initialized 
+     * 	- load json file
+     * 	- create new instance of JSON Object
+     * 
+     * @return
+     * 		the JSONObject
+     */
+    public static JSONObject getJSONObject(){
+		if(jsonObject==null){
+        	try {
+        		// load the JSON-File into a String
+    			FileReader fr = new FileReader(theWellengeneratorDataFile);
+    			BufferedReader br = new BufferedReader(fr);
+    			String json = "";
+    			for(String line=""; line!=null; line = br.readLine())
+    				json+=line;
+    			br.close();
+    			
+    			// create a new JSON Object with the 
+    	    	jsonObject = new JSONObject(json);
+    	    	
+    	    	System.out.println("Jsonobject wurde erstellt");
+    	    	
+    		} catch (IOException e1) {
+    			e1.printStackTrace();
+    		}
+    	}
+    	return jsonObject;
+    }
+	
+	
+	
 	
 	/**
      * set Folder
@@ -77,54 +123,52 @@ public class Factory {
 		//createStartStation();
 		createWellenGenerator();
 		//createObjects();
-		createAmpeln();
+		//createAmpeln();
 		
 		//createProcessStations();
-		createEndStation();
-		createSteuerLogik();
-		createWaypoint();
-		//LiveCoverage.create();
-		createAutos();
+		//createEndStation();
+		//createSteuerLogik();
+		//createWaypoint();
+		//createAutos();
 	}
 	
 	
 	
 	private static void setFilePath() {
-		theAmpelnDataFile = "SzenarienXML/"+scenarioFolder+"/ampeln.xml";
-		theProcessStationDataFile = "SzenarienXML/"+scenarioFolder+"/processstation.xml"; 
-		theSteuerLogikDataFile = "SzenarienXML/"+scenarioFolder+"/steuerlogik.xml"; 
-		theEndStationDataFile = "SzenarienXML/"+scenarioFolder+"/endstation.xml";
-		theAutoDataFile = "SzenarienXML/"+scenarioFolder+"/auto.xml"; 
-		theWellengeneratorDataFile = "SzenarienXML/"+scenarioFolder+"/wellengenerator.xml"; 
-		theWaypointDataFile = "SzenarienXML/"+scenarioFolder+"/waypoint.xml";
+		theAmpelnDataFile = "SzenarienJSON/"+scenarioFolder+"/ampeln.json";
+		theProcessStationDataFile = "SzenarienJSON/"+scenarioFolder+"/processstation.json"; 
+		theSteuerLogikDataFile = "SzenarienJSON/"+scenarioFolder+"/steuerlogik.json"; 
+		theEndStationDataFile = "SzenarienJSON/"+scenarioFolder+"/endstation.json";
+		theAutoDataFile = "SzenarienJSON/"+scenarioFolder+"/auto.json"; 
+		theWellengeneratorDataFile = "SzenarienJSON/"+scenarioFolder+"/wellengenerator.json"; 
+		theWaypointDataFile = "SzenarienJSON/"+scenarioFolder+"/waypoint.json";
 	}
 
 	 /**
      * create the Wellengenerator
      * 
-     * Liest Daten aus dem XML FILE wellengenerator.xml aus und
+     * Liest Daten aus dem json FILE wellengenerator.json aus und
      * ruft die Methode create() des Wellengenerators auf um den Wellengenerator
      * zu erstellen
      * 
      */
      private static void createWellenGenerator(){
     	
-    	try {
+    
     		
     		
-    		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theWellengeneratorDataFile);
-    		
-    		//the <settings> ... </settings> node
-    		Element root = theXMLDoc.getRootElement();
+  
     		
     		
-    		//get all the Wellengeneratoren into a List 
-     		List <Element> wellengeneratoren = root.getChildren("wellenGenerator");
+    		JSONArray tablesWellenGenerator = getJSONObject().getJSONArray("wellenGenerator");
     		
     		
-     		for (Element theWellengenerator : wellengeneratoren) {
-    			
+    		
+    		
+    		for(Iterator i = tablesWellenGenerator.iterator(); i.hasNext();){
+    			JSONObject theWellenGenerator = (JSONObject) i.next();
+
+        
     			
     			String label = null;
      			int xPos = 0;
@@ -133,63 +177,60 @@ public class Factory {
      			int wellengroese;
     		
     		
-    		//get the label
-    		label = theWellengenerator.getChildText("label");
-    		
-    		//get the position
-    		xPos = Integer.parseInt(theWellengenerator.getChildText("x_position"));
-    		yPos = Integer.parseInt(theWellengenerator.getChildText("y_position"));
-    		
-    		//the <view> ... </view> node
-    		Element viewGroup = theWellengenerator.getChild("view");
-    		
-    		//get the Wellengroese
-    		wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellenGroesse"));
-    		
-    		
-    		// the image
-    		image = viewGroup.getChildText("image");
-    		
-    		//CREATE THE INQUEUE
-    		//the <inqueue> ... </inqueue> node
-    		Element inqueueGroup = theWellengenerator.getChild("inqueue");
-    		
-    		// the positions
-    		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
-    		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
-    		
-    		//create the inqueue
-    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-    		//CREATE THE OUTQUEUE
-    		//the <outqueue> ... </outqueue> node
-    		Element outqueueGroup = theWellengenerator.getChild("outqueue");
-    		
-    		// the positions
-    		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
-    		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
-    		
-    		//create the outqueue
-    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
-    		    		
-    		//creating a new StartStation object
-    		WellenGenerator.create(label, theInQueue, theOutQueue, xPos, yPos, image,wellengroese);
+     		//get the label
+    		label = theWellenGenerator.getString("label");
+//    		
+//    		//get the position
+//    		xPos = Integer.parseInt(theWellengenerator.getChildText("x_position"));
+//    		yPos = Integer.parseInt(theWellengenerator.getChildText("y_position"));
+//    		
+//    		//the <view> ... </view> node
+//    		Element viewGroup = theWellengenerator.getChild("view");
+//    		
+//    		//get the Wellengroese
+//    		wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellenGroesse"));
+//    		
+//    		
+//    		// the image
+//    		image = viewGroup.getChildText("image");
+//    		
+//    		//CREATE THE INQUEUE
+//    		//the <inqueue> ... </inqueue> node
+//    		Element inqueueGroup = theWellengenerator.getChild("inqueue");
+//    		
+//    		// the positions
+//    		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
+//    		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
+//    		
+//    		//create the inqueue
+//    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+//    		//CREATE THE OUTQUEUE
+//    		//the <outqueue> ... </outqueue> node
+//    		Element outqueueGroup = theWellengenerator.getChild("outqueue");
+//    		
+//    		// the positions
+//    		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
+//    		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
+//    		
+//    		//create the outqueue
+//    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+//    		    		
+//    		//creating a new StartStation object
+//    		WellenGenerator.create(label, theInQueue, theOutQueue, xPos, yPos, image,wellengroese);
     		}
     	
-    	} catch (JDOMException e) {
-				e.printStackTrace();
-		} catch (IOException e) {
-				e.printStackTrace();
-		}
+    	
+		
      }
     
      private static void createWaypoint()
      {
     	 try {
-      		//read the information from the XML file into a JDOM Document
-      		Document theXMLDoc = new SAXBuilder().build(theWaypointDataFile);
+      		//read the information from the json file into a JDOM Document
+      		Document thejsonDoc = new SAXBuilder().build(theWaypointDataFile);
       		
       		//the <settings> ... </settings> node
-      		Element root = theXMLDoc.getRootElement();
+      		Element root = thejsonDoc.getRootElement();
       		
       		//get all the stations into a List object
       		List <Element> stations = root.getChildren("waypoint");
@@ -239,7 +280,7 @@ public class Factory {
 	 /**
       * create the Autos
       * 
-      * Liest Daten aus dem XML FILE auto.xml aus und
+      * Liest Daten aus dem json FILE auto.json aus und
       * ruft die Methode create() von Auto auf mehrere Autos
       * zu erstellen
       * 
@@ -250,11 +291,11 @@ public class Factory {
     		
     		
 		
-    		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theAutoDataFile);
+    		//read the information from the json file into a JDOM Document
+    		Document thejsonDoc = new SAXBuilder().build(theAutoDataFile);
     		
     		//the <settings> ... </settings> node, this is the files root Element
-    		Element root = theXMLDoc.getRootElement();
+    		Element root = thejsonDoc.getRootElement();
     		
     		//get all the objects into a List object
     		List <Element> allAutos = root.getChildren("auto");
@@ -324,7 +365,7 @@ public class Factory {
 	 /**
       * create the SteuerLogik
       * 
-      * Liest Daten aus dem XML FILE steuerlogik.xml aus und
+      * Liest Daten aus dem json FILE steuerlogik.json aus und
       * ruft die Methode create() von SteuerLogik auf um mehrere Autos
       * zu erstellen
       * 
@@ -334,11 +375,11 @@ public class Factory {
     	 
     	try {
     		
-    		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theSteuerLogikDataFile);
+    		//read the information from the json file into a JDOM Document
+    		Document thejsonDoc = new SAXBuilder().build(theSteuerLogikDataFile);
     		
     		//the <settings> ... </settings> node
-    		Element root = theXMLDoc.getRootElement();
+    		Element root = thejsonDoc.getRootElement();
     		
     		//get the steuerlogik into a List object
     		Element steuerLogik = root.getChild("steuerLogik");
@@ -541,7 +582,7 @@ public class Factory {
 	 /**
       * create the Ampels
       * 
-      * Liest Daten aus dem XML FILE ampel.xml aus und
+      * Liest Daten aus dem json FILE ampel.json aus und
       * ruft die Methode create() von Ampel auf um mehrere Ampeln
       * zu erstellen
       * 
@@ -550,11 +591,11 @@ public class Factory {
      	
      	try {
      		
-     		//read the information from the XML file into a JDOM Document
-     		Document theXMLDoc = new SAXBuilder().build(theAmpelnDataFile);
+     		//read the information from the json file into a JDOM Document
+     		Document thejsonDoc = new SAXBuilder().build(theAmpelnDataFile);
      		
      		//the <settings> ... </settings> node
-     		Element root = theXMLDoc.getRootElement();
+     		Element root = thejsonDoc.getRootElement();
      		
      		//get all the stations into a List object
      		List <Element> stations = root.getChildren("station");
@@ -605,18 +646,18 @@ public class Factory {
      }
      
     /**
-     * create some process stations out of the XML file
+     * create some process stations out of the json file
      * 
      */
      private static void createProcessStations(){
     	
     	try {
     		
-    		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theProcessStationDataFile);
+    		//read the information from the json file into a JDOM Document
+    		Document thejsonDoc = new SAXBuilder().build(theProcessStationDataFile);
     		
     		//the <settings> ... </settings> node
-    		Element root = theXMLDoc.getRootElement();
+    		Element root = thejsonDoc.getRootElement();
     		
     		//get all the stations into a List object
     		List <Element> stations = root.getChildren("station");
@@ -698,11 +739,11 @@ public class Factory {
     	
     	try {
     		
-    		//read the information from the XML file into a JDOM Document
-    		Document theXMLDoc = new SAXBuilder().build(theEndStationDataFile);
+    		//read the information from the json file into a JDOM Document
+    		Document thejsonDoc = new SAXBuilder().build(theEndStationDataFile);
     		
     		//the <settings> ... </settings> node
-    		Element root = theXMLDoc.getRootElement();
+    		Element root = thejsonDoc.getRootElement();
     		
     		//get the end_station into a List object
     		Element endStation = root.getChild("endStation");

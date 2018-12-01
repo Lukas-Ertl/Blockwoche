@@ -2,6 +2,7 @@ package controller;
 
 import view.SimulationView;
 import io.Factory;
+import io.FactoryJSON;
 import io.Statistics;
 import java.util.concurrent.atomic.AtomicLong;
 import model.Actor;

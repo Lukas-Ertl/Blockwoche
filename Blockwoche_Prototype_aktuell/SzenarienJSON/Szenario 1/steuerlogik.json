@@ -1,0 +1,42 @@
+{
+   "steuerLogik": {
+      "label": "steuerLogik_1",
+      "x_position": "42",
+      "y_position": "42",
+      "ampelSet": [
+         {
+            "rotPhase": "1",
+            "gruenPhase": "3",
+            "ampelLabel": [
+               "ampelOben",
+               "ampelUnten"
+            ]
+         },
+         {
+            "rotPhase": "1",
+            "gruenPhase": "3",
+            "ampelLabel": [
+               "ampelRechts",
+               "ampelLinks"
+            ]
+         }
+      ],
+      "wellenGeneratorSet": {
+         "wellenZeitpunkt": "1",
+         "wellenGenerator": [
+            {
+               "wellenGeneratorLabel": "wellenGeneratorLinks"
+            },
+            {
+               "wellenGeneratorLabel": "wellenGeneratorRechts"
+            },
+            {
+               "wellenGeneratorLabel": "wellenGeneratorOben"
+            },
+            {
+               "wellenGeneratorLabel": "wellenGeneratorUnten"
+            }
+         ]
+      }
+   }
+}
