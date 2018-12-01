@@ -35,7 +35,7 @@ public class Auto extends TheObject{
 	{
 		super(label,stationsToGo,processtime,speed,xPos,yPos,image);
 		alleAutos.add(this);
-		inObserv.addObserver( LiveCoverage.getInstance() );
+		//inObserv.addObserver( LiveCoverage.getInstance() );
 	}
 	
 	/** Create a new Auto model
