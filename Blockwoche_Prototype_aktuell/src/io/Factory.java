@@ -738,6 +738,11 @@ public class Factory {
 		}
      }
      
+     /**
+      * get for Scenario Folder
+      * @return scenarioFolder
+      */
+     
      public String getScenario() {
     	 return scenarioFolder;
      }
