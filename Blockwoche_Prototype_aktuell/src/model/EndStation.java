@@ -2,6 +2,7 @@ package model;
 
 import java.util.Collection;
 
+import io.Auswertung;
 import io.Statistics;
 
 /**
@@ -98,7 +99,7 @@ public class EndStation extends SimpleStation {
 		for (Object object : this.outGoingQueue){
 			((TheObject) object).printStatistics();
 		}
-
+		new Auswertung();
 		SteuerLogik.end();
 		endAllActors();
 		
