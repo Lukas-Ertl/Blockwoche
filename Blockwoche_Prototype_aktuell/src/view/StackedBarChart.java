@@ -18,9 +18,11 @@ public class StackedBarChart
 	
     public static void main(String[] args)
     {
-    	Integer[][] intArr = new Integer[2][1];
+    	Integer[][] intArr = new Integer[2][2];
     	intArr[1][0] = 5;
+    	intArr[1][1] = 7;
     	intArr[0][0] = 10;
+    	intArr[0][1] = 3;
     	String[] strArr = new String[2];
     	strArr[0] = "LOOK A STRING";
     	strArr[1] = "LOOK A STRING 2";
