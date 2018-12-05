@@ -25,8 +25,7 @@ public class Auswertung {
 	/*
 	 * use in merge others only for testing private static String
 	 * theStatistikAuswertungdatafile = "xml/"+Factory.getFolder+"/auswertung.xml";
-	 * private static String theAutoStatistikdatafile =
-	 * "xml/"+Factory.getFolder+"/autostatistics.xml";
+	 * private static String theAutoStatistikdatafile ="xml/"+Factory.getFolder+"/autostatistics.xml";
 	 */
 
 	private static String theStatistikAuswertungdatafile = "xml/auswertung.xml";
