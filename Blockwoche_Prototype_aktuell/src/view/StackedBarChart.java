@@ -19,11 +19,13 @@ public class StackedBarChart
 	
     public static void main(String[] args)
     {
-    	Integer[][] intArr = new Integer[2][2];
+    	Integer[][] intArr = new Integer[2][3];
     	intArr[1][0] = 5;
     	intArr[1][1] = 7;
+    	intArr[1][2] = 1;
     	intArr[0][0] = 10;
     	intArr[0][1] = 3;
+    	intArr[0][2] = 3;
     	String[] strArr = new String[2];
     	strArr[0] = "LOOK A STRING";
     	strArr[1] = "LOOK A STRING 2";
@@ -122,9 +124,10 @@ class MyPanel extends JPanel
 	        		//paint the string
 	        g.drawString(barLabels[i], i*tempPlacer + tempSpacer, getHeight()-5);
 	        
-	        Color[] c = new Color[2];
+	        Color[] c = new Color[3];
 	        c[0] = Color.BLACK;
 	        c[1] = Color.RED;
+	        c[2] = Color.BLUE;
 	        
 	        //paint the bars themselves
 	        int multiBarPlacement = 0;
