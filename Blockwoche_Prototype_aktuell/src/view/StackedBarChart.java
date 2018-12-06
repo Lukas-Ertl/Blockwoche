@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.Arrays;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -121,10 +122,24 @@ class MyPanel extends JPanel
 	        		//paint the string
 	        g.drawString(barLabels[i], i*tempPlacer + tempSpacer, getHeight()-5);
 	        
+	        Color[] c = new Color[2];
+	        c[0] = Color.BLACK;
+	        c[1] = Color.RED;
+	        
 	        //paint the bars themselves
+	        int multiBarPlacement = 0;
 	        int barWidth = tempPlacer / 2;
-	        int barHeight = (getHeight()-LINE_BUFFER-BAR_BUFFER)*intArr[i][0] / displayMax;
-	        g.fillRect(i*tempPlacer + tempSpacer, getHeight()-(LINE_BUFFER)-barHeight, barWidth, barHeight);
+	        for(int j=0; j<intArr[i].length; j++)
+	        {
+	        	g.setColor(c[j]);
+	        	
+	        	int barVisualHeight = (getHeight()-tempSpacer)*intArr[i][j] / displayMax;
+	        	int barXPosition = i*tempPlacer + tempSpacer;//
+	        	int barYPosition = getHeight()-(LINE_BUFFER)-barVisualHeight - multiBarPlacement;
+	        	g.fillRect(barXPosition, barYPosition, barWidth, barVisualHeight);
+	        	multiBarPlacement += barVisualHeight;
+	        }
+	        g.setColor(Color.BLACK);
         }
     }  
 }
