@@ -8,7 +8,7 @@
 		<view>
 			<image>startstation.png</image>
 		</view>
-		<wellenGroesse>3</wellenGroesse>
+		<wellenGroesse>7</wellenGroesse>
 		<inqueue>
 			<x_position>62</x_position>
 			<y_position>210</y_position>
@@ -26,7 +26,7 @@
 		<view>
 			<image>startstation.png</image>
 		</view>
-		<wellenGroesse>3</wellenGroesse>
+		<wellenGroesse>7</wellenGroesse>
 		<inqueue>
 			<x_position>820</x_position>
 			<y_position>210</y_position>
