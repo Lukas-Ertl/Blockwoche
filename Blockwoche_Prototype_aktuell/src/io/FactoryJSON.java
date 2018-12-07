@@ -842,5 +842,13 @@ public class FactoryJSON {
      public String getScenario() {
     	 return scenarioFolder;
      }
+     
+     /**
+      * get for SzenarienXML or SzenarienJSON Folder(XML in different Factory) 
+      * @return SzenarienJSON
+      */
+     public static String getFolder() {
+    	 return "SzenarienJSON";
+     }
         
 }

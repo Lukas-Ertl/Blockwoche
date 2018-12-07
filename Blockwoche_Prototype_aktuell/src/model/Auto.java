@@ -1,8 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-import controller.Simulation;
+import view.LiveCoverage;
 
 /** 
  * Die Autos die in unserer Simulation fahren
@@ -10,20 +11,15 @@ import controller.Simulation;
  * @author Team 4
  * @version 2018-11
  */
-public class Auto  extends TheObject{
+public class Auto extends TheObject{
 	
 	/**Long values used to measure how long a car waits at an Ampel*/
 	private long timerStart, timerEnd;
 	
-	
 	private static ArrayList<Auto> alleAutos= new ArrayList<Auto>();
 	private ArrayList<ArrayList<Object>> messDaten = new ArrayList<ArrayList<Object>>();
-
-
 	
-	
-	
-
+	private InnerObservable inObserv;
 
 	/** Constructor for Auto
 	 * 
@@ -38,12 +34,9 @@ public class Auto  extends TheObject{
 	public Auto(String label, ArrayList<String> stationsToGo, int processtime, int speed, int xPos, int yPos, String image)
 	{
 		super(label,stationsToGo,processtime,speed,xPos,yPos,image);
-
-		
-		
-		
+		inObserv = new InnerObservable();
+		inObserv.addObserver( LiveCoverage.getInstance() );
 		alleAutos.add(this);
-		
 	}
 	
 	/** Create a new Auto model
@@ -70,45 +63,55 @@ public class Auto  extends TheObject{
 	@Override
 	protected void enterInQueue(Station station){
 		
-		
-		
-		//start Timer
-		timerStart = controller.Simulation.getGlobalTime();
-		
-		
-		
-		
-		//get the stations incoming queues
-		ArrayList<SynchronizedQueue> inQueues = station.getAllInQueues();
-		
-		//there is just one queue, enter it
-		if(inQueues.size()==1) inQueues.get(0).offer(this);
-		
-		//Do we have more than one incoming queue?
-		//We have to make a decision which queue we choose -> your turn 
-		else{
+		if(station.getClass() != Ampel.class || ! ((Ampel) station).getIsGreen() )
+		{
+			if(station.getClass() == Ampel.class)
+				this.inObserv.waiting();
 			
-			//get the first queue and it's size
-			SynchronizedQueue queueBuffer = inQueues.get(0);
-			int queueSize = queueBuffer.size();
-							
-			//Looking for the shortest queue (in a simple way)
-			for (SynchronizedQueue inQueue : inQueues) {
-					
-				if(inQueue.size() < queueSize) {
-					queueBuffer = inQueue;
-					queueSize = inQueue.size();
+			//start Timer
+			timerStart = controller.Simulation.getGlobalTime();
+			
+			//get the stations incoming queues
+			ArrayList<SynchronizedQueue> inQueues = station.getAllInQueues();
+			
+			//there is just one queue, enter it
+			if(inQueues.size()==1) inQueues.get(0).offer(this);
+			
+			//Do we have more than one incoming queue?
+			//We have to make a decision which queue we choose -> your turn 
+			else{
+				
+				//get the first queue and it's size
+				SynchronizedQueue queueBuffer = inQueues.get(0);
+				int queueSize = queueBuffer.size();
+								
+				//Looking for the shortest queue (in a simple way)
+				for (SynchronizedQueue inQueue : inQueues) {
+						
+					if(inQueue.size() < queueSize) {
+						queueBuffer = inQueue;
+						queueSize = inQueue.size();
+					}
 				}
+				
+				//enter the queue
+				queueBuffer.offer(this);
+								
 			}
-			
-			//enter the queue
-			queueBuffer.offer(this);
-							
+	
+			//set actual station to the just entered station
+			this.actualStation = station;
 		}
-
-		//set actual station to the just entered station
-		this.actualStation = station;
+		else
+		{
+			this.messDaten.add(new ArrayList<Object>());
 			
+			//Für aktuelle Ampel label in Collection eintragen
+			this.messDaten.get(messDaten.size()-1).add(station.label);
+			//Für aktuelle Ampel label in Collection eintragen
+			this.messDaten.get(messDaten.size()-1).add( new Long(0) );
+			work();
+		}
 	}
 	
 	/**schreibt Daten jeder besuchter Ampel in Collection und 
@@ -122,29 +125,20 @@ public class Auto  extends TheObject{
 		//End Timer
 		timerEnd = controller.Simulation.getGlobalTime();
 		
-		
-		
-		
 		// schreibt daten in Collection
 		if (station.getClass() == Ampel.class) {
-		messDaten.add(new ArrayList<Object>());
-		
-
-		//Für aktuelle Ampel label in Collection eintragen
-		this.messDaten.get(messDaten.size()-1).add(station.label);
-		//Für aktuelle Ampel label in Collection eintragen
-		this.messDaten.get(messDaten.size()-1).add(this.timerEnd-timerStart);
-		
-		//System.out.println(this.messDaten.get(messDaten.size()-1).get(0));
-		
-
+			this.messDaten.add(new ArrayList<Object>());
+	
+			//Für aktuelle Ampel label in Collection eintragen
+			this.messDaten.get(messDaten.size()-1).add(station.label);
+			//Für aktuelle Ampel label in Collection eintragen
+			this.messDaten.get(messDaten.size()-1).add(this.timerEnd-timerStart);
+			
+			//System.out.println(this.messDaten.get(messDaten.size()-1).get(0));
 		}
-				
-
 		
 		//get the stations outgoing queues
 		ArrayList<SynchronizedQueue> outQueues = station.getAllOutQueues();
-			
 		
 		//there is just one queue, enter it
 		if(outQueues.size()==1) outQueues.get(0).offer(this);
@@ -169,86 +163,59 @@ public class Auto  extends TheObject{
 			//enter the queue
 			queueBuffer.offer(this);
 		}
+		if(actualStation.getClass() == Ampel.class)
+			this.inObserv.continuing();
+		
 	}
 	
 	public ArrayList<ArrayList<Object>> getMessDaten() {
 		
 		return messDaten;
 	}
-	
-	/**Zählt die Besuchten Ampeln
-	 * 
-	 * 
-	 */
 
-	
-	
-
-	
-	
 	public static ArrayList<Auto> getAlleAutos(){
-		
 		return alleAutos;
-		
 	}
 	
-	
-	
-	public long getWarteZeit(Station aktuelleAmpel) {
-		
-		
-		
+	public long getWarteZeit(Station aktuelleAmpel)
+	{
 		//nachschauen ob das auto bei dieser ampel war, wenn ja zeit zurückgeben
 		for (ArrayList<Object> besuchteAmpel: this.messDaten) {
-			
-		
-		
-		if(aktuelleAmpel.getLabel() == ((String)(besuchteAmpel.get(0)))) {
-			
-			
-			
-			
-			//return ((long) this.messDaten.get(this.messDaten.size()-1).get(1)) ;
-			return ((long)(besuchteAmpel.get(1)));
+			if(aktuelleAmpel.getLabel() == ((String)(besuchteAmpel.get(0))))
+				//return ((long) this.messDaten.get(this.messDaten.size()-1).get(1)) ;
+				return ((long)(besuchteAmpel.get(1)));
 		}
-		
-		}
-		
 		return 0;
-		
 	}
 	
-	public long getBesuchteAutos(Station aktuelleAmpel) {
-		
-		
-		
+	public long getBesuchteAutos(Station aktuelleAmpel)
+	{
 		//nachschauen ob das auto bei dieser ampel war, wenn ja zeit zurückgeben
-		for (ArrayList<Object> besuchteAmpel: this.messDaten) {
-			
-		
-		
-		if(aktuelleAmpel.getLabel() == ((String)(besuchteAmpel.get(0)))) {
-			
-			return 1;
-			
+		for (ArrayList<Object> besuchteAmpel: this.messDaten)
+		{
+			if(aktuelleAmpel.getLabel() == ((String)(besuchteAmpel.get(0))))
+				return 1;
 		}
-		
-		}
-		
 		return 0;
-		
 	}
 	
-	
-
-	
-	
-	
-	
-	
+	private class InnerObservable extends Observable
+	{
+		private final boolean WAITING = true;
+		private final boolean CONTINUING = false;
+		
+		void waiting()
+		{
+			System.out.println("waiting");
+			this.setChanged();
+			notifyObservers(WAITING);
+		}
+		void continuing()
+		{
+			System.out.println("continuing");
+			this.setChanged();
+			notifyObservers(CONTINUING);
+		}
+	}
 	
 }
-
-
-
-

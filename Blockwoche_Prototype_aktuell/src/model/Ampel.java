@@ -13,10 +13,10 @@ import java.util.Map;
  */
 public class Ampel extends SimpleStation {
 	
-	 /** the boolean green is being used as the current state of the Ampel.
+	 /** the boolean isGreen is being used as the current state of the Ampel.
 	  * 
 	  */
-	private boolean green = false;
+	private boolean isGreen = false;
 	
 	protected static Map ampelMap = Collections.synchronizedMap(new HashMap());
 
@@ -70,11 +70,11 @@ public class Ampel extends SimpleStation {
 	
 	/**
 	 *  returns a super call for the worker constructor of Simplestation 
-	 * and loops it while the Ampel is green.
+	 * and loops it while the Ampel is isGreen.
 	 */
 	@Override 
 	protected boolean work() {
-		while(green) {
+		while(isGreen) {
 			return super.work();
 			/*
 			//let the thread wait only if there are no objects in the incoming and outgoing queues
@@ -101,13 +101,13 @@ public class Ampel extends SimpleStation {
 		return false;
 	}
 	/**
-	 * Everytime switchstate is being called the boolean green is being inverted.
+	 * Everytime switchstate is being called the boolean isGreen is being inverted.
 	 * 
 	 */
 	public void switchState()
 	
 	{
-		green=!green;
+		isGreen=!isGreen;
 	
 	}
 	/**
@@ -145,5 +145,9 @@ public class Ampel extends SimpleStation {
 		return null;
 	}
 	
+	public boolean getIsGreen()
+	{
+		return this.isGreen;
+	}
 
 }
