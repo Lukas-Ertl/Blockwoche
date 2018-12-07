@@ -10,31 +10,45 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
+ * A Stacked Bar Graph class for display
  * 
  * @author Team 4
- *
+ * @version 2018-12
  */
 public class StackedBarChart
 {
+	/** Distance to the parallel running axis */
 	private final int PARAL_DIST = 10;
+	/** Distance to the adjacent running axis */
 	private final int ADJ_DIST = 20;
 	
+	/** Buffer for line spacing */
 	private final int LINE_BUFFER = 25;
+	/** Buffer for upper window spacing */
 	private final int BAR_BUFFER = 50;
 	
+	/** Color of base lines */
 	private final Color LINE_COLOR = Color.BLACK;
 	
+	/** Overall Chart Label */
     private String label;
+    /** X Axist Label */
     private String xLabel;
+    /** Array of Labels for the bars */
     private String[] barLabels;
     
+    /** Values of the bars */
     private Integer[][] intArr;
+    /** Array for the different colors of the bar elements */
     private Color[] colArr;
     
+    /** Background color */
     private Color backgroundColor;
     
+    /** Maximum x axis label value, defaults to 10 */
     private int displayMax = 10;
 	
+    /** example bar chart */
     public static void example()
     {
     	Integer[][] intArr = new Integer[3][];
@@ -74,32 +88,53 @@ public class StackedBarChart
 		}
     }
 
+    /** displays the chart in a new frame */
     private void createAndShowGUI()
     {
         JFrame f = new JFrame(this.label);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        f.add( new MyPanel() );//xLabel, barLabels, intArr) );
+        f.add( new MyPanel() );
         f.pack();
         f.setVisible(true);
     }
     
+    
+    /**
+     * 
+     * @param label chart label
+     * @param xLabel x axis label
+     * @param barLabels label array for the bars
+     * @param intArr values for the bar elements
+     * @param backgroundColor background color
+     * @param colArr array of colors for the bar elements
+     * @throws InputArraysNotEquivalent throws exception if there aren't enough colors for bar elements, or not enough labels for bars
+     */
     public StackedBarChart(String label, String xLabel, String[] barLabels, Integer[][] intArr, Color backgroundColor, Color[] colArr) throws InputArraysNotEquivalent
     {
+    	//find out what the largest number of elements in a bar is (useful for checking if there are enough colors in the array to display these elements)
     	int biggestArray = 0;
+    	//find out how large the large bar is (useful for scaling the drawing)
+    	int biggestBar = 0;
     	for(int i=0; i<intArr.length; i++)
     	{
+    		if(intArr[i].length>biggestArray)
+    			biggestArray = intArr[i].length;
+    		
     		int total = 0;
     		for(int j=0; j<intArr[i].length; j++)
     		{
-    			total ++;
+    			total += intArr[i][j];
     		}
-    		if(total>biggestArray)
-    			biggestArray = total;
+    		if(total>biggestBar)
+    			biggestBar = total;
     	}
+    	displayMax = biggestBar;
     	
+    	//check there are enough colors for bar elements, and enough labels for bars
     	if( barLabels.length != intArr.length || colArr.length < biggestArray )
     		throw new InputArraysNotEquivalent("Input arrays for StackedBarChart do not match");
     	
+    	//save values
     	this.backgroundColor = backgroundColor;
     	this.colArr = colArr;
     	this.intArr = intArr;
@@ -107,33 +142,35 @@ public class StackedBarChart
     	this.label = label;
     	this.xLabel = xLabel;
     	
+    	//display the Chart
     	createAndShowGUI();
     }
     
+    /**
+     * internal Panel that actually displays the Chart
+     * 
+     * @author Team 4
+     *@version 2018-12
+     */
     private class MyPanel extends JPanel
 	{
+    	/**
+    	 * Constructor for Panel, creates a Border
+    	 */
 		private MyPanel()
 	    {
-	    	int biggestBar = 0;
-	    	for(int i=0; i<intArr.length; i++)
-	    	{
-	    		int total = 0;
-	    		for(int j=0; j<intArr[i].length; j++)
-	    		{
-	    			total += intArr[i][j];
-	    		}
-	    		if(total>biggestBar)
-	    			biggestBar = total;
-	    	}
-	    	displayMax = biggestBar;
 	        setBorder(BorderFactory.createLineBorder(LINE_COLOR));
 	    }
 	
+		/**
+		 * returns the preferred window size
+		 */
 	    public Dimension getPreferredSize()
 	    {
 	        return new Dimension(500,350);
 	    }
 	    
+	    /** paints the graph, is called automatically */
 	    protected void paintComponent(Graphics g)
 	    {
 	        super.paintComponent(g);
@@ -185,6 +222,12 @@ public class StackedBarChart
 	    }  
 	}
     
+    /**
+     * Exception for inequivalent inputs in the StackedBarChart constructor
+     * 
+     * @author Team 4
+     * @version 2018-12
+     */
     private class InputArraysNotEquivalent extends Exception
     {
     	private String exceptionMessage;
