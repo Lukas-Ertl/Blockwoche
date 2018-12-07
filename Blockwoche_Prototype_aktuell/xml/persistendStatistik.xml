@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statistics>
+  <scenario>
+    <scenario>Test Code</scenario>
+    <durschnittswartezeit>1337</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>16</durschnittswartezeit>
+  </scenario>
+</statistics>

@@ -38,28 +38,28 @@ public class Factory {
 //	private static String theObjectDataFile = "xml/"+scenarioFolder+"/object.xml"; 
 	
 	/** the Ampeln XML data file */
-	private static String theAmpelnDataFile = "xml/"+scenarioFolder+"/ampeln.xml";
+	private static String theAmpelnDataFile = "SzenarienXML/"+scenarioFolder+"/ampeln.xml";
 	
 	/** the ProcessStations XML data file */
-	private static String theProcessStationDataFile = "xml/"+scenarioFolder+"/processstation.xml"; 
+	private static String theProcessStationDataFile = "SzenarienXML/"+scenarioFolder+"/processstation.xml"; 
 	
 	/** the SteuerLogik XML data file */
-	private static String theSteuerLogikDataFile = "xml/"+scenarioFolder+"/steuerlogik.xml"; 
+	private static String theSteuerLogikDataFile = "SzenarienXML/"+scenarioFolder+"/steuerlogik.xml"; 
 	
 //	/** the start station XML data file (not in use)*/
 //	private static String theStartStationDataFile = "xml/"+scenarioFolder+"/startstation.xml"; 
 	
 	/** the end station XML data file */
-	private static String theEndStationDataFile = "xml/"+scenarioFolder+"/endstation.xml"; 
+	private static String theEndStationDataFile = "SzenarienXML/"+scenarioFolder+"/endstation.xml"; 
 	
 	/** the Auto XML data file */
-	private static String theAutoDataFile = "xml/"+scenarioFolder+"/auto.xml"; 
+	private static String theAutoDataFile = "SzenarienXML/"+scenarioFolder+"/auto.xml"; 
 	
 	/** the Wellengenerator XML data file */
-	private static String theWellengeneratorDataFile = "xml/"+scenarioFolder+"/wellengenerator.xml"; 
+	private static String theWellengeneratorDataFile = "SzenarienXML/"+scenarioFolder+"/wellengenerator.xml"; 
 	
 	/** the Waypoint XML data file */
-	private static String theWaypointDataFile = "xml/"+scenarioFolder+"/waypoint.xml";
+	private static String theWaypointDataFile = "SzenarienXML/"+scenarioFolder+"/waypoint.xml";
 
 	
 	/**
@@ -754,12 +754,19 @@ public class Factory {
      }
      
      /**
-      * get for Scenario Folder
+      * get for Scenario Folder 
       * @return scenarioFolder
       */
      
-     public String getScenario() {
+     public static String getScenario() {
     	 return scenarioFolder;
+     }
+     /**
+      * get for SzenarienXML or SzenarienJSOn Folder(JSOn in different Factory) 
+      * @return SzenarienXML
+      */
+     public static String getFolder() {
+    	 return "SzenarienXML";
      }
         
 }

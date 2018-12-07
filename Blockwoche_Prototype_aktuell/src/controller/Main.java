@@ -27,6 +27,9 @@ public class Main {
 		scenarioFolder = "Szenario 1";
 		System.out.println("in Main "+scenarioFolder);
 		Simulation scenario_1 = new Simulation(scenarioFolder);
+		
+		/*
+		// Try to run all scenarios after each other automatically (abandoned because of time)
 		while(scenario_1.getIsRunning() == false) {
 		}
 		while(scenario_1.getIsRunning() == true) {
@@ -34,6 +37,7 @@ public class Main {
 		scenarioFolder = "Szenario 2";
 		System.out.println("in Main "+scenarioFolder);
 		Simulation scenario_2 = new Simulation(scenarioFolder);
+		*/
 	}
 
 }

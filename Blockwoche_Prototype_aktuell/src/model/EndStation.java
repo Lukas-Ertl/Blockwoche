@@ -3,13 +3,13 @@ package model;
 import java.util.Collection;
 
 import io.Auswertung;
+import io.PersistendFile;
 import io.Statistics;
 
 /**
  * Class for the end station. This is the last station where all objects are collected
  * 
- * @author Jaeger, Schmidt
- * @version 2017-10-26
+ * @author Jaeger, Schmidt, edited by Team 4
  */
 public class EndStation extends SimpleStation {
 	
@@ -100,6 +100,7 @@ public class EndStation extends SimpleStation {
 			((TheObject) object).printStatistics();
 		}
 		new Auswertung();
+		new PersistendFile();
 		SteuerLogik.end();
 		endAllActors();
 		
