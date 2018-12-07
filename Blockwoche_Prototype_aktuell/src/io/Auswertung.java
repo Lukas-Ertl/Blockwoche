@@ -22,7 +22,7 @@ import org.jdom2.output.XMLOutputter;
  */
 
 public class Auswertung {
-	/*
+	/**
 	 * use in merge others only for testing private static String
 	 * 
 	 */
@@ -34,7 +34,7 @@ public class Auswertung {
 //	private static String theAutoStatistikdatafile = "xml/autostatistics.xml";
 	private ArrayList<StatistikHolder> autoList = new ArrayList<StatistikHolder>();
 	private ArrayList<StatistikHolderAmpel> ampelList = new ArrayList<StatistikHolderAmpel>();
-/*
+/**
  * Constructor for Auswertung
  * @author Team 4
  */
