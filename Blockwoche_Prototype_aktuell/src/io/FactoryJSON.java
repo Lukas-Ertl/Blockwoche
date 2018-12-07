@@ -81,11 +81,11 @@ public class FactoryJSON {
      * @return
      * 		the JSONObject
      */
-    public static JSONObject getJSONObject(){
-		if(jsonObject==null){
+    public static JSONObject getJSONObject(String filepath){
+		
         	try {
         		// load the JSON-File into a String
-    			FileReader fr = new FileReader(theWellengeneratorDataFile);
+    			FileReader fr = new FileReader(filepath);
     			BufferedReader br = new BufferedReader(fr);
     			String json = "";
     			for(String line=""; line!=null; line = br.readLine())
@@ -94,13 +94,13 @@ public class FactoryJSON {
     			
     			// create a new JSON Object with the 
     	    	jsonObject = new JSONObject(json);
-    	    	
-    	    	System.out.println("Jsonobject wurde erstellt");
+    	 
+    	  
     	    	
     		} catch (IOException e1) {
     			e1.printStackTrace();
     		}
-    	}
+    	
     	return jsonObject;
     }
 	
@@ -121,13 +121,13 @@ public class FactoryJSON {
 		scenarioFolder = folder;
 		setFilePath();
 		//createStartStation();
-		createWellenGenerator();
-		//createObjects();
-		//createAmpeln();
 		
+		//createObjects();
+		createWellenGenerator();
+		createAmpeln();
 		//createProcessStations();
-		//createEndStation();
-		//createSteuerLogik();
+		createEndStation();
+		createSteuerLogik();
 		//createWaypoint();
 		//createAutos();
 	}
@@ -156,11 +156,11 @@ public class FactoryJSON {
     	
     
     		
-    		
+    	 JSONObject settings = (JSONObject) getJSONObject(theWellengeneratorDataFile).get("settings");
   
     		
     		
-    		JSONArray tablesWellenGenerator = getJSONObject().getJSONArray("wellenGenerator");
+    		JSONArray tablesWellenGenerator = settings.getJSONArray("wellenGenerator");
     		
     		
     		
@@ -168,7 +168,7 @@ public class FactoryJSON {
     		for(Iterator i = tablesWellenGenerator.iterator(); i.hasNext();){
     			JSONObject theWellenGenerator = (JSONObject) i.next();
 
-        
+
     			
     			String label = null;
      			int xPos = 0;
@@ -179,44 +179,52 @@ public class FactoryJSON {
     		
      		//get the label
     		label = theWellenGenerator.getString("label");
-//    		
-//    		//get the position
-//    		xPos = Integer.parseInt(theWellengenerator.getChildText("x_position"));
-//    		yPos = Integer.parseInt(theWellengenerator.getChildText("y_position"));
-//    		
-//    		//the <view> ... </view> node
-//    		Element viewGroup = theWellengenerator.getChild("view");
-//    		
-//    		//get the Wellengroese
-//    		wellengroese = Integer.parseInt(theWellengenerator.getChildText("wellenGroesse"));
-//    		
-//    		
-//    		// the image
-//    		image = viewGroup.getChildText("image");
-//    		
-//    		//CREATE THE INQUEUE
-//    		//the <inqueue> ... </inqueue> node
-//    		Element inqueueGroup = theWellengenerator.getChild("inqueue");
-//    		
-//    		// the positions
-//    		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
-//    		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
-//    		
-//    		//create the inqueue
-//    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-//    		//CREATE THE OUTQUEUE
-//    		//the <outqueue> ... </outqueue> node
-//    		Element outqueueGroup = theWellengenerator.getChild("outqueue");
-//    		
-//    		// the positions
-//    		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
-//    		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
-//    		
-//    		//create the outqueue
-//    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
-//    		    		
-//    		//creating a new StartStation object
-//    		WellenGenerator.create(label, theInQueue, theOutQueue, xPos, yPos, image,wellengroese);
+    		
+    	
+    		
+    		//get the position
+    		xPos = theWellenGenerator.getInt("x_position");
+    		yPos = theWellenGenerator.getInt("y_position");
+    		
+    		//the <view> ... </view> node
+    		
+    		JSONObject view = (JSONObject) theWellenGenerator.get("view");
+    		
+    		image = view.getString("image");
+    		
+    		
+    
+    		
+    		
+    		//get the Wellengroese
+    		wellengroese = theWellenGenerator.getInt("wellenGroesse");
+    	
+  
+
+    		
+    		//CREATE THE INQUEUE
+    		//the <inqueue> ... </inqueue> node
+    		JSONObject inqueueGroup = (JSONObject) theWellenGenerator.get("inqueue");
+    		
+    		// the positions
+    		int xPosInQueue = inqueueGroup.getInt("x_position");
+    		int yPosInQueue = inqueueGroup.getInt("y_position");
+    		
+    		//create the inqueue
+    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+    		//CREATE THE OUTQUEUE
+    		//the <outqueue> ... </outqueue> node
+    		JSONObject outqueueGroup = (JSONObject) theWellenGenerator.get("outqueue");
+    		
+    		// the positions
+    		int xPosOutQueue = outqueueGroup.getInt("x_position");
+    		int yPosOutQueue = outqueueGroup.getInt("y_position");
+    		
+    		//create the outqueue
+    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+    		    		
+    		//creating a new StartStation object
+    		WellenGenerator.create(label, theInQueue, theOutQueue, xPos, yPos, image,wellengroese);
     		}
     	
     	
@@ -373,23 +381,23 @@ public class FactoryJSON {
      private static void createSteuerLogik()
      {
     	 
-    	try {
+    	
     		
-    		//read the information from the json file into a JDOM Document
-    		Document thejsonDoc = new SAXBuilder().build(theSteuerLogikDataFile);
-    		
-    		//the <settings> ... </settings> node
-    		Element root = thejsonDoc.getRootElement();
-    		
-    		//get the steuerlogik into a List object
-    		Element steuerLogik = root.getChild("steuerLogik");
-    		
+    	 JSONObject settings = (JSONObject) getJSONObject(theSteuerLogikDataFile).get("settings");
+    	  
+ 		
+ 		 JSONObject steuerlogik = (JSONObject) settings.get("steuerLogik");
+    	 
+			String label = null;
+			int xPos = 0;
+			int yPos = 0;
+
     		//get the label
-    		String label = steuerLogik.getChildText("label");
+    		label = steuerlogik.getString("label");
     		
     		//get the position
-    		int xPos = Integer.parseInt(steuerLogik.getChildText("x_position"));
-    		int yPos= Integer.parseInt(steuerLogik.getChildText("y_position"));
+    		xPos = steuerlogik.getInt("x_position");
+    		yPos= steuerlogik.getInt("y_position");
     		
     		ArrayList<ArrayList<Ampel>> amp = new ArrayList<ArrayList<Ampel>>();
     		ArrayList<Long> rot = new ArrayList<Long>();
@@ -397,41 +405,54 @@ public class FactoryJSON {
 			ArrayList<ArrayList<WellenGenerator>> wel = new ArrayList<ArrayList<WellenGenerator>>();
 			ArrayList<Long> welTime = new ArrayList<Long>();
 			
+		
+			
+			
 			//get all info necessary for the just above things
 			{
-				List<Element> ampelSets = steuerLogik.getChildren("ampelSet");
-				for (Element ampelSet : ampelSets)
+				
+				JSONArray ampelSets = steuerlogik.getJSONArray("ampelSet");
+				
+				
+				for (Object ampelSet : ampelSets)
 				{
-					String rotPhasenString = ampelSet.getChildText("rotPhase");
+					String rotPhasenString = ((JSONObject) ampelSet).getString("rotPhase");
 					rot.add( Long.parseLong( rotPhasenString ) );
 					
-					String gruenPhasenString = ampelSet.getChildText("gruenPhase");
+					String gruenPhasenString = ((JSONObject) ampelSet).getString("gruenPhase");
 					gruen.add( Long.parseLong( gruenPhasenString ) );
 					
 					ArrayList<Ampel> ampelnInSet = new ArrayList<Ampel>();
 					
-					List<Element> ampelLabels = ampelSet.getChildren("ampelLabel");
-					for(Element ampelLabel : ampelLabels)
+					JSONArray ampelLabels = (JSONArray) ((JSONObject) ampelSet).get("ampelLabel");
+					
+					for(Object ampelLabel : ampelLabels)
 					{
-						String ampel = ampelLabel.getText();
+						String ampel = ((String)ampelLabel);
+						
+						
 						ampelnInSet.add( Ampel.getAmpelByLabel(ampel) );
 					}
 					
 					amp.add(ampelnInSet);
 				}
 				
-				List<Element> wellenGeneratorSets = steuerLogik.getChildren("wellenGeneratorSet");
-				for (Element wellenGeneratorSet : wellenGeneratorSets)
+				JSONArray wellenGeneratorSets = steuerlogik.getJSONArray("wellenGeneratorSet");
+				for (Object wellenGeneratorSet : wellenGeneratorSets)
 				{
 					ArrayList<WellenGenerator> tempWelEle = new ArrayList<WellenGenerator>();
 					
-					String wellenZeitPunktString = wellenGeneratorSet.getChildText("wellenZeitpunkt");
-					welTime.add( Long.parseLong( wellenZeitPunktString ) );						
+					String wellenZeitPunktString = ((JSONObject) wellenGeneratorSet).getString("wellenZeitpunkt");
+					welTime.add( Long.parseLong( wellenZeitPunktString ) );		
+					
+					
+					
+					
 
-					List<Element> wellenGeneratoren = wellenGeneratorSet.getChildren("wellenGenerator");
-					for(Element wellenGenerator : wellenGeneratoren)
+					JSONArray wellenGeneratoren = (JSONArray) ((JSONObject) wellenGeneratorSet).get("wellenGenerator");
+					for(Object wellenGenerator : wellenGeneratoren)
 					{
-						String wellenGeneratorLabel = wellenGenerator.getChildText("wellenGeneratorLabel");
+						String wellenGeneratorLabel = ((JSONObject) wellenGenerator).getString("wellenGeneratorLabel");
 						//System.out.println(wellenGeneratorLabel);
 						//System.out.println( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
 						tempWelEle.add( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
@@ -439,6 +460,7 @@ public class FactoryJSON {
 					
 					wel.add(tempWelEle);
 				}
+				
 			}
 			SteuerInfo info = new SteuerInfo(amp, gruen, wel, welTime);
 			//System.out.println(info.getWellenGeneratorSet(0).toString());
@@ -447,11 +469,7 @@ public class FactoryJSON {
     		SteuerLogik.create(label, xPos, yPos, info);//rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
     	    
     	
-    	} catch (JDOMException e) {
-				e.printStackTrace();
-		} catch (IOException e) {
-				e.printStackTrace();
-		}
+    	
      }
 	
 //	/**
@@ -589,59 +607,75 @@ public class FactoryJSON {
       */
       private static void createAmpeln(){
      	
-     	try {
+
+    	    
+  		
+     	 JSONObject settings = (JSONObject) getJSONObject(theAmpelnDataFile).get("settings");
+   
+   
      		
-     		//read the information from the json file into a JDOM Document
-     		Document thejsonDoc = new SAXBuilder().build(theAmpelnDataFile);
+	JSONArray tablesAmpel = settings.getJSONArray("station");
+    		
+    		
+    		
+    		
+    		for(Iterator i = tablesAmpel.iterator(); i.hasNext();){
+    			JSONObject theAmpel = (JSONObject) i.next();
      		
-     		//the <settings> ... </settings> node
-     		Element root = thejsonDoc.getRootElement();
-     		
-     		//get all the stations into a List object
-     		List <Element> stations = root.getChildren("station");
-     		
-     		//separate every JDOM "station" Element from the list and create Java Station objects
-     		for (Element station : stations) {
-     			
-     			// data variables:
-     			String label = null;
-     			int xPos = 0;
-     			int yPos = 0;
-     			String image = null;
-     			    			
-     			// read data
-     			label = station.getChildText("label");
-         		xPos = Integer.parseInt(station.getChildText("x_position"));
-         		yPos = Integer.parseInt(station.getChildText("y_position"));
-         		        		
-         		//the <view> ... </view> node
-         		Element viewGroup = station.getChild("view");
-         		// read data
-         		image = viewGroup.getChildText("image");
-         		        		
-         		//CREATE THE INQUEUES
-         		Element inqueue = station.getChild("inqueue");
-         		int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
-         		int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
-         		SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue);
-         		
-         		//CREATE THE OUTQUEUES
-         		Element outqueue = station.getChild("outqueue");
-         		int xPosOutQueue = Integer.parseInt(outqueue.getChildText("x_position"));
-         		int yPosOutQueue = Integer.parseInt(outqueue.getChildText("y_position"));
-         		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
-         		
-         		//creating a new Station object
-         		Ampel.create(label, theInqueue, theOutqueue, xPos, yPos, image);
-         		
- 			}
      		
      	
-     	} catch (JDOMException e) {
- 				e.printStackTrace();
- 		} catch (IOException e) {
- 				e.printStackTrace();
- 		}
+         
+     			
+     			String label = null;
+      			int xPos = 0;
+      			int yPos = 0;
+      			String image = null;
+      
+     		
+     		
+      		//get the label
+     		label = theAmpel.getString("label");
+     		
+     	
+     		
+     		//get the position
+     		xPos = theAmpel.getInt("x_position");
+     		yPos = theAmpel.getInt("y_position");
+     		
+     		//the <view> ... </view> node
+     		
+     		JSONObject view = (JSONObject) theAmpel.get("view");
+     		
+     		image = view.getString("image");
+     		
+
+     		//CREATE THE INQUEUE
+     		//the <inqueue> ... </inqueue> node
+     		JSONObject inqueueGroup = (JSONObject) theAmpel.get("inqueue");
+     		
+     		// the positions
+     		int xPosInQueue = inqueueGroup.getInt("x_position");
+     		int yPosInQueue = inqueueGroup.getInt("y_position");
+     		
+     		//create the inqueue
+     		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+     		//CREATE THE OUTQUEUE
+     		//the <outqueue> ... </outqueue> node
+     		JSONObject outqueueGroup = (JSONObject) theAmpel.get("outqueue");
+     		
+     		// the positions
+     		int xPosOutQueue = outqueueGroup.getInt("x_position");
+     		int yPosOutQueue = outqueueGroup.getInt("y_position");
+     		
+     		//create the outqueue
+     		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+     		    		
+     		//creating a new StartStation object
+     		
+     		Ampel.create(label, theInQueue, theOutQueue, xPos, yPos, image);
+
+     		}
+     	
      	
      }
      
@@ -737,60 +771,67 @@ public class FactoryJSON {
      */
      private static void createEndStation(){
     	
-    	try {
-    		
-    		//read the information from the json file into a JDOM Document
-    		Document thejsonDoc = new SAXBuilder().build(theEndStationDataFile);
-    		
-    		//the <settings> ... </settings> node
-    		Element root = thejsonDoc.getRootElement();
-    		
-    		//get the end_station into a List object
-    		Element endStation = root.getChild("endStation");
-    		
-    		//get label
-    		String label = endStation.getChildText("label");
-    		    		    		
-    		//position
-    		int xPos = Integer.parseInt(endStation.getChildText("x_position"));
-    		int yPos = Integer.parseInt(endStation.getChildText("y_position"));
-    		
-    		//the <view> ... </view> node
-    		Element viewGroup = endStation.getChild("view");
-    		// the image
-    		String image = viewGroup.getChildText("image");
-    		
-    		//CREATE THE INQUEUE
-    		//the <inqueue> ... </inqueue> node
-    		Element inqueueGroup = endStation.getChild("inqueue");
-    		
-    		// the positions
-    		int xPosInQueue = Integer.parseInt(inqueueGroup.getChildText("x_position"));
-    		int yPosInQueue = Integer.parseInt(inqueueGroup.getChildText("y_position"));
-    		
-    		//create the inqueue
-    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-    		
-    		//CREATE THE OUTQUEUE
-    		//the <outqueue> ... </outqueue> node
-    		Element outqueueGroup = endStation.getChild("outqueue");
-    		
-    		// the positions
-    		int xPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("x_position"));
-    		int yPosOutQueue = Integer.parseInt(outqueueGroup.getChildText("y_position"));
-    		
-    		//create the outqueue
-    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
-    		
-    		//creating a new EndStation object
-    		EndStation.create(label, theInQueue, theOutQueue, xPos, yPos, image);
-    	    
     	
-    	} catch (JDOMException e) {
-				e.printStackTrace();
-		} catch (IOException e) {
-				e.printStackTrace();
-		}
+    		
+      		
+        	 JSONObject settings = (JSONObject) getJSONObject(theEndStationDataFile).get("settings");
+      
+        	 JSONObject theEndStation = (JSONObject) settings.get("endStation");
+        	 
+      			
+      			String label = null;
+       			int xPos = 0;
+       			int yPos = 0;
+       			String image = null;
+       		
+      		
+      		
+       		//get the label
+      		label = theEndStation.getString("label");
+      		
+      	
+      		
+      		//get the position
+      		xPos = theEndStation.getInt("x_position");
+      		yPos = theEndStation.getInt("y_position");
+      		
+      		//the <view> ... </view> node
+      		
+      		JSONObject view = (JSONObject) theEndStation.get("view");
+      		
+      		image = view.getString("image");
+      		
+
+      		//CREATE THE INQUEUE
+      		//the <inqueue> ... </inqueue> node
+      		JSONObject inqueueGroup = (JSONObject) theEndStation.get("inqueue");
+      		
+      		// the positions
+      		int xPosInQueue = inqueueGroup.getInt("x_position");
+      		int yPosInQueue = inqueueGroup.getInt("y_position");
+      		
+      		//create the inqueue
+      		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+      		//CREATE THE OUTQUEUE
+      		//the <outqueue> ... </outqueue> node
+      		JSONObject outqueueGroup = (JSONObject) theEndStation.get("outqueue");
+      		
+      		// the positions
+      		int xPosOutQueue = outqueueGroup.getInt("x_position");
+      		int yPosOutQueue = outqueueGroup.getInt("y_position");
+      		
+      		//create the outqueue
+      		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+      		    		
+      		//creating a new StartStation object
+      		
+      		EndStation.create(label, theInQueue, theOutQueue, xPos, yPos, image);
+      		
+      		
+    		
+    	    
+     
+    	
      }
      
      /**

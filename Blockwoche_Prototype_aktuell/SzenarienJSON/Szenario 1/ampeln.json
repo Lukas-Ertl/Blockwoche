@@ -1,66 +1,62 @@
-[
-   {
-      "label": "ampelLinks",
-      "x_position": "80",
-      "y_position": "270",
-      "view": {
-         "image": "1-ampel.png"
+{
+  "settings": {
+    "station": [
+      {
+        "label": "ampelLinks",
+        "x_position": "80",
+        "y_position": "270",
+        "view": { "image": "1-ampel.png" },
+        "inqueue": {
+          "x_position": "100",
+          "y_position": "210"
+        },
+        "outqueue": {
+          "x_position": "100",
+          "y_position": "350"
+        }
       },
-      "inqueue": {
-         "x_position": "100",
-         "y_position": "210"
+      {
+        "label": "ampelRechts",
+        "x_position": "700",
+        "y_position": "270",
+        "view": { "image": "1-ampel.png" },
+        "inqueue": {
+          "x_position": "720",
+          "y_position": "210"
+        },
+        "outqueue": {
+          "x_position": "720",
+          "y_position": "350"
+        }
       },
-      "outqueue": {
-         "x_position": "100",
-         "y_position": "350"
+      {
+        "label": "ampelOben",
+        "x_position": "440",
+        "y_position": "150",
+        "view": { "image": "1-ampel.png" },
+        "inqueue": {
+          "x_position": "460",
+          "y_position": "90"
+        },
+        "outqueue": {
+          "x_position": "460",
+          "y_position": "230"
+        }
+      },
+      {
+        "label": "ampelUnten",
+        "x_position": "460",
+        "y_position": "400",
+        "view": { "image": "1-ampel.png" },
+        "inqueue": {
+          "x_position": "480",
+          "y_position": "340"
+        },
+        "outqueue": {
+          "x_position": "480",
+          "y_position": "480"
+        }
       }
-   },
-   {
-      "label": "ampelRechts",
-      "x_position": "700",
-      "y_position": "270",
-      "view": {
-         "image": "1-ampel.png"
-      },
-      "inqueue": {
-         "x_position": "720",
-         "y_position": "210"
-      },
-      "outqueue": {
-         "x_position": "720",
-         "y_position": "350"
-      }
-   },
-   {
-      "label": "ampelOben",
-      "x_position": "440",
-      "y_position": "150",
-      "view": {
-         "image": "1-ampel.png"
-      },
-      "inqueue": {
-         "x_position": "460",
-         "y_position": "90"
-      },
-      "outqueue": {
-         "x_position": "460",
-         "y_position": "230"
-      }
-   },
-   {
-      "label": "ampelUnten",
-      "x_position": "460",
-      "y_position": "400",
-      "view": {
-         "image": "1-ampel.png"
-      },
-      "inqueue": {
-         "x_position": "480",
-         "y_position": "340"
-      },
-      "outqueue": {
-         "x_position": "480",
-         "y_position": "480"
-      }
-   }
-]
+    ]
+  }
+}
