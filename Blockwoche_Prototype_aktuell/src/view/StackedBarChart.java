@@ -55,6 +55,7 @@ public class StackedBarChart
     	intArr[0] = new Integer[7];
     	intArr[1] = new Integer[3];
     	intArr[2] = new Integer[2];
+    	
     	intArr[0][0] = 10;
     	intArr[0][1] = 2;
     	intArr[0][2] = 2;
@@ -67,10 +68,12 @@ public class StackedBarChart
     	intArr[1][2] = 1;
     	intArr[2][0] = 10;
     	intArr[2][1] = 3;
+    	
     	String[] strArr = new String[3];
     	strArr[0] = "Szenario 1";
     	strArr[1] = "Szenario 2";
     	strArr[2] = "Szenario 3";
+    	
     	Color[] c = new Color[7];
     	c[0] = Color.decode("#00FF00");
     	c[1] = Color.decode("#0000FF");
@@ -79,6 +82,7 @@ public class StackedBarChart
     	c[4] = Color.decode("#000000");
     	c[5] = Color.decode("#FFFF00");
     	c[6] = Color.decode("#FF00FF");
+    	
     	Color backCol = Color.CYAN;
     	
         try {
@@ -97,7 +101,6 @@ public class StackedBarChart
         f.pack();
         f.setVisible(true);
     }
-    
     
     /**
      * 
@@ -228,7 +231,7 @@ public class StackedBarChart
      * @author Team 4
      * @version 2018-12
      */
-    private class InputArraysNotEquivalent extends Exception
+    public class InputArraysNotEquivalent extends Exception
     {
     	private String exceptionMessage;
     	
