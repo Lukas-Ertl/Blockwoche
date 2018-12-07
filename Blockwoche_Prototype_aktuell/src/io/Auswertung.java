@@ -24,15 +24,20 @@ import org.jdom2.output.XMLOutputter;
 public class Auswertung {
 	/*
 	 * use in merge others only for testing private static String
-	 * theStatistikAuswertungdatafile = "xml/"+Factory.getFolder+"/auswertung.xml";
-	 * private static String theAutoStatistikdatafile ="xml/"+Factory.getFolder+"/autostatistics.xml";
+	 * 
 	 */
+	 private  String theStatistikAuswertungdatafile = Factory.getFolder() +"/" + Factory.getScenario() + "/auswertung.xml";
+	 private  String theAutoStatistikdatafile =Factory.getFolder() +"/" + Factory.getScenario() +"/autostatistics.xml";
+	 
 
-	private static String theStatistikAuswertungdatafile = "xml/auswertung.xml";
-	private static String theAutoStatistikdatafile = "xml/autostatistics.xml";
+//	private static String theStatistikAuswertungdatafile = "xml/auswertung.xml";
+//	private static String theAutoStatistikdatafile = "xml/autostatistics.xml";
 	private ArrayList<StatistikHolder> autoList = new ArrayList<StatistikHolder>();
 	private ArrayList<StatistikHolderAmpel> ampelList = new ArrayList<StatistikHolderAmpel>();
-
+/*
+ * Constructor for Auswertung
+ * @author Team 4
+ */
 	public Auswertung() {
 		readXML();
 		writeXML();
@@ -61,7 +66,7 @@ public class Auswertung {
 				// get the label
 				label = ampelGroup.getChildText("ampelname");
 
-				// get the position
+				// get the wartezeit
 				wartezeit = Integer.parseInt(ampelGroup.getChildText("wartezeit"));
 
 				autoList.add(new StatistikHolder(label, wartezeit));
