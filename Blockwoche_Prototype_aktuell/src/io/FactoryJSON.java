@@ -25,6 +25,7 @@ import model.SteuerLogik;
 import model.SynchronizedQueue;
 import model.Waypoint;
 import model.WellenGenerator;
+import view.LiveCoverage;
 import view.QueueViewJPanel;
 import view.QueueViewText;
 
@@ -128,8 +129,9 @@ public class FactoryJSON {
 		//createProcessStations();
 		createEndStation();
 		createSteuerLogik();
-		//createWaypoint();
-		//createAutos();
+		createWaypoint();
+		LiveCoverage.create();
+		createAutos();
 	}
 	
 	
@@ -233,18 +235,18 @@ public class FactoryJSON {
     
      private static void createWaypoint()
      {
-    	 try {
-      		//read the information from the json file into a JDOM Document
-      		Document thejsonDoc = new SAXBuilder().build(theWaypointDataFile);
+    	 
+         	 JSONObject settings = (JSONObject) getJSONObject(theWaypointDataFile).get("settings");
+         	   
+         	   
       		
-      		//the <settings> ... </settings> node
-      		Element root = thejsonDoc.getRootElement();
+         	JSONArray tablesWaypoint = settings.getJSONArray("waypoint");
       		
-      		//get all the stations into a List object
-      		List <Element> stations = root.getChildren("waypoint");
+
       		
-      		//separate every JDOM "station" Element from the list and create Java Station objects
-      		for (Element station : stations) {
+    		for(Iterator i = tablesWaypoint.iterator(); i.hasNext();){
+    			JSONObject theWaypoint = (JSONObject) i.next();
+     		
       			
       			// data variables:
       			String label = null;
@@ -253,36 +255,36 @@ public class FactoryJSON {
       			String image = null;
       			    			
       			// read data
-      			label = station.getChildText("label");
-          		xPos = Integer.parseInt(station.getChildText("x_position"));
-          		yPos = Integer.parseInt(station.getChildText("y_position"));
+      			label = theWaypoint.getString("label");
+          		xPos = theWaypoint.getInt("x_position");
+          		yPos = theWaypoint.getInt("y_position");
           		        		
           		//the <view> ... </view> node
-          		Element viewGroup = station.getChild("view");
-          		// read data
-          		image = viewGroup.getChildText("image");
+         		
+         		JSONObject view = (JSONObject) theWaypoint.get("view");
+         		
+         	
           		        		
-          		//CREATE THE INQUEUES
-          		Element inqueue = station.getChild("inqueue");
-          		int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
-          		int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+         		//CREATE THE INQUEUE
+         		//the <inqueue> ... </inqueue> node
+         		JSONObject inqueueGroup = (JSONObject) theWaypoint.get("inqueue");
+         		int xPosInQueue = inqueueGroup.getInt("x_position");
+         		int yPosInQueue = inqueueGroup.getInt("y_position");
           		SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue);
           		
-          		//CREATE THE OUTQUEUES
-          		Element outqueue = station.getChild("outqueue");
-          		int xPosOutQueue = Integer.parseInt(outqueue.getChildText("x_position"));
-          		int yPosOutQueue = Integer.parseInt(outqueue.getChildText("y_position"));
+          		//CREATE THE OUTQUEUE
+         		//the <outqueue> ... </outqueue> node
+         		JSONObject outqueueGroup = (JSONObject) theWaypoint.get("outqueue");
+         		
+         		// the positions
+         		int xPosOutQueue = outqueueGroup.getInt("x_position");
+         		int yPosOutQueue = outqueueGroup.getInt("y_position");
           		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
           		
           		//creating a new Station object
           		Waypoint.create(label, theInqueue, theOutqueue, xPos, yPos, image);
           	}
-      	}
-    	catch (JDOMException e) {
- 				e.printStackTrace();
- 		} catch (IOException e) {
- 				e.printStackTrace();
- 		}
+
      }
 	 
 	 /**
@@ -294,22 +296,21 @@ public class FactoryJSON {
       * 
       */
      private static void createAutos(){
-    	
-    	try {
     		
     		
 		
-    		//read the information from the json file into a JDOM Document
-    		Document thejsonDoc = new SAXBuilder().build(theAutoDataFile);
+        JSONObject settings = (JSONObject) getJSONObject(theAutoDataFile).get("settings");
+
+
+        
+        JSONArray tablesAuto = settings.getJSONArray("auto");
     		
-    		//the <settings> ... </settings> node, this is the files root Element
-    		Element root = thejsonDoc.getRootElement();
+        
     		
-    		//get all the objects into a List object
-    		List <Element> allAutos = root.getChildren("auto");
-    		
-    		//separate every JDOM "object" Element from the list and create Java TheObject objects
-    		for (Element dasauto : allAutos) {
+        for(Iterator i = tablesAuto.iterator(); i.hasNext();){
+			JSONObject theAuto = (JSONObject) i.next();
+    			
+    			
     			
     			// data variables:
     			String label = null;
@@ -320,27 +321,34 @@ public class FactoryJSON {
     			String image = null;
     			    			
     			// read data
-    			label = dasauto.getChildText("label");
-    			processtime = Integer.parseInt(dasauto.getChildText("processtime"));
-    			speed = Integer.parseInt(dasauto.getChildText("speed"));
+    			label = theAuto.getString("label");
+    			processtime = theAuto.getInt("processtime");
+    			speed = theAuto.getInt("speed");
+        		        		
+
         		        		
         		//the <view> ... </view> node
-        		Element viewGroup = dasauto.getChild("view");
-        		// read data
-        		image = viewGroup.getChildText("image");
+         		
+         		JSONObject view = (JSONObject) theAuto.get("view");
+         		
+         		image = view.getString("image");
+        		
         		
         		//get all the stations, where the object wants to go to
         		//the <sequence> ... </sequence> node
-        		Element sequenceGroup = dasauto.getChild("sequence");
+         		JSONObject sequenceGroup = (JSONObject) theAuto.get("sequence");
         		
-        		List <Element> allStations = sequenceGroup.getChildren("station");
+         		JSONArray allStations = sequenceGroup.getJSONArray("station");
         		
         		//get the elements into a list
         		ArrayList<String> stationsToGo = new ArrayList<String>();
         		
-        		for (Element theStation : allStations) {
+        		
         			
-        			stationsToGo.add(theStation.getText());
+        			for(Iterator j = allStations.iterator(); j.hasNext();){
+        				String theStation = (String) j.next();
+        			
+        			stationsToGo.add(theStation);
         			
         			
         		
@@ -348,7 +356,7 @@ public class FactoryJSON {
         				
         				
         				
-        			if(theStation.getText().equals(aktuelleStation.getLabel()) && aktuelleStation.getClass() == WellenGenerator.class) {
+        			if(theStation.equals(aktuelleStation.getLabel()) && aktuelleStation.getClass() == WellenGenerator.class) {
         				
         				xPos = aktuelleStation.getXPos();
         				yPos = aktuelleStation.getYPos();
@@ -357,17 +365,15 @@ public class FactoryJSON {
         			}
         			
         		}
+        		
+        		
         	  		
         		//creating a new TheObject object
         		Auto.create(label, stationsToGo, processtime, speed, xPos, yPos, image);
         		
 			}
     	
-    	} catch (JDOMException e) {
-				e.printStackTrace();
-		} catch (IOException e) {
-				e.printStackTrace();
-		}
+    
     }
 	
 	 /**
@@ -448,7 +454,7 @@ public class FactoryJSON {
 					
 					
 					
-
+					
 					JSONArray wellenGeneratoren = (JSONArray) ((JSONObject) wellenGeneratorSet).get("wellenGenerator");
 					for(Object wellenGenerator : wellenGeneratoren)
 					{
@@ -456,7 +462,10 @@ public class FactoryJSON {
 						//System.out.println(wellenGeneratorLabel);
 						//System.out.println( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
 						tempWelEle.add( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
+						
+						System.out.println("wellengenerator");
 					}
+					
 					
 					wel.add(tempWelEle);
 				}

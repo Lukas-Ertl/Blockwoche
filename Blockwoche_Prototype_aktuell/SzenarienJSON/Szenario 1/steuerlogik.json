@@ -22,7 +22,8 @@
           ]
         }
       ],
-      "wellenGeneratorSet": {
+      "wellenGeneratorSet": [
+	  {
         "wellenZeitpunkt": "1",
         "wellenGenerator": [
           { "wellenGeneratorLabel": "wellenGeneratorLinks" },
@@ -30,7 +31,8 @@
           { "wellenGeneratorLabel": "wellenGeneratorOben" },
           { "wellenGeneratorLabel": "wellenGeneratorUnten" }
         ]
-      }
+		}
+      ]
     }
   }
 }
