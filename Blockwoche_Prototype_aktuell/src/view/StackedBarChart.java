@@ -3,19 +3,24 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author Team 4
+ *
+ */
 public class StackedBarChart
 {
 	private final int PARAL_DIST = 10;
 	private final int ADJ_DIST = 20;
 	
 	private final int LINE_BUFFER = 25;
-	private final int BAR_BUFFER = 25;
+	private final int BAR_BUFFER = 50;
 	
 	private final Color LINE_COLOR = Color.BLACK;
 	
@@ -30,28 +35,43 @@ public class StackedBarChart
     
     private int displayMax = 10;
 	
-    public static void main(String[] args)
+    public static void example()
     {
-    	Integer[][] intArr = new Integer[3][3];
-    	intArr[2][0] = 10;
-    	intArr[2][1] = 3;
-    	intArr[2][2] = 3;
+    	Integer[][] intArr = new Integer[3][];
+    	intArr[0] = new Integer[7];
+    	intArr[1] = new Integer[3];
+    	intArr[2] = new Integer[2];
+    	intArr[0][0] = 10;
+    	intArr[0][1] = 2;
+    	intArr[0][2] = 2;
+    	intArr[0][3] = 2;
+    	intArr[0][4] = 2;
+    	intArr[0][5] = 2;
+    	intArr[0][6] = 2;
     	intArr[1][0] = 5;
     	intArr[1][1] = 7;
     	intArr[1][2] = 1;
-    	intArr[0][0] = 10;
-    	intArr[0][1] = 3;
-    	intArr[0][2] = 3;
+    	intArr[2][0] = 10;
+    	intArr[2][1] = 3;
     	String[] strArr = new String[3];
     	strArr[0] = "Szenario 1";
     	strArr[1] = "Szenario 2";
     	strArr[2] = "Szenario 3";
-    	Color[] c = new Color[3];
-    	c[0] = Color.GREEN;
-    	c[1] = Color.BLUE;
-    	c[2] = Color.MAGENTA;
+    	Color[] c = new Color[7];
+    	c[0] = Color.decode("#00FF00");
+    	c[1] = Color.decode("#0000FF");
+    	c[2] = Color.decode("#00AAAA");
+    	c[3] = Color.decode("#FFFFFF");
+    	c[4] = Color.decode("#000000");
+    	c[5] = Color.decode("#FFFF00");
+    	c[6] = Color.decode("#FF00FF");
     	Color backCol = Color.CYAN;
-        StackedBarChart s = new StackedBarChart(intArr, "Stacked Bar Chart Frame", "Waiting Time", strArr, intArr, backCol, c);
+    	
+        try {
+			StackedBarChart s = new StackedBarChart("Stacked Bar Chart Frame", "Waiting Time", strArr, intArr, backCol, c);
+		} catch (InputArraysNotEquivalent e) {
+			e.printStackTrace();
+		}
     }
 
     private void createAndShowGUI()
@@ -63,8 +83,23 @@ public class StackedBarChart
         f.setVisible(true);
     }
     
-    public StackedBarChart(Integer[][] bars, String label, String xLabel, String[] barLabels, Integer[][] intArr, Color backgroundColor, Color[] colArr)
+    public StackedBarChart(String label, String xLabel, String[] barLabels, Integer[][] intArr, Color backgroundColor, Color[] colArr) throws InputArraysNotEquivalent
     {
+    	int biggestArray = 0;
+    	for(int i=0; i<intArr.length; i++)
+    	{
+    		int total = 0;
+    		for(int j=0; j<intArr[i].length; j++)
+    		{
+    			total ++;
+    		}
+    		if(total>biggestArray)
+    			biggestArray = total;
+    	}
+    	
+    	if( barLabels.length != intArr.length || colArr.length < biggestArray )
+    		throw new InputArraysNotEquivalent("Input arrays for StackedBarChart do not match");
+    	
     	this.backgroundColor = backgroundColor;
     	this.colArr = colArr;
     	this.intArr = intArr;
@@ -149,4 +184,18 @@ public class StackedBarChart
 	        }
 	    }  
 	}
+    
+    private class InputArraysNotEquivalent extends Exception
+    {
+    	private String exceptionMessage;
+    	
+    	InputArraysNotEquivalent(String exceptionMessage)
+    	{
+    		this.exceptionMessage = exceptionMessage;
+    	}
+    	public String toString()
+    	{
+    		return(exceptionMessage);
+    	}
+    }
 }
