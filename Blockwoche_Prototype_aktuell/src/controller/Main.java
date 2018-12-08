@@ -112,20 +112,19 @@ class ButtonListener implements ActionListener {
 		if (e.getActionCommand().equals("XML1")) {
 			ButtonListener.scenarioFolder = "Szenario 1";
 			System.out.println("in Main " + scenarioFolder);
-			new Simulation(scenarioFolder);
+			new Simulation(scenarioFolder, "XML");
 		} else if (e.getActionCommand().equals("XML2")) {
 			ButtonListener.scenarioFolder = "Szenario 2";
 			System.out.println("in Main " + scenarioFolder);
-			new Simulation(scenarioFolder);
+			new Simulation(scenarioFolder, "XML");
 		} else if (e.getActionCommand().equals("JSON1")) {
 			ButtonListener.scenarioFolder = "Szenario 1";
 			System.out.println("in Main " + scenarioFolder);
-			new Simulation(scenarioFolder);
-		}
-		else if (e.getActionCommand().equals("JSON2")) {
+			new Simulation(scenarioFolder, "JSON");
+		} else if (e.getActionCommand().equals("JSON2")) {
 			ButtonListener.scenarioFolder = "Szenario 1";
 			System.out.println("in Main " + scenarioFolder);
-			new Simulation(scenarioFolder);
+			new Simulation(scenarioFolder, "JSON");
 		}
 	}
 }

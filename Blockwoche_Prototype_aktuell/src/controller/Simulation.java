@@ -37,9 +37,9 @@ public class Simulation {
 	 * @param folder
 	 */
 	
-	public Simulation(String folder) {
+	public Simulation(String folder, String szenarioType) {
 		System.out.println("in Simulation Constructor "+folder);
-		init(folder);
+		init(folder, szenarioType);
 	}
 	
 	/**
@@ -48,10 +48,21 @@ public class Simulation {
 	 * initialize the simulation
 	 * @param fodler
 	 */
-	private void init(String folder){
+	private void init(String folder, String szenarioType){
 		System.out.println("in Simulation init "+folder);
 		//create all stations and objects for the starting scenario out of XML
-		Factory.createStartScenario(folder);
+		if(szenarioType.equals("XML"))
+		{
+			Factory.createStartScenario(folder);
+		}
+		else if(szenarioType.equals("JSON"))
+		{
+			FactoryJSON.createStartScenario(folder);
+		}
+		else
+		{
+			System.exit(0);
+		}
 				
 		//the view of our simulation
 		new SimulationView();
