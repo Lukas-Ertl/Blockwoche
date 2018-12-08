@@ -26,20 +26,18 @@ import model.Station;
  * @author Team 4
  * @version 11-2018
  */
-public class PersistendFile {
+public class PersistentFile {
 
-	private static String thePersistendStatistikDatafile = "xml/persistendStatistik.xml";
+	private static String thePersistentStatistikDatafile = "xml/persistentstatistics.xml";
 	private ArrayList<DataHolder> statisticList = new ArrayList<DataHolder>();
 	
 	/*
-	 * Constructor for PersistendFile 
+	 * Constructor for PersistentFile 
 	 * @author Team 4
 	 */
-	public PersistendFile() {
+	public PersistentFile() {
 		readXML();
 		writeXML();
-		
-		
 	}
 	
 	
@@ -63,7 +61,7 @@ public class PersistendFile {
 		try {
 			
 			// read the information from the XML file into a JDOM Document
-			Document theXMLDoc = new SAXBuilder().build(thePersistendStatistikDatafile);
+			Document theXMLDoc = new SAXBuilder().build(thePersistentStatistikDatafile);
 			// the <settings> ... </settings> node
 			Element root = theXMLDoc.getRootElement();
 
@@ -145,7 +143,7 @@ public class PersistendFile {
 					XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
 
 					// Write the XML File
-					xmlOutputter.output(theStatistikAuswertunsXmlFile, new FileOutputStream(thePersistendStatistikDatafile));
+					xmlOutputter.output(theStatistikAuswertunsXmlFile, new FileOutputStream(thePersistentStatistikDatafile));
 
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block

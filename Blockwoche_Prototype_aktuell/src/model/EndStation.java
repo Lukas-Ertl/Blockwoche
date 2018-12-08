@@ -3,7 +3,7 @@ package model;
 import java.util.Collection;
 
 import io.Auswertung;
-import io.PersistendFile;
+import io.PersistentFile;
 import io.Statistics;
 
 /**
@@ -100,7 +100,7 @@ public class EndStation extends SimpleStation {
 			((TheObject) object).printStatistics();
 		}
 		new Auswertung();
-		new PersistendFile();
+		new PersistentFile();
 		SteuerLogik.end();
 		endAllActors();
 		
