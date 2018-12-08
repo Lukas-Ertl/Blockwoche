@@ -29,8 +29,11 @@ import java.io.IOException;
 
 public class Main {
 	
+	/** Filepath for the persistent statistics */
 	static String persistent = "xml/persistentstatistics.xml";
+	/** hashmap of scenario paths */
 	static HashMap<Integer, String> szenarioPaths = new HashMap<Integer, String>();
+	/** initialisation of the scenario path hashmap */
 	static void init()
 	{
 		szenarioPaths.put(1, "SzenarienXML/Szenario 1/auswertung.xml");
