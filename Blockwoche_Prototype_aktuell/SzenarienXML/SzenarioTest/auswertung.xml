@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statistics>
+  <ampelset>
+    ampelset 0
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <insgesamtewartezeit>32</insgesamtewartezeit>
+      <autoanzahl>1</autoanzahl>
+      <durchschnittswartezeit>32.0</durchschnittswartezeit>
+    </ampel>
+  </ampelset>
+</statistics>

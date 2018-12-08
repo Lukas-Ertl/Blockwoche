@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<settings>
+
+	
+		<waypoint>
+		<label>waypointRechts</label>
+		<x_position>900</x_position>
+		<y_position>270</y_position>
+		<view>
+			<image></image>
+		</view>
+		<inqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</waypoint>
+	
+	
+
+	
+	
+	
+</settings>
