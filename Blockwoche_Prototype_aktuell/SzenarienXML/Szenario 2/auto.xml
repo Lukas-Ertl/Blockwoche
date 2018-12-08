@@ -6,7 +6,7 @@
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
-			<image>car-3.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -22,7 +22,7 @@
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>car-3.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -37,7 +37,7 @@
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
-			<image>car-2.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -97,7 +97,7 @@
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
-			<image>car-6.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -127,7 +127,7 @@
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>car-2.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -142,7 +142,7 @@
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
-			<image>car.4.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -157,7 +157,7 @@
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
-			<image>car-6.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -188,7 +188,7 @@
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
-			<image>car-2.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorRechts</station>
@@ -204,7 +204,7 @@
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>car-3.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorRechts</station>
@@ -220,7 +220,7 @@
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>car-6.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorRechts</station>
@@ -236,7 +236,7 @@
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
-			<image>car-3.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorRechts</station>
@@ -252,7 +252,7 @@
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
-			<image>car-2.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorRechts</station>
@@ -268,7 +268,7 @@
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
-			<image>car-4.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorOben</station>
@@ -283,7 +283,7 @@
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
-			<image>car-4.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorOben</station>
@@ -298,7 +298,7 @@
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
-			<image>car-6.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorOben</station>
@@ -311,9 +311,9 @@
 	<auto>
 		<label>auto_21</label>
 		<processtime>10</processtime>
-		<speed>7</speed>
+		<speed>3</speed>
 		<view>
-			<image>car-2.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorOben</station>
@@ -328,7 +328,7 @@
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
-			<image>car-5.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorOben</station>
@@ -358,7 +358,7 @@
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>car-3.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
@@ -372,9 +372,9 @@
 	<auto>
 		<label>auto_25</label>
 		<processtime>10</processtime>
-		<speed>7</speed>
+		<speed>5</speed>
 		<view>
-			<image>car-5.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
@@ -390,7 +390,7 @@
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
-			<image>car-2.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
@@ -406,7 +406,7 @@
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
-			<image>car-5.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
@@ -422,7 +422,7 @@
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
-			<image>car-4.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
@@ -454,7 +454,7 @@
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>car-2.png</image>
+			<image>car-1.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
