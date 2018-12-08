@@ -1,6 +1,8 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,6 +18,13 @@ import java.awt.event.ActionListener;
  */
 
 public class Main {
+	
+	private static HashMap<Integer, String> szenarioPaths = new HashMap<Integer, String>();
+	static void init()
+	{
+		szenarioPaths.put(1, "SzenarienXML/Szenario 1/auswertung.xml");
+		szenarioPaths.put(2, "SzenarienXML/Szenario 2/auswertung.xml");
+	}
 
 	JFrame theFrame;
 
@@ -107,8 +116,6 @@ class ButtonListener implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		
-		
-
 		if (e.getActionCommand().equals("XML1")) {
 			ButtonListener.scenarioFolder = "Szenario 1";
 			System.out.println("in Main " + scenarioFolder);
@@ -125,6 +132,24 @@ class ButtonListener implements ActionListener {
 			ButtonListener.scenarioFolder = "Szenario 1";
 			System.out.println("in Main " + scenarioFolder);
 			new Simulation(scenarioFolder, "JSON");
+		}
+	}
+}
+
+class GraphButtonListener implements ActionListener {
+
+	/** Scenario Folder */
+	private static String scenarioFolder;
+
+	public void actionPerformed(ActionEvent e) {
+		Main.init();
+		
+		if (e.getActionCommand().equals("XML1")) {
+			
+		} else if (e.getActionCommand().equals("XML2")) {
+			
+		} else if (e.getActionCommand().equals("JSON1")) {
+			
 		}
 	}
 }
