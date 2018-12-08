@@ -34,11 +34,7 @@ public class StartButton extends JButton implements ActionListener{
 		//set the simulation on
 		Simulation.isRunning = true;
 		
-		List<CustomPoint> dataPoints = new ArrayList<CustomPoint>();
-		dataPoints.add(new CustomPoint(10, 10));
-		dataPoints.add(new CustomPoint(20, 20));
-		dataPoints.add(new CustomPoint(30, 40));
-		PlotterPane p = new PlotterPane(dataPoints, 500, 500, true, "something", "is for", "losers");
+		
 		
 		//wake up the SteuerLogik -> lets the simulation run
 		SteuerLogik.getSteuerLogik().wakeUp();
