@@ -10,6 +10,7 @@ import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import controller.Simulation;
 import model.Ampel;
 import model.Auto;
 import model.Station;
@@ -26,9 +27,9 @@ public class Statistics {
 	private static String buffer;
 	
 	/** The XML Fiel for Auto Statistics (in every Scenario Folder) */
-	private static String theAutoXmlFile = Factory.getFolder() +"/" + Factory.getScenario() + "/autostatistics.xml";
+	private static String theAutoXmlFile = Simulation.getFolder() +"/" + Simulation.getScenario() + "/autostatistics.xml";
 	/** The XML Fiel for Ampel Statistics (in every Scenario Folder) */
-	private static String theAmpelXmlFile = Factory.getFolder() +"/" + Factory.getScenario() + "/ampelstatistics.xml";
+	private static String theAmpelXmlFile = Simulation.getFolder() +"/" + Simulation.getScenario() + "/ampelstatistics.xml";
 
 	/**
 	 * appends the given String to the buffer

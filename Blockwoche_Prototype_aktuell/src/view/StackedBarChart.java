@@ -96,7 +96,7 @@ public class StackedBarChart
     private void createAndShowGUI()
     {
         JFrame f = new JFrame(this.label);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         f.add( new MyPanel() );
         f.pack();
         f.setVisible(true);
