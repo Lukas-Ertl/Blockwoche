@@ -160,4 +160,9 @@ public class Simulation {
 		return Simulation.folder;
 	}
 	
+	public static String getScenarioType()
+	{
+		return Simulation.szenarioType;
+	}
+	
 }
