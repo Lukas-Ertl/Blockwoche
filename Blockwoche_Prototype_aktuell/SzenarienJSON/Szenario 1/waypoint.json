@@ -1,98 +1,102 @@
-[
-   {
-      "label": "waypointOben",
-      "x_position": "460",
-      "y_position": "150",
-      "view": {
-         "image": []
+{
+  "settings": {
+    "waypoint": [
+      {
+        "label": "waypointOben",
+        "x_position": "460",
+        "y_position": "150",
+        "view": {
+          
+        },
+        "inqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
       },
-      "inqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
+      {
+        "label": "waypointUnten",
+        "x_position": "440",
+        "y_position": "400",
+        "view": {
+          
+        },
+        "inqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
       },
-      "outqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
+      {
+        "label": "waypointLinks",
+        "x_position": "80",
+        "y_position": "270",
+        "view": {
+          
+        },
+        "inqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
+      },
+      {
+        "label": "waypointRechts",
+        "x_position": "900",
+        "y_position": "270",
+        "view": {
+          
+        },
+        "inqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
+      },
+      {
+        "label": "waypointLinksUnten",
+        "x_position": "40",
+        "y_position": "320",
+        "view": {
+          
+        },
+        "inqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
+      },
+      {
+        "label": "waypointRechtsOben",
+        "x_position": "900",
+        "y_position": "70",
+        "view": {
+          
+        },
+        "inqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
       }
-   },
-   {
-      "label": "waypointUnten",
-      "x_position": "440",
-      "y_position": "400",
-      "view": {
-         "image": []
-      },
-      "inqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      },
-      "outqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      }
-   },
-   {
-      "label": "waypointLinks",
-      "x_position": "80",
-      "y_position": "270",
-      "view": {
-         "image": []
-      },
-      "inqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      },
-      "outqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      }
-   },
-   {
-      "label": "waypointRechts",
-      "x_position": "900",
-      "y_position": "270",
-      "view": {
-         "image": []
-      },
-      "inqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      },
-      "outqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      }
-   },
-   {
-      "label": "waypointLinksUnten",
-      "x_position": "40",
-      "y_position": "320",
-      "view": {
-         "image": []
-      },
-      "inqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      },
-      "outqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      }
-   },
-   {
-      "label": "waypointRechtsOben",
-      "x_position": "900",
-      "y_position": "70",
-      "view": {
-         "image": []
-      },
-      "inqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      },
-      "outqueue": {
-         "x_position": "-100",
-         "y_position": "-100"
-      }
-   }
-]
+    ]
+  }
+}
