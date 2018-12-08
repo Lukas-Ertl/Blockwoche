@@ -46,7 +46,7 @@ public class PersistentFile {
 	 * @return averageWaitingtime
 	 */
 	
-	private long calculateAverageWaitingtime(long insgesamteWartezeit, int autoAnzahl) {
+	 static long calculateAverageWaitingtime(long insgesamteWartezeit, int autoAnzahl) {
 		
 		
 		return insgesamteWartezeit/autoAnzahl;

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<settings>
+	<steuerLogik>
+		<label>steuerLogik_1</label>
+		<x_position>42</x_position>
+		<y_position>42</y_position>
+
+		<ampelSet>
+			<rotPhase>1</rotPhase>
+			<gruenPhase>3</gruenPhase>
+			<ampelLabel>ampelLinks</ampelLabel>
+		</ampelSet>		
+		
+		<wellenGeneratorSet>
+			<wellenZeitpunkt>1</wellenZeitpunkt>
+			<wellenGenerator>
+				<wellenGeneratorLabel>wellenGeneratorLinks</wellenGeneratorLabel>
+			</wellenGenerator>
+		</wellenGeneratorSet>
+	</steuerLogik>
+</settings>

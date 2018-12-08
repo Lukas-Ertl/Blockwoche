@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<settings>
+
+	<wellenGenerator>
+		<label>wellenGeneratorLinks</label>
+		<x_position>42</x_position>
+		<y_position>270</y_position>
+		<view>
+			<image>startstation.png</image>
+		</view>
+		<wellenGroesse>3</wellenGroesse>
+		<inqueue>
+			<x_position>62</x_position>
+			<y_position>210</y_position>
+		</inqueue>
+		<outqueue>
+			<x_position>-100</x_position>
+			<y_position>-100</y_position>
+		</outqueue>
+	</wellenGenerator>
+
+</settings>

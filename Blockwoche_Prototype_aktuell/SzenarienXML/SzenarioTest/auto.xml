@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<settings>
+
+	<auto>
+		<label>auto_1</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+</settings>
