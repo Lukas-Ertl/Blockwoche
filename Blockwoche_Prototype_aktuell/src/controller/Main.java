@@ -97,9 +97,7 @@ class ChoosingButtons extends JFrame {
 		theFrame.setSize(400, 200);
 		theFrame.setVisible(true);
 		theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 	}
-
 }
 
 class ButtonListener implements ActionListener {
@@ -115,7 +113,6 @@ class ButtonListener implements ActionListener {
 			ButtonListener.scenarioFolder = "Szenario 1";
 			System.out.println("in Main " + scenarioFolder);
 			new Simulation(scenarioFolder);
-			
 		} else if (e.getActionCommand().equals("XML2")) {
 			ButtonListener.scenarioFolder = "Szenario 2";
 			System.out.println("in Main " + scenarioFolder);
@@ -125,13 +122,10 @@ class ButtonListener implements ActionListener {
 			System.out.println("in Main " + scenarioFolder);
 			new Simulation(scenarioFolder);
 		}
-
 		else if (e.getActionCommand().equals("JSON2")) {
 			ButtonListener.scenarioFolder = "Szenario 1";
 			System.out.println("in Main " + scenarioFolder);
 			new Simulation(scenarioFolder);
 		}
-
 	}
-
 }
