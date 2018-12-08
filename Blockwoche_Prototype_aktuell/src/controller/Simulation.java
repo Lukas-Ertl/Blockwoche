@@ -29,16 +29,19 @@ public class Simulation {
 	//the clock must be thread safe -> AtomicLong. The primitive type long isn't, even if synchronized
 	private static AtomicLong clock = new AtomicLong(0); 
 	
+	/** Strings used by other classes to navigate between scenarios */
 	public static String folder;
+	/** Strings used by other classes to navigate between JSON and XML */
 	public static String szenarioType;
 	
 	/**
-	 * created by Team 4
+	 * @author Jaeger, Schmidt, edited by Team 4
+	 * @version 2018-12
+	 * 
 	 * Constructor 
 	 * 	calls init
 	 * @param folder
 	 */
-	
 	public Simulation(String folder, String szenarioType) {
 		Simulation.folder = folder;
 		Simulation.szenarioType = szenarioType;
@@ -142,24 +145,39 @@ public class Simulation {
 	
 	
 	/**
-	 * created by Team 4
-	 * 	returns isRunning
+	 * @author Team 4
+	 * 
 	 * @return isRunning
 	 */
 	public boolean getIsRunning() {
 		return isRunning;
 	}
 	
+	/**
+	 * @author Team 4
+	 * 
+	 * @return Szenarien ordner (SzenarienXML / SzenarienJSON)
+	 */
 	public static String getFolder()
 	{
 		return "Szenarien"+Simulation.szenarioType;
 	}
 	
+	/**
+	 * @author Team 4
+	 * 
+	 * @return folder
+	 */
 	public static String getScenario()
 	{
 		return Simulation.folder;
 	}
 	
+	/**
+	 * @author Team 4
+	 * 
+	 * @return szenarioType
+	 */
 	public static String getScenarioType()
 	{
 		return Simulation.szenarioType;
