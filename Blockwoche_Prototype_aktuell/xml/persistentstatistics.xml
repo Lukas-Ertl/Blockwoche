@@ -4,4 +4,16 @@
     <scenario>Szenario 1</scenario>
     <durschnittswartezeit>18</durschnittswartezeit>
   </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>20</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>10</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>16</durschnittswartezeit>
+  </scenario>
 </statistics>

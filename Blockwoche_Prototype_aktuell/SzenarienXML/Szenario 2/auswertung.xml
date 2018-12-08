@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statistics>
+  <ampelset>
+    ampelset 1
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <insgesamtewartezeit>193</insgesamtewartezeit>
+      <autoanzahl>11</autoanzahl>
+      <durchschnittswartezeit>17.545454545454547</durchschnittswartezeit>
+    </ampel>
+    <ampel>
+      <ampelname>ampelRechts</ampelname>
+      <insgesamtewartezeit>102</insgesamtewartezeit>
+      <autoanzahl>6</autoanzahl>
+      <durchschnittswartezeit>17.0</durchschnittswartezeit>
+    </ampel>
+  </ampelset>
+  <ampelset>
+    ampelset 0
+    <ampel>
+      <ampelname>ampelOben</ampelname>
+      <insgesamtewartezeit>121</insgesamtewartezeit>
+      <autoanzahl>6</autoanzahl>
+      <durchschnittswartezeit>20.166666666666668</durchschnittswartezeit>
+    </ampel>
+    <ampel>
+      <ampelname>ampelUnten</ampelname>
+      <insgesamtewartezeit>147</insgesamtewartezeit>
+      <autoanzahl>7</autoanzahl>
+      <durchschnittswartezeit>21.0</durchschnittswartezeit>
+    </ampel>
+  </ampelset>
+</statistics>
