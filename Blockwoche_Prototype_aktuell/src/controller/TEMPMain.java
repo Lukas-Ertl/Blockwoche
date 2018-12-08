@@ -13,56 +13,58 @@ import view.StackedBarChart;
 import view.StackedBarChart.InputArraysNotEquivalent;
 
 public class TEMPMain {
-	private static String szenario = "1";
-	private static String szenario1 = "SzenarienXML/Szenario " + szenario + "/ampelstatistics.xml";
+	private static String szenarioNummer = "1";
+	private static String szenario = "SzenarienXML/Szenario " + szenarioNummer + "/auswertung.xml";
 
 	public static void main(String[] args) {
 		
 		try {
-			Document theXMLDoc = new SAXBuilder().build(szenario1);
+			Document theXMLDoc = new SAXBuilder().build(szenario);
 			
-			//the <settings> ... </settings> node
+			//the <statistics> ... </statistics> node
     		Element root = theXMLDoc.getRootElement();
     		
-    		List <Element> ampelSets = root.getChildren("wellenGenerator");
+    		List<Element> ampelSets = root.getChildren("ampelset");
+    		int ampelSetsSize = ampelSets.size(); 
+    		Integer[][] intArr = new Integer[ampelSetsSize][];
+
+    		for(int i=0; i<ampelSetsSize; i++)
+    		{
+    			Element ampelSet = ampelSets.get(i);
+    			List<Element> ampeln = ampelSet.getChildren("ampel");
+    			intArr[i] = new Integer[ampeln.size()];
+    			for(int j=0; j<ampeln.size(); j++)
+    			{
+    				Element ampel = ampeln.get(j);
+    				intArr[i][j] = Integer.parseInt( ampel.getChildText("insgesamtewartezeit") );
+    			}
+    		}
     		
+    		String[] strArr = new String[ampelSetsSize];
+    		for(int i=0; i<ampelSetsSize; i++)
+    		{
+    			strArr[i] = "Szenario " + i;
+    		}
+    		
+    		Color[] c = new Color[4];
+    		c[0] = Color.decode("#FFE376");
+    		c[1] = Color.decode("#65E832");
+    		c[2] = Color.decode("#FF8CCF");
+    		c[3] = Color.decode("#6764E8");
+    		
+    		Color backCol = Color.decode("#39FFF2");
+    		
+    		try {
+    			StackedBarChart s = new StackedBarChart("Stacked Bar Chart Frame", "Waiting Time", strArr, intArr, backCol, c);
+    		} catch (StackedBarChart.InputArraysNotEquivalent e) {
+    			e.printStackTrace();
+    		}
 			
 		} catch (JDOMException e1) {
 			e1.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
-		Integer[][] intArr = new Integer[3][];
-    	intArr[0] = new Integer[7];
-    	intArr[1] = new Integer[3];
-    	intArr[2] = new Integer[2];
-    	intArr[0][0] = 10;
-    	intArr[1][0] = 5;
-    	intArr[2][1] = 3;
-    	
-    	String[] strArr = new String[3];
-    	strArr[0] = "Szenario 1";
-    	strArr[1] = "Szenario 2";
-    	strArr[2] = "Szenario 3";
-    	
-    	Color[] c = new Color[7];
-    	c[0] = Color.decode("#00FF00");
-    	c[1] = Color.decode("#0000FF");
-    	c[2] = Color.decode("#00AAAA");
-    	c[3] = Color.decode("#FFFFFF");
-    	c[4] = Color.decode("#000000");
-    	c[5] = Color.decode("#FFFF00");
-    	c[6] = Color.decode("#FF00FF");
-    	
-    	Color backCol = Color.CYAN;
-    	
-        try {
-			StackedBarChart s = new StackedBarChart("Stacked Bar Chart Frame", "Waiting Time", strArr, intArr, backCol, c);
-		} catch (StackedBarChart.InputArraysNotEquivalent e) {
-			e.printStackTrace();
-		}
-		
 	}
 
 }

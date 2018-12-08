@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import controller.Simulation;
+
 /**
  * This is the Station that will represent the traffic
  * lights themselves 
@@ -47,6 +49,12 @@ public class Ampel extends SimpleStation {
 	@Override
 	protected void handleObject(TheObject theObject) {
 		theObject.enterOutQueue(this);
+		try {
+			Thread.sleep(Simulation.CLOCKBEAT);
+					
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

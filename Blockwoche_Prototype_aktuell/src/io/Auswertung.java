@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.jdom2.Document;
@@ -26,19 +27,23 @@ public class Auswertung {
 	 * use in merge others only for testing private static String
 	 * 
 	 */
-	 private  String theStatistikAuswertungdatafile = Factory.getFolder() +"/" + Factory.getScenario() + "/auswertung.xml";
-	 private  String theAutoStatistikdatafile =Factory.getFolder() +"/" + Factory.getScenario() +"/autostatistics.xml";
+	 private String theStatistikAuswertungdatafile = Factory.getFolder() +"/" + Factory.getScenario() + "/auswertung.xml";
+	 private String theAutoStatistikdatafile = Factory.getFolder() + "/" + Factory.getScenario() + "/autostatistics.xml";
+	 private String theSteuerLogikdatafile = Factory.getFolder() + "/" + Factory.getScenario() + "/steuerlogik.xml";
 	 
 
 //	private static String theStatistikAuswertungdatafile = "xml/auswertung.xml";
 //	private static String theAutoStatistikdatafile = "xml/autostatistics.xml";
 	private ArrayList<StatistikHolder> autoList = new ArrayList<StatistikHolder>();
-	private ArrayList<StatistikHolderAmpel> ampelList = new ArrayList<StatistikHolderAmpel>();
-/**
- * Constructor for Auswertung
- * @author Team 4
- */
-	public Auswertung() {
+//	private ArrayList<StatistikHolderAmpel> ampelList = new ArrayList<StatistikHolderAmpel>();
+	private HashMap<String, ArrayList<StatistikHolderAmpel>> ampelMap = new HashMap<String, ArrayList<StatistikHolderAmpel>>();
+	private HashMap<String, String> ampelSetsForNames = new HashMap<String, String>();
+	
+	/**
+	 * Constructor for Auswertung
+	 * @author Team 4
+	 */
+	public void auswerten() {
 		readXML();
 		writeXML();
 	}
@@ -48,7 +53,28 @@ public class Auswertung {
 	 */
 	private void readXML() {
 		try {
+			//open the XML and find out the sets for the ampeln
+			Document theSetsXMLDoc = new SAXBuilder().build( theSteuerLogikdatafile );
+			Element steuerLogikRoot = theSetsXMLDoc.getRootElement();
+			Element steuerLogik = steuerLogikRoot.getChild("steuerLogik");
+			List<Element> ampelSets = steuerLogik.getChildren("ampelSet");
+			
+			
+			for(int i=0; i<ampelSets.size(); i++)
+			{
+				Element ampelSet = ampelSets.get(i);
+				List<Element> ampeln = ampelSet.getChildren("ampelLabel");
+				for(Element ampel : ampeln)
+				{
+					ampelSetsForNames.put(ampel.getText(), "ampelset " + i);
+				}
+			}
 
+			for(String set : ampelSetsForNames.values())
+			{
+				ampelMap.put(set, new ArrayList<StatistikHolderAmpel>());
+			}
+			
 			// read the information from the XML file into a JDOM Document
 			Document theXMLDoc = new SAXBuilder().build(theAutoStatistikdatafile);
 
@@ -71,7 +97,30 @@ public class Auswertung {
 
 				autoList.add(new StatistikHolder(label, wartezeit));
 			}
-
+			
+			for (String steuerLogikSet : ampelSetsForNames.values()) {
+				
+				// sort data into ampelList so the data is per Ampel
+				if (ampelMap.get(steuerLogikSet).size() == 0)
+					ampelMap.get(steuerLogikSet).add(new StatistikHolderAmpel(autoList.get(0).ampelName));
+				for (StatistikHolder auto : autoList) {
+					for (int i = 0; i < ampelMap.get(steuerLogikSet).size(); i++) {
+						if (!auto.isElementOfAmpelList(ampelMap.get(steuerLogikSet))) {
+							ampelMap.get(steuerLogikSet).add(new StatistikHolderAmpel(auto.ampelName));
+						}
+					}
+				}
+				for (StatistikHolderAmpel ampel : ampelMap.get(steuerLogikSet)) {
+					for (StatistikHolder auto : autoList) {
+						if (ampel.ampelName.equals(auto.ampelName)) {
+							ampel.wartezeit += auto.wartezeit;
+							ampel.anzAutos++;
+						}
+					}
+				}
+			}
+			
+			/**
 			// sort data into ampelList so the data is per Ampel
 			if (ampelList.size() == 0) {
 				ampelList.add(new StatistikHolderAmpel(autoList.get(0).ampelName));
@@ -91,7 +140,7 @@ public class Auswertung {
 					}
 				}
 			}
-
+			*/
 
 		} catch (JDOMException e) {
 			e.printStackTrace();
@@ -112,33 +161,39 @@ public class Auswertung {
 		// set the documents XML root element
 		Element rootXMLElement = new Element("statistics");
 		theStatistikAuswertunsXmlFile.setRootElement(rootXMLElement);
-
-		for (int listPosition = 0; listPosition < ampelList.size(); listPosition++) {
-
-			int gesWartezeit = +ampelList.get(listPosition).wartezeit;
-			int anzAutos = +ampelList.get(listPosition).anzAutos;
-			String ampelName = ampelList.get(listPosition).ampelName;
-
-			// create a new XML Element for auto and add it below the root XML Element
-			Element ampelXMLElement = new Element("ampel");
-			rootXMLElement.addContent(ampelXMLElement);
-
-			// create new XML Elements for ampelname,
-			// and add the new Element as child of the car XML Element
-
-			ampelXMLElement.addContent(new Element("ampelname").setText(ampelName));
-			ampelXMLElement.addContent(new Element("insgesamtewartezeit").setText("" + gesWartezeit));
-			ampelXMLElement.addContent(new Element("autoanzahl").setText("" + anzAutos));
-
-			if (anzAutos == 0 || gesWartezeit == 0) {
-				ampelXMLElement.addContent(new Element("durchschnittswartezeit").setText("0"));
-			} else {
-
-				ampelXMLElement.addContent(new Element("durchschnittswartezeit")
-						.setText("" + ((double) gesWartezeit) / ((double) anzAutos)));
-
+		
+		for (String steuerLogikSet : ampelSetsForNames.values()) {
+			
+			Element set = new Element("ampelset").setText(steuerLogikSet);
+			rootXMLElement.addContent(set);
+			
+			for (int listPosition = 0; listPosition < ampelMap.get(steuerLogikSet).size(); listPosition++) {
+	
+				int gesWartezeit = +ampelMap.get(steuerLogikSet).get(listPosition).wartezeit;
+				int anzAutos = +ampelMap.get(steuerLogikSet).get(listPosition).anzAutos;
+				String ampelName = ampelMap.get(steuerLogikSet).get(listPosition).ampelName;
+	
+				// create a new XML Element for auto and add it below the root XML Element
+				Element ampelXMLElement = new Element("ampel");
+				set.addContent(ampelXMLElement);
+	
+				// create new XML Elements for ampelname,
+				// and add the new Element as child of the car XML Element
+	
+				ampelXMLElement.addContent(new Element("ampelname").setText(ampelName));
+				ampelXMLElement.addContent(new Element("insgesamtewartezeit").setText("" + gesWartezeit));
+				ampelXMLElement.addContent(new Element("autoanzahl").setText("" + anzAutos));
+	
+				if (anzAutos == 0 || gesWartezeit == 0) {
+					ampelXMLElement.addContent(new Element("durchschnittswartezeit").setText("0"));
+				} else {
+	
+					ampelXMLElement.addContent(new Element("durchschnittswartezeit")
+							.setText("" + ((double) gesWartezeit) / ((double) anzAutos)));
+	
+				}
+	
 			}
-
 		}
 
 		try {

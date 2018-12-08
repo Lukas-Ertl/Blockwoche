@@ -25,9 +25,9 @@ public class Statistics {
 
 	private static String buffer;
 	
-	// The XML Fiel for Auto Statistics (in every Scenario Folder)
+	/** The XML Fiel for Auto Statistics (in every Scenario Folder) */
 	private static String theAutoXmlFile = Factory.getFolder() +"/" + Factory.getScenario() + "/autostatistics.xml";
-	// The XML Fiel for Ampel Statistics (in every Scenario Folder)
+	/** The XML Fiel for Ampel Statistics (in every Scenario Folder) */
 	private static String theAmpelXmlFile = Factory.getFolder() +"/" + Factory.getScenario() + "/ampelstatistics.xml";
 
 	/**
@@ -127,7 +127,9 @@ public class Statistics {
 	 * @throws FileNotFoundException
 	 */
 	public static void writeAmpelStatistics() {
-
+		Auswertung a = new Auswertung();
+		a.auswerten();
+		/*
 		// the new JDOM XML document
 		Document theAmpelXmlDoc = new Document();
 
@@ -193,6 +195,6 @@ public class Statistics {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	 */
 	}
-
 }
