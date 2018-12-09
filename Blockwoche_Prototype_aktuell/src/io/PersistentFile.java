@@ -13,6 +13,7 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import controller.Simulation;
 import io.Auswertung.StatistikHolder;
 import io.Auswertung.StatistikHolderAmpel;
 import model.Ampel;
@@ -103,7 +104,7 @@ public class PersistentFile {
 				}
 			}
 			
-			statisticList.add(new DataHolder(calculateAverageWaitingtime(insgesammtWartezeit,autoAnzahl),Factory.getScenario()));
+			statisticList.add(new DataHolder(calculateAverageWaitingtime(insgesammtWartezeit,autoAnzahl),Simulation.getScenario()+" "+Simulation.getScenarioType()));
 			
 			
 		} catch (JDOMException e) {

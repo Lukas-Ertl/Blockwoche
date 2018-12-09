@@ -16,7 +16,7 @@
 			<gruenPhase>3</gruenPhase>
 			<ampelLabel>ampelRechts</ampelLabel>
 			<ampelLabel>ampelLinks</ampelLabel>
-		</ampelSet>		
+		</ampelSet>
 		
 		<wellenGeneratorSet>
 			<wellenZeitpunkt>1</wellenZeitpunkt>

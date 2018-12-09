@@ -81,7 +81,7 @@ public class Auto extends TheObject{
 			}
 		}
 		
-		//
+		//if the station is not a traffic light, if the traffic light is green, or there are already waiting cars go into the inqueue
 		if(station.getClass() != Ampel.class || ! ((Ampel) station).getIsGreen() || !queueBuffer.isEmpty() )
 		{
 			if(station.getClass() == Ampel.class)
