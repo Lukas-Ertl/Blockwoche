@@ -20,23 +20,8 @@ public class Main {
 	JFrame theFrame;
 
 	/** Scenario Folder */
-	private static String scenarioFolder;
 
-	public void actionPerformed(ActionEvent e) {
-
-		if (e.getActionCommand().equals("XML1")) {
-			e.setSource(scenarioFolder = "Szenario 1");
-
-		} else if (e.getActionCommand().equals("XML2")) {
-			e.setSource(scenarioFolder = "Szenario 2");
-		} else if (e.getActionCommand().equals("JSON1")) {
-
-		}
-
-		else if (e.getActionCommand().equals("JSON2")) {
-
-		}
-	}
+	
 
 	/**
 	 * starts the simulation and creates the Frame with buttons to choose from
@@ -61,12 +46,14 @@ public class Main {
 	}
 
 }
-
+/**
+ * a choosing buttons class
+ * @author Philippjaquart
+ *
+ */
 class ChoosingButtons extends JFrame {
 
-	public ChoosingButtons() {
-
-	}
+	
 
 	@SuppressWarnings("unused")
 	public void createAndShowGUI()
