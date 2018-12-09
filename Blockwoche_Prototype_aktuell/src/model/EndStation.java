@@ -2,6 +2,7 @@ package model;
 
 import java.util.Collection;
 
+import controller.Simulation;
 import io.Auswertung;
 import io.PersistentFile;
 import io.Statistics;
@@ -104,6 +105,7 @@ public class EndStation extends SimpleStation {
 		SteuerLogik.end();
 		endAllActors();
 		
+		Simulation.isRunning = false;
 		// end simulation 
 		// System.exit(0); 
 												
