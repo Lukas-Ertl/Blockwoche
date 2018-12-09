@@ -101,7 +101,7 @@ public class WellenGenerator extends Ampel {
 	@Override
 	protected boolean work() {
 
-		while (send) {
+		if (send) {
 			// let the thread wait only if there are no objects in the incoming and outgoing
 			// queues
 			if (numberOfInQueueObjects() == 0 && numberOfOutQueueObjects() == 0)
@@ -136,7 +136,7 @@ public class WellenGenerator extends Ampel {
 			send = false;
 
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
