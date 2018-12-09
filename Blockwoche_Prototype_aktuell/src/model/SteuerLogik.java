@@ -3,8 +3,8 @@ package model;
 import controller.Simulation;
 
 /**
- * Steuerung fuer alle Ampeln und WellenGeneratoren
- * als Singleton implementiert
+ * Controller for all Ampeln and WellenGeneratoren
+ * implemented as a Singleton
  * 
  * @author Team 4
  * @version 2018-11
@@ -31,7 +31,7 @@ public final class SteuerLogik extends Actor
 	 * @param label of this SteuerLogik 
 	 * @param xPos x position of the SteuerLogik 
 	 * @param yPos y position of the SteuerLogik
-	 * @param SteuerInfo class used to store information about Ampeln, WellenGeneratoren and wait times for clean code
+	 * @param info class used to store information about Ampeln, WellenGeneratoren and wait times for clean code
 	 */
 	private SteuerLogik(String label, int xPos, int yPos, SteuerInfo info)
 	{
@@ -54,7 +54,7 @@ public final class SteuerLogik extends Actor
 	 * @param label of this SteuerLogik 
 	 * @param xPos x position of the SteuerLogik 
 	 * @param yPos y position of the SteuerLogik
-	 * @param SteuerInfo class used to store information about Ampeln, WellenGeneratoren and wait times for clean code
+	 * @param info class used to store information about Ampeln, WellenGeneratoren and wait times for clean code
 	 */
 	public static void create(String label, int xPos, int yPos, SteuerInfo info)
 	{
@@ -116,7 +116,10 @@ public final class SteuerLogik extends Actor
 			}*/
 		}
 	}
-	/**void act method to overwrite the actor's method to avoid sleeping*/
+	/**
+	 * void act method to overwrite the actor's method to avoid sleeping
+	 * @param single is this a single light scenario?
+	 */
 	private synchronized void act(boolean single){
 		
 		/* 
@@ -172,6 +175,7 @@ public final class SteuerLogik extends Actor
 	}
 	/** work method that always runs while the Simulation is running
 	 * @return boolean that depends on whether there is work left to do (Currently only returns false)
+	 * @param single is this a single light scenario?
 	 */
 	protected boolean work(boolean single)
 	{
@@ -199,7 +203,10 @@ public final class SteuerLogik extends Actor
 		return false;
 	}
 	
-	/**change state of Ampeln in the given set (from Green to Red, and from Red to Green)*/
+	/**
+	 * change state of Ampeln in the given set (from Green to Red, and from Red to Green)
+	 * @param set which Ampel set should switch
+	 */
 	private void updateAmpeln(int set)
 	{
 		for( Ampel a: this.steuerInfo.getAmpelSet(set) )
@@ -209,7 +216,10 @@ public final class SteuerLogik extends Actor
 		}
 	}
 	
-	/**send WellenGenerator a notice that it should send cars*/
+	/**
+	 * send WellenGenerator a notice that it should send cars
+	 * @param set which set of WellenGeneratoren should switch 
+	 */
 	private void updateWellenGenerator(int set)
 	{
 		for( WellenGenerator w: this.steuerInfo.getWellenGeneratorSet(set) )
@@ -277,11 +287,18 @@ public final class SteuerLogik extends Actor
 			if(this.tick>max)
 				this.tick = 0;
 		}
-		/**get tick value*/
+		/**
+		 * get tick value
+		 * @return tick what tick we are on
+		 */
 		int getTick()
 		{
 			return this.tick;
 		}
+		/**
+		 * get the previously ticked value
+		 * @return tick-1 return the previous tick (if there is one, if tick is currently at 0, return "overflowed" max)
+		 */
 		int getLast()
 		{
 			if(this.tick==0)

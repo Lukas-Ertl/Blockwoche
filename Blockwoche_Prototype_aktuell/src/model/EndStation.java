@@ -100,7 +100,7 @@ public class EndStation extends SimpleStation {
 		for (Object object : this.outGoingQueue){
 			((TheObject) object).printStatistics();
 		}
-		new Auswertung();
+		//new Auswertung();
 		new PersistentFile();
 		SteuerLogik.end();
 		endAllActors();

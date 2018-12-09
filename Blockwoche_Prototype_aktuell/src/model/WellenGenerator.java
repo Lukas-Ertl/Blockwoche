@@ -8,6 +8,11 @@ import java.util.Map;
 
 import controller.Simulation;
 
+/**
+ * Replaces start station, sends cars in waves to simulate a city's traffic
+ * @author Team 4
+ * @version 2018-12
+ */
 public class WellenGenerator extends Ampel {
 
 	/** instance of the Wellengenerator*/
@@ -24,7 +29,7 @@ public class WellenGenerator extends Ampel {
 	 * @param xPos x position of the Wellengenerator
 	 * @param yPos y position of the Wellengenerator
 	 * @param image image of the Wellengenerator 
-	 * @param größe der Wellen an Autos
+	 * @param wellenGroesse der Wellen an Autos
 	 */
 	private WellenGenerator(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image,int wellenGroesse){
 		
@@ -43,7 +48,7 @@ public class WellenGenerator extends Ampel {
 	 * @param xPos x position of the Wellengenerator 
 	 * @param yPos y position of the Wellengenerator
 	 * @param image image of the Wellengenerator
-	 * @param größe der Wellen an Autos
+	 * @param wellenGroesse der Wellen an Autos
 	 */
 	public static void create(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image,int wellenGroesse){
 	
@@ -76,6 +81,7 @@ public class WellenGenerator extends Ampel {
 	
 	/**Get the Wellengenerator by Label
 	 * 
+	 * @param label the name of the WellenGenerator we want to return
 	 * @return Wellengenerator
 	 */
 	public static WellenGenerator getWellenGeneratorByLabel(String label)
@@ -87,7 +93,7 @@ public class WellenGenerator extends Ampel {
 
 	/**Verarbeitet Objekte und sendet sie in Wellen los
 	 * 
-	 * @return Wellengenerator
+	 * @return boolean returns true if there might be more work 
 	 */
 	@Override
 	protected boolean work() {

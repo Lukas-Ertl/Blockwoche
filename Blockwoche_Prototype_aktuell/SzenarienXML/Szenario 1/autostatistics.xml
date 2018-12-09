@@ -45,7 +45,7 @@
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>37</wartezeit>
+      <wartezeit>36</wartezeit>
     </ampel>
   </auto>
   <auto>
@@ -105,7 +105,7 @@
   <auto>
     <ampel>
       <ampelname>ampelOben</ampelname>
-      <wartezeit>34</wartezeit>
+      <wartezeit>35</wartezeit>
     </ampel>
   </auto>
   <auto>
@@ -141,13 +141,13 @@
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>31</wartezeit>
+      <wartezeit>32</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>32</wartezeit>
+      <wartezeit>33</wartezeit>
     </ampel>
   </auto>
   <auto>

@@ -79,8 +79,9 @@ public class FactoryJSON {
      * 	- load json file
      * 	- create new instance of JSON Object
      * 
-     * @return
-     * 		the JSONObject
+     * @param filepath Base scenario folder
+     * 
+     * @return the JSONObject
      */
     public static JSONObject getJSONObject(String filepath){
 		
@@ -112,6 +113,7 @@ public class FactoryJSON {
      * set Folder
      * create the actors for the starting scenario
      * 
+     * @param folder Base scenario folder
      */
 	public static void createStartScenario(String folder){
 		

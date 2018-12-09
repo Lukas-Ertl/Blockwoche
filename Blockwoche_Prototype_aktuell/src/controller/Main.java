@@ -49,7 +49,7 @@ public class Main {
 	/**
 	 * Shows the GUI to select from simulations and graphs
 	 * 
-	 * @param args
+	 * @param args standard main args
 	 */
 	public static void main(String[] args) {
 		Main.createAndShowGUI();

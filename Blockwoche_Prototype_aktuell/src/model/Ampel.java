@@ -27,12 +27,12 @@ public class Ampel extends SimpleStation {
  * 
  * Constructor that constructs the initial states for the Ampel Objects 
  * it puts the Ampel objects in a hashMap and gives them a keyvalue.
- * @param label
- * @param inQueue
- * @param outQueue
- * @param xPos
- * @param yPos
- * @param image
+ * @param label Ampel name
+ * @param inQueue the InQueue
+ * @param outQueue the OutQueue
+ * @param xPos Graphical x position
+ * @param yPos Graphical y position
+ * @param image Graphical image of the ampel
  */
 	protected Ampel(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos,
 			String image) {
@@ -60,12 +60,12 @@ public class Ampel extends SimpleStation {
 	/**
 	 * Creates a new Ampel Object 
 	 * 
-	 * @param label
-	 * @param inQueue
-	 * @param outQueue
-	 * @param xPos
-	 * @param yPos
-	 * @param image
+	 * @param label Ampel name
+	 * @param inQueue the InQueue
+	 * @param outQueue the OutQueue
+	 * @param xPos Graphical x position
+	 * @param yPos Graphical y position
+	 * @param image Graphical image of the ampel
 	 */
 	public static void create(String label, SynchronizedQueue inQueue, SynchronizedQueue outQueue, int xPos, int yPos, String image){
 		
@@ -120,42 +120,54 @@ public class Ampel extends SimpleStation {
 	}
 	/**
 	 * getter method to return the Ampel keyValues in the hashMap
-	 * @param label
-	 * @return
+	 * @param label return the Ampel for a given ampellabel
+	 * @return ampel return the ampel for the name
 	 */
 	public static Ampel getAmpelByLabel(String label)
 	{
 		return (Ampel) ampelMap.get(label);
 		
 	}
-	@Override
-	/**
-	 * Should handle Multiple Objects in the future
-	 */
-	protected void handleObjects(Collection<TheObject> theObjects)
-	{
-		
-	}
-	/**
-	 * placeholder should return multiple Objects in the future
-	 */
-	@Override
-	protected Collection<TheObject> getNextInQueueObjects()
-	{
-		return null;
-	}
-	/**
-	 * placeholder should return muliple objects in the future
- 	*/
-	@Override
-	protected Collection<TheObject> getNextOutQueueObjects()
-	{
-		return null;
-	}
 	
+	/**
+	 * 
+	 * @return isGreen returns whether the Ampel is currently green or red
+	 */
 	public boolean getIsGreen()
 	{
 		return this.isGreen;
+	}
+
+
+	@Override
+	/**
+	 * inherited unused method 
+	 */
+	protected void handleObjects(Collection<TheObject> theObjects) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	/**
+	 * inherited unused method
+	 * @return null doesn't do anything
+	 */
+	protected Collection<TheObject> getNextInQueueObjects() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	/**
+	 * inherited unused method
+	 * @return null doesn't do anything
+	 */
+	protected Collection<TheObject> getNextOutQueueObjects() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -66,6 +66,7 @@ public class Factory {
      * set Folder
      * create the actors for the starting scenario
      * 
+     * @param folder Base scenario folder
      */
 	public static void createStartScenario(String folder){
 		

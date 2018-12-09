@@ -50,6 +50,7 @@ public class Auswertung {
 	 */
 	private void readXML() {
 		try {
+			System.out.println("TROLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOL");
 			//open the XML and find out the sets for the ampeln
 			System.out.println(theSteuerLogikdatafile);
 			Document theSetsXMLDoc = new SAXBuilder().build( theSteuerLogikdatafile );

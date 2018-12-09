@@ -180,4 +180,12 @@
     <scenario>null</scenario>
     <durschnittswartezeit>32</durschnittswartezeit>
   </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>15</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>15</durschnittswartezeit>
+  </scenario>
 </statistics>

@@ -58,8 +58,8 @@ public class Statistics {
 	 * -ampelname 
 	 * -Wartezeit
 	 * 
-	 * @throws IOException
-	 * @throws FileNotFoundException
+	 * @throws IOException in case of read/write errors
+	 * @throws FileNotFoundException In case of bad filepath
 	 */
 	public static void writeAutoStatistics() {
 		// the new JDOM XML document
@@ -124,8 +124,8 @@ public class Statistics {
 	 * -autoanzahl
 	 * -durchschnittswartezeit
 	 * 
-	 * @throws IOException
-	 * @throws FileNotFoundException
+	 * @throws IOException in case of read/write errors
+	 * @throws FileNotFoundException In case of bad filepath
 	 */
 	public static void writeAmpelStatistics() {
 		Auswertung a = new Auswertung();

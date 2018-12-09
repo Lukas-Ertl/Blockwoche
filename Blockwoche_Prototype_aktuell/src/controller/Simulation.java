@@ -40,7 +40,8 @@ public class Simulation {
 	 * 
 	 * Constructor 
 	 * 	calls init
-	 * @param folder
+	 * @param folder Base scenario folder
+	 * @param szenarioType String of either XML or JSON
 	 */
 	public Simulation(String folder, String szenarioType) {
 		Simulation.folder = folder;
@@ -53,7 +54,8 @@ public class Simulation {
 	 * edited by Team 4
 	 * 
 	 * initialize the simulation
-	 * @param folder
+	 * @param folder Base scenario folder
+	 * @param szenarioType String of either XML or JSON
 	 */
 	private void init(String folder, String szenarioType){
 		System.out.println("in Simulation init "+folder);
