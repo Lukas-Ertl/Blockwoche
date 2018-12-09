@@ -280,7 +280,7 @@ class GraphButtonListener implements ActionListener {
 	    		String[] strArr = new String[runs.size()];
 	    		for(int i=0; i<runs.size(); i++)
 	    		{
-	    			strArr[i] = "Durchlauf  " + i;
+	    			strArr[i] = runs.get(i).getChildText("scenario");
 	    		}
 	    		
 	    		Color[] c = new Color[4];
