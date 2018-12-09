@@ -186,10 +186,10 @@ public final class SteuerLogik extends Actor
 		if(simTime > ampelWaitTime)
 		{
 			//wake up Ampeln and have them switch states
-			updateAmpeln( this.ampTick.getLast() );
+			updateAmpeln( 0 );//this.ampTick.getLast() );
 
 			//set the new wait time (which is different depending on if the Ampel is green or red)
-			this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.tick() );
+			this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( 0 );//this.ampTick.tick() );
 		}
 		
 		//if the time until the WellenGenerator should send has arrived

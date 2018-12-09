@@ -4,13 +4,13 @@
 		<label>steuerLogik_1</label>
 		<x_position>42</x_position>
 		<y_position>42</y_position>
+		
 		<ampelSet>
 			<rotPhase>7</rotPhase>
 			<gruenPhase>3</gruenPhase>
 			<ampelLabel>ampelOben</ampelLabel>
 			<ampelLabel>ampelUnten</ampelLabel>
 		</ampelSet>
-		
 		<ampelSet>
 			<rotPhase>7</rotPhase>
 			<gruenPhase>3</gruenPhase>
