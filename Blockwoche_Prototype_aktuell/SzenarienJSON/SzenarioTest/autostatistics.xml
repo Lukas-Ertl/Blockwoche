@@ -3,7 +3,7 @@
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>32</wartezeit>
+      <wartezeit>33</wartezeit>
     </ampel>
   </auto>
 </statistics>

@@ -188,4 +188,24 @@
     <scenario>Szenario 1</scenario>
     <durschnittswartezeit>15</durschnittswartezeit>
   </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>15</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>null</scenario>
+    <durschnittswartezeit>33</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>SzenarioTest</scenario>
+    <durschnittswartezeit>32</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>15</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1</scenario>
+    <durschnittswartezeit>15</durschnittswartezeit>
+  </scenario>
 </statistics>
