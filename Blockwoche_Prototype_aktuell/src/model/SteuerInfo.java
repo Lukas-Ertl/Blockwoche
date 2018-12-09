@@ -2,6 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Stores the information required by SteuerLogik to enable clearer and more concise code
+ * @author Team 4
+ *
+ */
 public class SteuerInfo {
 	/**arraylist of arraylist for Ampeln*/
 	private ArrayList<ArrayList<Ampel>> ampelSets;

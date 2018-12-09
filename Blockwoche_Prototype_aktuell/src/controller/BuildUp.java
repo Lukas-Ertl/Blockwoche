@@ -27,7 +27,7 @@ import java.io.IOException;
  *
  */
 
-public class Main {
+public class BuildUp {
 	
 	/** Filepath for the persistent statistics */
 	static String persistent = "xml/persistentstatistics.xml";
@@ -52,7 +52,7 @@ public class Main {
 	 * @param args standard main args
 	 */
 	public static void main(String[] args) {
-		Main.createAndShowGUI();
+		BuildUp.createAndShowGUI();
 	}
 	
 	/**
@@ -62,10 +62,10 @@ public class Main {
 		ButtonListener xmlListener = new ButtonListener();
 		GraphButtonListener graListen = new GraphButtonListener();
 		
-		Main.theFrame = new JFrame("Auswahlfeld");
+		BuildUp.theFrame = new JFrame("Auswahlfeld");
 
 		JPanel contentPanel = new JPanel(new FlowLayout());
-		Main.theFrame.setContentPane(contentPanel);
+		BuildUp.theFrame.setContentPane(contentPanel);
 
 		JButton xmlButton1 = new JButton("XML1");
 		xmlButton1.addActionListener(xmlListener);
@@ -84,17 +84,17 @@ public class Main {
 		JButton graphThreeButton = new JButton("Mehrfach Vergleichung");
 		graphThreeButton.addActionListener(graListen);
 		
-		Main.theFrame.getContentPane().add(xmlButton1);
-		Main.theFrame.getContentPane().add(xmlButton2);
-		Main.theFrame.getContentPane().add(jsonButton1);
-		Main.theFrame.getContentPane().add(jsonButton2);
-		Main.theFrame.getContentPane().add(graphOneButton);
-		Main.theFrame.getContentPane().add(graphTwoButton);
-		Main.theFrame.getContentPane().add(graphThreeButton);
-		Main.theFrame.pack();
-		Main.theFrame.setSize(400, 200);
-		Main.theFrame.setVisible(true);
-		Main.theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		BuildUp.theFrame.getContentPane().add(xmlButton1);
+		BuildUp.theFrame.getContentPane().add(xmlButton2);
+		BuildUp.theFrame.getContentPane().add(jsonButton1);
+		BuildUp.theFrame.getContentPane().add(jsonButton2);
+		BuildUp.theFrame.getContentPane().add(graphOneButton);
+		BuildUp.theFrame.getContentPane().add(graphTwoButton);
+		BuildUp.theFrame.getContentPane().add(graphThreeButton);
+		BuildUp.theFrame.pack();
+		BuildUp.theFrame.setSize(400, 200);
+		BuildUp.theFrame.setVisible(true);
+		BuildUp.theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }
@@ -132,7 +132,7 @@ class ButtonListener implements ActionListener {
 			new Simulation(scenarioFolder, "JSON");
 		}
 		
-		Main.theFrame.dispose();
+		BuildUp.theFrame.dispose();
 	}
 }
 
@@ -149,12 +149,12 @@ class GraphButtonListener implements ActionListener {
 
 	/** checks which button was pressed and opens the associated graph */
 	public void actionPerformed(ActionEvent e) {
-		Main.init();
+		BuildUp.init();
 		
 		if (e.getActionCommand().equals("Szenario 1 Graph")) {
 			
 			try {
-				String szenario = Main.szenarioPaths.get(1);
+				String szenario = BuildUp.szenarioPaths.get(1);
 				Document theXMLDoc = new SAXBuilder().build(szenario);
 				
 				//the <statistics> ... </statistics> node
@@ -208,7 +208,7 @@ class GraphButtonListener implements ActionListener {
 
 				for(int szenNum=0; szenNum<NUM_OF_SETS; szenNum++)
 				{
-					String szenario = Main.szenarioPaths.get(szenNum+1);
+					String szenario = BuildUp.szenarioPaths.get(szenNum+1);
 					Document theXMLDoc = new SAXBuilder().build(szenario);
 		    		Element root = theXMLDoc.getRootElement();
 		    		List<Element> ampelSets = root.getChildren("ampelset");
@@ -261,7 +261,7 @@ class GraphButtonListener implements ActionListener {
 		} else if (e.getActionCommand().equals("Mehrfach Vergleichung")) {
 			
 			try {
-				Document theXMLDoc = new SAXBuilder().build(Main.persistent);
+				Document theXMLDoc = new SAXBuilder().build(BuildUp.persistent);
 				
 				//the <statistics> ... </statistics> node
 	    		Element root = theXMLDoc.getRootElement();

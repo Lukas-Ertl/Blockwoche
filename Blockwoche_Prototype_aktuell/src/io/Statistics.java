@@ -23,7 +23,7 @@ import model.Station;
  * original written on 2015-11-18
  */
 public class Statistics {
-
+	/** String buffer */
 	private static String buffer;
 	
 	/** The XML Fiel for Auto Statistics (in every Scenario Folder) */

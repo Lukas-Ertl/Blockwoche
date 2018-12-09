@@ -20,18 +20,19 @@ import model.Auto;
 import model.Station;
 
 
-/*
+/**
  * Reads the old simulation statistic data and adds the current
  * 
  * @author Team 4
  * @version 11-2018
  */
 public class PersistentFile {
-
+	/** filepath for the persistently saving data file */
 	private static String thePersistentStatistikDatafile = "xml/persistentstatistics.xml";
+	/** arraylist that saves the previously saved data and adds the new run's statistics */
 	private ArrayList<DataHolder> statisticList = new ArrayList<DataHolder>();
 	
-	/*
+	/**
 	 * Constructor for PersistentFile 
 	 * @author Team 4
 	 */
@@ -41,19 +42,24 @@ public class PersistentFile {
 	}
 	
 	
-	/* Calculates the average waiting time (moved to separate method for JUnit Bonusaufgabe)
+	/** Calculates the average waiting time (moved to separate method for JUnit Bonusaufgabe)
 	 * @author Team 4
 	 * @return averageWaitingtime
 	 */
 	
-	 static long calculateAverageWaitingtime(long insgesamteWartezeit, int autoAnzahl) {
-		
-		
+	/** Calculates the average waiting time (moved to separate method for JUnit Bonusaufgabe)
+	 * @author Team 4
+	 * 
+	 * @param insgesamteWartezeit total time waited
+	 * @param autoAnzahl number of cars that passed through
+	 * @return average waiting time
+	 */
+	 public static long calculateAverageWaitingtime(long insgesamteWartezeit, int autoAnzahl) {
 		return insgesamteWartezeit/autoAnzahl;
 	}
 		
 	
-	/*
+	/**
 	 * Reads the existing Data in the XML file and adds the Data from the current Simulation
 	 * @author Team 4
 	 */
@@ -108,10 +114,8 @@ public class PersistentFile {
 		
 		
 	}
-		
 	
-	
-	/*
+	/**
 	 * writes the Data into the XML File
 	 * @author Team 4
 	 */
@@ -133,9 +137,6 @@ public class PersistentFile {
 					// and add the new Element as child of the car XML Element
 					statisticXMLElement.addContent(new Element("scenario").setText("" + statisticList.get(listPosition).scenario));
 					statisticXMLElement.addContent(new Element("durschnittswartezeit").setText("" + statisticList.get(listPosition).gesWartezeit));
-
-					
-
 				}
 
 				try {
@@ -154,7 +155,7 @@ public class PersistentFile {
 				}
 	}
 	
-	/*
+	/**
 	 * sub Class for easier data handling
 	 * @author Team 4
 	 */

@@ -25,16 +25,18 @@ import controller.Simulation;
  */
 
 public class Auswertung {
-	/**
-	 * use in merge others only for testing private static String
-	 * 
-	 */
-	 private String theStatistikAuswertungdatafile = Simulation.getFolder() +"/" + Simulation.getScenario() + "/auswertung.xml";
-	 private String theAutoStatistikdatafile = Simulation.getFolder() + "/" + Simulation.getScenario() + "/autostatistics.xml";
-	 private String theSteuerLogikdatafile = "SzenarienXML/Szenario 1/steuerlogik.xml";//Simulation.getFolder() + "/" + Simulation.getScenario() + "/steuerlogik.xml";
-	 
+	/** filepath for auswertung.xml */ 
+	private String theStatistikAuswertungdatafile = Simulation.getFolder() +"/" + Simulation.getScenario() + "/auswertung.xml";
+	/** filepath for Auto statistics */
+	private String theAutoStatistikdatafile = Simulation.getFolder() + "/" + Simulation.getScenario() + "/autostatistics.xml";
+	/** filepath for steuerlogik.xml */
+	private String theSteuerLogikdatafile = "SzenarienXML/Szenario 1/steuerlogik.xml";//Simulation.getFolder() + "/" + Simulation.getScenario() + "/steuerlogik.xml";
+	
+	/** list of all cars as a StatistikHolder */
 	private ArrayList<StatistikHolder> autoList = new ArrayList<StatistikHolder>();
+	/** HashMap of all ampeln as StatistikHolderAmpel to organize them by Ampel set*/
 	private HashMap<String, ArrayList<StatistikHolderAmpel>> ampelMap = new HashMap<String, ArrayList<StatistikHolderAmpel>>();
+	/** HashMap for temporarily storing set and ampel names */
 	private HashMap<String, String> ampelSetsForNames = new HashMap<String, String>();
 	
 	/**
@@ -50,9 +52,7 @@ public class Auswertung {
 	 */
 	private void readXML() {
 		try {
-			System.out.println("TROLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOL");
 			//open the XML and find out the sets for the ampeln
-			System.out.println(theSteuerLogikdatafile);
 			Document theSetsXMLDoc = new SAXBuilder().build( theSteuerLogikdatafile );
 			Element steuerLogikRoot = theSetsXMLDoc.getRootElement();
 			Element steuerLogik = steuerLogikRoot.getChild("steuerLogik");
