@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "waypoint": [{
+      "label": "waypointRechts",
+      "x_position": "900",
+      "y_position": "270",
+      "view": {
+        
+      },
+      "inqueue": {
+        "x_position": "-100",
+        "y_position": "-100"
+      },
+      "outqueue": {
+        "x_position": "-100",
+        "y_position": "-100"
+      }
+    }
+	]
+  }
+}

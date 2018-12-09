@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statistics>
+  <auto>
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>32</wartezeit>
+    </ampel>
+  </auto>
+</statistics>

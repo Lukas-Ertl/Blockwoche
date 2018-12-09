@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "station": [
+	{
+      "label": "ampelLinks",
+      "x_position": "80",
+      "y_position": "270",
+      "view": { "image": "1-ampel.png" },
+      "inqueue": {
+        "x_position": "100",
+        "y_position": "210"
+      },
+      "outqueue": {
+        "x_position": "100",
+        "y_position": "350"
+      }
+    }
+	]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "wellenGenerator": [
+	{
+      "label": "wellenGeneratorLinks",
+      "x_position": "42",
+      "y_position": "270",
+      "view": { "image": "startstation.png" },
+      "wellenGroesse": "3",
+      "inqueue": {
+        "x_position": "62",
+        "y_position": "210"
+      },
+      "outqueue": {
+        "x_position": "-100",
+        "y_position": "-100"
+      }
+    }
+	]
+  }
+}

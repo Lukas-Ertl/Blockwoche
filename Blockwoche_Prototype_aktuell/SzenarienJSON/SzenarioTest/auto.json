@@ -1,0 +1,19 @@
+{
+  "settings": {
+    "auto": [{
+      "label": "auto_1",
+      "processtime": "10",
+      "speed": "5",
+      "view": { "image": "car-1.png" },
+      "sequence": {
+        "station": [
+          "wellenGeneratorLinks",
+          "ampelLinks",
+          "waypointRechts",
+          "endStation"
+        ]
+      }
+    }
+	]
+  }
+}
