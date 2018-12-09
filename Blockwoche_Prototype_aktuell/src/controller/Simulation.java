@@ -53,7 +53,7 @@ public class Simulation {
 	 * edited by Team 4
 	 * 
 	 * initialize the simulation
-	 * @param fodler
+	 * @param folder
 	 */
 	private void init(String folder, String szenarioType){
 		System.out.println("in Simulation init "+folder);
