@@ -16,9 +16,12 @@ public class Auto extends TheObject{
 	/**Long values used to measure how long a car waits at an Ampel*/
 	private long timerStart, timerEnd;
 	
+	/** arraylist of all created cars */
 	private static ArrayList<Auto> alleAutos= new ArrayList<Auto>();
+	/** measured statistics of cars */
 	private ArrayList<ArrayList<Object>> messDaten = new ArrayList<ArrayList<Object>>();
 	
+	/** observable each car owns to be able to be observer */
 	private InnerObservable inObserv;
 
 	/** Constructor for Auto
@@ -159,15 +162,26 @@ public class Auto extends TheObject{
 		
 	}
 	
+	/**
+	 * getter for messDaten
+	 * @return messDaten the measured statistics
+	 */
 	public ArrayList<ArrayList<Object>> getMessDaten() {
 		
 		return messDaten;
 	}
-
+	/**
+	 * getter for all cars
+	 * @return alleAutos all cars
+	 */
 	public static ArrayList<Auto> getAlleAutos(){
 		return alleAutos;
 	}
-	
+	/**
+	 * checks if the car has waited at the given Ampel, and if yes returns how long it waited
+	 * @param aktuelleAmpel which Ampel to check for
+	 * @return Waittime time waited at the light
+	 */
 	public long getWarteZeit(Station aktuelleAmpel)
 	{
 		//nachschauen ob das auto bei dieser ampel war, wenn ja zeit zurückgeben
@@ -179,6 +193,11 @@ public class Auto extends TheObject{
 		return 0;
 	}
 	
+	/**
+	 * returns all cars that waited at a specific traffic light
+	 * @param aktuelleAmpel which Ampel to check for
+	 * @return cars that waited at the light
+	 */
 	public long getBesuchteAutos(Station aktuelleAmpel)
 	{
 		//nachschauen ob das auto bei dieser ampel war, wenn ja zeit zurückgeben
@@ -190,17 +209,27 @@ public class Auto extends TheObject{
 		return 0;
 	}
 	
+	/**
+	 * Inner observable class to extend the functionality of Auto
+	 * 
+	 * @author Team 4
+	 *
+	 */
 	private class InnerObservable extends Observable
 	{
+		/** final boolean value that is passd to the observer when the car starts waiting */
 		private final boolean WAITING = true;
+		/** final boolean value that is passd to the observer when the car continues driving */
 		private final boolean CONTINUING = false;
 		
+		/** called when the car stops at a light */
 		void waiting()
 		{
 			System.out.println("waiting");
 			this.setChanged();
 			notifyObservers(WAITING);
 		}
+		/** called when a car starts driving after having stopped at a light */
 		void continuing()
 		{
 			System.out.println("continuing");

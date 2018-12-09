@@ -233,12 +233,17 @@ public class StackedBarChart
      */
     public class InputArraysNotEquivalent extends Exception
     {
+    	/** exception message */
     	private String exceptionMessage;
     	
+    	/** if the input arrays are not equivalent
+    	 * @param exceptionMessage the message given when the exception is thrown
+    	 */
     	InputArraysNotEquivalent(String exceptionMessage)
     	{
     		this.exceptionMessage = exceptionMessage;
     	}
+    	/** turns the object into a string */
     	public String toString()
     	{
     		return(exceptionMessage);

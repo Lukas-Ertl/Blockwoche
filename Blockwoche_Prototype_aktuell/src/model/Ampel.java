@@ -15,11 +15,9 @@ import controller.Simulation;
  */
 public class Ampel extends SimpleStation {
 	
-	 /** the boolean isGreen is being used as the current state of the Ampel.
-	  * 
-	  */
+	 /** the boolean isGreen is being used as the current state of the Ampel */
 	private boolean isGreen = false;
-	
+	/** hashmap of all ampeln mapped to their names */
 	protected static Map ampelMap = Collections.synchronizedMap(new HashMap());
 
 /** 
@@ -130,7 +128,7 @@ public class Ampel extends SimpleStation {
 	}
 	
 	/**
-	 * 
+	 * Getter for isGreen
 	 * @return isGreen returns whether the Ampel is currently green or red
 	 */
 	public boolean getIsGreen()

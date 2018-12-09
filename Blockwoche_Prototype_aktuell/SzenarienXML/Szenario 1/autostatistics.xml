@@ -45,13 +45,13 @@
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>36</wartezeit>
+      <wartezeit>37</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>38</wartezeit>
+      <wartezeit>39</wartezeit>
     </ampel>
   </auto>
   <auto>
@@ -129,13 +129,13 @@
   <auto>
     <ampel>
       <ampelname>ampelOben</ampelname>
-      <wartezeit>33</wartezeit>
+      <wartezeit>32</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelOben</ampelname>
-      <wartezeit>35</wartezeit>
+      <wartezeit>34</wartezeit>
     </ampel>
   </auto>
   <auto>
@@ -165,13 +165,13 @@
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>33</wartezeit>
+      <wartezeit>32</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>34</wartezeit>
+      <wartezeit>33</wartezeit>
     </ampel>
   </auto>
   <auto>

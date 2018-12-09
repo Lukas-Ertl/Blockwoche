@@ -17,7 +17,7 @@
 		</outqueue>
 	</station>
 	
-		<station>
+	<station>
 		<label>ampelRechts</label>
 		<x_position>700</x_position>
 		<y_position>270</y_position>

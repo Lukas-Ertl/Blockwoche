@@ -13,7 +13,7 @@ import model.CustomPoint;
  * Observer!
  * 
  * @author Team 4
- *
+ * @version 2018-12
  */
 public final class LiveCoverage implements Observer
 {
@@ -42,7 +42,7 @@ public final class LiveCoverage implements Observer
 	}
 
 	/**
-	 * 
+	 * get the Singleton's instance
 	 * @return instance the single instance of LiveCoverage
 	 */
 	public static LiveCoverage getInstance()

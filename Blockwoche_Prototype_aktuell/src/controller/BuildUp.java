@@ -179,7 +179,7 @@ class GraphButtonListener implements ActionListener {
 	    		String[] strArr = new String[ampelSetsSize];
 	    		for(int i=0; i<ampelSetsSize; i++)
 	    		{
-	    			strArr[i] = "Ampel Set " + i;
+	    			strArr[i] = "Ampel Set " + (i+1);
 	    		}
 	    		
 	    		Color[] c = new Color[4];

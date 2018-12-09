@@ -5,6 +5,7 @@ import java.util.Collection;
 /**
  * A basic station that is used to make the simulation look more realistic
  * @author Team 4
+ * @version 2018-12
  *
  */
 public class Waypoint extends SimpleStation {

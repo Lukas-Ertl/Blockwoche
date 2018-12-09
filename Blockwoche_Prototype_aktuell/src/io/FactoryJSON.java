@@ -1,4 +1,5 @@
 package io;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -30,459 +31,387 @@ import view.QueueViewJPanel;
 import view.QueueViewText;
 
 /**
- * This is an abstract factory that creates instances
- * of actor types like objects, stations and their queues 
+ * This is an abstract factory that creates instances of actor types like
+ * objects, stations and their queues
  * 
- * @author Jaeger, Schmidt, modified by Team 4
+ * @author Team 4
  * @version 2018-11-24
  */
 public class FactoryJSON {
-	
+
 	/** Scenario Folder */
 	private static String scenarioFolder;
+	/** Used to build JSON */
 	private static JSONObject jsonObject;
-	
-	
+
 //	/** the objects json data file (not in use)*/
 //	private static String theObjectDataFile = "SzenarienJSON/"+scenarioFolder+"/object.json"; 
-	
-	/** the Ampeln json data file */
-	private static String theAmpelnDataFile = "SzenarienJSON/"+scenarioFolder+"/ampeln.json";
 
-	
+	/** the Ampeln json data file */
+	private static String theAmpelnDataFile = "SzenarienJSON/" + scenarioFolder + "/ampeln.json";
+
 	/** the ProcessStations json data file */
-	private static String theProcessStationDataFile = "SzenarienJSON/"+scenarioFolder+"/processstation.json"; 
-	
+	private static String theProcessStationDataFile = "SzenarienJSON/" + scenarioFolder + "/processstation.json";
+
 	/** the SteuerLogik json data file */
-	private static String theSteuerLogikDataFile = "SzenarienJSON/"+scenarioFolder+"/steuerlogik.json"; 
-	
+	private static String theSteuerLogikDataFile = "SzenarienJSON/" + scenarioFolder + "/steuerlogik.json";
+
 //	/** the start station json data file (not in use)*/
 //	private static String theStartStationDataFile = "SzenarienJSON/"+scenarioFolder+"/startstation.json"; 
-	
-	/** the end station json data file */
-	private static String theEndStationDataFile = "SzenarienJSON/"+scenarioFolder+"/endstation.json"; 
-	
-	/** the Auto json data file */
-	private static String theAutoDataFile = "SzenarienJSON/"+scenarioFolder+"/auto.json"; 
-	
-	/** the Wellengenerator json data file */
-	private static String theWellengeneratorDataFile = "SzenarienJSON/"+scenarioFolder+"/wellengenerator.json"; 
-	
-	/** the Waypoint json data file */
-	private static String theWaypointDataFile = "SzenarienJSON/"+scenarioFolder+"/waypoint.json";
 
-	
-	
-    /**
-     * Singleton for a jsonObject.
-     * If jsonObject is not initialized 
-     * 	- load json file
-     * 	- create new instance of JSON Object
-     * 
-     * @param filepath Base scenario folder
-     * 
-     * @return the JSONObject
-     */
-    public static JSONObject getJSONObject(String filepath){
-		
-        	try {
-        		// load the JSON-File into a String
-    			FileReader fr = new FileReader(filepath);
-    			BufferedReader br = new BufferedReader(fr);
-    			String json = "";
-    			for(String line=""; line!=null; line = br.readLine())
-    				json+=line;
-    			br.close();
-    			
-    			// create a new JSON Object with the 
-    	    	jsonObject = new JSONObject(json);
-    	 
-    	  
-    	    	
-    		} catch (IOException e1) {
-    			e1.printStackTrace();
-    		}
-    	
-    	return jsonObject;
-    }
-	
-	
-	
-	
+	/** the end station json data file */
+	private static String theEndStationDataFile = "SzenarienJSON/" + scenarioFolder + "/endstation.json";
+
+	/** the Auto json data file */
+	private static String theAutoDataFile = "SzenarienJSON/" + scenarioFolder + "/auto.json";
+
+	/** the Wellengenerator json data file */
+	private static String theWellengeneratorDataFile = "SzenarienJSON/" + scenarioFolder + "/wellengenerator.json";
+
+	/** the Waypoint json data file */
+	private static String theWaypointDataFile = "SzenarienJSON/" + scenarioFolder + "/waypoint.json";
+
 	/**
-     * set Folder
-     * create the actors for the starting scenario
-     * 
-     * @param folder Base scenario folder
-     */
-	public static void createStartScenario(String folder){
-		
-		/*NOTE: The start station must be created first,
-		* because the objects constructor puts the objects into the start stations outgoing queue
-		*/ 
-		
+	 * Singleton for a jsonObject. If jsonObject is not initialized - load json file
+	 * - create new instance of JSON Object
+	 * 
+	 * @param filepath Base scenario folder
+	 * 
+	 * @return the JSONObject
+	 */
+	public static JSONObject getJSONObject(String filepath) {
+
+		try {
+			// load the JSON-File into a String
+			FileReader fr = new FileReader(filepath);
+			BufferedReader br = new BufferedReader(fr);
+			String json = "";
+			for (String line = ""; line != null; line = br.readLine())
+				json += line;
+			br.close();
+
+			// create a new JSON Object with the
+			jsonObject = new JSONObject(json);
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		return jsonObject;
+	}
+
+	/**
+	 * set Folder create the actors for the starting scenario
+	 * 
+	 * @param folder Base scenario folder
+	 */
+	public static void createStartScenario(String folder) {
+
+		/*
+		 * NOTE: The start station must be created first, because the objects
+		 * constructor puts the objects into the start stations outgoing queue
+		 */
+
 		scenarioFolder = folder;
 		setFilePath();
-		//createStartStation();
-		
-		//createObjects();
+		// createStartStation();
+
+		// createObjects();
 		createWellenGenerator();
 		createAmpeln();
-		//createProcessStations();
+		// createProcessStations();
 		createEndStation();
 		createSteuerLogik();
 		createWaypoint();
 		LiveCoverage.create();
 		createAutos();
 	}
-	
-	
-	
+
 	private static void setFilePath() {
-		theAmpelnDataFile = "SzenarienJSON/"+scenarioFolder+"/ampeln.json";
-		theProcessStationDataFile = "SzenarienJSON/"+scenarioFolder+"/processstation.json"; 
-		theSteuerLogikDataFile = "SzenarienJSON/"+scenarioFolder+"/steuerlogik.json"; 
-		theEndStationDataFile = "SzenarienJSON/"+scenarioFolder+"/endstation.json";
-		theAutoDataFile = "SzenarienJSON/"+scenarioFolder+"/auto.json"; 
-		theWellengeneratorDataFile = "SzenarienJSON/"+scenarioFolder+"/wellengenerator.json"; 
-		theWaypointDataFile = "SzenarienJSON/"+scenarioFolder+"/waypoint.json";
+		theAmpelnDataFile = "SzenarienJSON/" + scenarioFolder + "/ampeln.json";
+		theProcessStationDataFile = "SzenarienJSON/" + scenarioFolder + "/processstation.json";
+		theSteuerLogikDataFile = "SzenarienJSON/" + scenarioFolder + "/steuerlogik.json";
+		theEndStationDataFile = "SzenarienJSON/" + scenarioFolder + "/endstation.json";
+		theAutoDataFile = "SzenarienJSON/" + scenarioFolder + "/auto.json";
+		theWellengeneratorDataFile = "SzenarienJSON/" + scenarioFolder + "/wellengenerator.json";
+		theWaypointDataFile = "SzenarienJSON/" + scenarioFolder + "/waypoint.json";
 	}
 
-	 /**
-     * create the Wellengenerator
-     * 
-     * Liest Daten aus dem json FILE wellengenerator.json aus und
-     * ruft die Methode create() des Wellengenerators auf um den Wellengenerator
-     * zu erstellen
-     * 
-     */
-     private static void createWellenGenerator(){
-    	
-    
-    		
-    	 JSONObject settings = (JSONObject) getJSONObject(theWellengeneratorDataFile).get("settings");
-  
-    		
-    		
-    		JSONArray tablesWellenGenerator = settings.getJSONArray("wellenGenerator");
-    		
-    		
-    		
-    		
-    		for(Iterator i = tablesWellenGenerator.iterator(); i.hasNext();){
-    			JSONObject theWellenGenerator = (JSONObject) i.next();
+	/**
+	 * create the Wellengenerator
+	 * 
+	 * Reads the XML file wellengenerator.xml and calls the create method of
+	 * WellenGenerator to create new WellenGenerator for the XML
+	 * 
+	 */
+	private static void createWellenGenerator() {
 
+		JSONObject settings = (JSONObject) getJSONObject(theWellengeneratorDataFile).get("settings");
 
-    			
-    			String label = null;
-     			int xPos = 0;
-     			int yPos = 0;
-     			String image = null;
-     			int wellengroese;
-    		
-    		
-     		//get the label
-    		label = theWellenGenerator.getString("label");
-    		
-    	
-    		
-    		//get the position
-    		xPos = theWellenGenerator.getInt("x_position");
-    		yPos = theWellenGenerator.getInt("y_position");
-    		
-    		//the <view> ... </view> node
-    		
-    		JSONObject view = (JSONObject) theWellenGenerator.get("view");
-    		
-    		image = view.getString("image");
-    		
-    		
-    
-    		
-    		
-    		//get the Wellengroese
-    		wellengroese = theWellenGenerator.getInt("wellenGroesse");
-    	
-  
+		JSONArray tablesWellenGenerator = settings.getJSONArray("wellenGenerator");
 
-    		
-    		//CREATE THE INQUEUE
-    		//the <inqueue> ... </inqueue> node
-    		JSONObject inqueueGroup = (JSONObject) theWellenGenerator.get("inqueue");
-    		
-    		// the positions
-    		int xPosInQueue = inqueueGroup.getInt("x_position");
-    		int yPosInQueue = inqueueGroup.getInt("y_position");
-    		
-    		//create the inqueue
-    		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-    		//CREATE THE OUTQUEUE
-    		//the <outqueue> ... </outqueue> node
-    		JSONObject outqueueGroup = (JSONObject) theWellenGenerator.get("outqueue");
-    		
-    		// the positions
-    		int xPosOutQueue = outqueueGroup.getInt("x_position");
-    		int yPosOutQueue = outqueueGroup.getInt("y_position");
-    		
-    		//create the outqueue
-    		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
-    		    		
-    		//creating a new StartStation object
-    		WellenGenerator.create(label, theInQueue, theOutQueue, xPos, yPos, image,wellengroese);
-    		}
-    	
-    	
-		
-     }
-    
-     private static void createWaypoint()
-     {
-    	 
-         	 JSONObject settings = (JSONObject) getJSONObject(theWaypointDataFile).get("settings");
-         	   
-         	   
-      		
-         	JSONArray tablesWaypoint = settings.getJSONArray("waypoint");
-      		
+		for (Iterator i = tablesWellenGenerator.iterator(); i.hasNext();) {
+			JSONObject theWellenGenerator = (JSONObject) i.next();
 
-      		
-    		for(Iterator i = tablesWaypoint.iterator(); i.hasNext();){
-    			JSONObject theWaypoint = (JSONObject) i.next();
-     		
-      			
-      			// data variables:
-      			String label = null;
-      			int xPos = 0;
-      			int yPos = 0;
-      			String image = null;
-      			    			
-      			// read data
-      			label = theWaypoint.getString("label");
-          		xPos = theWaypoint.getInt("x_position");
-          		yPos = theWaypoint.getInt("y_position");
-          		        		
-          		//the <view> ... </view> node
-         		
-         		JSONObject view = (JSONObject) theWaypoint.get("view");
-         		
-         	
-          		        		
-         		//CREATE THE INQUEUE
-         		//the <inqueue> ... </inqueue> node
-         		JSONObject inqueueGroup = (JSONObject) theWaypoint.get("inqueue");
-         		int xPosInQueue = inqueueGroup.getInt("x_position");
-         		int yPosInQueue = inqueueGroup.getInt("y_position");
-          		SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue);
-          		
-          		//CREATE THE OUTQUEUE
-         		//the <outqueue> ... </outqueue> node
-         		JSONObject outqueueGroup = (JSONObject) theWaypoint.get("outqueue");
-         		
-         		// the positions
-         		int xPosOutQueue = outqueueGroup.getInt("x_position");
-         		int yPosOutQueue = outqueueGroup.getInt("y_position");
-          		SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue, yPosOutQueue);
-          		
-          		//creating a new Station object
-          		Waypoint.create(label, theInqueue, theOutqueue, xPos, yPos, image);
-          	}
-
-     }
-	 
-	 /**
-      * create the Autos
-      * 
-      * Liest Daten aus dem json FILE auto.json aus und
-      * ruft die Methode create() von Auto auf mehrere Autos
-      * zu erstellen
-      * 
-      */
-     private static void createAutos(){
-    		
-    		
-		
-        JSONObject settings = (JSONObject) getJSONObject(theAutoDataFile).get("settings");
-
-
-        
-        JSONArray tablesAuto = settings.getJSONArray("auto");
-    		
-        
-    		
-        for(Iterator i = tablesAuto.iterator(); i.hasNext();){
-			JSONObject theAuto = (JSONObject) i.next();
-    			
-    			
-    			
-    			// data variables:
-    			String label = null;
-    			int processtime = 0;
-    			int speed = 0;
-    			int xPos = 0;
-     			int yPos = 0;
-    			String image = null;
-    			    			
-    			// read data
-    			label = theAuto.getString("label");
-    			processtime = theAuto.getInt("processtime");
-    			speed = theAuto.getInt("speed");
-        		        		
-
-        		        		
-        		//the <view> ... </view> node
-         		
-         		JSONObject view = (JSONObject) theAuto.get("view");
-         		
-         		image = view.getString("image");
-        		
-        		
-        		//get all the stations, where the object wants to go to
-        		//the <sequence> ... </sequence> node
-         		JSONObject sequenceGroup = (JSONObject) theAuto.get("sequence");
-        		
-         		JSONArray allStations = sequenceGroup.getJSONArray("station");
-        		
-        		//get the elements into a list
-        		ArrayList<String> stationsToGo = new ArrayList<String>();
-        		
-        		
-        			
-        			for(Iterator j = allStations.iterator(); j.hasNext();){
-        				String theStation = (String) j.next();
-        			
-        			stationsToGo.add(theStation);
-        			
-        			
-        		
-        			for(Station aktuelleStation : Station.getAllStations()) {
-        				
-        				
-        				
-        			if(theStation.equals(aktuelleStation.getLabel()) && aktuelleStation.getClass() == WellenGenerator.class) {
-        				
-        				xPos = aktuelleStation.getXPos();
-        				yPos = aktuelleStation.getYPos();
-        				
-        			}
-        			}
-        			
-        		}
-        		
-        		
-        	  		
-        		//creating a new TheObject object
-        		Auto.create(label, stationsToGo, processtime, speed, xPos, yPos, image);
-        		
-			}
-    	
-    
-    }
-	
-	 /**
-      * create the SteuerLogik
-      * 
-      * Liest Daten aus dem json FILE steuerlogik.json aus und
-      * ruft die Methode create() von SteuerLogik auf um mehrere Autos
-      * zu erstellen
-      * 
-      */
-     private static void createSteuerLogik()
-     {
-    	 
-    	
-    		
-    	 JSONObject settings = (JSONObject) getJSONObject(theSteuerLogikDataFile).get("settings");
-    	  
- 		
- 		 JSONObject steuerlogik = (JSONObject) settings.get("steuerLogik");
-    	 
 			String label = null;
 			int xPos = 0;
 			int yPos = 0;
+			String image = null;
+			int wellengroese;
 
-    		//get the label
-    		label = steuerlogik.getString("label");
-    		
-    		//get the position
-    		xPos = steuerlogik.getInt("x_position");
-    		yPos= steuerlogik.getInt("y_position");
-    		
-    		ArrayList<ArrayList<Ampel>> amp = new ArrayList<ArrayList<Ampel>>();
-    		ArrayList<Long> rot = new ArrayList<Long>();
-    		ArrayList<Long> gruen = new ArrayList<Long>();
-			ArrayList<ArrayList<WellenGenerator>> wel = new ArrayList<ArrayList<WellenGenerator>>();
-			ArrayList<Long> welTime = new ArrayList<Long>();
-			
-		
-			
-			
-			//get all info necessary for the just above things
-			{
-				
-				JSONArray ampelSets = steuerlogik.getJSONArray("ampelSet");
-				
-				
-				for (Object ampelSet : ampelSets)
-				{
-					String rotPhasenString = ((JSONObject) ampelSet).getString("rotPhase");
-					rot.add( Long.parseLong( rotPhasenString ) );
-					
-					String gruenPhasenString = ((JSONObject) ampelSet).getString("gruenPhase");
-					gruen.add( Long.parseLong( gruenPhasenString ) );
-					
-					ArrayList<Ampel> ampelnInSet = new ArrayList<Ampel>();
-					
-					JSONArray ampelLabels = (JSONArray) ((JSONObject) ampelSet).get("ampelLabel");
-					
-					for(Object ampelLabel : ampelLabels)
-					{
-						String ampel = ((String)ampelLabel);
-						
-						
-						ampelnInSet.add( Ampel.getAmpelByLabel(ampel) );
+			// get the label
+			label = theWellenGenerator.getString("label");
+
+			// get the position
+			xPos = theWellenGenerator.getInt("x_position");
+			yPos = theWellenGenerator.getInt("y_position");
+
+			// the <view> ... </view> node
+
+			JSONObject view = (JSONObject) theWellenGenerator.get("view");
+
+			image = view.getString("image");
+
+			// get the Wellengroese
+			wellengroese = theWellenGenerator.getInt("wellenGroesse");
+
+			// CREATE THE INQUEUE
+			// the <inqueue> ... </inqueue> node
+			JSONObject inqueueGroup = (JSONObject) theWellenGenerator.get("inqueue");
+
+			// the positions
+			int xPosInQueue = inqueueGroup.getInt("x_position");
+			int yPosInQueue = inqueueGroup.getInt("y_position");
+
+			// create the inqueue
+			SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+			// CREATE THE OUTQUEUE
+			// the <outqueue> ... </outqueue> node
+			JSONObject outqueueGroup = (JSONObject) theWellenGenerator.get("outqueue");
+
+			// the positions
+			int xPosOutQueue = outqueueGroup.getInt("x_position");
+			int yPosOutQueue = outqueueGroup.getInt("y_position");
+
+			// create the outqueue
+			SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue,
+					yPosOutQueue);
+
+			// creating a new StartStation object
+			WellenGenerator.create(label, theInQueue, theOutQueue, xPos, yPos, image, wellengroese);
+		}
+
+	}
+
+	/**
+     * create the WayPoints
+     * 
+     * Reads the XML file waypoint.xml and calls the create method
+     * of WayPoint to create new WayPoints for the XML
+     * 
+     */
+	private static void createWaypoint() {
+
+		JSONObject settings = (JSONObject) getJSONObject(theWaypointDataFile).get("settings");
+
+		JSONArray tablesWaypoint = settings.getJSONArray("waypoint");
+
+		for (Iterator i = tablesWaypoint.iterator(); i.hasNext();) {
+			JSONObject theWaypoint = (JSONObject) i.next();
+
+			// data variables:
+			String label = null;
+			int xPos = 0;
+			int yPos = 0;
+			String image = null;
+
+			// read data
+			label = theWaypoint.getString("label");
+			xPos = theWaypoint.getInt("x_position");
+			yPos = theWaypoint.getInt("y_position");
+
+			// the <view> ... </view> node
+
+			JSONObject view = (JSONObject) theWaypoint.get("view");
+
+			// CREATE THE INQUEUE
+			// the <inqueue> ... </inqueue> node
+			JSONObject inqueueGroup = (JSONObject) theWaypoint.get("inqueue");
+			int xPosInQueue = inqueueGroup.getInt("x_position");
+			int yPosInQueue = inqueueGroup.getInt("y_position");
+			SynchronizedQueue theInqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue,
+					yPosInQueue);
+
+			// CREATE THE OUTQUEUE
+			// the <outqueue> ... </outqueue> node
+			JSONObject outqueueGroup = (JSONObject) theWaypoint.get("outqueue");
+
+			// the positions
+			int xPosOutQueue = outqueueGroup.getInt("x_position");
+			int yPosOutQueue = outqueueGroup.getInt("y_position");
+			SynchronizedQueue theOutqueue = SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosOutQueue,
+					yPosOutQueue);
+
+			// creating a new Station object
+			Waypoint.create(label, theInqueue, theOutqueue, xPos, yPos, image);
+		}
+
+	}
+
+	/**
+     * create the Autos
+     * 
+     * Reads the XML file autos.xml and calls the create method
+     * of Autos to create new cars for the XML
+     * 
+     */
+	private static void createAutos() {
+
+		JSONObject settings = (JSONObject) getJSONObject(theAutoDataFile).get("settings");
+
+		JSONArray tablesAuto = settings.getJSONArray("auto");
+
+		for (Iterator i = tablesAuto.iterator(); i.hasNext();) {
+			JSONObject theAuto = (JSONObject) i.next();
+
+			// data variables:
+			String label = null;
+			int processtime = 0;
+			int speed = 0;
+			int xPos = 0;
+			int yPos = 0;
+			String image = null;
+
+			// read data
+			label = theAuto.getString("label");
+			processtime = theAuto.getInt("processtime");
+			speed = theAuto.getInt("speed");
+
+			// the <view> ... </view> node
+
+			JSONObject view = (JSONObject) theAuto.get("view");
+
+			image = view.getString("image");
+
+			// get all the stations, where the object wants to go to
+			// the <sequence> ... </sequence> node
+			JSONObject sequenceGroup = (JSONObject) theAuto.get("sequence");
+
+			JSONArray allStations = sequenceGroup.getJSONArray("station");
+
+			// get the elements into a list
+			ArrayList<String> stationsToGo = new ArrayList<String>();
+
+			for (Iterator j = allStations.iterator(); j.hasNext();) {
+				String theStation = (String) j.next();
+
+				stationsToGo.add(theStation);
+
+				for (Station aktuelleStation : Station.getAllStations()) {
+
+					if (theStation.equals(aktuelleStation.getLabel())
+							&& aktuelleStation.getClass() == WellenGenerator.class) {
+
+						xPos = aktuelleStation.getXPos();
+						yPos = aktuelleStation.getYPos();
+
 					}
-					
-					amp.add(ampelnInSet);
 				}
-				
-				JSONArray wellenGeneratorSets = steuerlogik.getJSONArray("wellenGeneratorSet");
-				for (Object wellenGeneratorSet : wellenGeneratorSets)
-				{
-					ArrayList<WellenGenerator> tempWelEle = new ArrayList<WellenGenerator>();
-					
-					String wellenZeitPunktString = ((JSONObject) wellenGeneratorSet).getString("wellenZeitpunkt");
-					welTime.add( Long.parseLong( wellenZeitPunktString ) );		
-					
-					
-					
-					
-					
-					JSONArray wellenGeneratoren = (JSONArray) ((JSONObject) wellenGeneratorSet).get("wellenGenerator");
-					for(Object wellenGenerator : wellenGeneratoren)
-					{
-						String wellenGeneratorLabel = ((JSONObject) wellenGenerator).getString("wellenGeneratorLabel");
-						//System.out.println(wellenGeneratorLabel);
-						//System.out.println( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
-						tempWelEle.add( WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
-						
-						System.out.println("wellengenerator");
-					}
-					
-					
-					wel.add(tempWelEle);
-				}
-				
+
 			}
-			SteuerInfo info = new SteuerInfo(amp, gruen, wel, welTime);
-			//System.out.println(info.getWellenGeneratorSet(0).toString());
-    		
-    		//creating a new StartStation object
-    		SteuerLogik.create(label, xPos, yPos, info);//rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
-    	    
-    	
-    	
-     }
-	
+
+			// creating a new TheObject object
+			Auto.create(label, stationsToGo, processtime, speed, xPos, yPos, image);
+
+		}
+
+	}
+
+	/**
+	 * create the SteuerLogik
+	 * 
+	 * Reads the XML file steuerlogik.xml and calls the create method to create a
+	 * new SteuerLogik for the XML if none exists yet
+	 * 
+	 */
+	private static void createSteuerLogik() {
+
+		JSONObject settings = (JSONObject) getJSONObject(theSteuerLogikDataFile).get("settings");
+
+		JSONObject steuerlogik = (JSONObject) settings.get("steuerLogik");
+
+		String label = null;
+		int xPos = 0;
+		int yPos = 0;
+
+		// get the label
+		label = steuerlogik.getString("label");
+
+		// get the position
+		xPos = steuerlogik.getInt("x_position");
+		yPos = steuerlogik.getInt("y_position");
+
+		ArrayList<ArrayList<Ampel>> amp = new ArrayList<ArrayList<Ampel>>();
+		ArrayList<Long> rot = new ArrayList<Long>();
+		ArrayList<Long> gruen = new ArrayList<Long>();
+		ArrayList<ArrayList<WellenGenerator>> wel = new ArrayList<ArrayList<WellenGenerator>>();
+		ArrayList<Long> welTime = new ArrayList<Long>();
+
+		// get all info necessary for the just above things
+		{
+
+			JSONArray ampelSets = steuerlogik.getJSONArray("ampelSet");
+
+			for (Object ampelSet : ampelSets) {
+				String rotPhasenString = ((JSONObject) ampelSet).getString("rotPhase");
+				rot.add(Long.parseLong(rotPhasenString));
+
+				String gruenPhasenString = ((JSONObject) ampelSet).getString("gruenPhase");
+				gruen.add(Long.parseLong(gruenPhasenString));
+
+				ArrayList<Ampel> ampelnInSet = new ArrayList<Ampel>();
+
+				JSONArray ampelLabels = (JSONArray) ((JSONObject) ampelSet).get("ampelLabel");
+
+				for (Object ampelLabel : ampelLabels) {
+					String ampel = ((String) ampelLabel);
+
+					ampelnInSet.add(Ampel.getAmpelByLabel(ampel));
+				}
+
+				amp.add(ampelnInSet);
+			}
+
+			JSONArray wellenGeneratorSets = steuerlogik.getJSONArray("wellenGeneratorSet");
+			for (Object wellenGeneratorSet : wellenGeneratorSets) {
+				ArrayList<WellenGenerator> tempWelEle = new ArrayList<WellenGenerator>();
+
+				String wellenZeitPunktString = ((JSONObject) wellenGeneratorSet).getString("wellenZeitpunkt");
+				welTime.add(Long.parseLong(wellenZeitPunktString));
+
+				JSONArray wellenGeneratoren = (JSONArray) ((JSONObject) wellenGeneratorSet).get("wellenGenerator");
+				for (Object wellenGenerator : wellenGeneratoren) {
+					String wellenGeneratorLabel = ((JSONObject) wellenGenerator).getString("wellenGeneratorLabel");
+					// System.out.println(wellenGeneratorLabel);
+					// System.out.println(
+					// WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel) );
+					tempWelEle.add(WellenGenerator.getWellenGeneratorByLabel(wellenGeneratorLabel));
+
+					System.out.println("wellengenerator");
+				}
+
+				wel.add(tempWelEle);
+			}
+
+		}
+		SteuerInfo info = new SteuerInfo(amp, gruen, wel, welTime);
+		// System.out.println(info.getWellenGeneratorSet(0).toString());
+
+		// creating a new StartStation object
+		SteuerLogik.create(label, xPos, yPos, info);// rotPhase, gruenPhase, ampel, wellenZeitPunkt, wellenGenerator);
+
+	}
+
 //	/**
 //     * create the start station
 //     * 
@@ -544,7 +473,7 @@ public class FactoryJSON {
 //				e.printStackTrace();
 //		}
 //     }
-	
+
 //	/**
 //     * create some objects out of the XML file
 //     * 
@@ -607,259 +536,231 @@ public class FactoryJSON {
 //				e.printStackTrace();
 //		}
 //    }
-    
-	 /**
-      * create the Ampels
-      * 
-      * Liest Daten aus dem json FILE ampel.json aus und
-      * ruft die Methode create() von Ampel auf um mehrere Ampeln
-      * zu erstellen
-      * 
-      */
-      private static void createAmpeln(){
-     	
 
-    	    
-  		
-     	 JSONObject settings = (JSONObject) getJSONObject(theAmpelnDataFile).get("settings");
-   
-   
-     		
-	JSONArray tablesAmpel = settings.getJSONArray("station");
-    		
-    		
-    		
-    		
-    		for(Iterator i = tablesAmpel.iterator(); i.hasNext();){
-    			JSONObject theAmpel = (JSONObject) i.next();
-     		
-     		
-     	
-         
-     			
-     			String label = null;
-      			int xPos = 0;
-      			int yPos = 0;
-      			String image = null;
-      
-     		
-     		
-      		//get the label
-     		label = theAmpel.getString("label");
-     		
-     	
-     		
-     		//get the position
-     		xPos = theAmpel.getInt("x_position");
-     		yPos = theAmpel.getInt("y_position");
-     		
-     		//the <view> ... </view> node
-     		
-     		JSONObject view = (JSONObject) theAmpel.get("view");
-     		
-     		image = view.getString("image");
-     		
+	/**
+	 * create the Ampeln
+	 * 
+	 * Reads the XML file ampeln.xml and calls the create method to create new
+	 * Ampeln for the XML
+	 * 
+	 */
+	private static void createAmpeln() {
 
-     		//CREATE THE INQUEUE
-     		//the <inqueue> ... </inqueue> node
-     		JSONObject inqueueGroup = (JSONObject) theAmpel.get("inqueue");
-     		
-     		// the positions
-     		int xPosInQueue = inqueueGroup.getInt("x_position");
-     		int yPosInQueue = inqueueGroup.getInt("y_position");
-     		
-     		//create the inqueue
-     		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-     		//CREATE THE OUTQUEUE
-     		//the <outqueue> ... </outqueue> node
-     		JSONObject outqueueGroup = (JSONObject) theAmpel.get("outqueue");
-     		
-     		// the positions
-     		int xPosOutQueue = outqueueGroup.getInt("x_position");
-     		int yPosOutQueue = outqueueGroup.getInt("y_position");
-     		
-     		//create the outqueue
-     		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
-     		    		
-     		//creating a new StartStation object
-     		
-     		Ampel.create(label, theInQueue, theOutQueue, xPos, yPos, image);
+		JSONObject settings = (JSONObject) getJSONObject(theAmpelnDataFile).get("settings");
 
-     		}
-     	
-     	
-     }
-     
-    /**
-     * create some process stations out of the json file
-     * 
-     */
-     private static void createProcessStations(){
-    	
-    	try {
-    		
-    		//read the information from the json file into a JDOM Document
-    		Document thejsonDoc = new SAXBuilder().build(theProcessStationDataFile);
-    		
-    		//the <settings> ... </settings> node
-    		Element root = thejsonDoc.getRootElement();
-    		
-    		//get all the stations into a List object
-    		List <Element> stations = root.getChildren("station");
-    		
-    		//separate every JDOM "station" Element from the list and create Java Station objects
-    		for (Element station : stations) {
-    			
-    			// data variables:
-    			String label = null;
-    			double troughPut = 0;
-    			int xPos = 0;
-    			int yPos = 0;
-    			String image = null;
-    			    			
-    			// read data
-    			label = station.getChildText("label");
-    			troughPut = Double.parseDouble(station.getChildText("troughput"));
-        		xPos = Integer.parseInt(station.getChildText("x_position"));
-        		yPos = Integer.parseInt(station.getChildText("y_position"));
-        		        		
-        		//the <view> ... </view> node
-        		Element viewGroup = station.getChild("view");
-        		// read data
-        		image = viewGroup.getChildText("image");
-        		        		
-        		//CREATE THE INQUEUES
-        		
-        		//get all the inqueues into a List object
-        		List <Element> inqueues = station.getChildren("inqueue");
-        		
-        		//create a list of the stations inqueues 
-        		ArrayList<SynchronizedQueue> theInqueues = new ArrayList<SynchronizedQueue>(); //ArrayList for the created inqueues
-        		
-        		for (Element inqueue : inqueues) {
-        			
-        			int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
-            		int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
-            		
-            		//create the actual inqueue an add it to the list
-            		theInqueues.add(SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue));
-            	}
-        		        		
-        		//CREATE THE OUTQUEUES
-        		
-        		//get all the outqueues into a List object
-        		List <Element> outqueues = station.getChildren("outqueue");
-        		
-        		//create a list of the stations outqueues 
-        		ArrayList<SynchronizedQueue> theOutqueues = new ArrayList<SynchronizedQueue>(); //ArrayList for the created outqueues
-        		
-        		for (Element outqueue : outqueues) {
-        			
-        			int xPosOutQueue = Integer.parseInt(outqueue.getChildText("x_position"));
-            		int yPosOutQueue = Integer.parseInt(outqueue.getChildText("y_position"));
-            		
-            		//create the actual outqueue an add it to the list
-            		theOutqueues.add(SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue));
-            	}
-        		
-        		//creating a new Station object
-        		ProcessStation.create(label, theInqueues, theOutqueues, troughPut, xPos, yPos, image);
-        		
-			}
-    		
-    	
-    	} catch (JDOMException e) {
-				e.printStackTrace();
-		} catch (IOException e) {
-				e.printStackTrace();
+		JSONArray tablesAmpel = settings.getJSONArray("station");
+
+		for (Iterator i = tablesAmpel.iterator(); i.hasNext();) {
+			JSONObject theAmpel = (JSONObject) i.next();
+
+			String label = null;
+			int xPos = 0;
+			int yPos = 0;
+			String image = null;
+
+			// get the label
+			label = theAmpel.getString("label");
+
+			// get the position
+			xPos = theAmpel.getInt("x_position");
+			yPos = theAmpel.getInt("y_position");
+
+			// the <view> ... </view> node
+
+			JSONObject view = (JSONObject) theAmpel.get("view");
+
+			image = view.getString("image");
+
+			// CREATE THE INQUEUE
+			// the <inqueue> ... </inqueue> node
+			JSONObject inqueueGroup = (JSONObject) theAmpel.get("inqueue");
+
+			// the positions
+			int xPosInQueue = inqueueGroup.getInt("x_position");
+			int yPosInQueue = inqueueGroup.getInt("y_position");
+
+			// create the inqueue
+			SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+			// CREATE THE OUTQUEUE
+			// the <outqueue> ... </outqueue> node
+			JSONObject outqueueGroup = (JSONObject) theAmpel.get("outqueue");
+
+			// the positions
+			int xPosOutQueue = outqueueGroup.getInt("x_position");
+			int yPosOutQueue = outqueueGroup.getInt("y_position");
+
+			// create the outqueue
+			SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue,
+					yPosOutQueue);
+
+			// creating a new StartStation object
+
+			Ampel.create(label, theInQueue, theOutQueue, xPos, yPos, image);
+
 		}
-    	
-    }
-    
-     /**
-     * create the end station
-     * 
-     */
-     private static void createEndStation(){
-    	
-    	
-    		
-      		
-        	 JSONObject settings = (JSONObject) getJSONObject(theEndStationDataFile).get("settings");
-      
-        	 JSONObject theEndStation = (JSONObject) settings.get("endStation");
-        	 
-      			
-      			String label = null;
-       			int xPos = 0;
-       			int yPos = 0;
-       			String image = null;
-       		
-      		
-      		
-       		//get the label
-      		label = theEndStation.getString("label");
-      		
-      	
-      		
-      		//get the position
-      		xPos = theEndStation.getInt("x_position");
-      		yPos = theEndStation.getInt("y_position");
-      		
-      		//the <view> ... </view> node
-      		
-      		JSONObject view = (JSONObject) theEndStation.get("view");
-      		
-      		image = view.getString("image");
-      		
 
-      		//CREATE THE INQUEUE
-      		//the <inqueue> ... </inqueue> node
-      		JSONObject inqueueGroup = (JSONObject) theEndStation.get("inqueue");
-      		
-      		// the positions
-      		int xPosInQueue = inqueueGroup.getInt("x_position");
-      		int yPosInQueue = inqueueGroup.getInt("y_position");
-      		
-      		//create the inqueue
-      		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
-      		//CREATE THE OUTQUEUE
-      		//the <outqueue> ... </outqueue> node
-      		JSONObject outqueueGroup = (JSONObject) theEndStation.get("outqueue");
-      		
-      		// the positions
-      		int xPosOutQueue = outqueueGroup.getInt("x_position");
-      		int yPosOutQueue = outqueueGroup.getInt("y_position");
-      		
-      		//create the outqueue
-      		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
-      		    		
-      		//creating a new StartStation object
-      		
-      		EndStation.create(label, theInQueue, theOutQueue, xPos, yPos, image);
-      		
-      		
-    		
-    	    
-     
-    	
-     }
-     
-     /**
-      * get for Scenario Folder
-      * @return scenarioFolder
-      */
-     
-     public String getScenario() {
-    	 return scenarioFolder;
-     }
-     
-     /**
-      * get for SzenarienXML or SzenarienJSON Folder(XML in different Factory) 
-      * @return SzenarienJSON
-      */
-     public static String getFolder() {
-    	 return "SzenarienJSON";
-     }
-        
+	}
+
+	/**
+	 * create some process stations out of the json file
+	 * 
+	 */
+	private static void createProcessStations() {
+
+		try {
+
+			// read the information from the json file into a JDOM Document
+			Document thejsonDoc = new SAXBuilder().build(theProcessStationDataFile);
+
+			// the <settings> ... </settings> node
+			Element root = thejsonDoc.getRootElement();
+
+			// get all the stations into a List object
+			List<Element> stations = root.getChildren("station");
+
+			// separate every JDOM "station" Element from the list and create Java Station
+			// objects
+			for (Element station : stations) {
+
+				// data variables:
+				String label = null;
+				double troughPut = 0;
+				int xPos = 0;
+				int yPos = 0;
+				String image = null;
+
+				// read data
+				label = station.getChildText("label");
+				troughPut = Double.parseDouble(station.getChildText("troughput"));
+				xPos = Integer.parseInt(station.getChildText("x_position"));
+				yPos = Integer.parseInt(station.getChildText("y_position"));
+
+				// the <view> ... </view> node
+				Element viewGroup = station.getChild("view");
+				// read data
+				image = viewGroup.getChildText("image");
+
+				// CREATE THE INQUEUES
+
+				// get all the inqueues into a List object
+				List<Element> inqueues = station.getChildren("inqueue");
+
+				// create a list of the stations inqueues
+				ArrayList<SynchronizedQueue> theInqueues = new ArrayList<SynchronizedQueue>(); // ArrayList for the
+																								// created inqueues
+
+				for (Element inqueue : inqueues) {
+
+					int xPosInQueue = Integer.parseInt(inqueue.getChildText("x_position"));
+					int yPosInQueue = Integer.parseInt(inqueue.getChildText("y_position"));
+
+					// create the actual inqueue an add it to the list
+					theInqueues.add(SynchronizedQueue.createQueue(QueueViewJPanel.class, xPosInQueue, yPosInQueue));
+				}
+
+				// CREATE THE OUTQUEUES
+
+				// get all the outqueues into a List object
+				List<Element> outqueues = station.getChildren("outqueue");
+
+				// create a list of the stations outqueues
+				ArrayList<SynchronizedQueue> theOutqueues = new ArrayList<SynchronizedQueue>(); // ArrayList for the
+																								// created outqueues
+
+				for (Element outqueue : outqueues) {
+
+					int xPosOutQueue = Integer.parseInt(outqueue.getChildText("x_position"));
+					int yPosOutQueue = Integer.parseInt(outqueue.getChildText("y_position"));
+
+					// create the actual outqueue an add it to the list
+					theOutqueues.add(SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue));
+				}
+
+				// creating a new Station object
+				ProcessStation.create(label, theInqueues, theOutqueues, troughPut, xPos, yPos, image);
+
+			}
+
+		} catch (JDOMException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * create the end station
+	 * 
+	 */
+	private static void createEndStation() {
+
+		JSONObject settings = (JSONObject) getJSONObject(theEndStationDataFile).get("settings");
+
+		JSONObject theEndStation = (JSONObject) settings.get("endStation");
+
+		String label = null;
+		int xPos = 0;
+		int yPos = 0;
+		String image = null;
+
+		// get the label
+		label = theEndStation.getString("label");
+
+		// get the position
+		xPos = theEndStation.getInt("x_position");
+		yPos = theEndStation.getInt("y_position");
+
+		// the <view> ... </view> node
+
+		JSONObject view = (JSONObject) theEndStation.get("view");
+
+		image = view.getString("image");
+
+		// CREATE THE INQUEUE
+		// the <inqueue> ... </inqueue> node
+		JSONObject inqueueGroup = (JSONObject) theEndStation.get("inqueue");
+
+		// the positions
+		int xPosInQueue = inqueueGroup.getInt("x_position");
+		int yPosInQueue = inqueueGroup.getInt("y_position");
+
+		// create the inqueue
+		SynchronizedQueue theInQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosInQueue, yPosInQueue);
+		// CREATE THE OUTQUEUE
+		// the <outqueue> ... </outqueue> node
+		JSONObject outqueueGroup = (JSONObject) theEndStation.get("outqueue");
+
+		// the positions
+		int xPosOutQueue = outqueueGroup.getInt("x_position");
+		int yPosOutQueue = outqueueGroup.getInt("y_position");
+
+		// create the outqueue
+		SynchronizedQueue theOutQueue = SynchronizedQueue.createQueue(QueueViewText.class, xPosOutQueue, yPosOutQueue);
+
+		// creating a new StartStation object
+
+		EndStation.create(label, theInQueue, theOutQueue, xPos, yPos, image);
+
+	}
+
+	/**
+	 * getter for Scenario Folder
+	 * 
+	 * @return scenarioFolder
+	 */
+
+	public String getScenario() {
+		return scenarioFolder;
+	}
+
+	/**
+	 * getter for SzenarienXML or SzenarienJSON Folder(XML in different Factory)
+	 * 
+	 * @return SzenarienJSON
+	 */
+	public static String getFolder() {
+		return "SzenarienJSON";
+	}
+
 }

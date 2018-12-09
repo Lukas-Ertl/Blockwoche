@@ -86,6 +86,7 @@ public class EndStation extends SimpleStation {
 		// Are all objects in the stations outgoing queue, then we are finish
 		if(TheObject.getAllObjects().size() == numberOfOutQueueObjects())
 		{
+			//write statistics for cars and ampeln
 			io.Statistics.writeAutoStatistics();
 			io.Statistics.writeAmpelStatistics();
 			
@@ -112,6 +113,9 @@ public class EndStation extends SimpleStation {
 		}
 	}
 	
+	/**
+	 * ends every actor thread
+	 */
 	private void endAllActors()
 	{
 		for(Actor a : Actor.getAllActors()) {

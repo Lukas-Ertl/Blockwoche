@@ -35,11 +35,12 @@ public class Simulation {
 	public static String szenarioType;
 	
 	/**
+	 * Constructor 
+	 * 	calls init
+	 * 
 	 * @author Jaeger, Schmidt, edited by Team 4
 	 * @version 2018-12
 	 * 
-	 * Constructor 
-	 * 	calls init
 	 * @param folder Base scenario folder
 	 * @param szenarioType String of either XML or JSON
 	 */
@@ -146,7 +147,7 @@ public class Simulation {
 	}
 	
 	
-	/**
+	/** Getter for isRunning
 	 * @author Team 4
 	 * 
 	 * @return isRunning
@@ -155,7 +156,7 @@ public class Simulation {
 		return isRunning;
 	}
 	
-	/**
+	/** Getter for Szenario folder
 	 * @author Team 4
 	 * 
 	 * @return Szenarien ordner (SzenarienXML / SzenarienJSON)
@@ -165,7 +166,7 @@ public class Simulation {
 		return "Szenarien"+Simulation.szenarioType;
 	}
 	
-	/**
+	/** Getter for specific scenario
 	 * @author Team 4
 	 * 
 	 * @return folder
@@ -175,7 +176,7 @@ public class Simulation {
 		return Simulation.folder;
 	}
 	
-	/**
+	/** Get scenario type
 	 * @author Team 4
 	 * 
 	 * @return szenarioType

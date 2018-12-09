@@ -9,7 +9,7 @@ import io.PersistentFile;
 /**
  * Tests the average calculation of PersistentFile
  * @author Team 4
- *
+ * @version 2018-12
  */
 class TestAverageWaitingtime {
 
