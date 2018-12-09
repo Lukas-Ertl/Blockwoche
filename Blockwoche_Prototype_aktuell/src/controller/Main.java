@@ -19,8 +19,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 /**
- * New main Class to run multiple Scenarios automatically and creates a gui to
- * Choose from json or xml scenarios per mouseclick on a corresponding button.
+ * New main Class to run multiple Scenarios / open graphs throught a GUI
+ * Choose from JSON or XML scenarios per mouseclick
  * 
  * @author Team 4
  * @version 11-2018
@@ -40,61 +40,25 @@ public class Main {
 		szenarioPaths.put(2, "SzenarienXML/Szenario 2/auswertung.xml");
 	}
 
+	/** GUI frame */
 	static JFrame theFrame;
 
 	/** Scenario Folder */
 	private static String scenarioFolder;
 
-	public void actionPerformed(ActionEvent e) {
-
-		if (e.getActionCommand().equals("XML1")) {
-			e.setSource(scenarioFolder = "Szenario 1");
-
-		} else if (e.getActionCommand().equals("XML2")) {
-			e.setSource(scenarioFolder = "Szenario 2");
-		} else if (e.getActionCommand().equals("JSON1")) {
-
-		}
-
-		else if (e.getActionCommand().equals("JSON2")) {
-
-		}
-	}
-
 	/**
-	 * starts the simulation and creates the Frame with buttons to choose from
-	 * whether u want xml or json.
+	 * Shows the GUI to select from simulations and graphs
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ChoosingButtons c = new ChoosingButtons();
-		c.createAndShowGUI();
-
-		/*
-		 * scenarioFolder = "Szenario 1"; System.out.println("in Main " +
-		 * scenarioFolder); new Simulation(scenarioFolder);
-		 * 
-		 * /* // Try to run all scenarios after each other automatically (abandoned
-		 * because of time) while(scenario_1.getIsRunning() == false) { }
-		 * while(scenario_1.getIsRunning() == true) { } scenarioFolder = "Szenario 2";
-		 * System.out.println("in Main "+scenarioFolder); Simulation scenario_2 = new
-		 * Simulation(scenarioFolder);
-		 */
+		Main.createAndShowGUI();
 	}
-
-}
-
-class ChoosingButtons extends JFrame {
-
-	public ChoosingButtons() {
-
-	}
-
-	@SuppressWarnings("unused")
-	public void createAndShowGUI()
-
-	{
+	
+	/**
+	 * creates the frame and adds the buttons / listeners
+	 */
+	public static void createAndShowGUI() {
 		ButtonListener xmlListener = new ButtonListener();
 		GraphButtonListener graListen = new GraphButtonListener();
 		
@@ -132,13 +96,22 @@ class ChoosingButtons extends JFrame {
 		Main.theFrame.setVisible(true);
 		Main.theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
 }
 
+/**
+ * Listener class to start simulations
+ * (closes the selection frame upon starting the simulation to avoid errors) 
+ * 
+ * @author Team 4
+ *
+ */
 class ButtonListener implements ActionListener {
 
 	/** Scenario Folder */
 	private static String scenarioFolder;
 
+	/** checks which button was pressed and opens the associated simulation */
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getActionCommand().equals("XML1")) {
@@ -163,11 +136,18 @@ class ButtonListener implements ActionListener {
 	}
 }
 
+/**
+ * Listener class to open graphs
+ * 
+ * @author Team 4
+ *
+ */
 class GraphButtonListener implements ActionListener {
 
 	/** Scenario Folder */
 	private static String scenarioFolder;
 
+	/** checks which button was pressed and opens the associated graph */
 	public void actionPerformed(ActionEvent e) {
 		Main.init();
 		
@@ -255,7 +235,7 @@ class GraphButtonListener implements ActionListener {
 	    		String[] strArr = new String[NUM_OF_SETS];
 	    		for(int i=0; i<NUM_OF_SETS; i++)
 	    		{
-	    			strArr[i] = "Szenario " + i;
+	    			strArr[i] = "Szenario " + (i+1);
 	    		}
 	    		
 	    		Color[] c = new Color[4];
@@ -300,7 +280,7 @@ class GraphButtonListener implements ActionListener {
 	    		String[] strArr = new String[runs.size()];
 	    		for(int i=0; i<runs.size(); i++)
 	    		{
-	    			strArr[i] = "Durchlauf  " + i;
+	    			strArr[i] = runs.get(i).getChildText("scenario");
 	    		}
 	    		
 	    		Color[] c = new Color[4];

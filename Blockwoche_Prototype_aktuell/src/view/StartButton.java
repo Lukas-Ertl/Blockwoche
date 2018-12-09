@@ -15,8 +15,8 @@ import model.SteuerLogik;
 /**
  * A simple JButton class for a start button
  * 
- * @author Jaeger, Schmidt
- * @version 2016-07-07
+ * @author Jaeger, Schmidt edited by Team 4
+ * @version 2018-12
  */
 @SuppressWarnings("serial")
 public class StartButton extends JButton implements ActionListener{
@@ -27,17 +27,13 @@ public class StartButton extends JButton implements ActionListener{
 		
 	}
 	
-	
+	/**
+	 * edited by Team 4
+	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		
 		//set the simulation on
 		Simulation.isRunning = true;
-		
-		
-		
-		//wake up the SteuerLogik -> lets the simulation run
-		SteuerLogik.getSteuerLogik().wakeUp();
 	}
 
 	

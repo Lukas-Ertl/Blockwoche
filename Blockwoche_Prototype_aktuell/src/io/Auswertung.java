@@ -14,6 +14,8 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
+import controller.Simulation;
+
 /**
  * Reads the Statistics of the Autos, analyzes them and writes the average
  * waiting time and the amount of Autos per Ampel
@@ -27,9 +29,9 @@ public class Auswertung {
 	 * use in merge others only for testing private static String
 	 * 
 	 */
-	 private String theStatistikAuswertungdatafile = Factory.getFolder() +"/" + Factory.getScenario() + "/auswertung.xml";
-	 private String theAutoStatistikdatafile = Factory.getFolder() + "/" + Factory.getScenario() + "/autostatistics.xml";
-	 private String theSteuerLogikdatafile = Factory.getFolder() + "/" + Factory.getScenario() + "/steuerlogik.xml";
+	 private String theStatistikAuswertungdatafile = Simulation.getFolder() +"/" + Simulation.getScenario() + "/auswertung.xml";
+	 private String theAutoStatistikdatafile = Simulation.getFolder() + "/" + Simulation.getScenario() + "/autostatistics.xml";
+	 private String theSteuerLogikdatafile = "SzenarienXML/Szenario 1/steuerlogik.xml";//Simulation.getFolder() + "/" + Simulation.getScenario() + "/steuerlogik.xml";
 	 
 	private ArrayList<StatistikHolder> autoList = new ArrayList<StatistikHolder>();
 	private HashMap<String, ArrayList<StatistikHolderAmpel>> ampelMap = new HashMap<String, ArrayList<StatistikHolderAmpel>>();
@@ -37,7 +39,6 @@ public class Auswertung {
 	
 	/**
 	 * Constructor for Auswertung
-	 * @author Team 4
 	 */
 	public void auswerten() {
 		readXML();
@@ -50,6 +51,7 @@ public class Auswertung {
 	private void readXML() {
 		try {
 			//open the XML and find out the sets for the ampeln
+			System.out.println(theSteuerLogikdatafile);
 			Document theSetsXMLDoc = new SAXBuilder().build( theSteuerLogikdatafile );
 			Element steuerLogikRoot = theSetsXMLDoc.getRootElement();
 			Element steuerLogik = steuerLogikRoot.getChild("steuerLogik");
