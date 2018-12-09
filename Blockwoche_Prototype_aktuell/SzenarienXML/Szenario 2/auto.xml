@@ -2,7 +2,7 @@
 <settings>
 
 	<auto>
-		<label>auto_1</label>
+		<label>links_auto_1</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
@@ -16,13 +16,12 @@
 		</sequence>
 	</auto>
 
-	
 	<auto>
-		<label>auto_2</label>
+		<label>links_auto_2</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-2.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -33,11 +32,11 @@
 	</auto>
 	
 	<auto>
-		<label>auto_3</label>
+		<label>links_auto_3</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-3.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -48,11 +47,11 @@
 	</auto>
 	
 	<auto>
-		<label>auto_4</label>
+		<label>links_auto_4</label>
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-4.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -63,11 +62,11 @@
 	</auto>
 	
 	<auto>
-		<label>auto_5</label>
+		<label>links_auto_5</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-5.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -78,67 +77,7 @@
 	</auto>
 	
 	<auto>
-		<label>auto_6</label>
-		<processtime>10</processtime>
-		<speed>1</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorLinks</station>
-			<station>ampelLinks</station>
-			<station>waypointRechts</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_7</label>
-		<processtime>10</processtime>
-		<speed>2</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorLinks</station>
-			<station>ampelLinks</station>
-			<station>waypointRechts</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_8</label>
-		<processtime>10</processtime>
-		<speed>3</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorLinks</station>
-			<station>ampelLinks</station>
-			<station>waypointRechts</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_9</label>
-		<processtime>10</processtime>
-		<speed>4</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorLinks</station>
-			<station>ampelLinks</station>
-			<station>waypointRechts</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_10</label>
+		<label>links_auto_6</label>
 		<processtime>10</processtime>
 		<speed>5</speed>
 		<view>
@@ -151,13 +90,13 @@
 			<station>endStation</station>
 		</sequence>
 	</auto>
-	
+
 	<auto>
-		<label>auto_11</label>
+		<label>links_auto_7</label>
 		<processtime>10</processtime>
-		<speed>2</speed>
+		<speed>4</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-2.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorLinks</station>
@@ -168,195 +107,2214 @@
 	</auto>
 	
 	<auto>
-		<label>auto_12</label>
+		<label>links_auto_8</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-3.png</image>
 		</view>
 		<sequence>
-			<station>wellenGeneratorRechts</station>
-			<station>ampelRechts</station>
-			<station>waypointLinks</station>
-			<station>waypointLinksUnten</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_13</label>
-		<processtime>10</processtime>
-		<speed>1</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorRechts</station>
-			<station>ampelRechts</station>
-			<station>waypointLinks</station>
-			<station>waypointLinksUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_14</label>
-		<processtime>10</processtime>
-		<speed>4</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorRechts</station>
-			<station>ampelRechts</station>
-			<station>waypointLinks</station>
-			<station>waypointLinksUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_15</label>
-		<processtime>10</processtime>
-		<speed>4</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorRechts</station>
-			<station>ampelRechts</station>
-			<station>waypointLinks</station>
-			<station>waypointLinksUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_16</label>
-		<processtime>10</processtime>
-		<speed>5</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorRechts</station>
-			<station>ampelRechts</station>
-			<station>waypointLinks</station>
-			<station>waypointLinksUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_17</label>
-		<processtime>10</processtime>
-		<speed>5</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorRechts</station>
-			<station>ampelRechts</station>
-			<station>waypointLinks</station>
-			<station>waypointLinksUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_18</label>
-		<processtime>10</processtime>
-		<speed>3</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorOben</station>
-			<station>ampelOben</station>
-			<station>waypointUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_19</label>
+		<label>links_auto_9</label>
 		<processtime>10</processtime>
 		<speed>2</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-4.png</image>
 		</view>
 		<sequence>
-			<station>wellenGeneratorOben</station>
-			<station>ampelOben</station>
-			<station>waypointUnten</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_20</label>
+		<label>links_auto_10</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-5.png</image>
 		</view>
 		<sequence>
-			<station>wellenGeneratorOben</station>
-			<station>ampelOben</station>
-			<station>waypointUnten</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_21</label>
+		<label>links_auto_11</label>
 		<processtime>10</processtime>
-		<speed>3</speed>
+		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
 		<sequence>
-			<station>wellenGeneratorOben</station>
-			<station>ampelOben</station>
-			<station>waypointUnten</station>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
-	
+
 	<auto>
-		<label>auto_22</label>
-		<processtime>10</processtime>
-		<speed>3</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorOben</station>
-			<station>ampelOben</station>
-			<station>waypointUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_23</label>
-		<processtime>10</processtime>
-		<speed>3</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorOben</station>
-			<station>ampelOben</station>
-			<station>waypointUnten</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_24</label>
+		<label>links_auto_12</label>
 		<processtime>10</processtime>
 		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_13</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_14</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_15</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_16</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_17</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_18</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_19</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_20</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_21</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_22</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_23</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_24</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_25</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_26</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_27</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_28</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_29</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_30</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_31</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_32</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_33</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_34</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_35</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_36</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_37</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_38</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_39</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_40</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_41</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_42</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_43</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_44</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_45</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_46</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_47</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_48</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_49</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_50</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_51</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_52</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_53</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_54</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_55</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_56</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>links_auto_57</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_58</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_59</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>links_auto_60</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorLinks</station>
+			<station>ampelLinks</station>
+			<station>waypointRechts</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_1</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_2</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_3</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_4</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_5</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_6</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_7</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_8</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_9</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_10</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_11</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_12</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_13</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_14</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_15</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_16</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_17</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_18</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_19</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_20</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_21</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_22</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_23</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_24</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_25</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_26</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_27</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_28</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_29</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_30</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_31</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_32</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_33</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_34</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_35</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_36</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_37</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_38</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_39</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_40</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_41</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_42</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_43</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_44</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_45</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_46</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_47</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_48</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_49</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_50</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_51</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_52</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_53</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_54</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_55</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_56</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>rechts_auto_57</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_58</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_59</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>rechts_auto_60</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorRechts</station>
+			<station>ampelRechts</station>
+			<station>waypointLinks</station>
+			<station>waypointLinksUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_1</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>oben_auto_2</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_3</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_4</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_5</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_6</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>oben_auto_7</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_8</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_9</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_10</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_11</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>oben_auto_12</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_13</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_14</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_15</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_16</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>oben_auto_17</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_18</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_19</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_20</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_21</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>oben_auto_22</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_23</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_24</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_25</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_26</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>oben_auto_27</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_28</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_29</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>oben_auto_30</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorOben</station>
+			<station>ampelOben</station>
+			<station>waypointUnten</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_1</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
@@ -368,13 +2326,13 @@
 			<station>endStation</station>
 		</sequence>
 	</auto>
-	
+
 	<auto>
-		<label>auto_25</label>
+		<label>unten_auto_2</label>
 		<processtime>10</processtime>
-		<speed>5</speed>
+		<speed>4</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-2.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
@@ -386,57 +2344,57 @@
 	</auto>
 	
 	<auto>
-		<label>auto_26</label>
-		<processtime>10</processtime>
-		<speed>5</speed>
-		<view>
-			<image>car-1.png</image>
-		</view>
-		<sequence>
-			<station>wellenGeneratorUnten</station>
-			<station>ampelUnten</station>
-			<station>waypointOben</station>
-			<station>waypointRechtsOben</station>
-			<station>endStation</station>
-		</sequence>
-	</auto>
-	
-	<auto>
-		<label>auto_27</label>
+		<label>unten_auto_3</label>
 		<processtime>10</processtime>
 		<speed>3</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-3.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
 			<station>ampelUnten</station>
 			<station>waypointOben</station>
-			<station>waypointRechtsOben</station>			
+			<station>waypointRechtsOben</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_28</label>
+		<label>unten_auto_4</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_5</label>
 		<processtime>10</processtime>
 		<speed>1</speed>
 		<view>
-			<image>car-1.png</image>
+			<image>car-5.png</image>
 		</view>
 		<sequence>
 			<station>wellenGeneratorUnten</station>
 			<station>ampelUnten</station>
 			<station>waypointOben</station>
-			<station>waypointRechtsOben</station>			
+			<station>waypointRechtsOben</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_29</label>
+		<label>unten_auto_6</label>
 		<processtime>10</processtime>
-		<speed>4</speed>
+		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
@@ -444,15 +2402,79 @@
 			<station>wellenGeneratorUnten</station>
 			<station>ampelUnten</station>
 			<station>waypointOben</station>
-			<station>waypointRechtsOben</station>			
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>unten_auto_7</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>
 	
 	<auto>
-		<label>auto_30</label>
+		<label>unten_auto_8</label>
 		<processtime>10</processtime>
-		<speed>4</speed>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_9</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_10</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_11</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
 		<view>
 			<image>car-1.png</image>
 		</view>
@@ -460,7 +2482,311 @@
 			<station>wellenGeneratorUnten</station>
 			<station>ampelUnten</station>
 			<station>waypointOben</station>
-			<station>waypointRechtsOben</station>			
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>unten_auto_12</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_13</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_14</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_15</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_16</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>unten_auto_17</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_18</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_19</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_20</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_21</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>unten_auto_22</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_23</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_24</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_25</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_26</label>
+		<processtime>10</processtime>
+		<speed>5</speed>
+		<view>
+			<image>car-1.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+
+	<auto>
+		<label>unten_auto_27</label>
+		<processtime>10</processtime>
+		<speed>4</speed>
+		<view>
+			<image>car-2.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_28</label>
+		<processtime>10</processtime>
+		<speed>3</speed>
+		<view>
+			<image>car-3.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_29</label>
+		<processtime>10</processtime>
+		<speed>2</speed>
+		<view>
+			<image>car-4.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
+			<station>endStation</station>
+		</sequence>
+	</auto>
+	
+	<auto>
+		<label>unten_auto_30</label>
+		<processtime>10</processtime>
+		<speed>1</speed>
+		<view>
+			<image>car-5.png</image>
+		</view>
+		<sequence>
+			<station>wellenGeneratorUnten</station>
+			<station>ampelUnten</station>
+			<station>waypointOben</station>
+			<station>waypointRechtsOben</station>
 			<station>endStation</station>
 		</sequence>
 	</auto>

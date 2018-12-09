@@ -4,9 +4,9 @@
     ampelset 1
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <insgesamtewartezeit>32</insgesamtewartezeit>
+      <insgesamtewartezeit>2</insgesamtewartezeit>
       <autoanzahl>1</autoanzahl>
-      <durchschnittswartezeit>32.0</durchschnittswartezeit>
+      <durchschnittswartezeit>2.0</durchschnittswartezeit>
     </ampel>
   </ampelset>
   <ampelset>ampelset 0</ampelset>

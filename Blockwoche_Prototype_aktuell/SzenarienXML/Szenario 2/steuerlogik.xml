@@ -4,33 +4,36 @@
 		<label>steuerLogik_1</label>
 		<x_position>42</x_position>
 		<y_position>42</y_position>
+		
 		<ampelSet>
-			<rotPhase>8</rotPhase>
-			<gruenPhase>3</gruenPhase>
+			<rotPhase>7</rotPhase>
+			<gruenPhase>10</gruenPhase>
+			<ampelLabel>ampelRechts</ampelLabel>
+			<ampelLabel>ampelLinks</ampelLabel>
+		</ampelSet>
+		<ampelSet>
+			<rotPhase>7</rotPhase>
+			<gruenPhase>20</gruenPhase>
 			<ampelLabel>ampelOben</ampelLabel>
 			<ampelLabel>ampelUnten</ampelLabel>
 		</ampelSet>
 		
-		<ampelSet>
-			<rotPhase>1</rotPhase>
-			<gruenPhase>3</gruenPhase>
-			<ampelLabel>ampelRechts</ampelLabel>
-			<ampelLabel>ampelLinks</ampelLabel>
-		</ampelSet>		
-		
 		<wellenGeneratorSet>
-			<wellenZeitpunkt>1</wellenZeitpunkt>
-			<wellenGenerator>
-				<wellenGeneratorLabel>wellenGeneratorLinks</wellenGeneratorLabel>
-			</wellenGenerator>
-			<wellenGenerator>
-				<wellenGeneratorLabel>wellenGeneratorRechts</wellenGeneratorLabel>
-			</wellenGenerator>
+			<wellenZeitpunkt>10</wellenZeitpunkt>
 			<wellenGenerator>
 				<wellenGeneratorLabel>wellenGeneratorOben</wellenGeneratorLabel>
 			</wellenGenerator>
 			<wellenGenerator>
 				<wellenGeneratorLabel>wellenGeneratorUnten</wellenGeneratorLabel>
+			</wellenGenerator>
+		</wellenGeneratorSet>
+		<wellenGeneratorSet>
+			<wellenZeitpunkt>10</wellenZeitpunkt>
+			<wellenGenerator>
+				<wellenGeneratorLabel>wellenGeneratorLinks</wellenGeneratorLabel>
+			</wellenGenerator>
+			<wellenGenerator>
+				<wellenGeneratorLabel>wellenGeneratorRechts</wellenGeneratorLabel>
 			</wellenGenerator>
 		</wellenGeneratorSet>
 	</steuerLogik>

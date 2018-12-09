@@ -3,31 +3,31 @@
   <ampelset>
     ampelset 1
     <ampel>
-      <ampelname>ampelLinks</ampelname>
-      <insgesamtewartezeit>185</insgesamtewartezeit>
-      <autoanzahl>11</autoanzahl>
-      <durchschnittswartezeit>16.818181818181817</durchschnittswartezeit>
+      <ampelname>ampelOben</ampelname>
+      <insgesamtewartezeit>1104</insgesamtewartezeit>
+      <autoanzahl>30</autoanzahl>
+      <durchschnittswartezeit>36.8</durchschnittswartezeit>
     </ampel>
     <ampel>
-      <ampelname>ampelRechts</ampelname>
-      <insgesamtewartezeit>0</insgesamtewartezeit>
-      <autoanzahl>6</autoanzahl>
-      <durchschnittswartezeit>0</durchschnittswartezeit>
+      <ampelname>ampelUnten</ampelname>
+      <insgesamtewartezeit>954</insgesamtewartezeit>
+      <autoanzahl>30</autoanzahl>
+      <durchschnittswartezeit>31.8</durchschnittswartezeit>
     </ampel>
   </ampelset>
   <ampelset>
     ampelset 0
     <ampel>
-      <ampelname>ampelOben</ampelname>
-      <insgesamtewartezeit>139</insgesamtewartezeit>
-      <autoanzahl>6</autoanzahl>
-      <durchschnittswartezeit>23.166666666666668</durchschnittswartezeit>
+      <ampelname>ampelLinks</ampelname>
+      <insgesamtewartezeit>1743</insgesamtewartezeit>
+      <autoanzahl>60</autoanzahl>
+      <durchschnittswartezeit>29.05</durchschnittswartezeit>
     </ampel>
     <ampel>
-      <ampelname>ampelUnten</ampelname>
-      <insgesamtewartezeit>130</insgesamtewartezeit>
-      <autoanzahl>7</autoanzahl>
-      <durchschnittswartezeit>18.571428571428573</durchschnittswartezeit>
+      <ampelname>ampelRechts</ampelname>
+      <insgesamtewartezeit>1690</insgesamtewartezeit>
+      <autoanzahl>60</autoanzahl>
+      <durchschnittswartezeit>28.166666666666668</durchschnittswartezeit>
     </ampel>
   </ampelset>
 </statistics>

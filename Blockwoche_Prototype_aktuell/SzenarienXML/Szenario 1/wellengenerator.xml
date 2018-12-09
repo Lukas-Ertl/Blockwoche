@@ -8,7 +8,7 @@
 		<view>
 			<image>startstation.png</image>
 		</view>
-		<wellenGroesse>6</wellenGroesse>
+		<wellenGroesse>10</wellenGroesse>
 		<inqueue>
 			<x_position>62</x_position>
 			<y_position>210</y_position>
@@ -26,7 +26,7 @@
 		<view>
 			<image>startstation.png</image>
 		</view>
-		<wellenGroesse>6</wellenGroesse>
+		<wellenGroesse>10</wellenGroesse>
 		<inqueue>
 			<x_position>820</x_position>
 			<y_position>210</y_position>
@@ -46,7 +46,7 @@
 		<view>
 			<image>startstation.png</image>
 		</view>
-		<wellenGroesse>2</wellenGroesse>
+		<wellenGroesse>5</wellenGroesse>
 		<inqueue>
 			<x_position>460</x_position>
 			<y_position>40</y_position>
@@ -64,7 +64,7 @@
 		<view>
 			<image>startstation.png</image>
 		</view>
-		<wellenGroesse>2</wellenGroesse>
+		<wellenGroesse>5</wellenGroesse>
 		<inqueue>
 			<x_position>440</x_position>
 			<y_position>440</y_position>

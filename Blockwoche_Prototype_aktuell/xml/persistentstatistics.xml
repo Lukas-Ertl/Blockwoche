@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <statistics>
   <scenario>
-    <scenario>Szenario 1</scenario>
-    <durschnittswartezeit>18</durschnittswartezeit>
+    <scenario>Szenario 1 XML</scenario>
+    <durschnittswartezeit>31</durschnittswartezeit>
   </scenario>
   <scenario>
-    <scenario>Szenario 2</scenario>
-    <durschnittswartezeit>18</durschnittswartezeit>
+    <scenario>Szenario 1 XML</scenario>
+    <durschnittswartezeit>32</durschnittswartezeit>
   </scenario>
   <scenario>
-    <scenario>Szenario 1</scenario>
-    <durschnittswartezeit>19</durschnittswartezeit>
+    <scenario>Szenario 1 XML</scenario>
+    <durschnittswartezeit>30</durschnittswartezeit>
   </scenario>
   <scenario>
-    <scenario>Szenario 1JSON</scenario>
-    <durschnittswartezeit>18</durschnittswartezeit>
+    <scenario>Szenario 1 XML</scenario>
+    <durschnittswartezeit>31</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 2 XML</scenario>
+    <durschnittswartezeit>51</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1 XML</scenario>
+    <durschnittswartezeit>31</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 2 XML</scenario>
+    <durschnittswartezeit>54</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 2 XML</scenario>
+    <durschnittswartezeit>52</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1 XML</scenario>
+    <durschnittswartezeit>30</durschnittswartezeit>
   </scenario>
 </statistics>
