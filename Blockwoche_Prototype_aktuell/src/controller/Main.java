@@ -235,7 +235,7 @@ class GraphButtonListener implements ActionListener {
 	    		String[] strArr = new String[NUM_OF_SETS];
 	    		for(int i=0; i<NUM_OF_SETS; i++)
 	    		{
-	    			strArr[i] = "Szenario " + i;
+	    			strArr[i] = "Szenario " + (i+1);
 	    		}
 	    		
 	    		Color[] c = new Color[4];
