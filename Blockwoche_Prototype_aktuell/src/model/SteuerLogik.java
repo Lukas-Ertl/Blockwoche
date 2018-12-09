@@ -38,14 +38,15 @@ public final class SteuerLogik extends Actor
 		super(label, xPos, yPos);
 		
 		this.steuerInfo = info;
-		this.ampTick = new OverflowTicker( this.steuerInfo.getAmpelSetSize()-1 );
+		int ampelSetSize = this.steuerInfo.getAmpelSetSize(); 
+		this.ampTick = new OverflowTicker( ampelSetSize-1, ampelSetSize-1 );
 		this.welTick = new OverflowTicker( this.steuerInfo.getWellenGeneratorSetSize()-1 );
 		this.ampelWaitTime = (long) 0;
 		this.wellenGeneratorWaitTime = this.steuerInfo.getWellenGeneratorTime(0); 
 		
 		//set the one instance to be this
 		SteuerLogik.instance = this;
-		this.updateAmpeln( 0 );
+		this.updateAmpeln( ampelSetSize-1 );
 	}
 	
 	/** create the SteuerLogik
@@ -151,16 +152,15 @@ public final class SteuerLogik extends Actor
 	{
 		//current time of the simulation
 		long simTime = Simulation.getGlobalTime();
-		
 		//if the time until the Ampel should switch has arrived
 		if(simTime > ampelWaitTime)
 		{
 			//wake up Ampeln and have them switch states
-			updateAmpeln( this.ampTick.getLast() );
-			updateAmpeln( this.ampTick.getTick() );
+			this.updateAmpeln( this.ampTick.getTick() );
+			this.updateAmpeln( this.ampTick.tick() );
 
 			//set the new wait time (which is different depending on if the Ampel is green or red)
-			this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.tick() );
+			this.ampelWaitTime = Simulation.getGlobalTime() + this.steuerInfo.getGruenPhase( this.ampTick.getTick() );
 		}
 		
 		//if the time until the WellenGenerator should send has arrived
@@ -273,9 +273,8 @@ public final class SteuerLogik extends Actor
 		 */
 		int tick()
 		{
-			int val = this.tick;
 			this.increment();
-			return val;
+			return this.tick;
 		}
 		/**Increment method that adds 1 to the ticker
 		 * 
