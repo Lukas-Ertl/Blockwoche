@@ -12,4 +12,8 @@
     <scenario>Szenario 1 JSON</scenario>
     <durschnittswartezeit>9</durschnittswartezeit>
   </scenario>
+  <scenario>
+    <scenario>Szenario 2 JSON</scenario>
+    <durschnittswartezeit>9</durschnittswartezeit>
+  </scenario>
 </statistics>
