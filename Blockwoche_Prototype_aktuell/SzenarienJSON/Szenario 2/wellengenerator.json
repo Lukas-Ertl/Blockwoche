@@ -1,0 +1,66 @@
+{
+  "settings": {
+    "wellenGenerator": [
+      {
+        "label": "wellenGeneratorLinks",
+        "x_position": "42",
+        "y_position": "270",
+        "view": { "image": "startstation.png" },
+        "wellenGroesse": "3",
+        "inqueue": {
+          "x_position": "62",
+          "y_position": "210"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
+      },
+      {
+        "label": "wellenGeneratorRechts",
+        "x_position": "800",
+        "y_position": "270",
+        "view": { "image": "startstation.png" },
+        "wellenGroesse": "3",
+        "inqueue": {
+          "x_position": "820",
+          "y_position": "210"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
+      },
+      {
+        "label": "wellenGeneratorOben",
+        "x_position": "440",
+        "y_position": "100",
+        "view": { "image": "startstation.png" },
+        "wellenGroesse": "3",
+        "inqueue": {
+          "x_position": "460",
+          "y_position": "40"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
+      },
+      {
+        "label": "wellenGeneratorUnten",
+        "x_position": "420",
+        "y_position": "500",
+        "view": { "image": "startstation.png" },
+        "wellenGroesse": "3",
+        "inqueue": {
+          "x_position": "440",
+          "y_position": "440"
+        },
+        "outqueue": {
+          "x_position": "-100",
+          "y_position": "-100"
+        }
+      }
+    ]
+  }
+}

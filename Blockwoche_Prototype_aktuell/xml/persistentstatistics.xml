@@ -4,4 +4,12 @@
     <scenario>Szenario 1 XML</scenario>
     <durschnittswartezeit>30</durschnittswartezeit>
   </scenario>
+  <scenario>
+    <scenario>Szenario 2 XML</scenario>
+    <durschnittswartezeit>52</durschnittswartezeit>
+  </scenario>
+  <scenario>
+    <scenario>Szenario 1 JSON</scenario>
+    <durschnittswartezeit>9</durschnittswartezeit>
+  </scenario>
 </statistics>
