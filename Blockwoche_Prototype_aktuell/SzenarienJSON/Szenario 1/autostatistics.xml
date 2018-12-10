@@ -3,37 +3,7 @@
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>0</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelLinks</ampelname>
-      <wartezeit>0</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelLinks</ampelname>
-      <wartezeit>0</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelLinks</ampelname>
-      <wartezeit>37</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelLinks</ampelname>
-      <wartezeit>35</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelLinks</ampelname>
-      <wartezeit>33</wartezeit>
+      <wartezeit>11</wartezeit>
     </ampel>
   </auto>
   <auto>
@@ -45,89 +15,119 @@
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>6</wartezeit>
+      <wartezeit>3</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>8</wartezeit>
+      <wartezeit>18</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelLinks</ampelname>
-      <wartezeit>35</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelLinks</ampelname>
-      <wartezeit>33</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelRechts</ampelname>
-      <wartezeit>0</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelRechts</ampelname>
-      <wartezeit>0</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelRechts</ampelname>
-      <wartezeit>0</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelRechts</ampelname>
-      <wartezeit>32</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelRechts</ampelname>
-      <wartezeit>33</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelRechts</ampelname>
-      <wartezeit>35</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelOben</ampelname>
-      <wartezeit>37</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelOben</ampelname>
-      <wartezeit>35</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelOben</ampelname>
-      <wartezeit>33</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelOben</ampelname>
       <wartezeit>9</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>16</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>20</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>22</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>27</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>31</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelLinks</ampelname>
+      <wartezeit>25</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelRechts</ampelname>
+      <wartezeit>3</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelRechts</ampelname>
+      <wartezeit>2</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelRechts</ampelname>
+      <wartezeit>10</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelRechts</ampelname>
+      <wartezeit>8</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelRechts</ampelname>
+      <wartezeit>14</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelRechts</ampelname>
+      <wartezeit>16</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelOben</ampelname>
+      <wartezeit>0</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelOben</ampelname>
+      <wartezeit>0</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelOben</ampelname>
+      <wartezeit>0</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelOben</ampelname>
+      <wartezeit>3</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
       <ampelname>ampelOben</ampelname>
       <wartezeit>5</wartezeit>
     </ampel>
@@ -135,49 +135,49 @@
   <auto>
     <ampel>
       <ampelname>ampelOben</ampelname>
-      <wartezeit>7</wartezeit>
+      <wartezeit>12</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>32</wartezeit>
+      <wartezeit>0</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>35</wartezeit>
+      <wartezeit>0</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>33</wartezeit>
+      <wartezeit>0</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>6</wartezeit>
+      <wartezeit>4</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
-      <wartezeit>5</wartezeit>
+      <wartezeit>3</wartezeit>
+    </ampel>
+  </auto>
+  <auto>
+    <ampel>
+      <ampelname>ampelUnten</ampelname>
+      <wartezeit>11</wartezeit>
     </ampel>
   </auto>
   <auto>
     <ampel>
       <ampelname>ampelUnten</ampelname>
       <wartezeit>8</wartezeit>
-    </ampel>
-  </auto>
-  <auto>
-    <ampel>
-      <ampelname>ampelUnten</ampelname>
-      <wartezeit>31</wartezeit>
     </ampel>
   </auto>
 </statistics>

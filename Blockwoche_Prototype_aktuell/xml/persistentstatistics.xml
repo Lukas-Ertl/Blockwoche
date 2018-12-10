@@ -2,38 +2,6 @@
 <statistics>
   <scenario>
     <scenario>Szenario 1 XML</scenario>
-    <durschnittswartezeit>31</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 1 XML</scenario>
-    <durschnittswartezeit>32</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 1 XML</scenario>
-    <durschnittswartezeit>30</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 1 XML</scenario>
-    <durschnittswartezeit>31</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 2 XML</scenario>
-    <durschnittswartezeit>51</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 1 XML</scenario>
-    <durschnittswartezeit>31</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 2 XML</scenario>
-    <durschnittswartezeit>54</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 2 XML</scenario>
-    <durschnittswartezeit>52</durschnittswartezeit>
-  </scenario>
-  <scenario>
-    <scenario>Szenario 1 XML</scenario>
     <durschnittswartezeit>30</durschnittswartezeit>
   </scenario>
 </statistics>

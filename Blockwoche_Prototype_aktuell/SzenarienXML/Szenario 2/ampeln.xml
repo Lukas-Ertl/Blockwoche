@@ -2,34 +2,34 @@
 <settings>
 	<station>
 		<label>ampelLinks</label>
-		<x_position>80</x_position>
+		<x_position>330</x_position>
 		<y_position>270</y_position>
 		<view>
 			<image>1-ampel.png</image>
 		</view>
 		<inqueue>
-			<x_position>100</x_position>
+			<x_position>350</x_position>
 			<y_position>210</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>100</x_position>
+			<x_position>350</x_position>
 			<y_position>350</y_position>
 		</outqueue>
 	</station>
 
 	<station>
 		<label>ampelRechts</label>
-		<x_position>700</x_position>
+		<x_position>550</x_position>
 		<y_position>270</y_position>
 		<view>
 			<image>1-ampel.png</image>
 		</view>
 		<inqueue>
-			<x_position>720</x_position>
+			<x_position>570</x_position>
 			<y_position>210</y_position>
 		</inqueue>
 		<outqueue>
-			<x_position>720</x_position>
+			<x_position>570</x_position>
 			<y_position>350</y_position>
 		</outqueue>
 	</station>
